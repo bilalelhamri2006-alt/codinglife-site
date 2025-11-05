@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Start Learning Programming From Scratch - Program Your Life</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif;}
+body {background:#f8fafc; color:#1e293b; line-height:1.6;padding-top: 60px;}
+a {text-decoration:none; color:inherit;}
+    header {background: #0f172a; color:#ffffff; padding:4px 0; text-align:center; position: fixed;
+      top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* ✅ above everything */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+    
+.header-inner {position: relative;}
+
+nav {display:flex; justify-content:center; gap:20px; margin-top:15px;}
+nav a{color:#fff;padding:10px 18px;border-radius:5px;transition:.3s;font-weight:bold;position: relative;  top:-10px;}
+nav a:hover {background:#2d4a6e; color:#7dd3fc;}
+.article-header {text-align:center; padding:60px 20px; background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color:#fff;}
+.article-header h1 {font-size:2.5rem; margin-bottom:15px;}
+.article-header .meta {font-size:1.1rem; opacity:0.9;}
+.article-content {max-width:900px; margin:50px auto; background:#fff; padding:50px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.1); border:1px solid #e2e8f0;}
+.article-section {margin-bottom:45px;}
+.article-section h2 {color:#1e40af; margin-bottom:20px; font-size:1.9rem; border-right:5px solid #1e40af; padding-right:15px;}
+.article-section p {font-size:1.1rem; color:#475569; margin-bottom:15px; line-height:1.8;}
+.steps-container {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; margin-top:30px;}
+.step-card {background:#f8fafc; padding:25px; border-radius:12px; border-right:5px solid #1e40af; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:all 0.3s ease;}
+.step-card:hover {transform:translateY(-5px);}
+.step-number {background:#1e40af; color:#fff; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-bottom:15px; font-size:1.1rem;}
+.step-card h3 {color:#1e293b; margin-bottom:10px; font-size:1.3rem;}
+.step-card p {color:#64748b; font-size:1rem;}
+.languages-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; margin-top:25px;}
+.language-card {background:#f0f9ff; padding:25px; border-radius:12px; text-align:center; border:2px solid #e0f2fe; transition:all 0.3s ease;}
+.language-card:hover {transform:translateY(-5px); border-color:#00b4d8;}
+.language-card h4 {color:#0369a1; margin-bottom:10px; font-size:1.2rem;}
+.language-card p {color:#0c4a6e; font-size:1rem;}
+blockquote {background:#f0f9ff; border-right:5px solid #1e40af; padding:25px; margin:30px 0; border-radius:10px; font-style:italic; color:#1e40af; font-size:1.1rem;}
+        footer {
+        background:#0f172a; 
+        color:#cbd5e1; 
+        text-align:center; 
+        padding:8px 0;
+        margin-top: 20px;
+        font-size: 0.85rem;
+    }
+footer p {
+  font-size:14px;
+  opacity:0.7;
+  margin-top:2px;
+  margin-bottom:0;
+}
+
+    .social a {
+        margin: 0 8px;
+        font-size: 1.1rem;
+    }
+.social a:hover {transform:translateY(-3px);}
+.social a.fb:hover {color:#1877f2;}
+.social a.yt:hover {color:#ff0000;}
+.social a.ig:hover {color:#e4405f;}
+.social a.ln:hover {color:#0a66c2;}
+.social a.wa:hover {color:#25d366;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About </a>
+  </nav>
+  </div>
+</header>
+
+<section class="article-header">
+  <h1>How to Start Learning Programming From Scratch</h1>
+  <p class="meta">A complete beginner's guide to start your programming journey step by step</p>
+</section>
+
+<article class="article-content">
+  <div class="article-section">
+    <h2>Why Learn Programming?</h2>
+    <p>Programming is no longer just a technical skill; it has become the language of the modern era. Whether you want to change your career, develop a project, or simply understand the technology around you, programming opens countless doors.</p>
+  </div>
+
+  <div class="article-section">
+    <h2>Practical Steps to Get Started</h2>
+    <div class="steps-container">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Set Your Goal</h3>
+        <p>Ask yourself: Why do I want to learn programming? Defining your goal helps you choose the right path.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Choose the Right Programming Language</h3>
+        <p>Start with a beginner-friendly language like Python or JavaScript. The important thing is to start and learn the basic concepts.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Learn the Basics</h3>
+        <p>Focus on understanding core concepts: variables, conditions, loops, and functions.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Apply What You Learn</h3>
+        <p>Start with simple projects like a calculator or a personal website to reinforce your learning.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">5</div>
+        <h3>Keep Learning</h3>
+        <p>Programming is an ongoing journey. Learn from your mistakes and join programming communities.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Best Languages to Start With</h2>
+    <div class="languages-grid">
+      <div class="language-card">
+        <h4>🐍 Python</h4>
+        <p>Easy to read, versatile, excellent for beginners.</p>
+      </div>
+      <div class="language-card">
+        <h4>⚡ JavaScript</h4>
+        <p>The main web language for building interactive websites and web applications.</p>
+      </div>
+      <div class="language-card">
+        <h4>📱 HTML/CSS</h4>
+        <p>Not programming languages but essential for building web pages.</p>
+      </div>
+      <div class="language-card">
+        <h4>☕ Java</h4>
+        <p>Powerful language in demand in the job market, suitable for large applications.</p>
+      </div>
+    </div>
+  </div>
+
+  <blockquote>
+    "Don't wait until you're fully ready to start, because you'll never be fully ready. Start now and learn along the way."
+  </blockquote>
+
+  <div class="article-section">
+    <h2>Important Tips for Beginners</h2>
+    <p><strong>Don't fear mistakes:</strong> Mistakes are part of learning.</p>
+    <p><strong>Learn the right way:</strong> Understand the concept before moving to the next step.</p>
+    <p><strong>Build your projects:</strong> Practical projects reinforce learning.</p>
+    <p><strong>Ask for help:</strong> There are amazing programming communities ready to support you.</p>
+    <p><strong>Be patient:</strong> Programming takes time and practice.</p>
+  </div>
+
+  <div class="article-section">
+    <h2>Conclusion</h2>
+    <p>By following these steps and continuing to learn, you'll find yourself progressing quickly. The most important thing is to start and keep going.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g?si=w0GBDnTZcBf__fmn"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212600000000?text=Hello, I want to know more information 👋"><i class="fab fa-whatsapp"></i></a>
+  </div>
+<p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
