@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Git - Programmer’s Life</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+      * {margin:0; padding:0; box-sizing:border-box; }
+    body {padding-top: 60px; background-color:#f8fafc; color:#1e293b; line-height:1.6;font-family: 'Cairo', sans-serif;}
+    a {text-decoration:none; color:inherit;}
+    /* HEADER */
+    header {background:white ;color:#000000; padding:-10px 0; text-align:center; position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    justify-content: space-between;}
+    .header-inner {position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5px;
+}
+
+nav {display:flex; justify-content:center; gap:20px; margin-top:15px;}
+nav a{color:#000000;padding:10px 18px;border-radius:5px;transition:.3s;font-weight:bold;position: relative;  top:-10px;}
+nav a:hover {
+color: white;
+background-color:#0f172a;
+}
+
+main {max-width:1000px;margin:50px auto;padding:0 20px;}
+section {display:flex;align-items:center;justify-content:space-between;margin-bottom:60px;flex-wrap:wrap;gap:30px;}
+.text {flex:1;min-width:300px;}
+section img {width:45%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+h2 {margin-bottom:15px;}
+p, li {color:#334155;font-size:1rem;margin-bottom:10px;}
+ul {padding-left:20px;}
+code {background:#e2e8f0;padding:3px 6px;border-radius:4px;font-family:monospace;}
+footer {background:#0f172a;color:#cbd5e1;text-align:center;padding:8px 0;margin-top:20px;font-size:0.85rem;}
+footer p {font-size:14px;opacity:0.7;margin-top:2px;margin-bottom:0;color: #e2e8f0;}
+.social a {margin:0 8px;font-size:1.1rem;transition:0.3s;}
+.social a:hover {transform:translateY(-3px);}
+.social a.fb:hover {color:#1877f2;}
+.social a.yt:hover {color:#ff0000;}
+.social a.ig:hover {color:#e4405f;}
+.social a.ln:hover {color:#0a66c2;}
+.social a.wa:hover {color:#25d366;}
+@media (max-width:768px){
+  nav{flex-wrap:wrap; gap:10px;}
+  main{margin:30px 15px;}
+  section{flex-direction:column; gap:20px;}
+  section img{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<header>
+            <div class="header-inner">
+<nav>
+<a href="index.html">Home</a>
+<a href="dorous-albarmaja.html">Courses</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+<a href="about.html">About</a>
+</nav>
+</header>
+
+<main>
+
+<!-- Sections 1 to 20 -->
+<section>
+  <div class="text">
+    <h2>1. What is Git?</h2>
+    <p>Git is a distributed version control system that tracks changes in your code.</p>
+  </div>
+  <img src="git1.jpg" alt="Git basics">
+</section>
+
+<section>
+  <div class="text">
+    <h2>2. Installing Git</h2>
+    <ul>
+      <li>Windows: Download installer</li>
+      <li>MacOS: brew install git</li>
+      <li>Linux: sudo apt install git</li>
+    </ul>
+  </div>
+  <img src="git2.jpg" alt="Git installation">
+</section>
+
+<section>
+  <div class="text">
+    <h2>3. Git Configuration</h2>
+    <p>Set your user name and email:</p>
+    <ul>
+      <li><code>git config --global user.name "Your Name"</code></li>
+      <li><code>git config --global user.email "email@example.com"</code></li>
+    </ul>
+  </div>
+  <img src="git3.jpg" alt="Git config">
+</section>
+
+<section>
+  <div class="text">
+    <h2>4. Creating a Repository</h2>
+    <p>Initialize a new repository:</p>
+    <ul>
+      <li><code>git init</code></li>
+      <li>Start tracking files</li>
+    </ul>
+  </div>
+  <img src="git4.jpg" alt="Git init">
+</section>
+
+<section>
+  <div class="text">
+    <h2>5. Cloning a Repository</h2>
+    <p>Clone an existing repo:</p>
+    <ul>
+      <li><code>git clone [url]</code></li>
+    </ul>
+  </div>
+  <img src="git5.jpg" alt="Git clone">
+</section>
+
+<section>
+  <div class="text">
+    <h2>6. Git Status</h2>
+    <p>Check the status of files:</p>
+    <ul>
+      <li><code>git status</code></li>
+    </ul>
+  </div>
+  <img src="git6.jpg" alt="Git status">
+</section>
+
+<section>
+  <div class="text">
+    <h2>7. Staging Changes</h2>
+    <p>Add files to staging area:</p>
+    <ul>
+      <li><code>git add [file]</code></li>
+      <li><code>git add .</code> for all files</li>
+    </ul>
+  </div>
+  <img src="git7.jpg" alt="Git add">
+</section>
+
+<section>
+  <div class="text">
+    <h2>8. Committing Changes</h2>
+    <p>Save staged changes:</p>
+    <ul>
+      <li><code>git commit -m "Message"</code></li>
+    </ul>
+  </div>
+  <img src="git8.jpg" alt="Git commit">
+</section>
+
+<section>
+  <div class="text">
+    <h2>9. Viewing History</h2>
+    <ul>
+      <li><code>git log</code></li>
+      <li><code>git log --oneline</code></li>
+    </ul>
+  </div>
+  <img src="git9.jpg" alt="Git log">
+</section>
+
+<section>
+  <div class="text">
+    <h2>10. Branching</h2>
+    <p>Work on features separately:</p>
+    <ul>
+      <li><code>git branch</code></li>
+      <li><code>git checkout -b new-branch</code></li>
+    </ul>
+  </div>
+  <img src="git10.jpg" alt="Git branching">
+</section>
+
+<section>
+  <div class="text">
+    <h2>11. Merging Branches</h2>
+    <p>Combine changes from one branch to another:</p>
+    <ul>
+      <li><code>git merge branch-name</code></li>
+    </ul>
+  </div>
+  <img src="git11.jpg" alt="Git merge">
+</section>
+
+<section>
+  <div class="text">
+    <h2>12. Deleting Branches</h2>
+    <ul>
+      <li><code>git branch -d branch-name</code></li>
+    </ul>
+  </div>
+  <img src="git12.jpg" alt="Git delete branch">
+</section>
+
+<section>
+  <div class="text">
+    <h2>13. Undoing Changes</h2>
+    <ul>
+      <li><code>git checkout -- [file]</code></li>
+      <li><code>git reset [file]</code></li>
+      <li><code>git revert [commit]</code></li>
+    </ul>
+  </div>
+  <img src="git13.jpg" alt="Git undo">
+</section>
+
+<section>
+  <div class="text">
+    <h2>14. Remote Repositories</h2>
+    <ul>
+      <li><code>git remote add origin [url]</code></li>
+      <li><code>git push -u origin main</code></li>
+      <li><code>git pull origin main</code></li>
+    </ul>
+  </div>
+  <img src="git14.jpg" alt="Git remote">
+</section>
+
+<section>
+  <div class="text">
+    <h2>15. Forking a Repository</h2>
+    <p>Fork projects on GitHub to contribute.</p>
+  </div>
+  <img src="git15.jpg" alt="Git fork">
+</section>
+
+<section>
+  <div class="text">
+    <h2>16. Pull Requests</h2>
+    <p>Propose changes to a repository using PRs.</p>
+  </div>
+  <img src="git16.jpg" alt="Git pull request">
+</section>
+
+<section>
+  <div class="text">
+    <h2>17. Tagging</h2>
+    <ul>
+      <li><code>git tag v1.0</code></li>
+      <li><code>git push origin --tags</code></li>
+    </ul>
+  </div>
+  <img src="git17.jpg" alt="Git tags">
+</section>
+
+<section>
+  <div class="text">
+    <h2>18. Stashing</h2>
+    <ul>
+      <li><code>git stash</code></li>
+      <li><code>git stash pop</code></li>
+    </ul>
+  </div>
+  <img src="git18.jpg" alt="Git stash">
+</section>
+
+<section>
+  <div class="text">
+    <h2>19. Rebasing</h2>
+    <ul>
+      <li><code>git rebase branch-name</code></li>
+    </ul>
+  </div>
+  <img src="git19.jpg" alt="Git rebase">
+</section>
+
+<section>
+  <div class="text">
+    <h2>20. Collaboration Best Practices</h2>
+    <p>Write clear commit messages, review PRs, and maintain a clean history.</p>
+  </div>
+  <img src="git20.jpg" alt="Git collaboration">
+</section>
+
+</main>
+
+<footer>
+<div class="social" style="margin-bottom:20px;">
+<a class="fb" href="#"><i class="fab fa-facebook"></i></a>
+<a class="yt" href="#"><i class="fab fa-youtube"></i></a>
+<a class="ig" href="#"><i class="fab fa-instagram"></i></a>
+<a class="ln" href="#"><i class="fab fa-linkedin"></i></a>
+<a class="wa" href="#"><i class="fab fa-whatsapp"></i></a>
+</div>
+<p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

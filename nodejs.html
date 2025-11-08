@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Node.js - Programmer’s Life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; }
+    body {padding-top: 60px; background-color:#f8fafc; color:#1e293b; line-height:1.6;font-family: 'Cairo', sans-serif;}
+    a {text-decoration:none; color:inherit;}
+    /* HEADER */
+    header {background:white ;color:#000000; padding:-10px 0; text-align:center; position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    justify-content: space-between;}
+    .header-inner {position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5px;
+}
+
+nav {display:flex; justify-content:center; gap:20px; margin-top:15px;}
+nav a{color:#000000;padding:10px 18px;border-radius:5px;transition:.3s;font-weight:bold;position: relative;  top:-10px;}
+nav a:hover {
+color: white;
+background-color:#0f172a; 
+}
+
+    main {max-width:1000px; margin:50px auto; padding:0 20px;}
+    section {display:flex; align-items:center; justify-content:space-between; margin-bottom:60px; flex-wrap:wrap; gap:30px;}
+    .text {flex:1; min-width:300px;}
+    section img {width:45%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+    h2 { margin-bottom:15px;}
+    p, li {color:#334155; font-size:1rem; margin-bottom:10px;}
+    ul {padding-left:20px;}
+    code {background:#e2e8f0; padding:3px 6px; border-radius:4px; font-family:monospace;}
+
+    footer {background:#0f172a; color:#cbd5e1; text-align:center; padding:8px 0; margin-top:20px; font-size:0.85rem;}
+    footer p {font-size:14px; opacity:0.7; margin-top:2px; margin-bottom:0;color: #e2e8f0;}
+    .social a {margin:0 8px; font-size:1.1rem; transition:0.3s;}
+    .social a:hover {transform:translateY(-3px);}
+    .social a.fb:hover {color:#1877f2;}
+    .social a.yt:hover {color:#ff0000;}
+    .social a.ig:hover {color:#e4405f;}
+    .social a.ln:hover {color:#0a66c2;}
+    .social a.wa:hover {color:#25d366;}
+
+    @media (max-width:768px){
+      nav{flex-wrap:wrap; gap:10px;}
+      main{margin:30px 15px;}
+      section{flex-direction:column; gap:20px;}
+      section img{width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+            <div class="header-inner">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dorous-albarmaja.html">Courses</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <div class="text">
+      <h2>1. What is Node.js?</h2>
+      <p>Node.js is a JavaScript runtime built on Chrome's V8 engine. It allows developers to run JavaScript on the server side to build scalable network applications.</p>
+    </div>
+    <img src="node1.jpg" alt="Node.js basics">
+  </section>
+
+  <section>
+    <img src="node2.jpg" alt="Node.js modules">
+    <div class="text">
+      <h2>2. Node.js Modules</h2>
+      <p>Node.js uses modules to organize code. Modules can be built-in, custom, or installed via npm (Node Package Manager).</p>
+      <ul>
+        <li>Built-in modules: <code>fs, http, path</code></li>
+        <li>Custom modules: <code>require('./myModule')</code></li>
+        <li>Third-party modules: <code>npm install express</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="text">
+      <h2>3. npm - Node Package Manager</h2>
+      <p>npm is the default package manager for Node.js. It helps you install, update, and manage dependencies for your Node.js projects.</p>
+    </div>
+    <img src="node3.jpg" alt="npm">
+  </section>
+
+  <section>
+    <img src="node4.jpg" alt="Creating server">
+    <div class="text">
+      <h2>4. Creating a Server</h2>
+      <p>Node.js allows you to create a web server easily using the <code>http</code> module.</p>
+      <p><code>{`const http = require('http'); const server = http.createServer((req,res)=>{ res.end('Hello Node!'); }); server.listen(3000);`}</code></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="text">
+      <h2>5. Express.js</h2>
+      <p>Express.js is a popular framework for Node.js that simplifies server creation and routing.</p>
+      <p><code>{`const express = require('express'); const app = express(); app.get('/', (req,res)=> res.send('Hello Express')); app.listen(3000);`}</code></p>
+    </div>
+    <img src="node5.jpg" alt="Express.js">
+  </section>
+
+  <section>
+    <img src="node6.jpg" alt="Node.js async">
+    <div class="text">
+      <h2>6. Asynchronous Programming</h2>
+      <p>Node.js uses asynchronous, non-blocking I/O to handle multiple requests efficiently using callbacks, promises, or async/await.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="#"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="#"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="#"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="#"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+<p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
