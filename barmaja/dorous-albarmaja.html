@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programming Courses - Coding Life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      padding-top: 60px;
+      background-color:#f8fafc;
+      color:#1e293b;
+      line-height:1.6;
+      font-family: 'Cairo', sans-serif;
+    }
+    a {text-decoration:none; color:inherit;}
+
+    /* HEADER */
+    header {
+      background:white;
+      color:#000;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .header-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+    }
+
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+    nav a {
+      color:#0f172a;
+      padding:10px 18px;
+      border-radius:8px;
+      transition:.3s;
+      font-weight:bold;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    nav a:hover {
+      color:white;
+      background-color:#0f172a;
+    }
+
+    /* MENU TOGGLE */
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #0f172a;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      background: #f1f5f9;
+      padding: 5px 8px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .menu-toggle:hover {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* SIDE MENU */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 220px;
+      height: 100vh;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 70px 20px;
+      transition: 0.3s;
+      z-index: 9998;
+    }
+    .side-menu a {
+      color: #cbd5e1;
+      margin-bottom: 20px;
+      font-weight: bold;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .side-menu a:hover {
+      color: white;
+    }
+    .side-menu.active {
+      right: 0;
+    }
+
+    /* PAGE TITLE */
+    .page-title {
+      max-width:1000px;
+      margin:30px auto;
+      padding:20px 30px;
+      text-align:center;
+      background:white;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+    .page-title h2 {
+      font-size:2.2rem;
+      margin-bottom:15px;
+    }
+    .page-title p {
+      font-size:1.1rem;
+      max-width:600px;
+      margin:0 auto;
+    }
+
+    /* COURSES GRID */
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+      padding:50px 20px;
+      background: #f1f5f9;
+    }
+    .card {
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      cursor:pointer;
+      transition:0.3s;
+      text-align:center;
+      border: 1px solid #e2e8f0;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width:100%;
+      height:140px;
+      object-fit:cover;
+    }
+    .card .content {
+      padding:15px;
+    }
+    .card .content h3 {
+      margin-bottom:15px;
+      font-size:1.3rem;
+      color:#1e293b;
+    }
+    .card .content p {
+      font-size:1rem;
+      color:#64748b;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#0f172a;
+      color:#cbd5e1;
+      text-align:center;
+      padding:8px 0;
+      margin-top: 20px;
+      font-size: 0.85rem;
+    }
+    footer p {
+      font-size:14px;
+      opacity:0.7;
+      margin:2px 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {display:none;}
+      .menu-toggle {display:block;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="menu-toggle"><i class="fa fa-bars"></i></div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="courses.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+    </nav>
+  </div>
+</header>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+  <a href="courses.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+</div>
+
+<!-- PAGE TITLE -->
+<section class="page-title">
+  <h2>Programming Courses</h2>
+  <p>Learn HTML, CSS, JavaScript, and enhance your programming skills</p>
+</section>
+
+<!-- COURSES GRID -->
+<section class="cards">
+  <div class="card" onclick="window.open('html.html', '_blank')">
+    <img src="html.jpg" alt="HTML">
+    <div class="content">
+      <h3>HTML</h3>
+      <p>Learn the basics of HTML to build web pages</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('css.html', '_blank')">
+    <img src="css.webp" alt="CSS">
+    <div class="content">
+      <h3>CSS</h3>
+      <p>Style your web pages using CSS</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('javascript.html', '_blank')">
+    <img src="js.webp" alt="JavaScript">
+    <div class="content">
+      <h3>JavaScript</h3>
+      <p>Program interactions on web pages</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('react.html', '_blank')">
+    <img src="react.jpg" alt="React">
+    <div class="content">
+      <h3>React</h3>
+      <p>Build interactive interfaces with React</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('nodejs.html', '_blank')">
+    <img src="nodejs.jpg" alt="Node.js">
+    <div class="content">
+      <h3>Node.js</h3>
+      <p>Server-side programming using Node.js</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('php.html', '_blank')">
+    <img src="php.jpg" alt="PHP">
+    <div class="content">
+      <h3>PHP</h3>
+      <p>Learn dynamic web programming with PHP</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('python.html', '_blank')">
+    <img src="python.jpg" alt="Python">
+    <div class="content">
+      <h3>Python</h3>
+      <p>Learn Python for programming and web applications</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('java.html', '_blank')">
+    <img src="java.jpg" alt="Java">
+    <div class="content">
+      <h3>Java</h3>
+      <p>Learn Java for cross-platform application development</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('sql.html', '_blank')">
+    <img src="sql.jpg" alt="SQL">
+    <div class="content">
+      <h3>SQL</h3>
+      <p>Manage databases and queries using SQL</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('git.html', '_blank')">
+    <img src="git.jpg" alt="Git">
+    <div class="content">
+      <h3>Git</h3>
+      <p>Learn version control and share projects using Git</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('csharp.html', '_blank')">
+    <img src="csharp.jpg" alt="C#">
+    <div class="content">
+      <h3>C#</h3>
+      <p>Learn C# for desktop and game development</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="window.open('flutter.html', '_blank')">
+    <img src="flutter.jpg" alt="Flutter">
+    <div class="content">
+      <h3>Flutter</h3>
+      <p>Develop mobile apps with Flutter & Dart</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const sideMenu = document.getElementById('sideMenu');
+
+  menuToggle.addEventListener('click', () => {
+    sideMenu.classList.toggle('active');
+  });
+
+  // إغلاق المينو عند النقر خارجها أو على رابط
+  document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      sideMenu.classList.remove('active');
+    }
+  });
+
+  sideMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      sideMenu.classList.remove('active');
+    });
+  });
+
+  // إغلاق المينو تلقائيًا عند تكبير الشاشة
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      sideMenu.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>

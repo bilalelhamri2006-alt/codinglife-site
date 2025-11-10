@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="About Programmer Life - Learn programming easily and improve your skills.">
+  <meta name="keywords" content="about programmer life, coding, learn to code, web development">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Programmer Life</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      padding-top:70px;
+      background-color:#f8fafc;
+      color:#1e293b;
+      line-height:1.6;
+      font-family:'Cairo',sans-serif;
+    }
+    a {text-decoration:none; color:inherit;}
+
+    /* HEADER */
+    header {
+      background:white;
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:9999;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    nav {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:25px;
+    }
+
+    nav a {
+      color:#000;
+      padding:10px 18px;
+      border-radius:8px;
+      font-weight:bold;
+      transition:.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:1rem;
+    }
+
+    nav a:hover {
+      background:#0f172a;
+      color:white;
+    }
+
+    /* LEFT BUTTONS (mobile small icons) */
+    .left-buttons {
+      display:none;
+      position:absolute;
+      top:12px;
+      left:50%;
+      transform:translateX(-50%);
+      gap:8px;
+      align-items:center;
+    }
+
+    .left-buttons a {
+      font-size:1.4rem;
+      color:#0f172a;
+      background:white;
+      padding:6px 10px;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .left-buttons a:hover {
+      background:#0f172a;
+      color:white;
+    }
+
+    /* HERO SECTION (without video) */
+    .hero {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px 30px;
+      text-align: center;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .hero h2 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #475569;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity:0; transform:translateY(-20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity:0; transform:translateY(20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+
+    /* ABOUT SECTION */
+    .about-section {
+      max-width:800px;
+      margin:60px auto;
+      padding:40px 30px;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      text-align:center;
+    }
+
+    .about-section h3 {
+      color:#1e293b;
+      margin-bottom:20px;
+      font-size:1.8rem;
+      border-bottom:2px solid #f1f5f9;
+      padding-bottom:10px;
+    }
+
+    .about-section p {
+      margin-bottom:25px;
+      font-size:1.05rem;
+      color:#475569;
+      line-height:1.8;
+    }
+
+    .about-section img {
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:20px;
+      border:3px solid #0f172a;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#0f172a;
+      color:#cbd5e1;
+      text-align:center;
+      padding:12px 0;
+      font-size:0.85rem;
+      margin-top:50px;
+    }
+
+    footer p {font-size:14px; opacity:0.7; margin-top:4px;}
+
+    .social a {margin:0 8px; font-size:1.1rem;}
+    .social a:hover {transform:translateY(-3px);}
+    .social a.fb:hover {color:#1877f2;}
+    .social a.yt:hover {color:#ff0000;}
+    .social a.ig:hover {color:#e4405f;}
+    .social a.ln:hover {color:#0a66c2;}
+    .social a.wa:hover {color:#25d366;}
+
+    @media (max-width:768px) {
+      nav {display:none;}
+      .left-buttons {display:flex;}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="left-buttons">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i></a>
+    <a href="playground.html"><i class="fas fa-code"></i></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i></a>
+  </div>
+
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  </nav>
+</header>
+
+<!-- HERO (no video) -->
+<section class="hero">
+  <h2>About Us</h2>
+  <p>Discover who we are, our mission, and how Programmer Life helps you grow as a developer.</p>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about-section">
+  <h3>About Me</h3>
+  <img src="ANA.jpg" alt="Bilal Photo">
+  <p>I am Bilal, founder and creator of Programmer Life. My goal is to learn and teach programming, helping anyone start their tech journey step by step.</p>
+  <hr>
+  <h3>My Mission</h3>
+  <p>To provide high-quality lessons, courses, and educational articles in a simple and direct way, making learning enjoyable and effective.</p>
+  <hr>
+  <h3>My Vision</h3>
+  <p>To enable anyone who wants to learn programming to access practical content that helps them build real projects and continuously improve themselves.</p>
+</section>
+
+<footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
