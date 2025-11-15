@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Productivity Tips - Coding Life</title>
-  <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
-
+<link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Google tag (gtag.js) -->
@@ -14,7 +13,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-TJ6Z2QKGHJ');
 </script>
 
@@ -29,106 +27,66 @@ body {
 }
 a {text-decoration:none; color:inherit;}
 
-/* HEADER */
+/* HEADER - Updated to match previous design */
 header {
   background:white;
+  color:#000;
   position:fixed;
-  top:0;
-  left:0;
+  top:0; left:0;
   width:100%;
   z-index:9999;
-  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
   height:70px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-/* NAVIGATION (وسط الهيدر فالعرض الكبير) */
 nav {
   display:flex;
   justify-content:center;
+  align-items:center;
   gap:25px;
 }
+
 nav a {
   color:#000;
   padding:10px 18px;
   border-radius:8px;
-  transition:.3s;
   font-weight:bold;
-}
-nav a:hover {
-  color:white;
-  background-color:#0f172a;
+  transition:.3s;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:1rem;
 }
 
-/* MOBILE LINKS (يبانو غير فالشاشة الصغيرة) */
-.mobile-links {
+nav a:hover {
+  background:#0f172a;
+  color:white;
+}
+
+/* LEFT ICONS FOR SMALL SCREEN */
+.left-buttons {
   display:none;
   position:absolute;
-  left:20px;
   top:12px;
-  gap:10px;
+  gap:8px;
+  align-items:center;
 }
-.mobile-links a {
-  font-size:1.2rem;
+
+.left-buttons a {
+  font-size:1.4rem;
   color:#0f172a;
-  background:#e2e8f0;
+  background:white;
   padding:6px 10px;
   border-radius:8px;
-  transition:.3s;
-}
-.mobile-links a:hover {
-  background:#0f172a;
-  color:white;
-}
-
-/* MENU TOGGLE */
-.menu-toggle {
-  display:none;
-  font-size:1.6rem;
-  cursor:pointer;
-  color:#0f172a;
-  position:absolute;
-  right:20px;
-  top:18px;
-  background:#f1f5f9;
-  padding:5px 8px;
-  border-radius:8px;
-  transition:.3s;
-}
-.menu-toggle:hover {
-  background:#0f172a;
-  color:white;
-}
-
-/* SIDE MENU */
-.side-menu {
-  position:fixed;
-  top:0;
-  right:-230px;
-  width:200px;
-  height:100vh;
-  background:#0f172a;
-  color:white;
-  display:flex;
-  flex-direction:column;
-  padding:70px 20px;
   transition:0.3s;
-  z-index:9999;
 }
-.side-menu a {
-  color:#cbd5e1;
-  margin-bottom:20px;
-  font-weight:bold;
-  border-bottom:1px solid rgba(255,255,255,0.1);
-  padding-bottom:8px;
-}
-.side-menu a:hover {
+
+.left-buttons a:hover {
+  background:#0f172a;
   color:white;
-}
-.side-menu.active {
-  right:0;
 }
 
 /* ARTICLE HEADER */
@@ -194,20 +152,18 @@ blockquote {
   color:#1e293b;
 }
 
-/* FOOTER */
+/* FOOTER - Updated to match previous design */
 footer {
   background:#0f172a;
   color:#cbd5e1;
   text-align:center;
-  padding:8px 0;
-  margin-top:20px;
+  padding:12px 0;
   font-size:0.85rem;
 }
 footer p {
   font-size:14px;
   opacity:0.7;
-  margin-top:2px;
-  margin-bottom:0;
+  margin-top:4px;
 }
 .social a {
   margin:0 8px;
@@ -223,8 +179,7 @@ footer p {
 /* RESPONSIVE */
 @media (max-width:768px){
   nav {display:none;}
-  .menu-toggle {display:block;}
-  .mobile-links {display:flex;}
+  .left-buttons {display:flex;}
   .article-content {margin:20px 10px; padding:20px;}
 }
 </style>
@@ -232,30 +187,21 @@ footer p {
 <body>
 
 <header>
-  <!-- أيقونة المينو -->
-  <i class="fas fa-bars menu-toggle"></i>
-
-  <!-- روابط صغيرة (تبان غير فالشاشة الصغيرة) -->
-  <div class="mobile-links">
+  <div class="left-buttons">
     <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
     <a href="blog.html"><i class="fas fa-book-open"></i></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i></a>
   </div>
 
-  <!-- المينو الرئيسي (وسط الهيدر) -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
   </nav>
-
-  <!-- المينو الجانبي -->
-  <div class="side-menu" id="sideMenu">
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-  </div>
 </header>
 
 <section class="article-header">
@@ -290,46 +236,14 @@ footer p {
 
 <footer>
   <div class="social" style="margin-bottom:20px;">
-    <a class="fb" href="#"><i class="fab fa-facebook"></i></a>
-    <a class="yt" href="#"><i class="fab fa-youtube"></i></a>
-    <a class="ig" href="#"><i class="fab fa-instagram"></i></a>
-    <a class="ln" href="#"><i class="fab fa-linkedin"></i></a>
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
   </div>
   <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
-
-<script>
-const sideMenu = document.getElementById('sideMenu');
-const menuToggle = document.querySelector('.menu-toggle');
-
-// فتح/إغلاق المينو
-menuToggle.addEventListener('click', () => {
-  sideMenu.classList.toggle('active');
-});
-
-// يسد المينو ملي تبرك خارجها
-document.addEventListener('click', (e) => {
-  if (sideMenu.classList.contains('active') &&
-      !sideMenu.contains(e.target) &&
-      !menuToggle.contains(e.target)) {
-    sideMenu.classList.remove('active');
-  }
-});
-
-// يسد المينو إذا تبدّل الحجم
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768 && sideMenu.classList.contains('active')) {
-    sideMenu.classList.remove('active');
-  }
-});
-
-// يسد المينو ملي تبرك على رابط
-document.querySelectorAll('.side-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    sideMenu.classList.remove('active');
-  });
-});
-</script>
 
 </body>
 </html>

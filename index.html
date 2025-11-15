@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="description" content="Learn programming easily with Programmer Life. Tutorials, guides, and coding projects for beginners.">
-<meta name="keywords" content="programming, coding, learn to code, web development">
+  <meta name="keywords" content="programming, coding, learn to code, web development">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>coding life</title>
@@ -16,7 +16,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-TJ6Z2QKGHJ');
 </script>
   <style>
@@ -69,7 +68,6 @@
       color:white;
     }
 
-
     /* الزر اللي ف الجهة اليسرى (Home) */
     .left-buttons {
       display: none;
@@ -78,7 +76,6 @@
       z-index: 10000;
       gap: 8px;
       align-items:center;
-
     }
 
     .left-buttons a {
@@ -94,8 +91,6 @@
       background: #0f172a;
       color: white;
     }
-
-    /* SIDE MENU */
 
     /* HERO */
     .hero {
@@ -128,9 +123,11 @@
       z-index:1;
     }
 
-    .hero h2, .hero p {
+    .hero-content {
       position:relative;
       z-index:2;
+      max-width:800px;
+      padding:0 20px;
     }
 
     .hero h2 {
@@ -140,9 +137,28 @@
     }
     .hero p {
       font-size:1.2rem;
-      max-width:600px;
-      margin:auto;
+      margin-bottom:30px;
       animation: fadeInUp 1.3s ease;
+    }
+
+    /* NEW: CTA BUTTON */
+    .cta-button {
+      display:inline-block;
+      background:#0f172a;
+      color:white;
+      padding:12px 30px;
+      border-radius:8px;
+      font-weight:bold;
+      font-size:1.1rem;
+      transition:all 0.3s ease;
+      border:2px solid #0f172a;
+      animation: fadeInUp 1.6s ease;
+    }
+    .cta-button:hover {
+      background:transparent;
+      color:white;
+      border-color:white;
+      transform:translateY(-3px);
     }
 
     @keyframes fadeInDown {
@@ -152,6 +168,107 @@
     @keyframes fadeInUp {
       from {opacity:0; transform:translateY(20px);}
       to {opacity:1; transform:translateY(0);}
+    }
+
+    /* NEW: FEATURES SECTION */
+    .features {
+      background:white;
+      padding:60px 20px;
+      text-align:center;
+    }
+    .features h2 {
+      font-size:2.2rem;
+      margin-bottom:40px;
+      color:#1e293b;
+    }
+    .features-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .feature-card {
+      padding:30px 20px;
+      border-radius:12px;
+      background:#f8fafc;
+      transition:transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform:translateY(-5px);
+    }
+    .feature-card i {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+    .feature-card h3 {
+      margin-bottom:10px;
+      font-size:1.3rem;
+    }
+    .feature-card p {
+      color:#64748b;
+    }
+
+    /* NEW: TESTIMONIALS SECTION - WHITE BACKGROUND */
+    .testimonials {
+      background:white;
+      padding:60px 20px;
+      text-align:center;
+    }
+    .testimonials h2 {
+      font-size:2.2rem;
+      margin-bottom:40px;
+      color:#1e293b;
+    }
+    .testimonials-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .testimonial-card {
+      background:#f8fafc;
+      padding:30px;
+      border-radius:12px;
+      text-align:left;
+      border:1px solid #e2e8f0;
+      transition:transform 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform:translateY(-5px);
+    }
+    .testimonial-text {
+      font-style:italic;
+      margin-bottom:20px;
+      line-height:1.7;
+      color:#475569;
+    }
+    .testimonial-author {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+    .author-avatar {
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      background:#0f172a;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+      color:white;
+    }
+    .author-info h4 {
+      margin-bottom:5px;
+      color:#1e293b;
+    }
+    .author-info p {
+      opacity:0.8;
+      font-size:0.9rem;
+      color:#64748b;
     }
 
     /* CARDS */
@@ -177,6 +294,50 @@
     .card .content p {font-size:1rem; color:#64748b; line-height:1.7;}
     .card:hover {transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.15);}
 
+    /* NEW: FAQ SECTION - CENTERED */
+    .faq {
+      background:#f8fafc;
+      padding:60px 20px;
+    }
+    .faq-header {
+      text-align:center;
+      margin-bottom:40px;
+    }
+    .faq-header h2 {
+      font-size:2.2rem;
+      margin-bottom:15px;
+      color:#1e293b;
+    }
+    .faq-header p {
+      color:#64748b;
+      max-width:600px;
+      margin:0 auto;
+    }
+    .faq-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:20px;
+      max-width:1000px;
+      margin:0 auto;
+    }
+    .faq-item {
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border:1px solid #e2e8f0;
+    }
+    .faq-item h3 {
+      margin-bottom:10px;
+      font-size:1.1rem;
+      color:#1e293b;
+    }
+    .faq-item p {
+      color:#64748b;
+      font-size:0.95rem;
+      line-height:1.6;
+    }
+
     /* FOOTER */
     footer {
       background:#0f172a;
@@ -197,8 +358,11 @@
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
+      .hero h2 {font-size:2rem;}
+      .features-grid, .testimonials-grid, .faq-grid {
+        grid-template-columns:1fr;
+      }
     }
-
   </style>
 </head>
 
@@ -211,22 +375,17 @@
     <a href="playground.html"><i class="fas fa-code"></i> </a>
     <a href="about.html"><i class="fas fa-info-circle"></i> </a>
     <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-
-
   </div>
 
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-     <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
+    <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
     <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
-
   </nav>
 </header>
-
-<!-- SIDE MENU -->
 
 <!-- HERO SECTION -->
 <section class="hero">
@@ -234,12 +393,43 @@
     <source src="video.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
-  <h2>Start Your Journey Now!</h2>
-  <p>Articles, courses, tips, and everything you need to improve your personal and professional life</p>
+  <div class="hero-content">
+    <h2>Start Your Journey Now!</h2>
+    <p>Articles, courses, tips, and everything you need to improve your personal and professional life</p>
+    <a href="dorous-albarmaja.html" class="cta-button">Start Learning Today</a>
+  </div>
+</section>
+
+<!-- NEW: FEATURES SECTION -->
+<section class="features">
+  <h2>Why Choose Coding Life?</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <i class="fas fa-graduation-cap"></i>
+      <h3>Expert Courses</h3>
+      <p>Learn from comprehensive programming courses designed for all levels</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-hands-helping"></i>
+      <h3>Practical Workshops</h3>
+      <p>Hands-on workshops to apply your knowledge in real projects</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-heart"></i>
+      <h3>Health & Wellness</h3>
+      <p>Balance your coding journey with mental and physical health tips</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-rocket"></i>
+      <h3>Career Growth</h3>
+      <p>Develop skills that boost your career and personal development</p>
+    </div>
+  </div>
 </section>
 
 <!-- CARDS SECTION -->
 <section class="cards">
+  <!-- الكاردات الأصلية -->
   <div class="card" onclick="window.location.href='dorous-albarmaja.html'">
     <img src="كورسات البرمجة.jpg" alt="Programming Courses">
     <div class="content">
@@ -269,6 +459,75 @@
     <div class="content">
       <h3>Mental & Physical Health</h3>
       <p>Tips to maintain your mental and physical health while learning and working</p>
+    </div>
+  </div>
+
+</section>
+<!-- NEW: TESTIMONIALS SECTION -->
+<section class="testimonials">
+  <h2>What Our Students Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-text">
+        "Coding Life completely transformed my career! The courses are practical and easy to follow."
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">A</div>
+        <div class="author-info">
+          <h4>Ahmed</h4>
+          <p>Web Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-text">
+        "The balance between technical skills and personal development is amazing. Highly recommended!"
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">S</div>
+        <div class="author-info">
+          <h4>Sarah</h4>
+          <p>Student</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-text">
+        "I started from zero and now I'm building my own projects. Thank you Coding Life!"
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">M</div>
+        <div class="author-info">
+          <h4>Mohammed</h4>
+          <p>Frontend Developer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: FAQ SECTION - CENTERED -->
+<section class="faq">
+  <div class="faq-header">
+    <h2>Frequently Asked Questions</h2>
+    <p>Find answers to common questions about learning with us</p>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h3>Do I need prior experience to start?</h3>
+      <p>No! Our courses are designed for complete beginners. We start from the basics and build up gradually.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How much time do I need to dedicate?</h3>
+      <p>We recommend 5-10 hours per week, but you can learn at your own pace. Consistency is more important than intensity.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are the courses free?</h3>
+      <p>We offer both free and premium content. You can start with our free courses and upgrade when you're ready.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I get help if I'm stuck?</h3>
+      <p>Yes! We have a supportive community and mentors available to help you through any challenges.</p>
     </div>
   </div>
 </section>
