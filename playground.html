@@ -27,6 +27,8 @@
       line-height:1.6;
       font-family:'Cairo',sans-serif;
     }
+        a {text-decoration:none; color:inherit;}
+
 
     /* HEADER */
     header{
@@ -161,21 +163,36 @@
 
     /* FOOTER */
     footer {
-      background:#0f172a;
-      color:#cbd5e1;
-      text-align:center;
-      padding:12px 0;
-      font-size:0.85rem;
-      margin-top:40px;
+        background:#0f172a;
+        color:#cbd5e1;
+        text-align:center;
+        padding:8px 0;
+        margin-top: 20px;
+        font-size: 0.85rem;
     }
-    footer p {font-size:14px; opacity:0.7; margin-top:4px;}
-    .social a {margin:0 8px; font-size:1.1rem;}
-    .social a:hover {transform:translateY(-3px);}
-    .social a.fb:hover {color:#1877f2;}
-    .social a.yt:hover {color:#ff0000;}
-    .social a.ig:hover {color:#e4405f;}
-    .social a.ln:hover {color:#0a66c2;}
-    .social a.wa:hover {color:#25d366;}
+    footer p {
+        font-size:14px;
+        opacity:0.7;
+        margin-top:2px;
+        margin-bottom:0;
+        color: #cbd5e1;
+    }
+
+    .social a {
+        margin: 0 8px;
+        font-size: 1.1rem;
+    }
+
+    .social a:hover {
+        transform: translateY(-3px);
+    }
+
+    .social a.fb:hover {color: #1877f2;}
+    .social a.yt:hover {color: #ff0000;}
+    .social a.ig:hover {color: #e4405f;}
+    .social a.ln:hover {color: #0a66c2;}
+    .social a.wa:hover {color: #25d366;}
+
 
     /* RESPONSIVE */
     @media (max-width:768px) {
@@ -201,6 +218,7 @@
     <a href="about.html" title="About"><i class="fas fa-info-circle"></i></a>
     <a href="playground.html" class="active" title="Playground"><i class="fas fa-code"></i></a>
   </div>
+  
 </header>
 
 <main>

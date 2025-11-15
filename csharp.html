@@ -1,293 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn C# - Programmer’s Life</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="description" content="Learn C# - Programmer's Life">
+  <meta name="keywords" content="C#, learn C#, programming, .NET">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn C# - Programmer's Life</title>
 
-  gtag('config', 'G-TJ6Z2QKGHJ');
-</script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-      * {margin:0; padding:0; box-sizing:border-box; }
-    body {padding-top: 60px; background-color:#f8fafc; color:#1e293b; line-height:1.6;font-family: 'Cairo', sans-serif;}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ6Z2QKGHJ');
+  </script>
+
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      padding-top:70px;
+      background-color:#f8fafc;
+      color:#1e293b;
+      line-height:1.6;
+      font-family:'Cairo',sans-serif;
+    }
     a {text-decoration:none; color:inherit;}
+
     /* HEADER */
-    header {background:white ;color:#000000; padding:-10px 0; text-align:center; position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    justify-content: space-between;}
-    .header-inner {position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 5px;
-}
+    header {
+      background:white;
+      color:#000;
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:9999;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 
-nav {display:flex; justify-content:center; gap:20px; margin-top:15px;}
-nav a{color:#000000;padding:10px 18px;border-radius:5px;transition:.3s;font-weight:bold;position: relative;  top:-10px;}
-nav a:hover {
-color: white;
-background-color:#0f172a; ;
-}
+    nav {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:25px;
+    }
 
-main {max-width:1000px;margin:50px auto;padding:0 20px;}
-section {display:flex;align-items:center;justify-content:space-between;margin-bottom:60px;flex-wrap:wrap;gap:30px;}
-.text {flex:1;min-width:300px;}
-section img {width:45%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-h2 {margin-bottom:15px;}
-p, li {color:#334155;font-size:1rem;margin-bottom:10px;}
-ul {padding-left:20px;}
-code {background:#e2e8f0;padding:3px 6px;border-radius:4px;font-family:monospace;}
-footer {background:#0f172a;color:#cbd5e1;text-align:center;padding:8px 0;margin-top:20px;font-size:0.85rem;}
-footer p {font-size:14px;opacity:0.7;margin-top:2px;margin-bottom:0;color: #e2e8f0;}
-.social a {margin:0 8px;font-size:1.1rem;transition:0.3s;}
-.social a:hover {transform:translateY(-3px);}
-.social a.fb:hover {color:#1877f2;}
-.social a.yt:hover {color:#ff0000;}
-.social a.ig:hover {color:#e4405f;}
-.social a.ln:hover {color:#0a66c2;}
-.social a.wa:hover {color:#25d366;}
-@media (max-width:768px){
-  nav{flex-wrap:wrap; gap:10px;}
-  main{margin:30px 15px;}
-  section{flex-direction:column; gap:20px;}
-  section img{width:100%;}
-}
-</style>
+    nav a {
+      color:#000;
+      padding:10px 18px;
+      border-radius:8px;
+      font-weight:bold;
+      transition:.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:1rem;
+    }
+
+    nav a:hover {
+      background:#0f172a;
+      color:white;
+    }
+
+    /* MOBILE ICON NAV */
+    .left-buttons {
+      display:none;
+      position:absolute;
+      top:12px;
+      left:50%;
+      transform:translateX(-50%);
+      gap:10px;
+    }
+
+    .left-buttons a {
+      font-size:1.4rem;
+      color:#0f172a;
+      background:white;
+      padding:6px 10px;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .left-buttons a:hover {
+      background:#0f172a;
+      color:white;
+    }
+
+    /* CONTENT */
+    main {
+      max-width:1000px;
+      margin:50px auto;
+      padding:0 20px;
+    }
+
+    section {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:60px;
+      flex-wrap:wrap;
+      gap:30px;
+    }
+
+    .text { flex:1; min-width:300px; }
+
+    section img {
+      width:45%;
+      border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 { margin-bottom:15px; color:#0f172a; }
+    p, li { color:#334155; font-size:1rem; margin-bottom:10px; }
+    ul { padding-left:20px; }
+    code {
+      background:#e2e8f0;
+      padding:3px 6px;
+      border-radius:4px;
+      font-family:monospace;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#0f172a;
+      color:#cbd5e1;
+      text-align:center;
+      padding:12px 0;
+      font-size:0.85rem;
+      margin-top:30px;
+    }
+
+    .social a {margin:0 8px; font-size:1.1rem;}
+    .social a:hover {transform:translateY(-3px);}
+
+    .social a.fb:hover {color:#1877f2;}
+    .social a.yt:hover {color:#ff0000;}
+    .social a.ig:hover {color:#e4405f;}
+    .social a.ln:hover {color:#0a66c2;}
+    .social a.wa:hover {color:#25d366;}
+
+    @media (max-width: 768px) {
+      nav {display:none;}
+      .left-buttons {display:flex;}
+      section {flex-direction:column;}
+      section img {width:80%;}
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-            <div class="header-inner">
-<nav>
-<a href="index.html">Home</a>
-<a href="dorous-albarmaja.html">Courses</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html">Contact</a>
-<a href="about.html">About</a>
-</nav>
+  <!-- Mobile Icons -->
+  <div class="left-buttons">
+      <a href="index.html"><i class="fas fa-home"></i></a>
+      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
+      <a href="blog.html"><i class="fas fa-book-open"></i></a>
+      <a href="contact.html"><i class="fas fa-envelope"></i></a>
+      <a href="about.html"><i class="fas fa-info-circle"></i></a>
+  </div>
+
+  <!-- Desktop Menu -->
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  </nav>
 </header>
 
 <main>
 
-<!-- Sections 1 to 20 -->
-<section>
-  <div class="text">
-    <h2>1. What is C#?</h2>
-    <p>C# is a modern, object-oriented programming language developed by Microsoft for building Windows, web, and mobile applications.</p>
-  </div>
-  <img src="csharp1.jpg" alt="C# basics">
-</section>
+  <!-- SECTION 1 -->
+  <section>
+    <div class="text">
+      <h2>1. What is C#?</h2>
+      <p>C# is a modern, object-oriented programming language developed by Microsoft for building Windows, web, and mobile applications.</p>
+    </div>
+    <img src="csharp1.jpg" alt="C# basics">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>2. Setting up C# Environment</h2>
-    <ul>
-      <li>Install Visual Studio</li>
-      <li>Install .NET SDK</li>
-      <li>Create a new C# project</li>
-    </ul>
-  </div>
-  <img src="csharp2.jpg" alt="C# setup">
-</section>
+  <!-- SECTION 2 -->
+  <section>
+    <div class="text">
+      <h2>2. Setting up C# Environment</h2>
+      <ul>
+        <li>Install Visual Studio</li>
+        <li>Install .NET SDK</li>
+        <li>Create a new C# project</li>
+      </ul>
+    </div>
+    <img src="csharp2.jpg" alt="C# setup">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>3. Hello World</h2>
-    <p>Write your first C# program:</p>
-    <code>Console.WriteLine("Hello, World!");</code>
-  </div>
-  <img src="csharp3.jpg" alt="Hello World">
-</section>
+  <!-- SECTION 3 -->
+  <section>
+    <div class="text">
+      <h2>3. Hello World</h2>
+      <p>Write your first C# program:</p>
+      <code>Console.WriteLine("Hello, World!");</code>
+    </div>
+    <img src="csharp3.jpg" alt="Hello World">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>4. Variables</h2>
-    <ul>
-      <li>int, double, string, bool</li>
-      <li>Declaration: <code>int age = 25;</code></li>
-    </ul>
-  </div>
-  <img src="csharp4.jpg" alt="C# variables">
-</section>
+  <!-- SECTION 4 -->
+  <section>
+    <div class="text">
+      <h2>4. Variables</h2>
+      <ul>
+        <li>int, double, string, bool</li>
+        <li>Declaration: <code>int age = 25;</code></li>
+      </ul>
+    </div>
+    <img src="csharp4.jpg" alt="C# variables">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>5. Data Types</h2>
-    <ul>
-      <li>int, float, double, decimal, char, string, bool</li>
-    </ul>
-  </div>
-  <img src="csharp5.jpg" alt="C# data types">
-</section>
+  <!-- SECTION 5 -->
+  <section>
+    <div class="text">
+      <h2>5. Data Types</h2>
+      <ul>
+        <li>int, float, double, decimal, char, string, bool</li>
+      </ul>
+    </div>
+    <img src="csharp5.jpg" alt="C# data types">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>6. Operators</h2>
-    <ul>
-      <li>Arithmetic: +, -, *, /, %</li>
-      <li>Comparison: ==, !=, >, <, >=, <=</li>
-      <li>Logical: &&, ||, !</li>
-    </ul>
-  </div>
-  <img src="csharp6.jpg" alt="C# operators">
-</section>
+  <!-- SECTION 6 -->
+  <section>
+    <div class="text">
+      <h2>6. Operators</h2>
+      <ul>
+        <li>Arithmetic: +, -, *, /, %</li>
+        <li>Comparison: ==, !=, >, <, >=, <=</li>
+        <li>Logical: &&, ||, !</li>
+      </ul>
+    </div>
+    <img src="csharp6.jpg" alt="C# operators">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>7. Conditional Statements</h2>
-    <ul>
-      <li>if, else if, else</li>
-      <li>switch statements</li>
-    </ul>
-  </div>
-  <img src="csharp7.jpg" alt="C# conditions">
-</section>
+  <!-- SECTION 7 -->
+  <section>
+    <div class="text">
+      <h2>7. Conditional Statements</h2>
+      <ul>
+        <li>if, else if, else</li>
+        <li>switch statements</li>
+      </ul>
+    </div>
+    <img src="csharp7.jpg" alt="C# conditions">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>8. Loops</h2>
-    <ul>
-      <li>for, foreach</li>
-      <li>while, do-while</li>
-    </ul>
-  </div>
-  <img src="csharp8.jpg" alt="C# loops">
-</section>
+  <!-- SECTION 8 -->
+  <section>
+    <div class="text">
+      <h2>8. Loops</h2>
+      <ul>
+        <li>for, foreach</li>
+        <li>while, do-while</li>
+      </ul>
+    </div>
+    <img src="csharp8.jpg" alt="C# loops">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>9. Arrays</h2>
-    <ul>
-      <li>Declaration: <code>int[] numbers = {1,2,3};</code></li>
-      <li>Access: <code>numbers[0]</code></li>
-    </ul>
-  </div>
-  <img src="csharp9.jpg" alt="C# arrays">
-</section>
+  <!-- SECTION 9 -->
+  <section>
+    <div class="text">
+      <h2>9. Arrays</h2>
+      <ul>
+        <li>Declaration: <code>int[] numbers = {1,2,3};</code></li>
+        <li>Access: <code>numbers[0]</code></li>
+      </ul>
+    </div>
+    <img src="csharp9.jpg" alt="C# arrays">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>10. Methods</h2>
-    <p>Reusable code blocks:</p>
-    <code>void SayHello() { Console.WriteLine("Hello"); }</code>
-  </div>
-  <img src="csharp10.jpg" alt="C# methods">
-</section>
+  <!-- SECTION 10 -->
+  <section>
+    <div class="text">
+      <h2>10. Methods</h2>
+      <p>Reusable code blocks:</p>
+      <code>void SayHello() { Console.WriteLine("Hello"); }</code>
+    </div>
+    <img src="csharp10.jpg" alt="C# methods">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>11. Classes and Objects</h2>
-    <p>Object-oriented programming concept.</p>
-    <code>class Person { public string Name; }</code>
-  </div>
-  <img src="csharp11.jpg" alt="C# classes">
-</section>
+  <!-- SECTION 11 -->
+  <section>
+    <div class="text">
+      <h2>11. Classes and Objects</h2>
+      <p>Object-oriented programming concept.</p>
+      <code>class Person { public string Name; }</code>
+    </div>
+    <img src="csharp11.jpg" alt="C# classes">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>12. Inheritance</h2>
-    <p>Derive a class from another class:</p>
-    <code>class Student : Person { }</code>
-  </div>
-  <img src="csharp12.jpg" alt="C# inheritance">
-</section>
+  <!-- SECTION 12 -->
+  <section>
+    <div class="text">
+      <h2>12. Inheritance</h2>
+      <p>Derive a class from another class:</p>
+      <code>class Student : Person { }</code>
+    </div>
+    <img src="csharp12.jpg" alt="C# inheritance">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>13. Polymorphism</h2>
-    <p>Methods can have different implementations.</p>
-  </div>
-  <img src="csharp13.jpg" alt="C# polymorphism">
-</section>
+  <!-- SECTION 13 -->
+  <section>
+    <div class="text">
+      <h2>13. Polymorphism</h2>
+      <p>Methods can have different implementations.</p>
+    </div>
+    <img src="csharp13.jpg" alt="C# polymorphism">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>14. Encapsulation</h2>
-    <p>Protect data using properties and access modifiers.</p>
-  </div>
-  <img src="csharp14.jpg" alt="C# encapsulation">
-</section>
+  <!-- SECTION 14 -->
+  <section>
+    <div class="text">
+      <h2>14. Encapsulation</h2>
+      <p>Protect data using properties and access modifiers.</p>
+    </div>
+    <img src="csharp14.jpg" alt="C# encapsulation">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>15. Interfaces</h2>
-    <p>Define contracts for classes:</p>
-    <code>interface IAnimal { void Speak(); }</code>
-  </div>
-  <img src="csharp15.jpg" alt="C# interfaces">
-</section>
+  <!-- SECTION 15 -->
+  <section>
+    <div class="text">
+      <h2>15. Interfaces</h2>
+      <p>Define contracts for classes:</p>
+      <code>interface IAnimal { void Speak(); }</code>
+    </div>
+    <img src="csharp15.jpg" alt="C# interfaces">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>16. Exception Handling</h2>
-    <p>Manage runtime errors:</p>
-    <code>try { } catch(Exception e) { }</code>
-  </div>
-  <img src="csharp16.jpg" alt="C# exceptions">
-</section>
+  <!-- SECTION 16 -->
+  <section>
+    <div class="text">
+      <h2>16. Exception Handling</h2>
+      <p>Manage runtime errors:</p>
+      <code>try { } catch(Exception e) { }</code>
+    </div>
+    <img src="csharp16.jpg" alt="C# exceptions">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>17. Generics</h2>
-    <p>Create type-safe classes and methods:</p>
-    <code>List&lt;int&gt; numbers = new List&lt;int&gt;();</code>
-  </div>
-  <img src="csharp17.jpg" alt="C# generics">
-</section>
+  <!-- SECTION 17 -->
+  <section>
+    <div class="text">
+      <h2>17. Generics</h2>
+      <p>Create type-safe classes and methods:</p>
+      <code>List&lt;int&gt; numbers = new List&lt;int&gt;();</code>
+    </div>
+    <img src="csharp17.jpg" alt="C# generics">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>18. Delegates and Events</h2>
-    <p>Use delegates for callbacks and events for notifications.</p>
-  </div>
-  <img src="csharp18.jpg" alt="C# delegates">
-</section>
+  <!-- SECTION 18 -->
+  <section>
+    <div class="text">
+      <h2>18. Delegates and Events</h2>
+      <p>Use delegates for callbacks and events for notifications.</p>
+    </div>
+    <img src="csharp18.jpg" alt="C# delegates">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>19. LINQ</h2>
-    <p>Query collections easily using LINQ syntax.</p>
-  </div>
-  <img src="csharp19.jpg" alt="C# LINQ">
-</section>
+  <!-- SECTION 19 -->
+  <section>
+    <div class="text">
+      <h2>19. LINQ</h2>
+      <p>Query collections easily using LINQ syntax.</p>
+    </div>
+    <img src="csharp19.jpg" alt="C# LINQ">
+  </section>
 
-<section>
-  <div class="text">
-    <h2>20. Best Practices</h2>
-    <ul>
-      <li>Use meaningful names</li>
-      <li>Keep methods small</li>
-      <li>Comment your code</li>
-      <li>Follow SOLID principles</li>
-    </ul>
-  </div>
-  <img src="csharp20.jpg" alt="C# best practices">
-</section>
+  <!-- SECTION 20 -->
+  <section>
+    <div class="text">
+      <h2>20. Best Practices</h2>
+      <ul>
+        <li>Use meaningful names</li>
+        <li>Keep methods small</li>
+        <li>Comment your code</li>
+        <li>Follow SOLID principles</li>
+      </ul>
+    </div>
+    <img src="csharp20.jpg" alt="C# best practices">
+  </section>
 
 </main>
 
 <footer>
-<div class="social" style="margin-bottom:20px;">
+  <div class="social" style="margin-bottom:20px;">
     <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
     <a class="yt" href="https://youtube.com/@codinglife-d2l1g?si=w0GBDnTZcBf__fmn"><i class="fab fa-youtube"></i></a>
     <a class="ig" href="https://www.instagram.com/dayli_marooc10?igsh=MXdidnc0OTh4N3ByeA=="><i class="fab fa-instagram"></i></a>
     <a class="ln" href="https:linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
     <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
-</div>
-<p>© 2025 Coding Life - All Rights Reserved</p>
+  </div>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
 
 </body>

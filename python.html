@@ -1,199 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="description" content="Learn Python - Programmer’s Life">
+  <meta name="keywords" content="Python, learn Python, programming, coding">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn Python - Programmer’s Life</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-TJ6Z2QKGHJ');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ6Z2QKGHJ');
+  </script>
 
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; }
-    body {padding-top: 60px; background-color:#f8fafc; color:#1e293b; line-height:1.6;font-family: 'Cairo', sans-serif;}
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      padding-top:70px;
+      background-color:#f8fafc;
+      color:#1e293b;
+      line-height:1.6;
+      font-family:'Cairo',sans-serif;
+    }
     a {text-decoration:none; color:inherit;}
+
     /* HEADER */
-    header {background:white ;color:#000000; padding:-10px 0; text-align:center; position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    justify-content: space-between;}
-    .header-inner {position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 5px;
-}
+    header {
+      background:white;
+      color:#000;
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:9999;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 
-nav {display:flex; justify-content:center; gap:20px; margin-top:15px;}
-nav a{color:#000000;padding:10px 18px;border-radius:5px;transition:.3s;font-weight:bold;position: relative;  top:-10px;}
-nav a:hover {
-color: white;
-background-color:#0f172a; 
-}
+    nav {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:25px;
+    }
 
-    main {max-width:1000px; margin:50px auto; padding:0 20px;}
-    section {display:flex; align-items:center; justify-content:space-between; margin-bottom:60px; flex-wrap:wrap; gap:30px;}
-    .text {flex:1; min-width:300px;}
-    section img {width:45%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-    h2 { margin-bottom:15px;}
-    p, li {color:#334155; font-size:1rem; margin-bottom:10px;}
-    ul {padding-left:20px;}
-    code {background:#e2e8f0; padding:3px 6px; border-radius:4px; font-family:monospace;}
-    footer {background:#0f172a; color:#cbd5e1; text-align:center; padding:8px 0; margin-top:20px; font-size:0.85rem;}
-    footer p {font-size:14px; opacity:0.7; margin-top:2px; margin-bottom:0;color: #e2e8f0;}
-    .social a {margin:0 8px; font-size:1.1rem; transition:0.3s;}
+    nav a {
+      color:#000;
+      padding:10px 18px;
+      border-radius:8px;
+      font-weight:bold;
+      transition:.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:1rem;
+    }
+
+    nav a:hover {
+      background:#0f172a;
+      color:white;
+    }
+
+    /* MOBILE ICON NAV */
+    .left-buttons {
+      display:none;
+      position:absolute;
+      top:12px;
+      left:50%;
+      transform:translateX(-50%);
+      gap:10px;
+    }
+
+    .left-buttons a {
+      font-size:1.4rem;
+      color:#0f172a;
+      background:white;
+      padding:6px 10px;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .left-buttons a:hover {
+      background:#0f172a;
+      color:white;
+    }
+
+    /* CONTENT */
+    main {
+      max-width:1000px;
+      margin:50px auto;
+      padding:0 20px;
+    }
+
+    section {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:60px;
+      flex-wrap:wrap;
+      gap:30px;
+    }
+
+    .text { flex:1; min-width:300px; }
+
+    section img {
+      width:45%;
+      border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 { margin-bottom:15px; color:#0f172a; }
+    p, li { color:#334155; font-size:1rem; margin-bottom:10px; }
+    ul { padding-left:20px; }
+    code {
+      background:#e2e8f0;
+      padding:3px 6px;
+      border-radius:4px;
+      font-family:monospace;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#0f172a;
+      color:#cbd5e1;
+      text-align:center;
+      padding:12px 0;
+      font-size:0.85rem;
+      margin-top:30px;
+    }
+
+    .social a {margin:0 8px; font-size:1.1rem;}
     .social a:hover {transform:translateY(-3px);}
+
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
     .social a.ig:hover {color:#e4405f;}
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    @media (max-width:768px){
-      nav{flex-wrap:wrap; gap:10px;}
-      main{margin:30px 15px;}
-      section{flex-direction:column; gap:20px;}
-      section img{width:100%;}
+    @media (max-width: 768px) {
+      nav {display:none;}
+      .left-buttons {display:flex;}
+      section {flex-direction:column;}
+      section img {width:80%;}
     }
   </style>
 </head>
+
 <body>
 
 <header>
-            <div class="header-inner">
+  <!-- Mobile Icons -->
+  <div class="left-buttons">
+      <a href="index.html"><i class="fas fa-home"></i></a>
+      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
+      <a href="blog.html"><i class="fas fa-book-open"></i></a>
+      <a href="contact.html"><i class="fas fa-envelope"></i></a>
+      <a href="about.html"><i class="fas fa-info-circle"></i></a>
+  </div>
+
+  <!-- Desktop Menu -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="dorous-albarmaja.html">Courses</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About</a>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
   </nav>
 </header>
 
 <main>
 
-  <section>
+  <!-- SECTION 1 -->
+   <section id="section1">
     <div class="text">
       <h2>1. What is Python?</h2>
-      <p>Python is a popular, high-level, interpreted programming language known for its readability and versatility. It's widely used for web development, data science, automation, AI, and more.</p>
+      <p>Python is a popular, high-level, interpreted programming language known for its readability and versatility. It's widely used in web development, data science, AI, and automation.</p>
+      <ul>
+        <li>Easy to learn with simple syntax</li>
+        <li>Cross-platform compatibility</li>
+        <li>Large standard library</li>
+        <li>Strong community support</li>
+      </ul>
     </div>
     <img src="python1.jpg" alt="Python basics">
   </section>
 
-  <section>
+  <!-- SECTION 2 -->
+  <section id="section2">
     <img src="python2.jpg" alt="Python syntax">
     <div class="text">
       <h2>2. Python Syntax</h2>
-      <p>Python uses indentation to define code blocks instead of braces.</p>
-      <p><code>if True:<br>&nbsp;&nbsp;print("Hello Python")</code></p>
+      <p>Python uses indentation to define code blocks instead of braces, making the code clean and readable.</p>
+      <code>if True:<br>&nbsp;&nbsp;print("Hello Python")</code>
+      <p>This simple syntax reduces common errors and makes Python ideal for beginners.</p>
     </div>
   </section>
 
-  <section>
+  <!-- SECTION 3 -->
+  <section id="section3">
     <div class="text">
       <h2>3. Variables & Data Types</h2>
-      <p>Python variables are dynamically typed:</p>
-      <p><code>name = "Bilal"<br>age = 18<br>price = 19.99<br>is_active = True</code></p>
+      <p>Python variables are dynamically typed, meaning you don't need to declare their type explicitly.</p>
+      <code>name = "Bilal"<br>age = 18<br>price = 19.99<br>is_active = True</code>
       <ul>
-        <li><strong>String:</strong> Text like <code>"Hello"</code></li>
-        <li><strong>Integer:</strong> Whole numbers</li>
-        <li><strong>Float:</strong> Decimal numbers</li>
-        <li><strong>Boolean:</strong> True or False</li>
-        <li><strong>List:</strong> <code>fruits = ["Apple", "Banana"]</code></li>
+        <li><strong>String:</strong> Text data like "Hello"</li>
+        <li><strong>Integer:</strong> Whole numbers like 10, -5, 0</li>
+        <li><strong>Float:</strong> Decimal numbers like 3.14, 2.5</li>
+        <li><strong>Boolean:</strong> True or False values</li>
+        <li><strong>List:</strong> Ordered collection like ["Apple", "Banana"]</li>
       </ul>
     </div>
     <img src="python3.jpg" alt="Python variables">
   </section>
 
-  <section>
+  <!-- SECTION 4 -->
+  <section id="section4">
     <img src="python4.jpg" alt="Python operators">
     <div class="text">
       <h2>4. Operators</h2>
+      <p>Python supports various operators for performing operations on variables and values.</p>
       <ul>
-        <li><strong>Arithmetic:</strong> +, -, *, /, %</li>
-        <li><strong>Comparison:</strong> ==, !=, &lt;, &gt;, &lt;=, &gt;=</li>
+        <li><strong>Arithmetic:</strong> + - * / % ** //</li>
+        <li><strong>Comparison:</strong> == != < > <= >=</li>
         <li><strong>Logical:</strong> and, or, not</li>
+        <li><strong>Assignment:</strong> = += -= *= /=</li>
       </ul>
-      <p><code>x = 10<br>y = 5<br>print(x + y)  # 15</code></p>
+      <code>x = 10<br>y = 5<br>print(x + y)  # Output: 15</code>
     </div>
   </section>
 
-  <section>
+  <!-- SECTION 5 -->
+  <section id="section5">
     <div class="text">
       <h2>5. Conditional Statements</h2>
-      <p>Control flow with <code>if, elif, else</code>:</p>
-      <p><code>age = 20<br>if age &gt; 18:<br>&nbsp;&nbsp;print("Adult")<br>else:<br>&nbsp;&nbsp;print("Minor")</code></p>
+      <p>Conditional statements allow your program to make decisions based on certain conditions.</p>
+      <code>age = 20<br>if age > 18:<br>&nbsp;&nbsp;print("Adult")<br>else:<br>&nbsp;&nbsp;print("Minor")</code>
+      <p>You can also use elif for multiple conditions:</p>
+      <code>if age < 13:<br>&nbsp;&nbsp;print("Child")<br>elif age < 20:<br>&nbsp;&nbsp;print("Teenager")<br>else:<br>&nbsp;&nbsp;print("Adult")</code>
     </div>
     <img src="python5.jpg" alt="Python conditions">
   </section>
 
-  <section>
+  <!-- SECTION 6 -->
+  <section id="section6">
     <img src="python6.jpg" alt="Python loops">
     <div class="text">
       <h2>6. Loops</h2>
-      <p>Repeat actions with <code>for</code> and <code>while</code> loops:</p>
-      <p><code>for i in range(1,6):<br>&nbsp;&nbsp;print(i)</code></p>
+      <p>Loops allow you to execute a block of code repeatedly.</p>
+      <code>for i in range(1,6):<br>&nbsp;&nbsp;print(i)</code>
+      <p>This will print numbers from 1 to 5. Python also supports while loops:</p>
+      <code>i = 1<br>while i <= 5:<br>&nbsp;&nbsp;print(i)<br>&nbsp;&nbsp;i += 1</code>
     </div>
   </section>
 
-  <section>
+  <!-- SECTION 7 -->
+  <section id="section7">
     <div class="text">
       <h2>7. Functions</h2>
-      <p>Functions are reusable blocks of code:</p>
-      <p><code>def greet(name):<br>&nbsp;&nbsp;return f"Hello {name}"<br>print(greet("Bilal"))</code></p>
+      <p>Functions are reusable blocks of code that perform a specific task.</p>
+      <code>def greet(name):<br>&nbsp;&nbsp;return "Hello " + name<br><br>print(greet("Bilal"))  # Output: Hello Bilal</code>
+      <p>Functions can take parameters and return values, making your code modular and reusable.</p>
     </div>
     <img src="python7.jpg" alt="Python functions">
   </section>
 
-  <section>
-    <img src="python8.jpg" alt="Python lists & loops">
+  <!-- SECTION 8 -->
+  <section id="section8">
+    <img src="python8.jpg" alt="Python lists and loops">
     <div class="text">
       <h2>8. Lists & Loops</h2>
-      <p>Loop through lists with <code>for</code>:</p>
-      <p><code>fruits = ["Apple", "Banana", "Orange"]<br>for fruit in fruits:<br>&nbsp;&nbsp;print(fruit)</code></p>
+      <p>Lists are ordered collections that can hold items of different data types.</p>
+      <code>fruits = ["Apple", "Banana", "Orange"]<br>for f in fruits:<br>&nbsp;&nbsp;print(f)</code>
+      <p>This will print each fruit on a separate line. Lists are mutable, meaning you can change their content.</p>
     </div>
   </section>
 
-  <section>
+  <!-- SECTION 9 -->
+  <section id="section9">
     <div class="text">
       <h2>9. Dictionaries</h2>
-      <p>Key-value pairs using <code>dict</code>:</p>
-      <p><code>person = {"name": "Bilal", "age": 18}<br>print(person["name"])</code></p>
+      <p>Dictionaries store data as key-value pairs, making it easy to retrieve values by their keys.</p>
+      <code>person = {"name": "Bilal", "age": 18, "city": "Rabat"}<br>print(person["name"])  # Output: Bilal</code>
+      <p>You can add, modify, or delete dictionary items:</p>
+      <code>person["country"] = "Morocco"  # Add new key-value pair<br>person["age"] = 19  # Modify existing value<br>del person["city"]  # Delete a key-value pair</code>
     </div>
     <img src="python9.jpg" alt="Python dictionaries">
   </section>
 
-  <section>
+  <!-- SECTION 10 -->
+  <section id="section10">
     <img src="python10.jpg" alt="Python modules">
     <div class="text">
       <h2>10. Modules & Libraries</h2>
-      <p>Import external code:</p>
-      <p><code>import math<br>print(math.sqrt(16))  # 4</code></p>
+      <p>Python has a rich standard library and supports many third-party libraries for various tasks.</p>
+      <code>import math<br>print(math.sqrt(16))  # Output: 4.0</code>
+      <p>Popular Python libraries include:</p>
+      <ul>
+        <li><strong>NumPy:</strong> For numerical computations</li>
+        <li><strong>Pandas:</strong> For data analysis</li>
+        <li><strong>Django/Flask:</strong> For web development</li>
+        <li><strong>Matplotlib:</strong> For data visualization</li>
+      </ul>
     </div>
   </section>
-
 </main>
 
 <footer>
   <div class="social" style="margin-bottom:20px;">
     <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
-    <a class="yt" href="https://youtube.com/@codinglife-d2l1g?si=w0GBDnTZcBf__fmn"><i class="fab fa-youtube"></i></a>
-    <a class="ig" href="https://www.instagram.com/dayli_marooc10?igsh=MXdidnc0OTh4N3ByeA=="><i class="fab fa-instagram"></i></a>
-    <a class="ln" href="https:linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
-    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello"><i class="fab fa-whatsapp"></i></a>
   </div>
-<p>© 2025 Coding Life - All Rights Reserved</p>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
 
 </body>
