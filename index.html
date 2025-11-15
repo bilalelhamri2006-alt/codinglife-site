@@ -133,41 +133,10 @@
     .hero h2 {
       font-size:2.8rem;
       margin-bottom:15px;
-      animation: fadeInDown 1s ease;
     }
     .hero p {
       font-size:1.2rem;
       margin-bottom:30px;
-      animation: fadeInUp 1.3s ease;
-    }
-
-    /* NEW: CTA BUTTON */
-    .cta-button {
-      display:inline-block;
-      background:#0f172a;
-      color:white;
-      padding:12px 30px;
-      border-radius:8px;
-      font-weight:bold;
-      font-size:1.1rem;
-      transition:all 0.3s ease;
-      border:2px solid #0f172a;
-      animation: fadeInUp 1.6s ease;
-    }
-    .cta-button:hover {
-      background:transparent;
-      color:white;
-      border-color:white;
-      transform:translateY(-3px);
-    }
-
-    @keyframes fadeInDown {
-      from {opacity:0; transform:translateY(-20px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-    @keyframes fadeInUp {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
     }
 
     /* NEW: FEATURES SECTION */
@@ -221,14 +190,13 @@
       margin-bottom:40px;
       color:#1e293b;
     }
-    .testimonials-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:30px;
-      max-width:1200px;
-      margin:0 auto;
-    }
-    .testimonial-card {
+.testimonials-grid {
+  display:grid;
+  grid-template-columns:repeat(4, 1fr); /* بدل auto-fit */
+  gap:20px;
+  max-width:1400px;
+  margin:0 auto;
+}    .testimonial-card {
       background:#f8fafc;
       padding:30px;
       border-radius:12px;
@@ -363,6 +331,17 @@
         grid-template-columns:1fr;
       }
     }
+    @media (max-width: 1200px) {
+  .testimonials-grid {
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns:2fr;
+  }
+}
   </style>
 </head>
 
@@ -396,7 +375,6 @@
   <div class="hero-content">
     <h2>Start Your Journey Now!</h2>
     <p>Articles, courses, tips, and everything you need to improve your personal and professional life</p>
-    <a href="dorous-albarmaja.html" class="cta-button">Start Learning Today</a>
   </div>
 </section>
 
@@ -464,12 +442,13 @@
 
 </section>
 <!-- NEW: TESTIMONIALS SECTION -->
+<!-- NEW: TESTIMONIALS SECTION -->
 <section class="testimonials">
   <h2>What Our Students Say</h2>
   <div class="testimonials-grid">
     <div class="testimonial-card">
       <div class="testimonial-text">
-        "Coding Life completely transformed my career! The courses are practical and easy to follow."
+        "Coding Life completely transformed my career! The courses are practical and easy to follow. I went from zero to getting my first job in 6 months."
       </div>
       <div class="testimonial-author">
         <div class="author-avatar">A</div>
@@ -481,7 +460,7 @@
     </div>
     <div class="testimonial-card">
       <div class="testimonial-text">
-        "The balance between technical skills and personal development is amazing. Highly recommended!"
+        "The balance between technical skills and personal development is amazing. The mental health tips helped me avoid burnout during my learning journey."
       </div>
       <div class="testimonial-author">
         <div class="author-avatar">S</div>
@@ -493,7 +472,7 @@
     </div>
     <div class="testimonial-card">
       <div class="testimonial-text">
-        "I started from zero and now I'm building my own projects. Thank you Coding Life!"
+        "I started from zero and now I'm building my own projects. The workshops gave me the confidence to apply for freelance work. Thank you Coding Life!"
       </div>
       <div class="testimonial-author">
         <div class="author-avatar">M</div>
@@ -503,9 +482,20 @@
         </div>
       </div>
     </div>
+    <div class="testimonial-card">
+      <div class="testimonial-text">
+        "The self-development courses changed my mindset completely. Now I approach problems with more confidence and creativity in both coding and life."
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">N</div>
+        <div class="author-info">
+          <h4>Nora</h4>
+          <p>Full Stack Developer</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
 <!-- NEW: FAQ SECTION - CENTERED -->
 <section class="faq">
   <div class="faq-header">
