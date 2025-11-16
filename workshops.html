@@ -135,10 +135,70 @@ nav a:hover {
   box-shadow:0 4px 12px rgba(0,0,0,0.08); 
   transition: transform 0.3s ease; 
   cursor:pointer;
+  position: relative;
 }
 .tip-card:hover {transform: translateY(-5px);}
 .tip-card h3 { margin-bottom:10px; font-size:1.3rem;}
 .tip-card p {color:#64748b; font-size:1rem;}
+
+/* NEW: WORKSHOP FEATURES */
+.workshop-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.feature-card {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid #0f172a;
+}
+
+.feature-card i {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+/* NEW: UPCOMING WORKSHOPS */
+.upcoming-workshops {
+  background: #f0f9ff;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 40px 0;
+  border-left: 4px solid #1e40af;
+}
+
+.workshop-schedule {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.schedule-item {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease;
+}
+
+.schedule-item:hover {
+  transform: translateX(5px);
+}
+
+.workshop-info {
+  margin-bottom: 10px;
+}
+
+.workshop-description {
+  color: #475569;
+  line-height: 1.6;
+}
+
 blockquote {
   background:#f0f9ff; 
   border-right:4px solid #1e293b; 
@@ -209,45 +269,121 @@ footer p {
 <article class="article-content">
 
 <div class="article-section">
-<h2>Importance of Workshops</h2>
-<p>Workshops help you acquire practical skills and apply theoretical knowledge in real-life situations.</p>
+<h2>🌟 Importance of Workshops</h2>
+<p>Workshops help you acquire practical skills and apply theoretical knowledge in real-life situations. They provide the perfect environment for interactive learning and immediate feedback.</p>
+<p>Unlike traditional courses, workshops focus on <strong>learning by doing</strong>, which accelerates your skill development and builds confidence in your abilities.</p>
+</div>
+
+<!-- NEW: WORKSHOP FEATURES -->
+<div class="article-section">
+  <h2>🚀 What Makes Our Workshops Special</h2>
+  <div class="workshop-features">
+    <div class="feature-card">
+      <i class="fas fa-hands-helping"></i>
+      <h3>Hands-on Learning</h3>
+      <p>Practice immediately with real projects and exercises</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-users"></i>
+      <h3>Small Groups</h3>
+      <p>Personalized attention in intimate learning environments</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-laptop-code"></i>
+      <h3>Project-Based</h3>
+      <p>Build actual projects you can add to your portfolio</p>
+    </div>
+    <div class="feature-card">
+  <i class="fas fa-chalkboard-teacher"></i>
+  <h3>Expert Instructors</h3>
+  <p>Learn from experienced professionals in the field</p>
+</div>
+
+<div class="feature-card">
+  <i class="fas fa-life-ring"></i>
+  <h3>Lifetime Support</h3>
+  <p>Get ongoing support and guidance after the workshop</p>
+</div>
+    <div class="feature-card">
+      <i class="fas fa-certificate"></i>
+      <h3>Certification</h3>
+      <p>Receive completion certificates for your achievements</p>
+    </div>
+  </div>
 </div>
 
 <div class="article-section">
-<h2>Available Workshops</h2>
+<h2>🎯 Available Workshops</h2>
 <div class="tips-grid">
-<div class="tip-card" onclick="window.location.href='workshop-html.html'">
+<div class="tip-card">
 <h3>💻 HTML & CSS Workshop</h3>
-<p>Learn the basics of web page development through practical exercises.</p>
+<p>Learn the basics of web page development through practical exercises. Build responsive websites from scratch.</p>
 </div>
-<div class="tip-card" onclick="window.location.href='workshop-js.html'">
+<div class="tip-card">
 <h3>🖥️ JavaScript Workshop</h3>
-<p>Learn interactive programming and dynamic functionality on web pages.</p>
+<p>Learn interactive programming and dynamic functionality on web pages. Create interactive web applications.</p>
 </div>
-<div class="tip-card" onclick="window.location.href='workshop-python.html'">
+<div class="tip-card">
 <h3>🐍 Python Workshop</h3>
-<p>Program applications and automate tasks using Python.</p>
+<p>Program applications and automate tasks using Python. From basics to building real-world applications.</p>
 </div>
-<div class="tip-card" onclick="window.location.href='workshop-design.html'">
+<div class="tip-card">
 <h3>🎨 Design Workshop</h3>
-<p>Learn to design attractive interfaces and user experiences (UI/UX).</p>
+<p>Learn to design attractive interfaces and user experiences (UI/UX). Master design tools and principles.</p>
 </div>
-<div class="tip-card" onclick="window.location.href='workshop-productivity.html'">
+<div class="tip-card">
 <h3>⏰ Time Management Workshop</h3>
-<p>Practical methods to organize your time and increase daily productivity.</p>
+<p>Practical methods to organize your time and increase daily productivity. Tools and techniques that work.</p>
 </div>
-<div class="tip-card" onclick="window.location.href='workshop-mental.html'">
+<div class="tip-card">
 <h3>🧠 Mental Health Workshop</h3>
-<p>Tips and exercises to maintain your mental health and focus while working.</p>
+<p>Tips and exercises to maintain your mental health and focus while working. Balance work and wellbeing.</p>
 </div>
 </div>
 </div>
 
+<!-- NEW: UPCOMING WORKSHOPS -->
+<div class="upcoming-workshops">
+  <h3>📅 Upcoming Workshop Schedule</h3>
+  <p>Join our next sessions and start your learning journey:</p>
+  <div class="workshop-schedule">
+    <div class="schedule-item">
+      <div class="workshop-info">
+        <strong>HTML & CSS Workshop</strong>
+      </div>
+      <p class="workshop-description">Learn web development fundamentals - Build responsive websites from scratch with hands-on projects</p>
+    </div>
+    
+    <div class="schedule-item">
+      <div class="workshop-info">
+        <strong>JavaScript Workshop</strong>
+      </div>
+      <p class="workshop-description">Interactive web programming - Create dynamic web applications with modern JavaScript features</p>
+    </div>
+    
+    <div class="schedule-item">
+      <div class="workshop-info">
+        <strong>Python Workshop</strong>
+      </div>
+      <p class="workshop-description">Programming and automation - From basics to building real-world applications and scripts</p>
+    </div>
+
+    <div class="schedule-item">
+      <div class="workshop-info">
+        <strong>UI/UX Design Workshop</strong>
+      </div>
+      <p class="workshop-description">Design attractive interfaces and user experiences - Master design tools and principles</p>
+    </div>
+  </div>
+</div>
+
 <div class="article-section">
-<h2>Tips Before Participating</h2>
-<p><strong>Prepare your tools:</strong> Make sure all required software and tools are ready.</p>
-<p><strong>Regular attendance:</strong> Commitment helps you get the most out of the workshop.</p>
-<p><strong>Interact with the instructor:</strong> Ask questions to get the best learning experience.</p>
+<h2>💡 Tips Before Participating</h2>
+<p><strong>🛠️ Prepare your tools:</strong> Make sure all required software and tools are ready before the workshop begins.</p>
+<p><strong>📅 Regular attendance:</strong> Commitment helps you get the most out of the workshop and complete all projects.</p>
+<p><strong>💬 Interact with the instructor:</strong> Ask questions to get the best learning experience and clarify doubts immediately.</p>
+<p><strong>🎯 Set clear goals:</strong> Know what you want to achieve from the workshop to stay focused and motivated.</p>
+<p><strong>🤝 Network with peers:</strong> Connect with other participants for collaborative learning and future opportunities.</p>
 </div>
 
 <blockquote>
@@ -255,8 +391,9 @@ footer p {
 </blockquote>
 
 <div class="article-section">
-<h2>Conclusion</h2>
-<p>Join the workshops suitable for you and start your practical learning journey to achieve your personal and professional goals.</p>
+<h2>🎯 Conclusion</h2>
+<p>Join the workshops suitable for you and start your practical learning journey to achieve your personal and professional goals. Whether you're starting your programming journey or looking to enhance existing skills, our workshops provide the perfect environment for growth and development.</p>
+<p><strong>Don't just learn—build, create, and transform your skills through hands-on experience!</strong></p>
 </div>
 
 </article>
@@ -272,6 +409,22 @@ footer p {
 <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
 
+<script>
+// Simple interaction for workshop cards
+document.querySelectorAll('.tip-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const workshopName = this.querySelector('h3').textContent;
+    
+    // تأثير مرئي عند النقر
+    this.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      this.style.transform = 'translateY(-5px)';
+    }, 150);
+    
+    console.log('Selected workshop:', workshopName);
+  });
+});
+</script>
+
 </body>
 </html>
-

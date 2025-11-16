@@ -112,24 +112,20 @@
       color: #475569;
     }
 
-    @keyframes fadeInDown {
-      from {opacity:0; transform:translateY(-20px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-    @keyframes fadeInUp {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
+    /* NEW: ENHANCED ABOUT SECTIONS */
+    .about-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
-    /* ABOUT SECTION */
     .about-section {
-      max-width:800px;
-      margin:60px auto;
-      padding:40px 30px;
       background:#fff;
       border-radius:12px;
       box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      text-align:center;
+      padding: 40px;
+      margin-bottom: 40px;
+      text-align: center;
     }
 
     .about-section h3 {
@@ -156,6 +152,73 @@
       border:3px solid #0f172a;
     }
 
+    /* NEW: MISSION & VALUES GRID */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .value-card {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .value-card i {
+      font-size: 2.5rem;
+      color: #0f172a;
+      margin-bottom: 15px;
+    }
+
+    .value-card h4 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      color: #1e293b;
+    }
+
+    /* NEW: SIMPLE JOURNEY */
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .journey-step {
+      background: #f8fafc;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      border-left: 4px solid #0f172a;
+    }
+
+    .journey-step .step-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    /* NEW: PERSONAL TOUCH */
+    .personal-message {
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 40px 0;
+      border-left: 4px solid #0ea5e9;
+    }
+
+
     /* FOOTER */
     footer {
       background:#0f172a;
@@ -179,6 +242,8 @@
     @media (max-width:768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
+      .values-grid {grid-template-columns: 1fr;}
+      .journey-steps {grid-template-columns: 1fr;}
     }
   </style>
 </head>
@@ -204,22 +269,134 @@
 
 <!-- HERO (no video) -->
 <section class="hero">
-  <h2>About Us</h2>
-  <p>Discover who we are, our mission, and how Programmer Life helps you grow as a developer.</p>
+  <h2>About Coding Life</h2>
+  <p>One passionate developer creating programming content to help others learn and grow</p>
 </section>
 
-<!-- ABOUT SECTION -->
-<section class="about-section">
-  <h3>About Me</h3>
-  <img src="ANA.jpg" alt="Bilal Photo">
-  <p>I am Bilal, founder and creator of Programmer Life. My goal is to learn and teach programming, helping anyone start their tech journey step by step.</p>
-  <hr>
-  <h3>My Mission</h3>
-  <p>To provide high-quality lessons, courses, and educational articles in a simple and direct way, making learning enjoyable and effective.</p>
-  <hr>
-  <h3>My Vision</h3>
-  <p>To enable anyone who wants to learn programming to access practical content that helps them build real projects and continuously improve themselves.</p>
-</section>
+<div class="about-container">
+  <!-- FOUNDER SECTION -->
+  <section class="about-section">
+    <h3>Just Me - Bilal</h3>
+    <img src="ANA.jpg" alt="Bilal Photo">
+    <p>Hello! I'm <strong>Bilal</strong>, the one-person team behind Coding Life. I started this project in 2025 as a way to share my programming journey and help others who are just starting out.</p>
+    <p>Unlike big companies with large teams, Coding Life is my personal project where I create all the content, build the courses, and manage everything myself. I believe in keeping things real and practical.</p>
+  </section>
+
+  <!-- PERSONAL MESSAGE -->
+  <section class="personal-message">
+    <h3>Why I Do This</h3>
+    <p>I remember how overwhelming it felt when I first started learning programming. There were so many resources, but few felt genuine and practical. That's why I created Coding Life - to provide the kind of guidance I wish I had when I was starting out.</p>
+    <p>Every tutorial, every course, every line of code here is created by me. It's not perfect, but it's real and it works.</p>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="about-section">
+    <h3>My Mission & Vision</h3>
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-bullseye"></i>
+        <h4>My Mission</h4>
+        <p>To create practical, no-fluff programming content that actually helps people learn and build real projects.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-eye"></i>
+        <h4>My Vision</h4>
+        <p>To build a supportive community where people can learn programming without the overwhelm and complexity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY JOURNEY -->
+  <section class="about-section">
+    <h3>How It Started</h3>
+    <div class="journey-steps">
+      <div class="journey-step">
+        <div class="step-number">1</div>
+        <h4>The Beginning</h4>
+        <p>Started learning programming and realized how confusing it can be for beginners</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-number">2</div>
+        <h4>The Idea</h4>
+        <p>Decided to document my learning journey and share what actually works</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-number">3</div>
+        <h4>Coding Life</h4>
+        <p>Launched this platform to help others avoid the mistakes I made</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-number">4</div>
+        <h4>Growing Together</h4>
+        <p>Continuing to learn and share as I build this project step by step</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY VALUES -->
+  <section class="about-section">
+    <h3>What Guides Me</h3>
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-heart"></i>
+        <h4>Authenticity</h4>
+        <p>I share real experiences, not theory. You get practical advice that actually works.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h4>Accessibility</h4>
+        <p>Programming should be for everyone. I keep my content simple and approachable.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-rocket"></i>
+        <h4>Practicality</h4>
+        <p>Focus on building real projects, not just memorizing concepts.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-users"></i>
+        <h4>Community</h4>
+        <p>We learn better together. I'm here to answer questions and help you grow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I OFFER -->
+  <section class="about-section">
+    <h3>What You'll Find Here</h3>
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-laptop-code"></i>
+        <h4>Web Development</h4>
+        <p>HTML, CSS, JavaScript tutorials and full-stack web development guides.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-book-open"></i>
+        <h4>Programming Articles</h4>
+        <p>Practical programming tips, career advice, and learning strategies.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-project-diagram"></i>
+        <h4>Project Tutorials</h4>
+        <p>Step-by-step guides to build real projects for your portfolio.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-code"></i>
+        <h4>Code Playground</h4>
+        <p>Interactive coding environment to practice and test your skills.</p>
+      </div>
+       <div class="value-card">
+        <i class="fas fa-tools"></i>
+        <h4>Development Tools</h4>
+        <p>Git, VS Code, Chrome DevTools, and other essential developer tools and workflows.</p>
+      </div>
+        <div class="value-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h4>Responsive Design</h4>
+        <p>Creating websites that work perfectly on all devices - desktop, tablet, and mobile.</p>
+      </div>
+    </div>
+  </section>
+</div>
 
 <footer>
   <div class="social" style="margin-bottom:20px;">
@@ -229,7 +406,7 @@
     <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
     <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
   </div>
-  <p>© 2025 Coding Life - All Rights Reserved</p>
+    <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
 
 </body>

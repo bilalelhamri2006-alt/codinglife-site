@@ -144,10 +144,63 @@ nav a:hover {
   border:1px solid #e2e8f0;
   box-shadow:0 4px 12px rgba(0,0,0,0.08);
   transition:transform 0.3s ease;
+  cursor: pointer;
 }
 .tip-card:hover {transform:translateY(-5px);}
 .tip-card h3 {color:#1e293b; margin-bottom:10px; font-size:1.3rem;}
 .tip-card p {color:#64748b; font-size:1rem;}
+
+/* NEW: SELF-DEVELOPMENT FEATURES */
+.selfdev-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.feature-card {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid #1e40af;
+}
+
+.feature-card i {
+  font-size: 2rem;
+  color: #1e40af;
+  margin-bottom: 10px;
+}
+
+/* NEW: WEEKLY CHALLENGE */
+.weekly-challenge {
+  background: #f0f9ff;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 40px 0;
+  border-left: 4px solid #1e40af;
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.challenge-day {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.challenge-day.active {
+  background: #1e40af;
+  color: white;
+}
+
 
 blockquote {
   background:#f0f9ff;
@@ -187,7 +240,8 @@ footer p {
   .left-buttons {display:flex;}
   .article-content {margin:30px 15px; padding:30px 20px;}
   .article-header h1 {font-size:2rem;}
-}
+  }
+
 </style>
 </head>
 <body>
@@ -211,19 +265,46 @@ footer p {
 </header>
 
 <section class="article-header">
-<h1>Self-Development</h1>
-<p class="meta">Practical methods and techniques to improve your daily, personal, and professional life</p>
+<h1>Self-Development Journey</h1>
+<p class="meta">Practical methods and techniques to transform your personal and professional life</p>
 </section>
 
 <article class="article-content">
 
 <div class="article-section">
-<h2>Introduction</h2>
-<p>Self-development is an ongoing process to improve your personal and professional skills, boost self-confidence, and achieve your goals.</p>
+<h2>🌟 Introduction to Self-Development</h2>
+<p>Self-development is an ongoing process to improve your personal and professional skills, boost self-confidence, and achieve your goals. It's about becoming the best version of yourself through continuous learning and growth.</p>
+</div>
+
+<!-- NEW: SELF-DEVELOPMENT FEATURES -->
+<div class="article-section">
+  <h2>🚀 Key Benefits of Self-Development</h2>
+  <div class="selfdev-features">
+    <div class="feature-card">
+      <i class="fas fa-brain"></i>
+      <h3>Mental Growth</h3>
+      <p>Expand your knowledge and cognitive abilities continuously</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Career Advancement</h3>
+      <p>Accelerate your professional growth and opportunities</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-heart"></i>
+      <h3>Personal Fulfillment</h3>
+      <p>Achieve greater satisfaction and purpose in life</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Resilience Building</h3>
+      <p>Develop strength to handle life's challenges effectively</p>
+    </div>
+  </div>
 </div>
 
 <div class="article-section">
-<h2>Self-Development Methods</h2>
+<h2>🎯 Self-Development Methods</h2>
 <div class="tips-grid">
 <div class="tip-card">
 <h3>📚 Continuous Reading</h3>
@@ -267,21 +348,61 @@ footer p {
 </div>
 </div>
 
+<!-- NEW: WEEKLY CHALLENGE -->
+<div class="weekly-challenge">
+  <h3>🏆 7-Day Self-Development Challenge</h3>
+  <p>Transform your life one day at a time with this simple challenge:</p>
+  <div class="challenge-grid">
+    <div class="challenge-day active">
+      <strong>Day 1</strong>
+      <p>Morning Meditation</p>
+    </div>
+    <div class="challenge-day">
+      <strong>Day 2</strong>
+      <p>Read 30 mins</p>
+    </div>
+    <div class="challenge-day">
+      <strong>Day 3</strong>
+      <p>Exercise Session</p>
+    </div>
+    <div class="challenge-day">
+      <strong>Day 4</strong>
+      <p>Gratitude Journal</p>
+    </div>
+    <div class="challenge-day">
+      <strong>Day 5</strong>
+      <p>Learn New Skill</p>
+    </div>
+    <div class="challenge-day">
+      <strong>Day 6</strong>
+      <p>Digital Detox</p>
+    </div>
+    <div class="challenge-day">
+      <strong>Day 7</strong>
+      <p>Weekly Review</p>
+    </div>
+  </div>
+</div>
+
 <div class="article-section">
-<h2>Additional Tips</h2>
+<h2>💡 Additional Tips</h2>
 <p><strong>Start with the hardest:</strong> Do the toughest tasks first in the day.</p>
 <p><strong>Organized environment:</strong> Keep your workspace tidy for better focus.</p>
 <p><strong>Learn to say "No":</strong> Focus only on what's important.</p>
 <p><strong>Keep developing:</strong> Daily practice makes a difference.</p>
+<p><strong>Track your progress:</strong> Monitor your growth and celebrate small wins.</p>
+<p><strong>Find a mentor:</strong> Learn from those who have achieved what you want.</p>
 </div>
 
+
 <blockquote>
-"Self-development is not a goal, but a continuous journey towards better."
+"Self-development is not a goal, but a continuous journey towards better. The only person you should try to be better than is the person you were yesterday."
 </blockquote>
 
 <div class="article-section">
-<h2>Conclusion</h2>
-<p>By following these methods and daily practices, you can significantly improve your personal and professional life.</p>
+<h2>🎯 Conclusion</h2>
+<p>By following these methods and daily practices, you can significantly improve your personal and professional life. Remember that self-development is a marathon, not a sprint. Celebrate small wins, learn from setbacks, and stay consistent.</p>
+<p><strong>Start today, stay consistent, and transform your life one step at a time!</strong></p>
 </div>
 
 </article>
@@ -296,6 +417,54 @@ footer p {
 </div>
 <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
+
+<script>
+// Simple interaction for tip cards
+document.querySelectorAll('.tip-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const tipName = this.querySelector('h3').textContent;
+    
+    // تأثير مرئي عند النقر
+    this.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      this.style.transform = 'translateY(-5px)';
+    }, 150);
+    
+    console.log('Selected tip:', tipName);
+  });
+});
+
+// Challenge day interaction
+document.querySelectorAll('.challenge-day').forEach(day => {
+  day.addEventListener('click', function() {
+    document.querySelectorAll('.challenge-day').forEach(d => {
+      d.classList.remove('active');
+    });
+    this.classList.add('active');
+  });
+});
+
+// Action buttons functions
+function downloadPlan() {
+  alert('📥 Your Self-Development Action Plan is downloading!');
+}
+
+function startChallenge() {
+  alert('🚀 Starting your 7-Day Self-Development Challenge! Good luck!');
+}
+
+function shareArticle() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Self-Development Guide',
+      text: 'Check out this amazing self-development guide!',
+      url: window.location.href
+    });
+  } else {
+    alert('Share this article with your friends! 📱');
+  }
+}
+</script>
 
 </body>
 </html>

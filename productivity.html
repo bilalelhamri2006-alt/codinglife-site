@@ -142,6 +142,71 @@ nav a:hover {
 .tip-card:hover {transform:translateY(-5px);}
 .tip-card h3 {margin-bottom:10px; font-size:1.3rem;}
 .tip-card p {color:#64748b; font-size:1rem;}
+
+/* NEW STYLES FOR ENHANCED CONTENT */
+.tip-box {
+  background:#f0f9ff;
+  border-left:4px solid #0ea5e9;
+  padding:20px;
+  margin:20px 0;
+  border-radius:0 8px 8px 0;
+}
+
+.warning-box {
+  background:#fef2f2;
+  border-left:4px solid #ef4444;
+  padding:20px;
+  margin:20px 0;
+  border-radius:0 8px 8px 0;
+}
+
+.success-box {
+  background:#f0fdf4;
+  border-left:4px solid #22c55e;
+  padding:20px;
+  margin:20px 0;
+  border-radius:0 8px 8px 0;
+}
+
+.step-list {
+  margin:20px 0;
+  padding-left:20px;
+}
+
+.step-list li {
+  margin-bottom:15px;
+  padding-left:10px;
+}
+
+.highlight {
+  background:#fef3c7;
+  padding:2px 6px;
+  border-radius:4px;
+  font-weight:bold;
+}
+
+.technique-grid {
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:20px;
+  margin:20px 0;
+}
+
+.technique-card {
+  background:#f8fafc;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #e2e8f0;
+}
+
+.technique-card h4 {
+  margin-bottom:10px;
+  color:#0f172a;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
 blockquote {
   background:#f0f9ff;
   border-right:4px solid #1e293b;
@@ -150,6 +215,32 @@ blockquote {
   border-radius:8px;
   font-style:italic;
   color:#1e293b;
+}
+
+.productivity-stats {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:15px;
+  margin:20px 0;
+}
+
+.stat-item {
+  text-align:center;
+  padding:15px;
+  background:#f8fafc;
+  border-radius:8px;
+}
+
+.stat-number {
+  font-size:1.8rem;
+  font-weight:bold;
+  color:#0f172a;
+  margin-bottom:5px;
+}
+
+.stat-label {
+  font-size:0.9rem;
+  color:#64748b;
 }
 
 /* FOOTER - Updated to match previous design */
@@ -181,6 +272,8 @@ footer p {
   nav {display:none;}
   .left-buttons {display:flex;}
   .article-content {margin:20px 10px; padding:20px;}
+  .technique-grid {grid-template-columns:1fr;}
+  .productivity-stats {grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -211,25 +304,229 @@ footer p {
 
 <article class="article-content">
   <div class="article-section">
-    <h2>Introduction</h2>
-    <p>In today's fast-paced world, productivity is key to success in all areas of life...</p>
+    <h2>Why Productivity Matters in 2025</h2>
+    <p>In today's fast-paced digital world, productivity isn't just about getting more done—it's about working smarter, achieving better results, and maintaining work-life balance.</p>
+    
+    <div class="productivity-stats">
+      <div class="stat-item">
+        <div class="stat-number">89%</div>
+        <div class="stat-label">Feel overwhelmed by tasks</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3.1h</div>
+        <div class="stat-label">Average daily distraction time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">42%</div>
+        <div class="stat-label">Increase with proper systems</div>
+      </div>
+    </div>
+    
+    <div class="tip-box">
+      <p><strong>Productivity Truth:</strong> Being busy doesn't mean being productive. Focus on outcomes, not just activity.</p>
+    </div>
   </div>
 
   <div class="article-section">
-    <h2>Top Ways to Increase Productivity</h2>
+    <h2>Fundamental Productivity Principles</h2>
+    <p>Master these core principles to build a solid productivity foundation:</p>
+    
+    <div class="technique-grid">
+      <div class="technique-card">
+        <h4><i class="fas fa-bullseye"></i> The 80/20 Rule</h4>
+        <p>80% of results come from 20% of efforts. Identify and focus on high-impact activities.</p>
+      </div>
+      <div class="technique-card">
+        <h4><i class="fas fa-chess-board"></i> Eisenhower Matrix</h4>
+        <p>Prioritize tasks based on urgency and importance. Eliminate what's not essential.</p>
+      </div>
+      <div class="technique-card">
+        <h4><i class="fas fa-brain"></i> Deep Work</h4>
+        <p>Protected, distraction-free time for cognitively demanding tasks.</p>
+      </div>
+      <div class="technique-card">
+        <h4><i class="fas fa-tasks"></i> Time Blocking</h4>
+        <p>Schedule specific blocks of time for different types of work and activities.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Morning Routine for Peak Productivity</h2>
+    <p>Start your day right with this science-backed morning routine:</p>
+    
+    <ol class="step-list">
+      <li>
+        <strong>Wake Up Early (5:30-6:30 AM):</strong> Give yourself time before the world wakes up. The quiet morning hours are perfect for focused work.
+      </li>
+      <li>
+        <strong>Hydrate & Move (10 minutes):</strong> Drink a glass of water and do light stretching to activate your body and mind.
+      </li>
+      <li>
+        <strong>Meditation & Planning (15 minutes):</strong> Clear your mind and review your top 3 priorities for the day.
+      </li>
+      <li>
+        <strong>Deep Work Session (90 minutes):</strong> Tackle your most important task when your willpower is strongest.
+      </li>
+      <li>
+        <strong>Healthy Breakfast (20 minutes):</strong> Fuel your brain with protein and complex carbohydrates.
+      </li>
+    </ol>
+    
+    <div class="success-box">
+      <p><strong>Pro Tip:</strong> Don't check email or social media for the first 60-90 minutes of your day. Protect your morning focus.</p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Top 15 Productivity Techniques</h2>
     <div class="tips-grid">
       <div class="tip-card">
         <h3>⏰ Pomodoro Technique</h3>
-        <p>Work for 25 minutes and then take a 5-minute break...</p>
+        <p>Work for 25 minutes, then take a 5-minute break. After 4 cycles, take a longer 15-30 minute break.</p>
       </div>
       <div class="tip-card">
-        <h3>📝 Task Planning</h3>
-        <p>Plan your day in the morning or the night before...</p>
+        <h3>📝 Time Blocking</h3>
+        <p>Schedule specific time slots for different tasks and activities in your calendar.</p>
       </div>
       <div class="tip-card">
-        <h3>🎯 80/20 Rule</h3>
-        <p>Focus on the 20% of tasks that produce 80% of results...</p>
+        <h3>🎯 Eisenhower Matrix</h3>
+        <p>Categorize tasks as urgent/important, important/not urgent, urgent/not important, or neither.</p>
       </div>
+      <div class="tip-card">
+        <h3>📋 Two-Minute Rule</h3>
+        <p>If a task takes less than two minutes, do it immediately instead of postponing it.</p>
+      </div>
+      <div class="tip-card">
+        <h3>🧹 Digital Declutter</h3>
+        <p>Regularly clean your digital workspace - close unused tabs, organize files, and unsubscribe from unnecessary emails.</p>
+      </div>
+      <div class="tip-card">
+        <h3>🎵 Focus Music</h3>
+        <p>Use instrumental music or ambient sounds to improve concentration and block distractions.</p>
+      </div>
+      <div class="tip-card">
+        <h3>📱 App Blockers</h3>
+        <p>Use tools like Freedom or Cold Turkey to block distracting websites and apps during work hours.</p>
+      </div>
+      <div class="tip-card">
+        <h3>🔄 Batch Processing</h3>
+        <p>Group similar tasks together (like emails, calls, or administrative work) to process them more efficiently.</p>
+      </div>
+      <div class="tip-card">
+        <h3>🎯 Single-Tasking</h3>
+        <p>Focus on one task at a time instead of multitasking, which reduces efficiency by up to 40%.</p>
+      </div>
+      <div class="tip-card">
+        <h3>📈 Progress Tracking</h3>
+        <p>Use tools like Trello, Notion, or simple spreadsheets to track your progress and stay motivated.</p>
+      </div>
+      <div class="tip-card">
+        <h3>💡 Energy Management</h3>
+        <p>Schedule demanding tasks during your peak energy hours and easier tasks when your energy dips.</p>
+      </div>
+      <div class="tip-card">
+        <h3>🚫 The "Not-To-Do" List</h3>
+        <p>Identify habits and activities that waste your time and consciously avoid them.</p>
+      </div>
+      <div class="tip-card">
+        <h3>📚 Learning Blocks</h3>
+        <p>Dedicate specific time for learning and skill development to avoid constant context switching.</p>
+      </div>
+      <div class="tip-card">
+        <h3>🔄 Weekly Review</h3>
+        <p>Spend 30-60 minutes each week reviewing accomplishments, challenges, and planning the next week.</p>
+      </div>
+      <div class="tip-card">
+        <h3>🎉 Reward System</h3>
+        <p>Celebrate completed tasks and milestones with small rewards to maintain motivation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Digital Tools for Maximum Efficiency</h2>
+    <p>Leverage these powerful tools to supercharge your productivity:</p>
+    
+    <div class="technique-grid">
+      <div class="technique-card">
+        <h4><i class="fas fa-tasks"></i> Task Management</h4>
+        <p><strong>Todoist, Trello, Asana:</strong> Organize tasks, set deadlines, and track progress.</p>
+      </div>
+      <div class="technique-card">
+        <h4><i class="fas fa-clock"></i> Time Tracking</h4>
+        <p><strong>RescueTime, Toggl:</strong> Understand where your time goes and identify time-wasters.</p>
+      </div>
+      <div class="technique-card">
+        <h4><i class="fas fa-ban"></i> Focus Tools</h4>
+        <p><strong>Forest, Freedom:</strong> Block distractions and build focus habits.</p>
+      </div>
+      <div class="technique-card">
+        <h4><i class="fas fa-sticky-note"></i> Note Taking</h4>
+        <p><strong>Notion, Evernote, Obsidian:</strong> Capture ideas and organize knowledge.</p>
+      </div>
+    </div>
+    
+    <div class="warning-box">
+      <p><strong>Tool Trap:</strong> Don't spend more time organizing your tools than doing actual work. Choose 2-3 essential tools and master them.</p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Overcoming Productivity Killers</h2>
+    <p>Identify and eliminate these common productivity destroyers:</p>
+    
+    <ul class="step-list">
+      <li><strong>Multitasking:</strong> Reduces efficiency and increases errors by up to 50%</li>
+      <li><strong>Notification Overload:</strong> Constant interruptions break focus and flow</li>
+      <li><strong>Perfectionism:</strong> Striving for perfection prevents completion</li>
+      <li><strong>Poor Planning:</strong> Without clear priorities, you'll work on less important tasks</li>
+      <li><strong>Energy Drain:</strong> Neglecting sleep, exercise, and nutrition destroys productivity</li>
+      <li><strong>Decision Fatigue:</strong> Too many small decisions exhaust mental energy</li>
+    </ul>
+    
+    <blockquote>
+      "The key is not to prioritize what's on your schedule, but to schedule your priorities." - Stephen Covey
+    </blockquote>
+  </div>
+
+  <div class="article-section">
+    <h2>Your 7-Day Productivity Challenge</h2>
+    <p>Transform your productivity in just one week with this simple challenge:</p>
+    
+    <div class="technique-grid">
+      <div class="technique-card">
+        <h4>Day 1: Digital Detox</h4>
+        <p>Turn off all non-essential notifications and unsubscribe from 10 email lists.</p>
+      </div>
+      <div class="technique-card">
+        <h4>Day 2: Time Audit</h4>
+        <p>Track how you spend every hour to identify time leaks.</p>
+      </div>
+      <div class="technique-card">
+        <h4>Day 3: Priority Planning</h4>
+        <p>Identify your top 3 priorities for the next 90 days.</p>
+      </div>
+      <div class="technique-card">
+        <h4>Day 4: System Setup</h4>
+        <p>Implement one productivity system (Pomodoro, Time Blocking, or Eisenhower).</p>
+      </div>
+      <div class="technique-card">
+        <h4>Day 5: Deep Work</h4>
+        <p>Schedule and complete a 2-hour deep work session.</p>
+      </div>
+      <div class="technique-card">
+        <h4>Day 6: Automation</h4>
+        <p>Automate or delegate 3 repetitive tasks.</p>
+      </div>
+      <div class="technique-card">
+        <h4>Day 7: Review & Adjust</h4>
+        <p>Review your week and create your ideal productivity system.</p>
+      </div>
+    </div>
+    
+    <div class="success-box">
+      <p><strong>Start Today:</strong> Don't wait for the perfect moment. Pick one technique from this guide and implement it <span class="highlight">right now</span>. Small, consistent actions create massive long-term results.</p>
     </div>
   </div>
 </article>
