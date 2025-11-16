@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Learn BLOG — coding life</title>
+  <title>Learn BLOG — Coding Life</title>
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TJ6Z2QKGHJ');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ6Z2QKGHJ');
+  </script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     body{
@@ -60,6 +59,10 @@
       background:#0f172a;
       color:#fff;
     }
+    nav a.active{
+      background:#0f172a;
+      color:#fff;
+    }
 
     /* MOBILE ICON BUTTONS */
     .mobile-links{
@@ -79,6 +82,10 @@
       transition:.3s;
     }
     .mobile-links a:hover{
+      background:#0f172a;
+      color:white;
+    }
+    .mobile-links a.active{
       background:#0f172a;
       color:white;
     }
@@ -129,6 +136,7 @@
       width:100%;
       height:200px;
       object-fit:cover;
+      background:#e2e8f0;
     }
     .card .content{padding:20px;}
     .card .content h3{
@@ -139,6 +147,166 @@
     .card .content p{
       color:#475569;
       font-size:1rem;
+    }
+
+    /* NEW SECTIONS */
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2rem;
+      color: #0f172a;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #0f172a;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+    
+    .popular-articles, .tools, .faq, .programming-tips, .web-questions {
+      max-width: 1100px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+    }
+    
+    .article-list, .tools-list, .tips-list, .questions-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .article-item, .tool-item, .tip-item, .question-item {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform .3s;
+    }
+    
+    .article-item:hover, .tool-item:hover, .tip-item:hover, .question-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .article-item h3, .tool-item h3, .tip-item h3, .question-item h3 {
+      color: #1e293b;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .article-item p, .tool-item p, .tip-item p, .question-item p {
+      color: #475569;
+      margin-bottom: 15px;
+    }
+    
+    .read-more {
+      display: inline-block;
+      color: #0f172a;
+      font-weight: bold;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 2px;
+      transition: .3s;
+    }
+    
+    .read-more:hover {
+      color: #475569;
+      border-color: #475569;
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .faq-question {
+      font-weight: bold;
+      color: #0f172a;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .faq-answer {
+      color: #475569;
+    }
+    
+    .tool-icon, .tip-icon, .question-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #0f172a;
+    }
+    
+    /* TOOLS SECTION */
+    .tools {
+      background: #f1f5f9;
+      padding: 40px 20px;
+      border-radius: 16px;
+      margin: 50px auto;
+    }
+    
+    .tool-item {
+      text-align: center;
+    }
+    
+    .tool-item .btn {
+      display: inline-block;
+      background: #0f172a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: .3s;
+    }
+    
+    .tool-item .btn:hover {
+      background: #475569;
+    }
+
+    /* PROGRAMMING TIPS SECTION */
+    .programming-tips {
+      background: #f1f5f9;
+      padding: 40px 20px;
+      border-radius: 16px;
+      margin: 50px auto;
+    }
+
+    .tip-item {
+      border-left: 4px solid #0f172a;
+      text-align: left;
+    }
+
+    /* WEB QUESTIONS SECTION */
+    .web-questions {
+      background: #f1f5f9;
+      padding: 40px 20px;
+      border-radius: 16px;
+      margin: 50px auto;
+    }
+
+    .question-item {
+      border-left: 4px solid #0f172a;
+      text-align: left;
+    }
+
+    .question-answer {
+      background: #f8fafc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border-left: 3px solid #0f172a;
+    }
+
+    code {
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9rem;
     }
 
     /* FOOTER */
@@ -163,6 +331,9 @@
     @media (max-width:768px){
       nav{display:none;}
       .mobile-links{display:flex;}
+      .section-title {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
@@ -170,19 +341,20 @@
 
 <header>
   <nav>
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="blog.html" class="active"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="blog.html" class="active"><i class="fas fa-book-open"></i> Blog</a>
+      <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+
   </nav>
 
   <div class="mobile-links">
-    <a href="index.html"><i class="fas fa-home"></i></a>
-    <a href="blog.html" class="active"><i class="fas fa-book-open"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i></a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> </a>
-    <a href="playground.html"><i class="fas fa-code"></i> </a>
+      <a href="index.html"><i class="fas fa-home"></i></a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> </a>
+      <a href="blog.html" class="active"><i class="fas fa-book-open"></i> </a>
+      <a href="playground.html"><i class="fas fa-code"></i></a>
+      <a href="about.html"><i class="fas fa-info-circle"></i></a>
 
   </div>
 </header>
@@ -214,6 +386,140 @@
     <div class="content">
       <h3>Ways to Increase Daily Productivity</h3>
       <p>Practical tips to work smarter and save time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Articles Section -->
+<section class="popular-articles">
+  <h2 class="section-title">Popular Articles</h2>
+  <div class="article-list">
+    <div class="article-item">
+      <h3>10 Common Programming Mistakes and How to Avoid Them</h3>
+      <p>Learn about the most frequent errors beginners make and how to fix them.</p>
+    </div>
+    <div class="article-item">
+      <h3>The Future of Web Development in 2025</h3>
+      <p>Explore the upcoming trends and technologies that will shape web development.</p>
+    </div>
+    <div class="article-item">
+      <h3>Building Your First Portfolio Website</h3>
+      <p>A step-by-step guide to creating an impressive portfolio that stands out.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Developer Tools Section -->
+<section class="tools">
+  <h2 class="section-title">Developer Tools</h2>
+  <div class="tools-list">
+    <div class="tool-item">
+      <div class="tool-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <h3>Code Formatter</h3>
+      <p>Format and beautify your code with our online tool.</p>
+      <a href="playground.html" class="btn">Use Tool</a>
+    </div>
+    <div class="tool-item">
+      <div class="tool-icon">
+        <i class="fas fa-palette"></i>
+      </div>
+      <h3>Color Palette Generator</h3>
+      <p>Create beautiful color schemes for your projects.</p>
+      <a href="colors.html" class="btn">Use Tool</a>
+    </div>
+    <div class="tool-item">
+      <div class="tool-icon">
+        <i class="fas fa-calculator"></i>
+      </div>
+      <h3>CSS Unit Converter</h3>
+      <p>Convert between different CSS units quickly and easily.</p>
+      <a href="css-converter.html" class="btn">Use Tool</a>
+    </div>
+  </div>
+</section>
+
+<!-- Programming Tips Section -->
+<section class="programming-tips">
+  <h2 class="section-title">Web Development Tips</h2>
+  <div class="tips-list">
+    <div class="tip-item">
+      <div class="tip-icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3>Write Semantic HTML</h3>
+      <p>Use proper HTML tags like &lt;header&gt;, &lt;nav&gt;, &lt;main&gt; instead of just &lt;div&gt; for better accessibility and SEO.</p>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">
+        <i class="fas fa-mobile-alt"></i>
+      </div>
+      <h3>Mobile-First Design</h3>
+      <p>Start designing for mobile devices first, then scale up for larger screens. This ensures better performance and user experience.</p>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">
+        <i class="fas fa-tachometer-alt"></i>
+      </div>
+      <h3>Optimize Performance</h3>
+      <p>Compress images, minify CSS/JS, and use lazy loading to improve your website's loading speed and Core Web Vitals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Web Questions Section -->
+<section class="web-questions">
+  <h2 class="section-title">Web Development Questions</h2>
+  <div class="questions-list">
+    <div class="question-item">
+      <div class="question-icon">
+        <i class="fas fa-question-circle"></i>
+      </div>
+      <h3>What's the difference between let, const, and var?</h3>
+      <p>Understanding variable declarations in JavaScript</p>
+      <div class="question-answer">
+        <strong>Answer:</strong> <code>var</code> is function-scoped, while <code>let</code> and <code>const</code> are block-scoped. <code>const</code> cannot be reassigned, while <code>let</code> can.
+      </div>
+    </div>
+    <div class="question-item">
+      <div class="question-icon">
+        <i class="fas fa-question-circle"></i>
+      </div>
+      <h3>How to center a div?</h3>
+      <p>Common CSS layout question</p>
+      <div class="question-answer">
+        <strong>Answer:</strong> Use <code>display: flex; justify-content: center; align-items: center;</code> on the parent container, or <code>margin: 0 auto;</code> for block elements.
+      </div>
+    </div>
+    <div class="question-item">
+      <div class="question-icon">
+        <i class="fas fa-question-circle"></i>
+      </div>
+      <h3>What is the Box Model in CSS?</h3>
+      <p>Understanding CSS layout fundamentals</p>
+      <div class="question-answer">
+        <strong>Answer:</strong> The CSS Box Model consists of content, padding, border, and margin. It determines how elements are sized and spaced on a web page.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">Which programming language should I learn first for web development?</div>
+      <div class="faq-answer">Start with HTML and CSS for structure and styling, then move to JavaScript for interactivity. These are the core technologies of the web.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">How long does it take to become a web developer?</div>
+      <div class="faq-answer">With consistent practice, you can learn the basics in 3-6 months, but becoming proficient typically takes 1-2 years of building projects.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Do I need to know design to be a web developer?</div>
+      <div class="faq-answer">While not mandatory, understanding basic design principles will make you a better frontend developer and improve collaboration with designers.</div>
     </div>
   </div>
 </section>

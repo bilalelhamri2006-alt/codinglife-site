@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette Generator - Coding Life</title>
+  <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Cairo',sans-serif;
+      background-color:#f8fafc;
+      color:#1e293b;
+      line-height:1.6;
+      padding-top:70px;
+    }
+    a{text-decoration:none;color:inherit;}
+
+    /* HEADER */
+    header{
+      background:white;
+      position:fixed;
+      top:0;left:0;
+      width:100%;
+      height:70px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:1000;
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      gap:25px;
+    }
+    nav a{
+      font-weight:bold;
+      font-size:1rem;
+      color:#0f172a;
+      padding:10px 18px;
+      border-radius:8px;
+      transition:.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    nav a:hover{
+      background:#0f172a;
+      color:#fff;
+    }
+
+    /* MOBILE ICON BUTTONS */
+    .mobile-links{
+      display:none;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      top:12px;
+      gap:12px;
+      justify-content:center;
+    }
+    .mobile-links a{
+      font-size:1.3rem;
+      color:#0f172a;
+      padding:6px 10px;
+      border-radius:8px;
+      transition:.3s;
+    }
+    .mobile-links a:hover{
+      background:#0f172a;
+      color:white;
+    }
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 50px 30px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+      color: #0f172a;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* GENERATOR SECTION */
+    .generator-section {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .control-group label {
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    .control-group input,
+    .control-group select {
+      padding: 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .control-group input:focus,
+    .control-group select:focus {
+      outline: none;
+      border-color: #0f172a;
+    }
+
+    .generate-btn {
+      background: #0f172a;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .generate-btn:hover {
+      background: #475569;
+      transform: translateY(-2px);
+    }
+
+    /* PALETTE DISPLAY */
+    .palette-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .color-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .color-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .color-preview {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .color-info {
+      background: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .color-hex {
+      font-family: monospace;
+      font-weight: bold;
+      color: #0f172a;
+      margin-bottom: 5px;
+    }
+
+    .color-rgb {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* FEATURES */
+    .features {
+      background: #f1f5f9;
+      padding: 40px;
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature {
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #0f172a;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      color: #1e293b;
+    }
+
+    .feature p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#0f172a;
+      color:#cbd5e1;
+      text-align:center;
+      padding:12px 0;
+      font-size:0.85rem;
+      margin-top:40px;
+    }
+    footer p{font-size:14px;opacity:0.7;margin-top:4px;}
+    .social a{margin:0 8px;font-size:1.1rem;}
+    .social a:hover{transform:translateY(-3px);}
+    .social a.fb:hover{color:#1877f2;}
+    .social a.yt:hover{color:#ff0000;}
+    .social a.ig:hover{color:#e4405f;}
+    .social a.ln:hover{color:#0a66c2;}
+    .social a.wa:hover{color:#25d366;}
+
+    /* RESPONSIVE */
+    @media (max-width:768px){
+      nav{display:none;}
+      .mobile-links{display:flex;}
+      .controls {
+        grid-template-columns: 1fr;
+      }
+      .palette-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0f172a;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  </nav>
+
+  <div class="mobile-links">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i></a>
+  </div>
+</header>
+
+<div class="container">
+  <section class="hero">
+    <h1>Color Palette Generator</h1>
+    <p>Create beautiful color schemes for your web projects. Generate harmonious palettes with perfect color combinations.</p>
+  </section>
+
+  <section class="generator-section">
+    <div class="controls">
+      <div class="control-group">
+        <label for="baseColor"><i class="fas fa-eyedropper"></i> Base Color</label>
+        <input type="color" id="baseColor" value="#3b82f6">
+      </div>
+      
+      <div class="control-group">
+        <label for="paletteType"><i class="fas fa-palette"></i> Palette Type</label>
+        <select id="paletteType">
+          <option value="monochromatic">Monochromatic</option>
+          <option value="analogous">Analogous</option>
+          <option value="complementary">Complementary</option>
+          <option value="triadic">Triadic</option>
+          <option value="tetradic">Tetradic</option>
+        </select>
+      </div>
+      
+      <div class="control-group">
+        <label for="colorCount"><i class="fas fa-swatchbook"></i> Number of Colors</label>
+        <select id="colorCount">
+          <option value="5">5 Colors</option>
+          <option value="6">6 Colors</option>
+          <option value="8">8 Colors</option>
+          <option value="10">10 Colors</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="generate-btn" id="generateBtn">
+      <i class="fas fa-magic"></i> Generate Palette
+    </button>
+
+    <div class="palette-container" id="paletteContainer">
+      <!-- Palette will be generated here -->
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <div class="feature-icon">
+        <i class="fas fa-paint-brush"></i>
+      </div>
+      <h3>Professional Palettes</h3>
+      <p>Generate professional color schemes that work perfectly together for your web designs</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <i class="fas fa-copy"></i>
+      </div>
+      <h3>Easy Copy</h3>
+      <p>Copy color codes with one click - HEX, RGB, and HSL formats available</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3>Smart Generation</h3>
+      <p>Advanced algorithms create harmonious color combinations based on color theory</p>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast">Color copied to clipboard!</div>
+
+<footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const baseColor = document.getElementById('baseColor');
+    const paletteType = document.getElementById('paletteType');
+    const colorCount = document.getElementById('colorCount');
+    const generateBtn = document.getElementById('generateBtn');
+    const paletteContainer = document.getElementById('paletteContainer');
+    const toast = document.getElementById('toast');
+
+    // Generate initial palette
+    generatePalette();
+
+    generateBtn.addEventListener('click', generatePalette);
+
+    function generatePalette() {
+      const baseHex = baseColor.value;
+      const type = paletteType.value;
+      const count = parseInt(colorCount.value);
+      
+      const colors = generateColors(baseHex, type, count);
+      displayPalette(colors);
+    }
+
+    function generateColors(baseHex, type, count) {
+      const base = hexToHSL(baseHex);
+      const colors = [baseHex];
+
+      switch(type) {
+        case 'monochromatic':
+          for(let i = 1; i < count; i++) {
+            const lightness = Math.max(10, Math.min(90, base.l + (i - 2) * 15));
+            colors.push(hslToHex(base.h, base.s, lightness));
+          }
+          break;
+
+        case 'analogous':
+          for(let i = 1; i < count; i++) {
+            const hue = (base.h + (i * 30)) % 360;
+            colors.push(hslToHex(hue, base.s, base.l));
+          }
+          break;
+
+        case 'complementary':
+          const compHue = (base.h + 180) % 360;
+          colors.push(hslToHex(compHue, base.s, base.l));
+          // Add variations
+          for(let i = 2; i < count; i++) {
+            const hue = (base.h + (i * 60)) % 360;
+            colors.push(hslToHex(hue, base.s, base.l));
+          }
+          break;
+
+        case 'triadic':
+          colors.push(hslToHex((base.h + 120) % 360, base.s, base.l));
+          colors.push(hslToHex((base.h + 240) % 360, base.s, base.l));
+          // Add more variations if needed
+          for(let i = 3; i < count; i++) {
+            const hue = (base.h + (i * 45)) % 360;
+            colors.push(hslToHex(hue, base.s, base.l));
+          }
+          break;
+
+        case 'tetradic':
+          colors.push(hslToHex((base.h + 90) % 360, base.s, base.l));
+          colors.push(hslToHex((base.h + 180) % 360, base.s, base.l));
+          colors.push(hslToHex((base.h + 270) % 360, base.s, base.l));
+          // Add more variations if needed
+          for(let i = 4; i < count; i++) {
+            const hue = (base.h + (i * 36)) % 360;
+            colors.push(hslToHex(hue, base.s, base.l));
+          }
+          break;
+      }
+
+      return colors.slice(0, count);
+    }
+
+    function displayPalette(colors) {
+      paletteContainer.innerHTML = '';
+      
+      colors.forEach(color => {
+        const rgb = hexToRgb(color);
+        const colorCard = document.createElement('div');
+        colorCard.className = 'color-card';
+        colorCard.innerHTML = `
+          <div class="color-preview" style="background-color: ${color};" data-color="${color}">
+            ${getContrastColor(color)}
+          </div>
+          <div class="color-info">
+            <div class="color-hex">${color.toUpperCase()}</div>
+            <div class="color-rgb">RGB(${rgb.r}, ${rgb.g}, ${rgb.b})</div>
+          </div>
+        `;
+        
+        colorCard.addEventListener('click', () => copyToClipboard(color));
+        paletteContainer.appendChild(colorCard);
+      });
+    }
+
+    function copyToClipboard(color) {
+      navigator.clipboard.writeText(color).then(() => {
+        showToast(`Copied: ${color}`);
+      });
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    function getContrastColor(hex) {
+      const rgb = hexToRgb(hex);
+      const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+      return brightness > 128 ? 'Dark Text' : 'Light Text';
+    }
+
+    // Color conversion functions
+    function hexToHSL(hex) {
+      const rgb = hexToRgb(hex);
+      const r = rgb.r / 255;
+      const g = rgb.g / 255;
+      const b = rgb.b / 255;
+      
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      let h, s, l = (max + min) / 2;
+
+      if (max === min) {
+        h = s = 0;
+      } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+
+      return {
+        h: Math.round(h * 360),
+        s: Math.round(s * 100),
+        l: Math.round(l * 100)
+      };
+    }
+
+    function hslToHex(h, s, l) {
+      s /= 100;
+      l /= 100;
+      
+      const c = (1 - Math.abs(2 * l - 1)) * s;
+      const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+      const m = l - c / 2;
+      
+      let r, g, b;
+      
+      if (h >= 0 && h < 60) { [r, g, b] = [c, x, 0]; }
+      else if (h >= 60 && h < 120) { [r, g, b] = [x, c, 0]; }
+      else if (h >= 120 && h < 180) { [r, g, b] = [0, c, x]; }
+      else if (h >= 180 && h < 240) { [r, g, b] = [0, x, c]; }
+      else if (h >= 240 && h < 300) { [r, g, b] = [x, 0, c]; }
+      else { [r, g, b] = [c, 0, x]; }
+      
+      r = Math.round((r + m) * 255);
+      g = Math.round((g + m) * 255);
+      b = Math.round((b + m) * 255);
+      
+      return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    }
+
+    function hexToRgb(hex) {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : { r: 0, g: 0, b: 0 };
+    }
+  });
+</script>
+
+</body>
+</html>
