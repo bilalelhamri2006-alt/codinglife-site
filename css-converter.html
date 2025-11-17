@@ -568,8 +568,12 @@
             <span class="unit-desc">1% of viewport height</span>
           </li>
           <li>
-            <span class="unit-name">%</span>
-            <span class="unit-desc">Percentage of parent element</span>
+            <span class="unit-name">vmin</span>
+            <span class="unit-desc">Minimum of vw and vh</span>
+          </li>
+          <li>
+            <span class="unit-name">vmax</span>
+            <span class="unit-desc">Maximum of vw and vh</span>
           </li>
         </ul>
       </div>
@@ -579,7 +583,7 @@
         <ul class="unit-list">
           <li>
             <span class="unit-name">px</span>
-            <span class="unit-desc">Pixels (1px = 1/96th of 1in)</span>
+            <span class="unit-desc">Pixels</span>
           </li>
           <li>
             <span class="unit-name">cm</span>
@@ -591,94 +595,23 @@
           </li>
           <li>
             <span class="unit-name">in</span>
-            <span class="unit-desc">Inches (1in = 96px = 2.54cm)</span>
+            <span class="unit-desc">Inches</span>
           </li>
           <li>
             <span class="unit-name">pt</span>
-            <span class="unit-desc">Points (1pt = 1/72 of 1in)</span>
+            <span class="unit-desc">Points</span>
+          </li>
+          <li>
+            <span class="unit-name">%</span>
+            <span class="unit-desc">Percentage</span>
           </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="examples-section">
-    <h2 class="section-title">Practical Examples</h2>
-    <div class="examples-grid">
-      <div class="example-card">
-        <h4><i class="fas fa-text-height"></i> Typography</h4>
-        <div class="example-code">
-/* Responsive font sizes */
-h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
-}
-
-p {
-  font-size: max(1rem, 2vw);
-  line-height: 1.6em;
-}
-        </div>
-      </div>
-
-      <div class="example-card">
-        <h4><i class="fas fa-border-all"></i> Layout & Spacing</h4>
-        <div class="example-code">
-/* Responsive container */
-.container {
-  width: min(1200px, 90vw);
-  margin: 0 auto;
-  padding: 2rem clamp(1rem, 5%, 3rem);
-}
-
-.grid {
-  gap: min(2rem, 4vw);
-}
-        </div>
-      </div>
-
-      <div class="example-card">
-        <h4><i class="fas fa-expand-alt"></i> Responsive Design</h4>
-        <div class="example-code">
-/* Fluid hero section */
-.hero {
-  height: min(600px, 100vh);
-  padding: min(5rem, 10vh) 1rem;
-}
-
-.card {
-  width: min(400px, 100% - 2rem);
-}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="feature">
-      <div class="feature-icon">
-        <i class="fas fa-calculator"></i>
-      </div>
-      <h3>Precise Calculations</h3>
-      <p>Accurate conversions between all CSS units with real-time results</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">
-        <i class="fas fa-mobile-alt"></i>
-      </div>
-      <h3>Responsive Ready</h3>
-      <p>Perfect for responsive web design and mobile-first development</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">
-        <i class="fas fa-lightbulb"></i>
-      </div>
-      <h3>Learning Tool</h3>
-      <p>Understand how different units work together in CSS layouts</p>
-    </div>
-  </section>
+  <div class="toast" id="toast">Conversion completed!</div>
 </div>
-
-<div class="toast" id="toast">Conversion completed!</div>
 
 <footer>
   <div class="social" style="margin-bottom:20px;">
@@ -688,185 +621,109 @@ p {
     <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
     <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
   </div>
-  <p>© 2025 Coding Life - All Rights Reserved</p>
+    <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const inputValue = document.getElementById('inputValue');
-    const inputUnit = document.getElementById('inputUnit');
-    const outputUnit = document.getElementById('outputUnit');
-    const baseFontSize = document.getElementById('baseFontSize');
-    const viewportWidth = document.getElementById('viewportWidth');
-    const viewportHeight = document.getElementById('viewportHeight');
-    const convertBtn = document.getElementById('convertBtn');
-    const resetBtn = document.getElementById('resetBtn');
-    const swapBtn = document.getElementById('swapBtn');
-    const toast = document.getElementById('toast');
+const inputValue = document.getElementById('inputValue');
+const inputUnit = document.getElementById('inputUnit');
+const outputUnit = document.getElementById('outputUnit');
+const baseFontSize = document.getElementById('baseFontSize');
+const viewportWidth = document.getElementById('viewportWidth');
+const viewportHeight = document.getElementById('viewportHeight');
 
-    // Result elements
-    const resultPx = document.getElementById('resultPx');
-    const resultRem = document.getElementById('resultRem');
-    const resultEm = document.getElementById('resultEm');
-    const resultPercent = document.getElementById('resultPercent');
+const resultPx = document.getElementById('resultPx');
+const resultRem = document.getElementById('resultRem');
+const resultEm = document.getElementById('resultEm');
+const resultPercent = document.getElementById('resultPercent');
 
-    // Conversion factors (relative to pixels)
-    const conversionFactors = {
-      px: 1,
-      rem: 16, // Default base font size
-      em: 16,
-      percent: 6.25, // 100% = 16px (if base is 16px)
-      vw: 0.052083, // 1vw = 19.2px (if viewport is 1920px)
-      vh: 0.092593, // 1vh = 10.8px (if viewport is 1080px)
-      vmin: 0.052083,
-      vmax: 0.092593,
-      cm: 37.795276,
-      mm: 3.779528,
-      in: 96,
-      pt: 1.333333
-    };
+const convertBtn = document.getElementById('convertBtn');
+const resetBtn = document.getElementById('resetBtn');
+const swapBtn = document.getElementById('swapBtn');
+const toast = document.getElementById('toast');
 
-    // Initialize conversion
-    convertUnits();
+let conversionFactors = {};
 
-    convertBtn.addEventListener('click', convertUnits);
-    resetBtn.addEventListener('click', resetConverter);
-    swapBtn.addEventListener('click', swapUnits);
+function updateConversionFactors(baseSize, vw, vh){
+  conversionFactors = {
+    px:1,
+    rem:baseSize,
+    em:baseSize,
+    percent:baseSize,
+    vw:vw/100,
+    vh:vh/100,
+    vmin:Math.min(vw,vh)/100,
+    vmax:Math.max(vw,vh)/100,
+    cm:37.795275591,
+    mm:3.7795275591,
+    in:96,
+    pt:1.3333333333
+  };
+}
 
-    // Auto-convert when inputs change
-    [inputValue, inputUnit, outputUnit, baseFontSize, viewportWidth, viewportHeight].forEach(element => {
-      element.addEventListener('input', convertUnits);
-    });
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),2000);
+}
 
-    function convertUnits() {
-      const value = parseFloat(inputValue.value) || 0;
-      const fromUnit = inputUnit.value;
-      const toUnit = outputUnit.value.split(' ')[0]; // Get unit from "Pixels (px)"
-      const baseSize = parseFloat(baseFontSize.value) || 16;
-      const vw = parseFloat(viewportWidth.value) || 1920;
-      const vh = parseFloat(viewportHeight.value) || 1080;
+function convertUnits(showMessage = true){
+  const value = parseFloat(inputValue.value)||0;
+  const fromUnit = inputUnit.value;
+  const toUnitValue = outputUnit.value;
+  const baseSize = parseFloat(baseFontSize.value)||16;
+  const vwValue = parseFloat(viewportWidth.value)||1920;
+  const vhValue = parseFloat(viewportHeight.value)||1080;
 
-      // Update conversion factors based on inputs
-      updateConversionFactors(baseSize, vw, vh);
+  updateConversionFactors(baseSize,vwValue,vhValue);
 
-      // Convert input value to pixels first
-      let pixels;
-      switch(fromUnit) {
-        case 'px':
-          pixels = value;
-          break;
-        case 'rem':
-          pixels = value * conversionFactors.rem;
-          break;
-        case 'em':
-          pixels = value * conversionFactors.em;
-          break;
-        case 'percent':
-          pixels = value * conversionFactors.percent;
-          break;
-        case 'vw':
-          pixels = value * conversionFactors.vw;
-          break;
-        case 'vh':
-          pixels = value * conversionFactors.vh;
-          break;
-        case 'vmin':
-          pixels = value * conversionFactors.vmin;
-          break;
-        case 'vmax':
-          pixels = value * conversionFactors.vmax;
-          break;
-        case 'cm':
-          pixels = value * conversionFactors.cm;
-          break;
-        case 'mm':
-          pixels = value * conversionFactors.mm;
-          break;
-        case 'in':
-          pixels = value * conversionFactors.in;
-          break;
-        case 'pt':
-          pixels = value * conversionFactors.pt;
-          break;
-        default:
-          pixels = value;
-      }
+  let pixels;
+  switch(fromUnit){
+    case 'px': pixels=value; break;
+    case 'rem': pixels=value*conversionFactors.rem; break;
+    case 'em': pixels=value*conversionFactors.em; break;
+    case 'percent': pixels=value*conversionFactors.percent; break;
+    case 'vw': pixels=value*conversionFactors.vw; break;
+    case 'vh': pixels=value*conversionFactors.vh; break;
+    case 'vmin': pixels=value*conversionFactors.vmin; break;
+    case 'vmax': pixels=value*conversionFactors.vmax; break;
+    case 'cm': pixels=value*conversionFactors.cm; break;
+    case 'mm': pixels=value*conversionFactors.mm; break;
+    case 'in': pixels=value*conversionFactors.in; break;
+    case 'pt': pixels=value*conversionFactors.pt; break;
+    default: pixels=value;
+  }
 
-      // Convert pixels to all other units for display
-      const pxValue = pixels.toFixed(2);
-      const remValue = (pixels / conversionFactors.rem).toFixed(2);
-      const emValue = (pixels / conversionFactors.em).toFixed(2);
-      const percentValue = (pixels / conversionFactors.percent).toFixed(2);
-      const vwValue = (pixels / conversionFactors.vw).toFixed(2);
-      const vhValue = (pixels / conversionFactors.vh).toFixed(2);
+  resultPx.textContent = pixels.toFixed(2);
+  resultRem.textContent = (pixels/conversionFactors.rem).toFixed(2);
+  resultEm.textContent = (pixels/conversionFactors.em).toFixed(2);
+  resultPercent.textContent = (pixels/conversionFactors.percent).toFixed(2);
 
-      // Update result displays
-      resultPx.textContent = pxValue;
-      resultRem.textContent = remValue;
-      resultEm.textContent = emValue;
-      resultPercent.textContent = percentValue;
+  if(showMessage) showToast('Conversion completed!');
+}
 
-      showToast('Conversion completed!');
-    }
+convertBtn.addEventListener('click',()=>convertUnits());
+resetBtn.addEventListener('click',()=>{
+  inputValue.value='16';
+  inputUnit.value='px';
+  outputUnit.value='px';
+  baseFontSize.value='16';
+  viewportWidth.value='1920';
+  viewportHeight.value='1080';
+  convertUnits(false);
+});
+swapBtn.addEventListener('click',()=>{
+  [inputUnit.value, outputUnit.value] = [outputUnit.value, inputUnit.value];
+  convertUnits();
+});
 
-    function updateConversionFactors(baseSize, vw, vh) {
-      conversionFactors.rem = baseSize;
-      conversionFactors.em = baseSize;
-      conversionFactors.percent = baseSize / 100;
-      conversionFactors.vw = vw / 100;
-      conversionFactors.vh = vh / 100;
-      conversionFactors.vmin = Math.min(vw, vh) / 100;
-      conversionFactors.vmax = Math.max(vw, vh) / 100;
-    }
-
-    function resetConverter() {
-      inputValue.value = '16';
-      inputUnit.value = 'px';
-      outputUnit.value = 'px';
-      baseFontSize.value = '16';
-      viewportWidth.value = '1920';
-      viewportHeight.value = '1080';
-      convertUnits();
-      showToast('Converter reset!');
-    }
-
-    function swapUnits() {
-      const currentInput = inputUnit.value;
-      const currentOutput = outputUnit.value.split(' ')[0];
-      
-      inputUnit.value = currentOutput;
-      outputUnit.value = getFullUnitName(currentInput);
-      convertUnits();
-      showToast('Units swapped!');
-    }
-
-    function getFullUnitName(unit) {
-      const unitNames = {
-        'px': 'Pixels (px)',
-        'rem': 'Root EM (rem)',
-        'em': 'EM (em)',
-        'percent': 'Percentage (%)',
-        'vw': 'Viewport Width (vw)',
-        'vh': 'Viewport Height (vh)',
-        'vmin': 'Viewport Minimum (vmin)',
-        'vmax': 'Viewport Maximum (vmax)',
-        'cm': 'Centimeters (cm)',
-        'mm': 'Millimeters (mm)',
-        'in': 'Inches (in)',
-        'pt': 'Points (pt)'
-      };
-      return unitNames[unit] || unit;
-    }
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 2000);
-    }
-  });
+// Initial load, no toast
+convertUnits(false);
 </script>
 
 </body>
 </html>
+
+
+
+
