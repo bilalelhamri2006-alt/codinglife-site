@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
+  <meta name="description" content="Learn HTML programming easily with Coding Life. Complete HTML course with 20 chapters for beginners.">
+  <meta name="keywords" content="HTML, programming, coding, learn to code, web development">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Learn HTML — coding life</title>
+  <title>HTML Course - Coding Life</title>
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TJ6Z2QKGHJ');
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TJ6Z2QKGHJ');
+</script>
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
-      padding-top:70px;
+      padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
@@ -65,58 +67,338 @@
       background:#0f172a;
       color:white;
     }
+    nav a.active{
+      background:#0f172a;
+      color:#fff;
+    }
 
-    /* LEFT ICONS FOR SMALL SCREEN */
     .left-buttons {
-      display:none;
-      position:absolute;
-      top:12px;
-      gap:8px;
+      display: none;
+      position: absolute;
+      top: 12px;
+      z-index: 10000;
+      gap: 8px;
       align-items:center;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
-      color:#0f172a;
-      background:white;
-      padding:6px 10px;
-      border-radius:8px;
-      transition:0.3s;
+      font-size: 1.4rem;
+      color: #0f172a;
+      background: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
     .left-buttons a:hover {
+      background: #0f172a;
+      color: white;
+    }
+        .left-buttons a.active{
       background:#0f172a;
       color:white;
     }
 
-    main {
-      max-width:1000px;
-      margin:50px auto;
-      padding:0 20px;
+
+
+    /* Course Hero */
+    .course-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    section {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:60px;
-      flex-wrap:wrap;
+    .course-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .course-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .progress-container {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #3b82f6;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+      width: 5%;
+    }
+
+    .progress-text {
+      text-align: center;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    /* Course Layout */
+    .course-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .course-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+    }
+
+    .sidebar-title {
+      color: #1e293b;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e2e8f0;
+      font-size: 1.3rem;
+    }
+
+    .chapter-list {
+      list-style: none;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .chapter-item {
+      margin-bottom: 8px;
+    }
+
+    .chapter-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      color: #1e293b;
+      transition: 0.3s;
+      border-left: 3px solid transparent;
+      cursor: pointer;
+    }
+
+    .chapter-link:hover, .chapter-link.active {
+      background: #f1f5f9;
+      border-left-color: #0f172a;
+      color: #0f172a;
+    }
+
+    .chapter-number {
+      background: #e2e8f0;
+      color: #64748b;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .chapter-link.active .chapter-number {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* Course Content */
+    .course-content {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      min-height: 600px;
+    }
+
+    .lesson {
+      display: none;
+    }
+
+    .lesson.active {
+      display: block;
+    }
+
+    .lesson-title {
+      color: #1e293b;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .lesson-meta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .content-section {
+      margin-bottom: 30px;
+    }
+
+    .content-section h3 {
+      color: #0f172a;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .content-section p {
+      margin-bottom: 15px;
+      color: #1e293b;
+    }
+
+    .content-section ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .content-section li {
+      margin-bottom: 8px;
+    }
+
+    .code-example {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+
+    .example-output {
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #0f172a;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #e2e8f0;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #0f172a;
+      color: #0f172a;
+    }
+
+    .btn-outline:hover {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* Features Section */
+    .features {
+      background:white;
+      padding:60px 20px;
+      text-align:center;
+    }
+    .features h2 {
+      font-size:2.2rem;
+      margin-bottom:40px;
+      color:#1e293b;
+    }
+    .features-grid {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
       gap:30px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .feature-card {
+      padding:30px 20px;
+      border-radius:12px;
+      background:#f8fafc;
+      transition:transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform:translateY(-5px);
+    }
+    .feature-card i {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+    .feature-card h3 {
+      margin-bottom:10px;
+      font-size:1.3rem;
+    }
+    .feature-card p {
+      color:#64748b;
     }
 
-    .text {flex:1; min-width:300px;}
-    section img {
-      width:100%;
-      max-width:450px;
-      border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    h2 {margin-bottom:15px;}
-    p, li {color:#334155; font-size:1rem; margin-bottom:10px;}
-    ul {padding-left:20px;}
-    code {background:#e2e8f0; padding:3px 6px; border-radius:4px; font-family:monospace;}
-
+    /* FOOTER */
     footer {
       background:#0f172a;
       color:#cbd5e1;
@@ -133,103 +415,945 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    @media (max-width:768px) {
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
-      section {flex-direction:column; text-align:center;}
-      section img {margin:0 auto;}
+      
+      .course-hero {
+        padding: 40px 15px;
+      }
+      
+      .course-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .course-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      
+      .sidebar {
+        position: static;
+        order: 2;
+      }
+      
+      .course-content {
+        padding: 25px;
+        order: 1;
+      }
+      
+      .lesson-title {
+        font-size: 1.6rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .nav-buttons .btn {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .features-grid {
+        grid-template-columns:repeat(2, 1fr);
+      }
     }
   </style>
 </head>
-<body>
 
-  <header>
-    <div class="left-buttons">
-      <a href="index.html"><i class="fas fa-home"></i></a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-      <a href="blog.html"><i class="fas fa-book-open"></i></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i></a>
+<body>
+<header>
+  <div class="left-buttons">
+    <a href="index.html" ><i class="fas fa-home"></i></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> </a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> </a>
+    <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i> </a>
+    <a href="playground.html"><i class="fas fa-code"></i> </a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> </a>
+  </div>
+
+  <nav>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+      <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+      <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+
+
+  </nav>
+</header>
+
+<!-- Course Hero -->
+<section class="course-hero">
+  <div class="course-container">
+    <h1>Complete HTML Course</h1>
+    <p>Master HTML from basics to advanced with our comprehensive 20-chapter course</p>
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text" id="progressText">Chapter 1 of 20</div>
+    </div>
+  </div>
+</section>
+
+<div class="course-container">
+  <!-- Course Layout -->
+  <div class="course-layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2 class="sidebar-title">Course Chapters</h2>
+      <ul class="chapter-list" id="chapterList">
+        <!-- Chapters will be generated by JavaScript -->
+      </ul>
     </div>
 
-    <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
-      <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    </nav>
-  </header>
-  <main>
-    <section>
-            <img src="htmlbasics.jpg" alt="HTML basics">
-      <div class="text">
-        <h2>1. What is HTML?</h2>
-        <p>HTML (HyperText Markup Language) is the language used to structure web pages. It defines the meaning and structure of web content using elements enclosed in tags like <code>&lt;h1&gt;</code> or <code>&lt;p&gt;</code>.</p>
+    <!-- Course Content -->
+    <div class="course-content" id="course-content">
+      <!-- Lessons will be generated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Why Learn HTML With Us?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>20 Comprehensive Chapters</h3>
+        <p>From absolute beginner to advanced HTML mastery</p>
       </div>
-    </section>
-
-    <section>
-      <div class="text">
-        <h2>2. Basic Structure of an HTML Document</h2>
-        <p>An HTML page is built with specific sections:</p>
-        <ul>
-          <li><code>&lt;!DOCTYPE html&gt;</code> → Defines the document type.</li>
-          <li><code>&lt;html&gt;</code> → Root of the document.</li>
-          <li><code>&lt;head&gt;</code> → Meta information, title, styles, etc.</li>
-          <li><code>&lt;body&gt;</code> → Visible content of the page.</li>
-        </ul>
+      <div class="feature-card">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Practical Examples</h3>
+        <p>Real-world code examples you can try immediately</p>
       </div>
-            <img src="htmlstructure.jpg" alt="HTML structure">
-
-    </section>
-
-    <section>
-            <img src="HTMLtagsexample.jpg" alt="HTML tags example">
-
-      <div class="text">
-        <h2>3. Common HTML Tags</h2>
-        <p>HTML uses a set of predefined tags to describe different parts of a webpage:</p>
-        <ul>
-          <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> → Headings</li>
-          <li><code>&lt;p&gt;</code> → Paragraph</li>
-          <li><code>&lt;a href="#"&gt;</code> → Links</li>
-          <li><code>&lt;img src="..." alt="..."&gt;</code> → Image</li>
-          <li><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> → Lists</li>
-        </ul>
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile Optimized</h3>
+        <p>Learn on any device with our responsive design</p>
       </div>
-    </section>
-
-    <section>
-      <img src="HTMLAttributes.jpg" alt="HTML attributes">
-      <div class="text">
-        <h2>4. HTML Attributes</h2>
-        <p>Attributes provide additional information about an element. They are always written in the opening tag, like:</p>
-        <p><code>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</code></p>
+      <div class="feature-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Career Ready</h3>
+        <p>Skills that employers are looking for</p>
       </div>
-    </section>
-
-    <section>
-      <div class="text">
-        <h2>5. HTML and CSS</h2>
-        <p>HTML provides the structure, while CSS handles design and layout.  
-        By combining both, you can build beautiful, responsive websites.</p>
-      </div>
-      <img src="HTMLandCSS.jpg" alt="HTML and CSS">
-    </section>
-
-  </main>
+    </div>
+  </section>
+</div>
 
 <footer>
-    <div class="social" style="margin-bottom:20px;">
-      <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
-      <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
-      <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
-      <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
-      <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <p>© 2025 Coding Life - All Rights Reserved</p>
-  </footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
 
+<script>
+  // Full course data with detailed chapters 1-20
+  const courseData = [
+    {
+      id: 1,
+      title: "HTML Introduction",
+      duration: "15 min",
+      level: "Beginner",
+      content: `
+        <h3>What is HTML?</h3>
+        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display the content.</p>
+        
+        <div class="code-example">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;This is my first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </div>
+        
+        <h3>Basic HTML Structure</h3>
+        <p>Every HTML document has a basic structure that includes:</p>
+        <ul>
+          <li><strong>&lt;!DOCTYPE html&gt;</strong> - Defines the document type</li>
+          <li><strong>&lt;html&gt;</strong> - The root element</li>
+          <li><strong>&lt;head&gt;</strong> - Contains meta information</li>
+          <li><strong>&lt;title&gt;</strong> - Specifies the page title</li>
+          <li><strong>&lt;body&gt;</strong> - Contains the visible content</li>
+        </ul>
+
+        <h3>How browsers use HTML</h3>
+        <p>The browser reads the HTML file, builds a DOM (Document Object Model) and renders content for the user. HTML provides semantics: headings, paragraphs, lists, links, tables and more.</p>
+      `
+    },
+    {
+      id: 2,
+      title: "Basic Elements",
+      duration: "20 min",
+      level: "Beginner",
+      content: `
+        <h3>Common HTML Elements</h3>
+        <p>HTML provides various elements to structure your content:</p>
+        
+        <div class="example-output">
+          <h4>Example Output:</h4>
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <p>This is a paragraph with <strong>bold text</strong> and <em>italic text</em>.</p>
+        </div>
+
+        <div class="code-example">
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;This is a paragraph with &lt;strong&gt;bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;.&lt;/p&gt;
+        </div>
+
+        <h3>Headings & Semantics</h3>
+        <p>Use headings (&lt;h1&gt; - &lt;h6&gt;) to divide content. They help accessibility and SEO.</p>
+      `
+    },
+    {
+      id: 3,
+      title: "Links & Images",
+      duration: "18 min",
+      level: "Beginner",
+      content: `
+        <h3>Creating Links</h3>
+        <p>Links are created using the &lt;a&gt; (anchor) element with the href attribute:</p>
+        
+        <div class="code-example">
+&lt;!-- External link --&gt;
+&lt;a href="https://www.example.com" target="_blank" rel="noopener"&gt;Visit Example.com&lt;/a&gt;
+
+&lt;!-- Internal link --&gt;
+&lt;a href="#section2"&gt;Go to Section 2&lt;/a&gt;
+
+&lt;!-- Email link --&gt;
+&lt;a href="mailto:someone@example.com"&gt;Send Email&lt;/a&gt;
+        </div>
+
+        <h3>Adding Images</h3>
+        <p>Images are added using the &lt;img&gt; element with src and alt attributes. Always include alt for accessibility.</p>
+        
+        <div class="code-example">
+&lt;img src="image.jpg" alt="Description of image"&gt;
+
+&lt;img src="photo.png" alt="A beautiful photo" width="400" height="300"&gt;
+        </div>
+
+        <h3>Best practices</h3>
+        <ul>
+          <li>Use descriptive alt text</li>
+          <li>Prefer responsive images (srcset) for different screen sizes</li>
+          <li>Set width/height or use CSS to avoid layout shifts</li>
+        </ul>
+      `
+    },
+    {
+      id: 4,
+      title: "Lists",
+      duration: "15 min",
+      level: "Beginner",
+      content: `
+        <h3>Types of Lists</h3>
+        <p>HTML عندها 3 أنواع ديال اللّوائح:</p>
+
+        <ul>
+          <li><strong>&lt;ul&gt;</strong> – لائحة غير مرتبة (bullet)</li>
+          <li><strong>&lt;ol&gt;</strong> – لائحة مرتبة (numbers)</li>
+          <li><strong>&lt;dl&gt;</strong> – لائحة وصفية (term + description)</li>
+        </ul>
+
+        <h3>Unordered List (ul)</h3>
+        <div class="example-output">
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+
+        <div class="code-example">
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+        </div>
+
+        <h3>Ordered List (ol)</h3>
+        <div class="example-output">
+          <ol>
+            <li>Step One</li>
+            <li>Step Two</li>
+            <li>Step Three</li>
+          </ol>
+        </div>
+
+        <div class="code-example">
+&lt;ol&gt;
+  &lt;li&gt;Step One&lt;/li&gt;
+  &lt;li&gt;Step Two&lt;/li&gt;
+  &lt;li&gt;Step Three&lt;/li&gt;
+&lt;/ol&gt;
+        </div>
+
+        <h3>Description List (dl)</h3>
+        <div class="example-output">
+          <dl>
+            <dt>HTML</dt>
+            <dd>Structure of web pages</dd>
+          </dl>
+        </div>
+
+        <div class="code-example">
+&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Structure of web pages&lt;/dd&gt;
+&lt;/dl&gt;
+        </div>
+
+        <h3>Accessibility tip</h3>
+        <p>Use lists for grouped items — they improve screen reader experience and structure.</p>
+      `
+    },
+    {
+      id: 5,
+      title: "Tables",
+      duration: "25 min",
+      level: "Intermediate",
+      content: `
+        <h3>Creating Tables</h3>
+        <p>HTML tables are created with the &lt;table&gt; element and contain rows (&lt;tr&gt;), headers (&lt;th&gt;), and data cells (&lt;td&gt;):</p>
+        
+        <div class="example-output">
+          <table border="1" style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <th style="padding: 8px;">Name</th>
+              <th style="padding: 8px;">Age</th>
+              <th style="padding: 8px;">City</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px;">John</td>
+              <td style="padding: 8px;">25</td>
+              <td style="padding: 8px;">New York</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="code-example">
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+    &lt;th&gt;City&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;John&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+    &lt;td&gt;New York&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+        </div>
+
+        <h3>Table elements</h3>
+        <ul>
+          <li>&lt;caption&gt; — table caption</li>
+          <li>&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; — grouping rows</li>
+          <li>&lt;th scope="col|row"&gt; — improves accessibility</li>
+        </ul>
+
+        <h3>Responsive tables</h3>
+        <p>For small screens, wrap table in a container with overflow-x:auto or consider reformatting as cards.</p>
+      `
+    },
+
+    /* --- Chapters 6 to 20: detailed content --- */
+
+    {
+      id: 6,
+      title: "Forms",
+      duration: "30 min",
+      level: "Intermediate",
+      content: `
+        <h3>What is a form?</h3>
+        <p>Forms allow users to send data to the server or interact with your page. The &lt;form&gt; element wraps inputs and submission controls.</p>
+
+        <div class="code-example">
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label&gt;Name: &lt;input type="text" name="name" /&gt;&lt;/label&gt;
+  &lt;label&gt;Email: &lt;input type="email" name="email" /&gt;&lt;/label&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;
+        </div>
+
+        <h3>Form attributes</h3>
+        <ul>
+          <li><strong>action</strong> — URL to submit the form</li>
+          <li><strong>method</strong> — GET or POST</li>
+          <li><strong>enctype</strong> — when uploading files (multipart/form-data)</li>
+        </ul>
+
+        <h3>Validation</h3>
+        <p>HTML5 provides built-in validation: required, pattern, min, max, type="email" etc.</p>
+
+        <div class="example-output">
+          <form onsubmit="alert('example submit prevented'); return false;">
+            <label>Name: <input required placeholder="Your name"></label><br><br>
+            <label>Email: <input type="email" required placeholder="you@example.com"></label><br><br>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      `
+    },
+    {
+      id: 7,
+      title: "Form Elements",
+      duration: "25 min",
+      level: "Intermediate",
+      content: `
+        <h3>Common form controls</h3>
+        <ul>
+          <li>&lt;input type="text"&gt;</li>
+          <li>&lt;input type="password"&gt;</li>
+          <li>&lt;input type="checkbox"&gt;</li>
+          <li>&lt;input type="radio"&gt;</li>
+          <li>&lt;select&gt; &amp; &lt;option&gt;</li>
+          <li>&lt;textarea&gt;</li>
+          <li>&lt;button&gt;</li>
+        </ul>
+
+        <div class="code-example">
+&lt;form&gt;
+  &lt;input type="text" name="username" placeholder="Username"&gt;
+  &lt;input type="password" name="pwd" placeholder="Password"&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="remember"&gt; Remember me&lt;/label&gt;
+  &lt;select name="country"&gt;
+    &lt;option value="ma"&gt;Morocco&lt;/option&gt;
+    &lt;option value="fr"&gt;France&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;textarea name="message"&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+        </div>
+
+        <h3>Accessibility</h3>
+        <p>Always use &lt;label for="id"&gt; or wrap input in a label. Use aria-* attributes for complex widgets.</p>
+      `
+    },
+    {
+      id: 8,
+      title: "Semantic HTML",
+      duration: "20 min",
+      level: "Intermediate",
+      content: `
+        <h3>Why semantic HTML?</h3>
+        <p>Semantic tags convey meaning to browsers and assistive tech — they improve SEO and accessibility.</p>
+
+        <h3>Common semantic elements</h3>
+        <ul>
+          <li>&lt;header&gt;</li>
+          <li>&lt;nav&gt;</li>
+          <li>&lt;main&gt;</li>
+          <li>&lt;article&gt;</li>
+          <li>&lt;section&gt;</li>
+          <li>&lt;aside&gt;</li>
+          <li>&lt;footer&gt;</li>
+        </ul>
+
+        <div class="code-example">
+&lt;header&gt;Site header&lt;/header&gt;
+&lt;nav&gt;Main navigation&lt;/nav&gt;
+&lt;main&gt;
+  &lt;article&gt;Article content&lt;/article&gt;
+  &lt;aside&gt;Sidebar&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;Footer&lt;/footer&gt;
+        </div>
+
+        <h3>Best practice</h3>
+        <p>Use semantic elements for structure, not for styling. Use ARIA where semantics are not available.</p>
+      `
+    },
+    {
+      id: 9,
+      title: "HTML5 New Elements",
+      duration: "22 min",
+      level: "Intermediate",
+      content: `
+        <h3>What's new in HTML5?</h3>
+        <p>HTML5 introduced many new semantic and multimedia elements, plus improved APIs.</p>
+
+        <h3>Key elements</h3>
+        <ul>
+          <li>&lt;section&gt; &amp; &lt;article&gt;</li>
+          <li>&lt;figure&gt; &amp; &lt;figcaption&gt;</li>
+          <li>&lt;video&gt; &amp; &lt;audio&gt;</li>
+          <li>&lt;canvas&gt; (graphics)</li>
+          <li>&lt;meter&gt; &amp; &lt;progress&gt;</li>
+        </ul>
+
+        <div class="code-example">
+&lt;figure&gt;
+  &lt;img src="photo.jpg" alt="..."&gt;
+  &lt;figcaption&gt;Image caption&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;video controls width="400"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Your browser does not support video.
+&lt;/video&gt;
+        </div>
+      `
+    },
+    {
+      id: 10,
+      title: "Multimedia",
+      duration: "18 min",
+      level: "Intermediate",
+      content: `
+        <h3>Audio & Video</h3>
+        <p>Use &lt;audio&gt; &amp; &lt;video&gt; to embed media. Provide multiple sources and captions for compatibility and accessibility.</p>
+
+        <div class="code-example">
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;video controls width="600"&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;track kind="captions" srclang="en" src="captions_en.vtt" label="English"&gt;
+  Your browser does not support HTML5 video.
+&lt;/video&gt;
+        </div>
+
+        <h3>Performance tips</h3>
+        <ul>
+          <li>Compress media</li>
+          <li>Use streaming formats for large videos</li>
+          <li>Lazy-load or defer heavy media</li>
+        </ul>
+      `
+    },
+    {
+      id: 11,
+      title: "Graphics & Canvas",
+      duration: "25 min",
+      level: "Advanced",
+      content: `
+        <h3>Canvas API</h3>
+        <p>The &lt;canvas&gt; element allows drawing 2D graphics via JavaScript.</p>
+
+        <div class="code-example">
+&lt;canvas id="myCanvas" width="400" height="200"&gt;Your browser does not support canvas.&lt;/canvas&gt;
+
+&lt;script&gt;
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = 'lightblue';
+ctx.fillRect(10,10,150,80);
+ctx.fillStyle = 'black';
+ctx.font = '16px Arial';
+ctx.fillText('Canvas example', 20, 50);
+&lt;/script&gt;
+        </div>
+
+        <h3>SVG</h3>
+        <p>SVG is vector-based, scalable and great for icons and diagrams.</p>
+        <div class="code-example">
+&lt;svg width="120" height="120" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;circle cx="60" cy="60" r="50" stroke="black" stroke-width="2" fill="lightgreen" /&gt;
+&lt;/svg&gt;
+        </div>
+      `
+    },
+    {
+      id: 12,
+      title: "APIs",
+      duration: "30 min",
+      level: "Advanced",
+      content: `
+        <h3>HTML & Browser APIs</h3>
+        <p>HTML pages interact with many browser APIs (Geolocation, LocalStorage, Fetch, Canvas, etc.). These let you build dynamic web apps.</p>
+
+        <h3>Fetch API</h3>
+        <div class="code-example">
+&lt;script&gt;
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(res =&gt; res.json())
+  .then(data =&gt; console.log(data))
+  .catch(err =&gt; console.error(err));
+&lt;/script&gt;
+        </div>
+
+        <h3>Other useful APIs</h3>
+        <ul>
+          <li>Geolocation API</li>
+          <li>Web Storage (localStorage/sessionStorage)</li>
+          <li>Notifications API</li>
+          <li>Service Workers (offline)</li>
+        </ul>
+      `
+    },
+    {
+      id: 13,
+      title: "Web Storage",
+      duration: "20 min",
+      level: "Advanced",
+      content: `
+        <h3>localStorage vs sessionStorage</h3>
+        <p>Both are key/value storage in the browser. localStorage persists across sessions; sessionStorage clears when tab closes.</p>
+
+        <div class="code-example">
+&lt;script&gt;
+// set
+localStorage.setItem('name', 'Bilal');
+// get
+console.log(localStorage.getItem('name'));
+// remove
+localStorage.removeItem('name');
+&lt;/script&gt;
+        </div>
+
+        <h3>When to use</h3>
+        <ul>
+          <li>Save user preferences</li>
+          <li>Cache non-sensitive data</li>
+          <li>Avoid storing secrets in storage</li>
+        </ul>
+      `
+    },
+    {
+      id: 14,
+      title: "Web Workers",
+      duration: "22 min",
+      level: "Advanced",
+      content: `
+        <h3>What are Web Workers?</h3>
+        <p>Web Workers allow running JS in background threads to prevent blocking the UI.</p>
+
+        <div class="code-example">
+&lt;!-- main.js --&gt;
+const worker = new Worker('worker.js');
+worker.postMessage('start');
+worker.onmessage = (e) =&gt; console.log('From worker', e.data);
+
+&lt;!-- worker.js --&gt;
+onmessage = (e) =&gt; {
+  // expensive computation
+  let total = 0;
+  for (let i=0;i&lt;1e7;i++) total += i;
+  postMessage(total);
+};
+        </div>
+
+        <h3>Use cases</h3>
+        <ul>
+          <li>Heavy calculations</li>
+          <li>Data processing</li>
+          <li>Image manipulation</li>
+        </ul>
+      `
+    },
+    {
+      id: 15,
+      title: "Geolocation",
+      duration: "18 min",
+      level: "Advanced",
+      content: `
+        <h3>Geolocation API</h3>
+        <p>Get user's location (with permission) using navigator.geolocation.</p>
+
+        <div class="code-example">
+&lt;script&gt;
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(pos =&gt; {
+    console.log('Latitude:', pos.coords.latitude);
+    console.log('Longitude:', pos.coords.longitude);
+  }, err =&gt; console.error(err));
+} else {
+  console.log('Geolocation not supported');
+}
+&lt;/script&gt;
+        </div>
+
+        <h3>Privacy</h3>
+        <p>Always ask permission and explain why location is needed.</p>
+      `
+    },
+    {
+      id: 16,
+      title: "Drag & Drop",
+      duration: "25 min",
+      level: "Advanced",
+      content: `
+        <h3>Drag & Drop API</h3>
+        <p>Native HTML drag and drop uses draggable attribute and drag events.</p>
+
+        <div class="code-example">
+&lt;div id="drag" draggable="true"&gt;Drag me&lt;/div&gt;
+&lt;div id="drop"&gt;Drop here&lt;/div&gt;
+
+&lt;script&gt;
+const drag = document.getElementById('drag');
+const drop = document.getElementById('drop');
+
+drag.addEventListener('dragstart', e =&gt; {
+  e.dataTransfer.setData('text/plain', 'dragged');
+});
+
+drop.addEventListener('dragover', e =&gt; e.preventDefault());
+drop.addEventListener('drop', e =&gt; {
+  e.preventDefault();
+  const data = e.dataTransfer.getData('text');
+  drop.textContent = 'Dropped: ' + data;
+});
+&lt;/script&gt;
+        </div>
+
+        <h3>Use cases</h3>
+        <ul>
+          <li>File uploads</li>
+          <li>Reordering lists</li>
+          <li>Interactive UIs</li>
+        </ul>
+      `
+    },
+    {
+      id: 17,
+      title: "Web Sockets",
+      duration: "28 min",
+      level: "Expert",
+      content: `
+        <h3>What are WebSockets?</h3>
+        <p>WebSockets provide real-time, two-way communication between client and server.</p>
+
+        <div class="code-example">
+&lt;script&gt;
+const ws = new WebSocket('wss://echo.websocket.org');
+ws.onopen = () =&gt; {
+  ws.send('Hello server');
+};
+ws.onmessage = (e) =&gt; console.log('Message from server:', e.data);
+&lt;/script&gt;
+        </div>
+
+        <h3>When to use</h3>
+        <ul>
+          <li>Chat applications</li>
+          <li>Live updates</li>
+          <li>Games</li>
+        </ul>
+      `
+    },
+    {
+      id: 18,
+      title: "Server-Sent Events",
+      duration: "20 min",
+      level: "Expert",
+      content: `
+        <h3>Server-Sent Events (SSE)</h3>
+        <p>SSE allows server to push updates to the client over HTTP (unidirectional).</p>
+
+        <div class="code-example">
+&lt;script&gt;
+const evtSource = new EventSource('/events');
+evtSource.onmessage = function(e) {
+  console.log('New event:', e.data);
+};
+&lt;/script&gt;
+        </div>
+
+        <h3>Difference from WebSocket</h3>
+        <p>SSE is simpler but only server-to-client. WebSocket is bi-directional.</p>
+      `
+    },
+    {
+      id: 19,
+      title: "Web Components",
+      duration: "35 min",
+      level: "Expert",
+      content: `
+        <h3>What are Web Components?</h3>
+        <p>Web Components allow creating reusable custom elements with encapsulated behavior and styles.</p>
+
+        <div class="code-example">
+&lt;script&gt;
+class HelloElement extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = '&lt;style&gt;p{color:blue}&lt;/style&gt;&lt;p&gt;Hello from component&lt;/p&gt;';
+  }
+}
+customElements.define('hello-element', HelloElement);
+&lt;/script&gt;
+
+&lt;hello-element&gt;&lt;/hello-element&gt;
+        </div>
+
+        <h3>Parts of Web Components</h3>
+        <ul>
+          <li>Custom Elements</li>
+          <li>Shadow DOM</li>
+          <li>HTML Templates</li>
+        </ul>
+      `
+    },
+    {
+      id: 20,
+      title: "Best Practices",
+      duration: "25 min",
+      level: "Expert",
+      content: `
+        <h3>HTML Best Practices</h3>
+        <ul>
+          <li>Use semantic elements</li>
+          <li>Keep HTML accessible (labels, alt, roles)</li>
+          <li>Optimize for performance (minify, compress, lazy-load)</li>
+          <li>Separate concerns: HTML for structure, CSS for style, JS for behavior</li>
+          <li>Validate HTML (W3C validator)</li>
+        </ul>
+
+        <h3>SEO & Accessibility</h3>
+        <p>Use proper headings, meta tags, descriptive links and alt attributes to help search engines and users with disabilities.</p>
+
+        <h3>Final project idea</h3>
+        <p>Build a small multi-page site with navigation, blog posts (articles), forms, and a contact form saved in localStorage as a mock backend.</p>
+      `
+    }
+  ];
+
+  // Initialize the course
+  function initializeCourse() {
+    const chapterList = document.getElementById('chapterList');
+    const courseContent = document.getElementById('course-content');
+    
+    // Clear existing (safety)
+    chapterList.innerHTML = '';
+    courseContent.innerHTML = '';
+
+    // Generate chapter list
+    courseData.forEach(chapter => {
+      const listItem = document.createElement('li');
+      listItem.className = 'chapter-item';
+      listItem.innerHTML = `
+        <a class="chapter-link" data-chapter="${chapter.id}">
+          <span class="chapter-number">${chapter.id}</span>
+          <span>${chapter.title}</span>
+        </a>
+      `;
+      chapterList.appendChild(listItem);
+    });
+    
+    // Generate lesson content
+    courseData.forEach(chapter => {
+      const lesson = document.createElement('div');
+      lesson.className = 'lesson';
+      lesson.id = `lesson-${chapter.id}`;
+      lesson.innerHTML = `
+        <h1 class="lesson-title">${chapter.id}. ${chapter.title}</h1>
+        <div class="lesson-meta">
+          <div class="meta-item">
+            <i class="fas fa-clock"></i>
+            <span>${chapter.duration} read</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-star"></i>
+            <span>${chapter.level} Level</span>
+          </div>
+        </div>
+        <div class="content-section">
+          ${chapter.content}
+        </div>
+        <div class="nav-buttons">
+          <button class="btn btn-outline" onclick="previousLesson(${chapter.id})" ${chapter.id === 1 ? 'disabled' : ''}>
+            <i class="fas fa-arrow-left"></i> Previous
+          </button>
+          <button class="btn btn-primary" onclick="nextLesson(${chapter.id})" ${chapter.id === courseData.length ? 'disabled' : ''}>
+            Next Chapter <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      `;
+      courseContent.appendChild(lesson);
+    });
+    
+    // Show first lesson
+    showLesson(1);
+  }
+
+  // Show specific lesson
+  function showLesson(lessonNumber) {
+    // Hide all lessons
+    document.querySelectorAll('.lesson').forEach(lesson => {
+      lesson.classList.remove('active');
+    });
+    
+    // Show selected lesson
+    const target = document.getElementById(`lesson-${lessonNumber}`);
+    if (!target) return;
+    target.classList.add('active');
+    
+    // Update active chapter in sidebar
+    document.querySelectorAll('.chapter-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    const activeLink = document.querySelector(`.chapter-link[data-chapter="${lessonNumber}"]`);
+    if (activeLink) activeLink.classList.add('active');
+    
+    // Update progress
+    updateProgress(lessonNumber);
+    
+    // Scroll to top of content
+    document.getElementById('course-content').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Navigation functions
+  function nextLesson(currentLesson) {
+    if (currentLesson < courseData.length) {
+      showLesson(currentLesson + 1);
+    }
+  }
+
+  function previousLesson(currentLesson) {
+    if (currentLesson > 1) {
+      showLesson(currentLesson - 1);
+    }
+  }
+
+  // Update progress bar
+  function updateProgress(lessonNumber) {
+    const progress = (lessonNumber / courseData.length) * 100;
+    document.getElementById('progressFill').style.width = `${progress}%`;
+    document.getElementById('progressText').textContent = `Chapter ${lessonNumber} of ${courseData.length}`;
+  }
+
+  // Initialize chapter navigation (click on sidebar)
+  document.addEventListener('click', function(e) {
+    // accommodate clicks on child elements
+    const link = e.target.closest('.chapter-link');
+    if (link) {
+      const chapterNumber = link.getAttribute('data-chapter');
+      showLesson(parseInt(chapterNumber));
+    }
+  });
+
+  // Initialize the course when page loads
+  window.addEventListener('DOMContentLoaded', initializeCourse);
+</script>
 </body>
 </html>
