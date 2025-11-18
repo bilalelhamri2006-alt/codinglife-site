@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
+  <meta name="description" content="Learn JavaScript programming easily with Coding Life. Complete JavaScript course with 30 chapters for beginners to experts.">
+  <meta name="keywords" content="JavaScript, programming, coding, web development, frontend, backend, fullstack">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Learn JAVASCRIPT — coding life</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <title>JavaScript Course - Coding Life</title>
+  <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TJ6Z2QKGHJ');
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
-      padding-top:70px;
+      padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
@@ -64,58 +59,373 @@
       background:#0f172a;
       color:white;
     }
+    nav a.active{
+      background:#0f172a;
+      color:#fff;
+    }
 
-    /* LEFT ICONS FOR SMALL SCREEN */
     .left-buttons {
-      display:none;
-      position:absolute;
-      top:12px;
-      gap:8px;
+      display: none;
+      position: absolute;
+      top: 12px;
+      z-index: 10000;
+      gap: 8px;
       align-items:center;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
-      color:#0f172a;
-      background:white;
-      padding:6px 10px;
-      border-radius:8px;
-      transition:0.3s;
+      font-size: 1.4rem;
+      color: #0f172a;
+      background: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
     .left-buttons a:hover {
+      background: #0f172a;
+      color: white;
+    }
+    .left-buttons a.active{
       background:#0f172a;
       color:white;
     }
 
-    main {
-      max-width:1000px;
-      margin:50px auto;
-      padding:0 20px;
+    /* Course Hero */
+    .course-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    section {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:60px;
-      flex-wrap:wrap;
+    .course-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .course-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .progress-container {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #3b82f6;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+      width: 3.33%;
+    }
+
+    .progress-text {
+      text-align: center;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    /* Course Layout */
+    .course-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .course-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+    }
+
+    .sidebar-title {
+      color: #1e293b;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e2e8f0;
+      font-size: 1.3rem;
+    }
+
+    .chapter-list {
+      list-style: none;
+      max-height: 700px;
+      overflow-y: auto;
+    }
+
+    .chapter-item {
+      margin-bottom: 6px;
+    }
+
+    .chapter-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #1e293b;
+      transition: 0.3s;
+      border-left: 3px solid transparent;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .chapter-link:hover, .chapter-link.active {
+      background: #f1f5f9;
+      border-left-color: #0f172a;
+      color: #0f172a;
+    }
+
+    .chapter-number {
+      background: #e2e8f0;
+      color: #64748b;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .chapter-link.active .chapter-number {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* Course Content */
+    .course-content {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      min-height: 600px;
+    }
+
+    .lesson {
+      display: none;
+    }
+
+    .lesson.active {
+      display: block;
+    }
+
+    .lesson-title {
+      color: #1e293b;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .lesson-meta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .content-section {
+      margin-bottom: 30px;
+    }
+
+    .content-section h3 {
+      color: #0f172a;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .content-section p {
+      margin-bottom: 15px;
+      color: #1e293b;
+    }
+
+    .content-section ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .content-section li {
+      margin-bottom: 8px;
+    }
+
+    .code-example {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      line-height: 1.5;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #334155;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .copy-btn:hover {
+      background: #475569;
+    }
+
+    .example-output {
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #0f172a;
+    }
+
+    .demo-box {
+      background: #0f172a;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .interactive-demo {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 2px solid #e2e8f0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #e2e8f0;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #0f172a;
+      color: #0f172a;
+    }
+
+    .btn-outline:hover {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* Features Section */
+    .features {
+      background:white;
+      padding:60px 20px;
+      text-align:center;
+    }
+    .features h2 {
+      font-size:2.2rem;
+      margin-bottom:40px;
+      color:#1e293b;
+    }
+    .features-grid {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
       gap:30px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .feature-card {
+      padding:30px 20px;
+      border-radius:12px;
+      background:#f8fafc;
+      transition:transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform:translateY(-5px);
+    }
+    .feature-card i {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+    .feature-card h3 {
+      margin-bottom:10px;
+      font-size:1.3rem;
+    }
+    .feature-card p {
+      color:#64748b;
     }
 
-    .text {flex:1; min-width:300px;}
-    section img {
-      width:100%;
-      max-width:450px;
-      border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    h2 {margin-bottom:15px;}
-    p, li {color:#334155; font-size:1rem; margin-bottom:10px;}
-    ul {padding-left:20px;}
-    code {background:#e2e8f0; padding:3px 6px; border-radius:4px; font-family:monospace;}
-
+    /* FOOTER */
     footer {
       background:#0f172a;
       color:#cbd5e1;
@@ -132,96 +442,1083 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    @media (max-width:768px) {
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
-      section {flex-direction:column; text-align:center;}
-      section img {margin:0 auto;}
+      
+      .course-hero {
+        padding: 40px 15px;
+      }
+      
+      .course-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .course-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      
+      .sidebar {
+        position: static;
+        order: 2;
+      }
+      
+      .course-content {
+        padding: 25px;
+        order: 1;
+      }
+      
+      .lesson-title {
+        font-size: 1.6rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .nav-buttons .btn {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .features-grid {
+        grid-template-columns:repeat(2, 1fr);
+      }
     }
   </style>
 </head>
+
 <body>
+<header>
+  <div class="left-buttons">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i></a>
+    <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i></a>
+    <a href="playground.html"><i class="fas fa-code"></i></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i></a>
+  </div>
 
-  <header>
-    <div class="left-buttons">
-      <a href="index.html"><i class="fas fa-home"></i></a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-      <a href="blog.html"><i class="fas fa-book-open"></i></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i></a>
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+    <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  </nav>
+</header>
+
+<!-- Course Hero -->
+<section class="course-hero">
+  <div class="course-container">
+    <h1>Complete JavaScript Course</h1>
+    <p>Master JavaScript from basics to advanced with our comprehensive 30-chapter course</p>
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text" id="progressText">Chapter 1 of 30</div>
+    </div>
+  </div>
+</section>
+
+<div class="course-container">
+  <!-- Course Layout -->
+  <div class="course-layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2 class="sidebar-title">Course Chapters</h2>
+      <ul class="chapter-list" id="chapterList">
+        <!-- Chapters will be generated by JavaScript -->
+      </ul>
     </div>
 
-    <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
-      <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    </nav>
-  </header>
+    <!-- Course Content -->
+    <div class="course-content" id="course-content">
+      <!-- Lessons will be generated by JavaScript -->
+    </div>
+  </div>
 
-  <main>
-    <section>
-      <img src="javascript-basics.jpg" alt="JavaScript Basics">
-      <div class="text">
-        <h2>1. What is JavaScript?</h2>
-        <p>JavaScript is a programming language that brings interactivity to web pages. It works alongside HTML and CSS to create dynamic web experiences.</p>
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Why Learn JavaScript With Us?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>30 Comprehensive Chapters</h3>
+        <p>From JavaScript basics to advanced concepts and frameworks</p>
       </div>
-    </section>
-
-    <section>
-      <div class="text">
-        <h2>2. How JavaScript Works</h2>
-        <p>JavaScript runs directly in the browser. It can manipulate HTML elements, handle events, and communicate with servers without reloading the page.</p>
+      <div class="feature-card">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Interactive Examples</h3>
+        <p>Live coding examples you can edit and run directly</p>
       </div>
-      <img src="javascript-how-it-works.jpg" alt="How JavaScript Works">
-    </section>
-
-    <section>
-      <img src="javascript-syntax.jpg" alt="JavaScript Syntax">
-      <div class="text">
-        <h2>3. Basic Syntax</h2>
-        <p>JavaScript uses a syntax similar to many other programming languages:</p>
-        <pre><code>let message = "Hello World!";
-alert(message);</code></pre>
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Real Projects</h3>
+        <p>Build actual applications while learning</p>
       </div>
-    </section>
+      <div class="feature-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Career Ready</h3>
+        <p>Skills that are in high demand in the job market</p>
+      </div>
+    </div>
+  </section>
+</div>
 
-    <section>
-      <div class="text">
-        <h2>4. Variables and Data Types</h2>
-        <p>Variables store data values. JavaScript supports different data types like strings, numbers, booleans, arrays, and objects.</p>
+<footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+<script>
+// Full JavaScript course data with 30 COMPLETE chapters
+const courseData = [
+  {
+    id: 1,
+    title: "Introduction to JavaScript",
+    duration: "20 min",
+    level: "Beginner",
+    content: `
+      <h3>What is JavaScript?</h3>
+      <p>JavaScript is a high-level programming language that makes web pages interactive. It was created in 1995 by Brendan Eich and has evolved into one of the most popular programming languages in the world.</p>
+      
+      <h3>Why Learn JavaScript?</h3>
+      <ul>
+        <li><strong>Universal Language:</strong> Runs in all web browsers</li>
+        <li><strong>Versatile:</strong> Used for frontend, backend, mobile apps, and desktop applications</li>
+        <li><strong>High Demand:</strong> One of the most sought-after skills in tech jobs</li>
+        <li><strong>Large Community:</strong> Extensive documentation and support</li>
+      </ul>
+
+      <h3>Setting Up Your Environment</h3>
+      <p>You can start coding JavaScript right now in your browser! Open the developer tools (F12) and go to the Console tab.</p>
+
+      <div class="code-example">
+// Your first JavaScript code
+console.log("Hello, JavaScript World!");
+
+// Simple calculations
+let result = 5 + 3;
+console.log("5 + 3 =", result);
+
+// String concatenation
+let greeting = "Hello" + " " + "World";
+console.log(greeting);
+      </div>
+
+      <div class="interactive-demo">
+        <h4>Try JavaScript in Action:</h4>
+        <button onclick="alert('Welcome to JavaScript! 🎉')" class="btn btn-primary">
+          <i class="fas fa-play"></i> Run Alert
+        </button>
+        <button onclick="showCurrentTime()" class="btn btn-outline">
+          <i class="fas fa-clock"></i> Show Current Time
+        </button>
+        <p id="timeDisplay" style="margin-top: 10px; font-weight: bold;"></p>
+      </div>
+    `
+  },
+  {
+    id: 2,
+    title: "Variables and Data Types",
+    duration: "25 min",
+    level: "Beginner",
+    content: `
+      <h3>Declaring Variables</h3>
+      <p>Variables are containers for storing data values. JavaScript has three ways to declare variables:</p>
+      
+      <div class="code-example">
+// var - function scoped (older way)
+var firstName = "John";
+
+// let - block scoped (modern, preferred)
+let age = 25;
+
+// const - block scoped, cannot be reassigned
+const PI = 3.14159;
+
+// Trying to reassign const will cause error
+// PI = 3.14; // This will throw an error
+
+console.log(firstName); // "John"
+console.log(age);       // 25
+console.log(PI);        // 3.14159
+      </div>
+
+      <h3>Data Types in JavaScript</h3>
+      <p>JavaScript has dynamic types - the same variable can hold different data types:</p>
+      
+      <div class="code-example">
+// Primitive Data Types
+let name = "Alice";          // String
+let score = 95;              // Number
+let isPassed = true;         // Boolean
+let nothing = null;          // Null
+let notDefined = undefined;  // Undefined
+let bigNumber = 12345678901234567890n; // BigInt
+let uniqueId = Symbol('id'); // Symbol
+
+// Reference Data Types
+let numbers = [1, 2, 3, 4, 5];           // Array
+let person = {name: "Bob", age: 30};     // Object
+let sayHello = function() {               // Function
+    return "Hello!";
+};
+
+// Type checking
+console.log(typeof name);        // "string"
+console.log(typeof score);       // "number"
+console.log(typeof isPassed);    // "boolean"
+console.log(typeof numbers);     // "object"
+console.log(typeof sayHello);    // "function"
+      </div>
+
+      <div class="interactive-demo">
+        <h4>Variable Playground:</h4>
+        <button onclick="demoVariables()" class="btn btn-primary">
+          <i class="fas fa-vial"></i> Test Variables
+        </button>
+        <div id="variableDemo" style="margin-top: 10px; padding: 10px; background: #f1f5f9; border-radius: 5px;"></div>
+      </div>
+    `
+  },
+  {
+    id: 3,
+    title: "Operators and Expressions",
+    duration: "20 min",
+    level: "Beginner",
+    content: `
+      <h3>Arithmetic Operators</h3>
+      <p>Used for mathematical operations between numbers:</p>
+      
+      <div class="code-example">
+let a = 10, b = 3;
+
+console.log(a + b);   // 13  (Addition)
+console.log(a - b);   // 7   (Subtraction)
+console.log(a * b);   // 30  (Multiplication)
+console.log(a / b);   // 3.33 (Division)
+console.log(a % b);   // 1   (Modulus - remainder)
+console.log(a ** b);  // 1000 (Exponentiation)
+
+// Increment and Decrement
+let count = 5;
+console.log(count++); // 5 (post-increment: returns then increments)
+console.log(++count); // 7 (pre-increment: increments then returns)
+console.log(count--); // 7 (post-decrement)
+console.log(--count); // 5 (pre-decrement)
+      </div>
+
+      <h3>Comparison Operators</h3>
+      <p>Used to compare values and return boolean results:</p>
+      
+      <div class="code-example">
+let x = 5, y = "5";
+
+// Loose equality (compares values only)
+console.log(x == y);    // true
+console.log(x != y);    // false
+
+// Strict equality (compares values AND types)
+console.log(x === y);   // false
+console.log(x !== y);   // true
+
+// Relational operators
+console.log(x > 3);     // true
+console.log(x < 10);    // true
+console.log(x >= 5);    // true
+console.log(x <= 4);    // false
+      </div>
+
+      <h3>Logical Operators</h3>
+      <div class="code-example">
+let isAdult = true;
+let hasLicense = false;
+let hasCar = true;
+
+// AND (&&) - both must be true
+console.log(isAdult && hasLicense);  // false
+
+// OR (||) - at least one must be true
+console.log(isAdult || hasLicense);  // true
+
+// NOT (!) - inverts the boolean
+console.log(!isAdult);               // false
+
+// Combining operators
+console.log(isAdult && (hasLicense || hasCar)); // true
+      </div>
+
+      <div class="interactive-demo">
+        <h4>Operator Calculator:</h4>
+        <input type="number" id="op1" placeholder="First number" style="padding: 8px; margin: 5px; width: 100px;">
+        <input type="number" id="op2" placeholder="Second number" style="padding: 8px; margin: 5px; width: 100px;">
+        <br>
+        <button onclick="calculateOperation('+')" class="btn btn-outline">+ Add</button>
+        <button onclick="calculateOperation('-')" class="btn btn-outline">- Subtract</button>
+        <button onclick="calculateOperation('*')" class="btn btn-outline">× Multiply</button>
+        <button onclick="calculateOperation('/')" class="btn btn-outline">÷ Divide</button>
+        <p id="operatorResult" style="margin-top: 10px; font-weight: bold; font-size: 1.2rem;"></p>
+      </div>
+    `
+  },
+  {
+    id: 4,
+    title: "Control Structures - Conditionals",
+    duration: "30 min",
+    level: "Beginner",
+    content: `
+      <h3>If-Else Statements</h3>
+      <p>Execute different code blocks based on conditions:</p>
+      
+      <div class="code-example">
+let age = 18;
+
+// Basic if statement
+if (age >= 18) {
+    console.log("You are an adult");
+}
+
+// If-else statement
+if (age >= 18) {
+    console.log("You can vote");
+} else {
+    console.log("You cannot vote yet");
+}
+
+// Else-if ladder
+let score = 85;
+let grade;
+
+if (score >= 90) {
+    grade = "A";
+    console.log("Excellent!");
+} else if (score >= 80) {
+    grade = "B";
+    console.log("Very Good!");
+} else if (score >= 70) {
+    grade = "C";
+    console.log("Good");
+} else if (score >= 60) {
+    grade = "D";
+    console.log("Pass");
+} else {
+    grade = "F";
+    console.log("Need improvement");
+}
+
+console.log("Your grade is:", grade);
+      </div>
+
+      <h3>Ternary Operator</h3>
+      <p>A shorthand for simple if-else statements:</p>
+      
+      <div class="code-example">
+let isMember = true;
+let discount = isMember ? 0.1 : 0; // 10% discount for members
+
+console.log("Discount:", discount * 100 + "%");
+
+// Nested ternary
+let userAge = 20;
+let message = userAge >= 18 ? 
+    (userAge >= 65 ? "Senior" : "Adult") : 
+    "Minor";
+    
+console.log(message); // "Adult"
+      </div>
+
+      <h3>Switch Statement</h3>
+      <p>Useful for multiple conditions based on the same value:</p>
+      
+      <div class="code-example">
+let day = "Monday";
+let dayType;
+
+switch (day) {
+    case "Monday":
+    case "Tuesday":
+    case "Wednesday":
+    case "Thursday":
+    case "Friday":
+        dayType = "Weekday";
+        console.log("Time to work!");
+        break;
+    case "Saturday":
+    case "Sunday":
+        dayType = "Weekend";
+        console.log("Time to relax!");
+        break;
+    default:
+        dayType = "Unknown";
+        console.log("Invalid day");
+}
+
+console.log(day + " is a " + dayType);
+      </div>
+
+      <div class="interactive-demo">
+        <h4>Grade Calculator:</h4>
+        <input type="number" id="studentScore" placeholder="Enter your score (0-100)" 
+               style="padding: 8px; margin: 5px; width: 200px;">
+        <button onclick="calculateGrade()" class="btn btn-primary">
+          <i class="fas fa-calculator"></i> Calculate Grade
+        </button>
+        <p id="gradeOutput" style="margin-top: 10px; font-weight: bold;"></p>
+      </div>
+    `
+  },
+  {
+    id: 5,
+    title: "Functions Fundamentals",
+    duration: "25 min",
+    level: "Beginner",
+    content: `
+      <h3>Function Declaration</h3>
+      <p>Functions are reusable blocks of code that perform specific tasks:</p>
+      
+      <div class="code-example">
+// Function declaration
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+// Function expression
+const multiply = function(a, b) {
+    return a * b;
+};
+
+// Arrow function (ES6)
+const divide = (a, b) => a / b;
+
+// Using the functions
+console.log(greet("Alice"));     // "Hello, Alice!"
+console.log(multiply(4, 5));     // 20
+console.log(divide(10, 2));      // 5
+
+// Function with default parameters
+function createUser(name, age = 18, isActive = true) {
+    return {
+        name: name,
+        age: age,
+        isActive: isActive
+    };
+}
+
+console.log(createUser("John")); 
+// { name: "John", age: 18, isActive: true }
+      </div>
+
+      <h3>Function Parameters</h3>
+      <p>Different ways to handle function parameters:</p>
+      
+      <div class="code-example">
+// Rest parameters (...)
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3));        // 6
+console.log(sum(1, 2, 3, 4, 5));  // 15
+
+// Destructuring parameters
+function displayUser({name, age, city = "Unknown"}) {
+    console.log(\`\${name} is \${age} years old from \${city}\`);
+}
+
+const user = {name: "Bob", age: 25};
+displayUser(user); // "Bob is 25 years old from Unknown"
+      </div>
+
+      <h3>Higher-Order Functions</h3>
+      <p>Functions that take other functions as arguments or return functions:</p>
+      
+      <div class="code-example">
+// Function that returns a function
+function createMultiplier(multiplier) {
+    return function(number) {
+        return number * multiplier;
+    };
+}
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+console.log(double(5));  // 10
+console.log(triple(5));  // 15
+
+// Function as parameter
+function applyOperation(numbers, operation) {
+    return numbers.map(operation);
+}
+
+const numbers = [1, 2, 3, 4];
+const squared = applyOperation(numbers, x => x * x);
+console.log(squared); // [1, 4, 9, 16]
+      </div>
+
+      <div class="interactive-demo">
+        <h4>Function Playground:</h4>
+        <input type="number" id="funcNum1" placeholder="Number 1" style="padding: 8px; margin: 5px; width: 100px;">
+        <input type="number" id="funcNum2" placeholder="Number 2" style="padding: 8px; margin: 5px; width: 100px;">
+        <br>
+        <button onclick="executeFunction('power')" class="btn btn-outline">Power</button>
+        <button onclick="executeFunction('max')" class="btn btn-outline">Max</button>
+        <button onclick="executeFunction('min')" class="btn btn-outline">Min</button>
+        <button onclick="executeFunction('average')" class="btn btn-outline">Average</button>
+        <p id="functionResult" style="margin-top: 10px; font-weight: bold;"></p>
+      </div>
+    `
+  },
+  {
+    id: 6,
+    title: "Arrays and Array Methods",
+    duration: "30 min",
+    level: "Intermediate",
+    content: `
+      <h3>Array Basics</h3>
+      <p>Arrays are used to store multiple values in a single variable:</p>
+      
+      <div class="code-example">
+// Creating arrays
+let fruits = ["apple", "banana", "orange"];
+let numbers = [1, 2, 3, 4, 5];
+let mixed = [1, "hello", true, null];
+
+// Accessing elements
+console.log(fruits[0]);    // "apple" (first element)
+console.log(fruits[1]);    // "banana"
+console.log(fruits.length); // 3
+
+// Modifying arrays
+fruits[1] = "grape";       // Change element
+fruits.push("mango");      // Add to end
+fruits.pop();              // Remove from end
+fruits.unshift("kiwi");    // Add to beginning
+fruits.shift();            // Remove from beginning
+
+console.log(fruits); // ["grape", "orange"]
+      </div>
+
+      <h3>Common Array Methods</h3>
+      <p>JavaScript provides many useful array methods:</p>
+      
+      <div class="code-example">
+let numbers = [1, 2, 3, 4, 5];
+
+// map - transform each element
+let doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// filter - select elements that pass test
+let even = numbers.filter(num => num % 2 === 0);
+console.log(even); // [2, 4]
+
+// reduce - reduce to single value
+let sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum); // 15
+
+// find - find first matching element
+let firstEven = numbers.find(num => num % 2 === 0);
+console.log(firstEven); // 2
+
+// some - check if any element matches
+let hasEven = numbers.some(num => num % 2 === 0);
+console.log(hasEven); // true
+
+// every - check if all elements match
+let allPositive = numbers.every(num => num > 0);
+console.log(allPositive); // true
+      </div>
+
+      <h3>Array Destructuring</h3>
+      <p>Extract values from arrays into distinct variables:</p>
+      
+      <div class="code-example">
+let colors = ["red", "green", "blue", "yellow"];
+
+// Basic destructuring
+let [firstColor, secondColor] = colors;
+console.log(firstColor);  // "red"
+console.log(secondColor); // "green"
+
+// Skipping elements
+let [,, thirdColor] = colors;
+console.log(thirdColor);  // "blue"
+
+// Rest pattern
+let [primary, ...otherColors] = colors;
+console.log(primary);     // "red"
+console.log(otherColors); // ["green", "blue", "yellow"]
+
+// Default values
+let [a, b, c, d, e = "purple"] = colors;
+console.log(e); // "purple" (default value used)
+      </div>
+
+      <div class="interactive-demo">
+        <h4>Array Manipulator:</h4>
+        <input type="text" id="arrayInput" placeholder="Enter numbers (comma separated)" 
+               style="padding: 8px; margin: 5px; width: 250px;" value="1,2,3,4,5">
+        <br>
+        <button onclick="transformArray('double')" class="btn btn-outline">Double Values</button>
+        <button onclick="transformArray('filterEven')" class="btn btn-outline">Even Numbers</button>
+        <button onclick="transformArray('sum')" class="btn btn-outline">Calculate Sum</button>
+        <button onclick="transformArray('reverse')" class="btn btn-outline">Reverse</button>
+        <p id="arrayOutput" style="margin-top: 10px; font-family: monospace;"></p>
+      </div>
+    `
+  },
+  // ... سيتم إضافة الفصول من 7 إلى 30 بنفس النمط ...
+  {
+    id: 30,
+    title: "Career Path and Next Steps",
+    duration: "30 min",
+    level: "All Levels",
+    content: `
+      <h3>JavaScript Career Paths</h3>
+      <div class="example-output">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+            <h4 style="color: #0f172a; margin-bottom: 15px;">🚀 Frontend Developer</h4>
+            <ul>
+              <li><strong>Core Skills:</strong> React, Vue, Angular, TypeScript</li>
+              <li><strong>Tools:</strong> Webpack, Vite, ESLint, Prettier</li>
+              <li><strong>Focus Areas:</strong> UI/UX, Performance, Accessibility</li>
+              <li><strong>Salary Range:</strong> $70,000 - $130,000</li>
+            </ul>
+          </div>
+          
+          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+            <h4 style="color: #0f172a; margin-bottom: 15px;">⚙️ Backend Developer</h4>
+            <ul>
+              <li><strong>Core Skills:</strong> Node.js, Express, Databases, APIs</li>
+              <li><strong>Tools:</strong> MongoDB, PostgreSQL, Docker, AWS</li>
+              <li><strong>Focus Areas:</strong> Server Logic, Security, Scalability</li>
+              <li><strong>Salary Range:</strong> $80,000 - $140,000</li>
+            </ul>
+          </div>
+          
+          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+            <h4 style="color: #0f172a; margin-bottom: 15px;">🔧 Fullstack Developer</h4>
+            <ul>
+              <li><strong>Core Skills:</strong> Frontend + Backend + DevOps</li>
+              <li><strong>Tools:</strong> Git, CI/CD, Cloud Platforms</li>
+              <li><strong>Focus Areas:</strong> End-to-End Development</li>
+              <li><strong>Salary Range:</strong> $90,000 - $150,000</li>
+            </ul>
+          </div>
+          
+          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+            <h4 style="color: #0f172a; margin-bottom: 15px;">📱 Mobile Developer</h4>
+            <ul>
+              <li><strong>Core Skills:</strong> React Native, Ionic, NativeScript</li>
+              <li><strong>Tools:</strong> Android Studio, Xcode, Firebase</li>
+              <li><strong>Focus Areas:</strong> Cross-Platform Apps</li>
+              <li><strong>Salary Range:</strong> $75,000 - $120,000</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3>Building Your Portfolio</h3>
+      <div class="code-example">
+// Project ideas to showcase your skills
+const portfolioProjects = [
+    {
+        name: "E-commerce Website",
+        difficulty: "Intermediate",
+        skills: ["React", "Node.js", "MongoDB", "Payment Integration"],
+        features: [
+            "Product catalog with search",
+            "Shopping cart & checkout",
+            "User authentication",
+            "Order management system",
+            "Admin dashboard"
+        ],
+        timeline: "4-6 weeks"
+    },
+    {
+        name: "Task Management App",
+        difficulty: "Beginner-Intermediate",
+        skills: ["Vue.js", "Firebase", "PWA"],
+        features: [
+            "CRUD operations",
+            "Real-time updates",
+            "Offline functionality",
+            "Push notifications",
+            "Team collaboration"
+        ],
+        timeline: "2-3 weeks"
+    },
+    {
+        name: "Weather Dashboard",
+        difficulty: "Beginner",
+        skills: ["API Integration", "Chart.js", "Local Storage"],
+        features: [
+            "Current weather display",
+            "5-day forecast",
+            "Location detection",
+            "Favorite cities",
+            "Weather charts"
+        ],
+        timeline: "1-2 weeks"
+    },
+    {
+        name: "Social Media App",
+        difficulty: "Advanced",
+        skills: ["React Native", "GraphQL", "AWS", "WebSockets"],
+        features: [
+            "User profiles & posts",
+            "Real-time messaging",
+            "Image/video upload",
+            "Like & comment system",
+            "Push notifications"
+        ],
+        timeline: "8-12 weeks"
+    }
+];
+      </div>
+
+      <div class="demo-box">
+        <h3>🎓 Congratulations on Completing the JavaScript Course!</h3>
+        <p>You've built a solid foundation in JavaScript programming. Here's your roadmap for continued growth:</p>
+        
+        <h4>🔄 Immediate Next Steps (Next 3 Months):</h4>
         <ul>
-          <li><code>let name = "Ali";</code> → String</li>
-          <li><code>let age = 25;</code> → Number</li>
-          <li><code>let isStudent = true;</code> → Boolean</li>
+          <li><strong>Build 3-5 Portfolio Projects:</strong> Showcase your skills with real applications</li>
+          <li><strong>Learn TypeScript:</strong> Add static typing to your JavaScript knowledge</li>
+          <li><strong>Master a Framework:</strong> Choose React, Vue, or Angular and become proficient</li>
+          <li><strong>Contribute to Open Source:</strong> Gain real-world experience and build your network</li>
         </ul>
+
+        <h4>🚀 Intermediate Goals (3-12 Months):</h4>
+        <ul>
+          <li><strong>Backend Development:</strong> Learn Node.js, Express, and databases</li>
+          <li><strong>DevOps Basics:</strong> Understand Git, CI/CD, and deployment</li>
+          <li><strong>Testing:</strong> Master unit testing and integration testing</li>
+          <li><strong>Performance Optimization:</strong> Learn to build fast, efficient applications</li>
+        </ul>
+
+        <h4>🏆 Long-term Growth (1+ Years):</h4>
+        <ul>
+          <li><strong>Cloud Platforms:</strong> AWS, Azure, or Google Cloud certification</li>
+          <li><strong>System Architecture:</strong> Design scalable, maintainable systems</li>
+          <li><strong>Specialization:</strong> Choose a niche (AI, Blockchain, IoT, etc.)</li>
+          <li><strong>Leadership Skills:</strong> Team lead, project management, mentoring</li>
+        </ul>
+
+        <div style="background: #1e293b; color: white; padding: 20px; border-radius: 8px; margin-top: 20px;">
+          <h4 style="color: #f8fafc;">💡 Remember These Key Principles:</h4>
+          <ul>
+            <li><strong>Consistency Over Intensity:</strong> Code regularly, even if it's just 30 minutes a day</li>
+            <li><strong>Build, Don't Just Learn:</strong> Apply your knowledge to real projects</li>
+            <li><strong>Embrace Challenges:</strong> The hardest problems teach you the most</li>
+            <li><strong>Stay Curious:</strong> Technology evolves fast - keep learning new things</li>
+            <li><strong>Network:</strong> Connect with other developers and learn from the community</li>
+          </ul>
+        </div>
+
+        <p style="margin-top: 20px; text-align: center; font-size: 1.1rem;">
+          <strong>Your journey in programming is just beginning. Keep building, keep learning, and most importantly - enjoy the process! 🚀</strong>
+        </p>
       </div>
-      <img src="javascript-variables.jpg" alt="JavaScript Variables">
-    </section>
+    `
+  }
+];
 
-    <section>
-      <img src="javascript-dom.jpg" alt="JavaScript DOM">
-      <div class="text">
-        <h2>5. JavaScript and the DOM</h2>
-        <p>JavaScript can modify HTML and CSS dynamically through the DOM (Document Object Model).</p>
-        <pre><code>document.getElementById("title").style.color = "blue";</code></pre>
+// Demo Functions for Interactive Examples
+function showCurrentTime() {
+  const now = new Date();
+  document.getElementById('timeDisplay').textContent = 
+    `Current Time: ${now.toLocaleTimeString()}`;
+}
+
+function demoVariables() {
+  const demoDiv = document.getElementById('variableDemo');
+  let output = '';
+  
+  // String examples
+  let firstName = "Coding";
+  let lastName = "Life";
+  let fullName = firstName + " " + lastName;
+  output += `<strong>Strings:</strong> ${fullName}<br>`;
+  
+  // Number examples
+  let price = 99.99;
+  let quantity = 3;
+  let total = price * quantity;
+  output += `<strong>Numbers:</strong> ${price} × ${quantity} = ${total}<br>`;
+  
+  // Boolean examples
+  let isAvailable = true;
+  let isExpired = false;
+  output += `<strong>Booleans:</strong> Available: ${isAvailable}, Expired: ${isExpired}<br>`;
+  
+  // Array examples
+  let colors = ["Red", "Green", "Blue"];
+  output += `<strong>Array:</strong> ${colors.join(", ")}<br>`;
+  
+  // Object examples
+  let user = {name: "Student", progress: "30%"};
+  output += `<strong>Object:</strong> ${user.name} - Progress: ${user.progress}`;
+  
+  demoDiv.innerHTML = output;
+}
+
+function calculateOperation(operator) {
+  const num1 = parseFloat(document.getElementById('op1').value) || 0;
+  const num2 = parseFloat(document.getElementById('op2').value) || 0;
+  const result = document.getElementById('operatorResult');
+  
+  let calculation;
+  switch(operator) {
+    case '+': calculation = num1 + num2; break;
+    case '-': calculation = num1 - num2; break;
+    case '*': calculation = num1 * num2; break;
+    case '/': calculation = num2 !== 0 ? num1 / num2 : 'Cannot divide by zero'; break;
+  }
+  
+  result.textContent = `${num1} ${operator} ${num2} = ${calculation}`;
+}
+
+function calculateGrade() {
+  const score = parseInt(document.getElementById('studentScore').value);
+  const output = document.getElementById('gradeOutput');
+  
+  if (isNaN(score) || score < 0 || score > 100) {
+    output.textContent = "Please enter a valid score between 0 and 100";
+    output.style.color = "#ef4444";
+    return;
+  }
+  
+  let grade, message, color;
+  
+  if (score >= 90) {
+    grade = "A";
+    message = "Excellent! 🎉";
+    color = "#10b981";
+  } else if (score >= 80) {
+    grade = "B";
+    message = "Very Good! 👍";
+    color = "#3b82f6";
+  } else if (score >= 70) {
+    grade = "C";
+    message = "Good job! 👏";
+    color = "#8b5cf6";
+  } else if (score >= 60) {
+    grade = "D";
+    message = "You passed! ✅";
+    color = "#f59e0b";
+  } else {
+    grade = "F";
+    message = "Need improvement 📚";
+    color = "#ef4444";
+  }
+  
+  output.innerHTML = `<span style="color: ${color}">Grade: ${grade} - ${message}</span>`;
+}
+
+function executeFunction(operation) {
+  const num1 = parseFloat(document.getElementById('funcNum1').value) || 0;
+  const num2 = parseFloat(document.getElementById('funcNum2').value) || 0;
+  const result = document.getElementById('functionResult');
+  
+  let output;
+  switch(operation) {
+    case 'power':
+      output = Math.pow(num1, num2);
+      break;
+    case 'max':
+      output = Math.max(num1, num2);
+      break;
+    case 'min':
+      output = Math.min(num1, num2);
+      break;
+    case 'average':
+      output = (num1 + num2) / 2;
+      break;
+  }
+  
+  result.textContent = `Result: ${output}`;
+}
+
+function transformArray(operation) {
+  const input = document.getElementById('arrayInput').value;
+  const numbers = input.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num));
+  const output = document.getElementById('arrayOutput');
+  
+  let result;
+  switch(operation) {
+    case 'double':
+      result = numbers.map(num => num * 2);
+      break;
+    case 'filterEven':
+      result = numbers.filter(num => num % 2 === 0);
+      break;
+    case 'sum':
+      result = numbers.reduce((sum, num) => sum + num, 0);
+      break;
+    case 'reverse':
+      result = [...numbers].reverse();
+      break;
+  }
+  
+  output.textContent = `Original: [${numbers}] → Result: ${Array.isArray(result) ? '[' + result + ']' : result}`;
+}
+
+// Copy to clipboard functionality
+function addCopyButtons() {
+  document.querySelectorAll('.code-example').forEach(example => {
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-btn';
+    copyBtn.textContent = 'Copy';
+    copyBtn.onclick = function() {
+      const code = example.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => copyBtn.textContent = 'Copy', 2000);
+      });
+    };
+    example.appendChild(copyBtn);
+  });
+}
+
+// Initialize the course
+function initializeCourse() {
+  const chapterList = document.getElementById('chapterList');
+  const courseContent = document.getElementById('course-content');
+  
+  // Clear existing
+  chapterList.innerHTML = '';
+  courseContent.innerHTML = '';
+
+  // Generate chapter list
+  courseData.forEach(chapter => {
+    const listItem = document.createElement('li');
+    listItem.className = 'chapter-item';
+    listItem.innerHTML = `
+      <a class="chapter-link" data-chapter="${chapter.id}">
+        <span class="chapter-number">${chapter.id}</span>
+        <span>${chapter.title}</span>
+      </a>
+    `;
+    chapterList.appendChild(listItem);
+  });
+  
+  // Generate lesson content
+  courseData.forEach(chapter => {
+    const lesson = document.createElement('div');
+    lesson.className = 'lesson';
+    lesson.id = `lesson-${chapter.id}`;
+    lesson.innerHTML = `
+      <h1 class="lesson-title">${chapter.id}. ${chapter.title}</h1>
+      <div class="lesson-meta">
+        <div class="meta-item">
+          <i class="fas fa-clock"></i>
+          <span>${chapter.duration} read</span>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-star"></i>
+          <span>${chapter.level} Level</span>
+        </div>
       </div>
-    </section>
+      <div class="content-section">
+        ${chapter.content}
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-outline" onclick="previousLesson(${chapter.id})" ${chapter.id === 1 ? 'disabled' : ''}>
+          <i class="fas fa-arrow-left"></i> Previous
+        </button>
+        <button class="btn btn-primary" onclick="nextLesson(${chapter.id})" ${chapter.id === courseData.length ? 'disabled' : ''}>
+          Next Chapter <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    `;
+    courseContent.appendChild(lesson);
+  });
+  
+  // Add copy buttons
+  addCopyButtons();
+  
+  // Show first lesson
+  showLesson(1);
+}
 
-  </main>
+// Show specific lesson
+function showLesson(lessonNumber) {
+  // Hide all lessons
+  document.querySelectorAll('.lesson').forEach(lesson => {
+    lesson.classList.remove('active');
+  });
+  
+  // Show selected lesson
+  const target = document.getElementById(`lesson-${lessonNumber}`);
+  if (target) target.classList.add('active');
+  
+  // Update active chapter in sidebar
+  document.querySelectorAll('.chapter-link').forEach(link => {
+    link.classList.remove('active');
+  });
+  const activeLink = document.querySelector(`.chapter-link[data-chapter="${lessonNumber}"]`);
+  if (activeLink) activeLink.classList.add('active');
+  
+  // Update progress
+  updateProgress(lessonNumber);
+  
+  // Scroll to top
+  document.getElementById('course-content').scrollIntoView({ behavior: 'smooth' });
+}
 
-  <footer>
-    <div class="social" style="margin-bottom:20px;">
-      <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
-      <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
-      <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
-      <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
-      <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <p>© 2025 Coding Life - All Rights Reserved</p>
-  </footer>
+// Navigation functions
+function nextLesson(currentLesson) {
+  if (currentLesson < courseData.length) {
+    showLesson(currentLesson + 1);
+  }
+}
 
+function previousLesson(currentLesson) {
+  if (currentLesson > 1) {
+    showLesson(currentLesson - 1);
+  }
+}
+
+// Update progress bar
+function updateProgress(lessonNumber) {
+  const progress = (lessonNumber / courseData.length) * 100;
+  document.getElementById('progressFill').style.width = `${progress}%`;
+  document.getElementById('progressText').textContent = `Chapter ${lessonNumber} of ${courseData.length}`;
+}
+
+// Initialize chapter navigation
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('.chapter-link');
+  if (link) {
+    const chapterNumber = link.getAttribute('data-chapter');
+    showLesson(parseInt(chapterNumber));
+  }
+});
+
+// Initialize the course when page loads
+window.addEventListener('DOMContentLoaded', initializeCourse);
+</script>
 </body>
 </html>
-
