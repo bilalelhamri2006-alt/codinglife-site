@@ -66,33 +66,36 @@
       background:#0f172a;
       color:#fff;
     }
-        nav a.active{
-      background:#0f172a;
-      color:#fff;
-    }
 
 
+    /* MOBILE ICON BAR - في وسط الهيدر مع السميات */
     .mobile-links{
       display:none;
       position:absolute;
+      top:50%;
       left:50%;
-      transform:translateX(-50%);
-      top:12px;
-      gap:12px;
+      transform:translate(-50%, -50%);
+      gap:8px;
       justify-content:center;
+      align-items:center;
+      width:100%;
+      padding:0 10px;
     }
     .mobile-links a{
-      font-size:1.3rem;
       color:#0f172a;
       padding:6px 10px;
       border-radius:8px;
       transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+    .mobile-links a span{
+      font-size:0.75rem;
+      margin-top:2px;
     }
     .mobile-links a:hover{
-      background:#0f172a;
-      color:white;
-    }
-        .mobile-links a.active{
       background:#0f172a;
       color:white;
     }
@@ -209,7 +212,11 @@
     /* RESPONSIVE */
     @media (max-width:768px) {
       nav {display:none;}
-      .mobile-links {display:flex;}
+      .mobile-links {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
     }
   </style>
 </head>
@@ -219,19 +226,16 @@
       <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
       <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-      <a href="playground.html" class="active"><i class="fas fa-code"></i> Tester</a>
+      <a href="playground.html" ><i class="fas fa-code"></i> Tester</a>
       <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-
-
   </nav>
 
   <div class="mobile-links">
-    <a href="index.html" ><i class="fas fa-home"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> </a>
-    <a href="blog.html"><i class="fas fa-book-open"></i> </a>
-    <a href="playground.html" class="active"><i class="fas fa-code"></i> </a>
-    <a href="about.html" ><i class="fas fa-info-circle"></i> </a>
-
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="playground.html"><i class="fas fa-code"></i><span>Tester</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
   </div>
   
 </header>

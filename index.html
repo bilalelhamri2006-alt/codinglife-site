@@ -67,13 +67,8 @@
       background:#0f172a;
       color:white;
     }
-        nav a.active{
-      background:#0f172a;
-      color:#fff;
-    }
 
 
-    /* الزر اللي ف الجهة اليسرى (Home) */
     .left-buttons {
       display: none;
       position: absolute;
@@ -95,10 +90,6 @@
     .left-buttons a:hover {
       background: #0f172a;
       color: white;
-    }
-        .left-buttons a.active{
-      background:#0f172a;
-      color:white;
     }
 
 
@@ -376,25 +367,38 @@
     grid-template-columns:1fr; /* 1 فسطر واحد */
   }
 }
+/* شكل الأيقونات + السمية فالتليفون */
+.left-buttons a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.left-buttons a span {
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
   </style>
 </head>
 
 <body>
 <header>
   <div class="left-buttons">
-    <a href="index.html" class="active"><i class="fas fa-home"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> </a>
-    <a href="blog.html"><i class="fas fa-book-open"></i> </a>
-    <a href="playground.html"><i class="fas fa-code"></i> </a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> </a>
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
   </div>
 
   <nav>
-      <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-      <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy </a>
   </nav>
 </header>
 
