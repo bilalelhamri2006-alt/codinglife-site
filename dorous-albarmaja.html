@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn COURESE — coding life</title>
+  <title>Learn COURSE — coding life</title>
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -57,24 +57,35 @@
     }
 
 
-    /* SMALL SCREEN ICON BAR */
+    /* SMALL SCREEN ICON BAR - في وسط الهيدر مع السميات */
     .left-buttons {
       display:none;
       position:absolute;
+      top:50%;
       left:50%;
-      transform:translateX(-50%);
-      top:12px;
-      gap:12px;
+      transform:translate(-50%, -50%);
+      gap:8px;
       align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
       background:white;
       padding:6px 9px;
       border-radius:8px;
       color:#0f172a;
       transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
@@ -192,7 +203,11 @@
 
     @media (max-width: 768px) {
       nav {display:none;}
-      .left-buttons {display:flex;}
+      .left-buttons {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
     }
 
   </style>
@@ -202,21 +217,21 @@
 
 <header>
   <div class="left-buttons">
-    <a href="index.html"><i class="fas fa-home"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i></a>
-    <a href="dorous-albarmaja.html"  ><i class="fa-solid fa-laptop-code"></i></a>
-    <a href="blog.html"><i class="fas fa-book-open"></i></a>
-    <a href="playground.html"><i class="fas fa-code"></i> </a>
-    <a href="about.html"><i class="fas fa-info-circle"></i></a>
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
+
   </div>
 
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="dorous-albarmaja.html" ><i class="fa-solid fa-laptop-code"></i> Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="playground.html"><i class="fas fa-code"></i>Tester </a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy Policy</a>
+
   </nav>
 </header>
 
