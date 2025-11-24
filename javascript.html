@@ -1,50 +1,47 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta name="description" content="Learn JavaScript programming easily with Coding Life. Complete JavaScript course with 30 chapters for beginners to experts.">
-  <meta name="keywords" content="JavaScript, programming, coding, web development, frontend, backend, fullstack">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript Course - Coding Life</title>
+  <title>JavaScript Course — coding life</title>
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
+    
     body {
       padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
-      font-family:'Cairo',sans-serif;
+      font-family: 'Cairo', sans-serif;
     }
+
     a {text-decoration:none; color:inherit;}
 
     /* HEADER */
     header {
       background:white;
-      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      z-index:9999;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
       height:70px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:9999;
     }
 
     nav {
       display:flex;
-      justify-content:center;
-      align-items:center;
       gap:25px;
+      align-items:center;
     }
 
     nav a {
-      color:#000;
       padding:10px 18px;
       border-radius:8px;
       font-weight:bold;
@@ -52,377 +49,228 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
     }
 
     nav a:hover {
       background:#0f172a;
       color:white;
     }
-    nav a.active{
-      background:#0f172a;
-      color:#fff;
-    }
 
+    /* SMALL SCREEN ICON BAR */
     .left-buttons {
-      display: none;
-      position: absolute;
-      top: 12px;
-      z-index: 10000;
-      gap: 8px;
+      display:none;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      gap:8px;
       align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size: 1.4rem;
-      color: #0f172a;
-      background: white;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: 0.3s;
+      background:white;
+      padding:6px 9px;
+      border-radius:8px;
+      color:#0f172a;
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
-      background: #0f172a;
-      color: white;
-    }
-    .left-buttons a.active{
       background:#0f172a;
       color:white;
     }
 
-    /* Course Hero */
-    .course-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .course-hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .course-hero p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    .progress-container {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 15px;
-      margin: 20px auto;
-      max-width: 500px;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: #3b82f6;
-      border-radius: 4px;
-      transition: width 0.3s ease;
-      width: 3.33%;
-    }
-
-    .progress-text {
-      text-align: center;
-      color: rgba(255,255,255,0.8);
-      font-size: 0.9rem;
-    }
-
-    /* Course Layout */
+    /* COURSE CONTENT */
     .course-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .course-layout {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 30px;
-      margin: 40px 0;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      background: white;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      height: fit-content;
-      position: sticky;
-      top: 90px;
-    }
-
-    .sidebar-title {
-      color: #1e293b;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #e2e8f0;
-      font-size: 1.3rem;
-    }
-
-    .chapter-list {
-      list-style: none;
-      max-height: 700px;
-      overflow-y: auto;
-    }
-
-    .chapter-item {
-      margin-bottom: 6px;
-    }
-
-    .chapter-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 8px;
-      color: #1e293b;
-      transition: 0.3s;
-      border-left: 3px solid transparent;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .chapter-link:hover, .chapter-link.active {
-      background: #f1f5f9;
-      border-left-color: #0f172a;
-      color: #0f172a;
-    }
-
-    .chapter-number {
-      background: #e2e8f0;
-      color: #64748b;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    .chapter-link.active .chapter-number {
-      background: #0f172a;
-      color: white;
-    }
-
-    /* Course Content */
-    .course-content {
-      background: white;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      min-height: 600px;
-    }
-
-    .lesson {
-      display: none;
-    }
-
-    .lesson.active {
-      display: block;
-    }
-
-    .lesson-title {
-      color: #1e293b;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-
-    .lesson-meta {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #e2e8f0;
-    }
-
-    .meta-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-
-    .content-section {
-      margin-bottom: 30px;
-    }
-
-    .content-section h3 {
-      color: #0f172a;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-
-    .content-section p {
-      margin-bottom: 15px;
-      color: #1e293b;
-    }
-
-    .content-section ul {
-      margin-left: 20px;
-      margin-bottom: 15px;
-    }
-
-    .content-section li {
-      margin-bottom: 8px;
-    }
-
-    .code-example {
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-      font-family: 'Courier New', monospace;
-      line-height: 1.5;
-      overflow-x: auto;
-      font-size: 0.9rem;
-      position: relative;
-    }
-
-    .copy-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #334155;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
-
-    .copy-btn:hover {
-      background: #475569;
-    }
-
-    .example-output {
-      background: #f1f5f9;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-      border-left: 4px solid #0f172a;
-    }
-
-    .demo-box {
-      background: #0f172a;
-      color: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    .interactive-demo {
-      background: #f8fafc;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-      border: 2px solid #e2e8f0;
-    }
-
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 2px solid #e2e8f0;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      font-family: 'Cairo', sans-serif;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: #0f172a;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1e293b;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #0f172a;
-      color: #0f172a;
-    }
-
-    .btn-outline:hover {
-      background: #0f172a;
-      color: white;
-    }
-
-    /* Features Section */
-    .features {
-      background:white;
-      padding:60px 20px;
-      text-align:center;
-    }
-    .features h2 {
-      font-size:2.2rem;
-      margin-bottom:40px;
-      color:#1e293b;
-    }
-    .features-grid {
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:30px;
-      max-width:1400px;
+      max-width:1200px;
       margin:0 auto;
-    }
-    .feature-card {
       padding:30px 20px;
+    }
+
+    .course-header {
+      text-align:center;
+      margin-bottom:40px;
+      background:white;
+      padding:40px 30px;
       border-radius:12px;
-      background:#f8fafc;
-      transition:transform 0.3s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
     }
-    .feature-card:hover {
-      transform:translateY(-5px);
-    }
-    .feature-card i {
+
+    .course-header h1 {
       font-size:2.5rem;
       color:#0f172a;
       margin-bottom:15px;
     }
-    .feature-card h3 {
-      margin-bottom:10px;
-      font-size:1.3rem;
-    }
-    .feature-card p {
+
+    .course-header p {
+      font-size:1.2rem;
       color:#64748b;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    /* CHAPTERS */
+    .chapters {
+      display:grid;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .chapter {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border-left:4px solid #0f172a;
+    }
+
+    .chapter h2 {
+      color:#0f172a;
+      margin-bottom:25px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:1.8rem;
+    }
+
+    .chapter h2 i {
+      color:#0f172a;
+    }
+
+    .article-content {
+      line-height:1.8;
+    }
+
+    .article-content h3 {
+      color:#0f172a;
+      margin:25px 0 15px 0;
+      font-size:1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom:15px;
+      color:#374151;
+    }
+
+    .article-content ul, .article-content ol {
+      margin:15px 0 15px 25px;
+    }
+
+    .article-content li {
+      margin-bottom:8px;
+    }
+
+    /* CODE EXAMPLES */
+    .code-example {
+      background:#1e293b;
+      color:#e2e8f0;
+      padding:25px;
+      border-radius:8px;
+      margin:20px 0;
+      overflow-x:auto;
+      font-family:'Courier New', monospace;
+      line-height:1.5;
+    }
+
+    .code-example h4 {
+      color:#f1f5f9;
+      margin-bottom:15px;
+      font-family: 'Cairo', sans-serif;
+      font-size:1.1rem;
+    }
+
+    .js-keyword {
+      color:#f0abfc;
+    }
+    .js-function {
+      color:#7dd3fc;
+    }
+    .js-string {
+      color:#86efac;
+    }
+    .js-number {
+      color:#fde047;
+    }
+    .js-comment {
+      color:#94a3b8;
+    }
+
+    /* LIVE EXAMPLES */
+    .live-example {
+      background:#f1f5f9;
+      border:2px dashed #cbd5e1;
+      border-radius:8px;
+      padding:25px;
+      margin:20px 0;
+    }
+
+    .live-example h4 {
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    /* EXERCISE SECTION */
+    .exercise {
+      background:#fff7ed;
+      border:1px solid #fdba74;
+      border-radius:8px;
+      padding:25px;
+      margin:25px 0;
+    }
+
+    .exercise h3 {
+      color:#ea580c;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* BUTTONS FOR LIVE EXAMPLES */
+    .demo-button {
+      background:#0f172a;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:6px;
+      cursor:pointer;
+      font-family: 'Cairo', sans-serif;
+      font-size:1rem;
+      transition:.3s;
+      margin:5px;
+    }
+
+    .demo-button:hover {
+      background:#1e293b;
+      transform:translateY(-2px);
+    }
+
+    /* TAGS */
+    .tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:20px 0;
+    }
+
+    .tag {
+      background:#e2e8f0;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      color:#475569;
     }
 
     /* FOOTER */
@@ -432,9 +280,10 @@
       text-align:center;
       padding:12px 0;
       font-size:0.85rem;
+      margin-top:30px;
     }
-    footer p {font-size:14px; opacity:0.7; margin-top:4px;}
-    .social a {margin:0 8px; font-size:1.1rem;}
+
+    .social a {margin:0 8px; font-size:1.1rem; transition:.3s;}
     .social a:hover {transform:translateY(-3px);}
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
@@ -442,139 +291,390 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    /* Mobile Responsive */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
       
-      .course-hero {
-        padding: 40px 15px;
+      .course-header h1 {
+        font-size:2rem;
       }
       
-      .course-hero h1 {
-        font-size: 2rem;
+      .chapter {
+        padding:20px;
       }
       
-      .course-layout {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin: 20px 0;
-      }
-      
-      .sidebar {
-        position: static;
-        order: 2;
-      }
-      
-      .course-content {
-        padding: 25px;
-        order: 1;
-      }
-      
-      .lesson-title {
-        font-size: 1.6rem;
-      }
-      
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .nav-buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .nav-buttons .btn {
-        justify-content: center;
+      .article-content h3 {
+        font-size:1.2rem;
       }
     }
 
-    @media (max-width: 1200px) {
-      .features-grid {
-        grid-template-columns:repeat(2, 1fr);
+    @media (max-width: 480px) {
+      .course-container {
+        padding:20px 15px;
+      }
+      
+      .course-header {
+        padding:30px 20px;
+      }
+      
+      .course-header h1 {
+        font-size:1.8rem;
       }
     }
+
   </style>
 </head>
 
 <body>
+
 <header>
   <div class="left-buttons">
-    <a href="index.html"><i class="fas fa-home"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i></a>
-    <a href="blog.html"><i class="fas fa-book-open"></i></a>
-    <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i></a>
-    <a href="playground.html"><i class="fas fa-code"></i></a>
-    <a href="about.html"><i class="fas fa-info-circle"></i></a>
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i><span> Courses</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
   </div>
 
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+     <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i>Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i> Courses</a>
-    <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
   </nav>
 </header>
 
-<!-- Course Hero -->
-<section class="course-hero">
-  <div class="course-container">
-    <h1>Complete JavaScript Course</h1>
-    <p>Master JavaScript from basics to advanced with our comprehensive 30-chapter course</p>
-    <div class="progress-container">
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <div class="progress-text" id="progressText">Chapter 1 of 30</div>
-    </div>
-  </div>
-</section>
-
 <div class="course-container">
-  <!-- Course Layout -->
-  <div class="course-layout">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <h2 class="sidebar-title">Course Chapters</h2>
-      <ul class="chapter-list" id="chapterList">
-        <!-- Chapters will be generated by JavaScript -->
-      </ul>
-    </div>
-
-    <!-- Course Content -->
-    <div class="course-content" id="course-content">
-      <!-- Lessons will be generated by JavaScript -->
-    </div>
+  <div class="course-header">
+    <h1><i class="fab fa-js"></i> JavaScript Complete Guide</h1>
+    <p>Master JavaScript programming from basics to advanced concepts</p>
   </div>
 
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Why Learn JavaScript With Us?</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>30 Comprehensive Chapters</h3>
-        <p>From JavaScript basics to advanced concepts and frameworks</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-laptop-code"></i>
-        <h3>Interactive Examples</h3>
-        <p>Live coding examples you can edit and run directly</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Real Projects</h3>
-        <p>Build actual applications while learning</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-rocket"></i>
-        <h3>Career Ready</h3>
-        <p>Skills that are in high demand in the job market</p>
+  <div class="chapters">
+    
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <h2><i class="fas fa-play-circle"></i> Chapter 1: JavaScript Basics</h2>
+      <div class="article-content">
+        <h3>What is JavaScript?</h3>
+        <p>JavaScript is a programming language that enables interactive web pages. It's an essential part of web development alongside HTML and CSS.</p>
+        
+        <h3>Variables and Data Types</h3>
+        <p>JavaScript has three ways to declare variables:</p>
+        
+        <div class="code-example">
+          <h4>Variables Declaration</h4>
+          <pre><span class="js-keyword">let</span> name = <span class="js-string">"John"</span>;      <span class="js-comment">// Can be reassigned</span>
+<span class="js-keyword">const</span> age = <span class="js-number">25</span>;         <span class="js-comment">// Cannot be reassigned</span>
+<span class="js-keyword">var</span> city = <span class="js-string">"New York"</span>;  <span class="js-comment">// Old way (avoid)</span>
+
+<span class="js-comment">// Data Types</span>
+<span class="js-keyword">let</span> string = <span class="js-string">"Hello"</span>;
+<span class="js-keyword">let</span> number = <span class="js-number">42</span>;
+<span class="js-keyword">let</span> boolean = <span class="js-keyword">true</span>;
+<span class="js-keyword">let</span> array = [<span class="js-number">1</span>, <span class="js-number">2</span>, <span class="js-number">3</span>];
+<span class="js-keyword">let</span> object = {name: <span class="js-string">"John"</span>};
+<span class="js-keyword">let</span> nullValue = <span class="js-keyword">null</span>;
+<span class="js-keyword">let</span> undefinedValue;</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Live Variables Example</h4>
+          <button class="demo-button" onclick="showVariables()">Show Variables</button>
+          <div id="variablesOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">let</span>
+          <span class="tag">const</span>
+          <span class="tag">var</span>
+          <span class="tag">string</span>
+          <span class="tag">number</span>
+          <span class="tag">boolean</span>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <h2><i class="fas fa-calculator"></i> Chapter 2: Operators and Functions</h2>
+      <div class="article-content">
+        <h3>Operators</h3>
+        <p>JavaScript has various operators for operations:</p>
+        
+        <div class="code-example">
+          <h4>Common Operators</h4>
+          <pre><span class="js-comment">// Arithmetic</span>
+<span class="js-keyword">let</span> sum = <span class="js-number">10</span> + <span class="js-number">5</span>;      <span class="js-comment">// 15</span>
+<span class="js-keyword">let</span> product = <span class="js-number">10</span> * <span class="js-number">5</span>;  <span class="js-comment">// 50</span>
+
+<span class="js-comment">// Comparison</span>
+<span class="js-keyword">let</span> isEqual = <span class="js-number">10</span> === <span class="js-number">10</span>;   <span class="js-comment">// true</span>
+<span class="js-keyword">let</span> isGreater = <span class="js-number">10</span> > <span class="js-number">5</span>;   <span class="js-comment">// true</span>
+
+<span class="js-comment">// Logical</span>
+<span class="js-keyword">let</span> and = <span class="js-keyword">true</span> && <span class="js-keyword">false</span>;  <span class="js-comment">// false</span>
+<span class="js-keyword">let</span> or = <span class="js-keyword">true</span> || <span class="js-keyword">false</span>;   <span class="js-comment">// true</span></pre>
+        </div>
+
+        <h3>Functions</h3>
+        <p>Functions are reusable blocks of code:</p>
+        
+        <div class="code-example">
+          <h4>Function Declarations</h4>
+          <pre><span class="js-comment">// Function Declaration</span>
+<span class="js-keyword">function</span> <span class="js-function">greet</span>(name) {
+  <span class="js-keyword">return</span> <span class="js-string">"Hello, "</span> + name;
+}
+
+<span class="js-comment">// Function Expression</span>
+<span class="js-keyword">const</span> multiply = <span class="js-keyword">function</span>(a, b) {
+  <span class="js-keyword">return</span> a * b;
+};
+
+<span class="js-comment">// Arrow Function (ES6)</span>
+<span class="js-keyword">const</span> divide = (a, b) => a / b;</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Live Function Example</h4>
+          <input type="number" id="num1" placeholder="Number 1" style="padding:8px; margin:5px; border:1px solid #cbd5e1; border-radius:4px;">
+          <input type="number" id="num2" placeholder="Number 2" style="padding:8px; margin:5px; border:1px solid #cbd5e1; border-radius:4px;">
+          <button class="demo-button" onclick="calculate()">Calculate Sum</button>
+          <div id="functionOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">function</span>
+          <span class="tag">arrow function</span>
+          <span class="tag">operators</span>
+          <span class="tag">parameters</span>
+          <span class="tag">return</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <h2><i class="fas fa-sync-alt"></i> Chapter 3: Control Structures</h2>
+      <div class="article-content">
+        <h3>Conditional Statements</h3>
+        <p>Control program flow based on conditions:</p>
+        
+        <div class="code-example">
+          <h4>If-Else Statements</h4>
+          <pre><span class="js-keyword">let</span> age = <span class="js-number">18</span>;
+
+<span class="js-keyword">if</span> (age >= <span class="js-number">18</span>) {
+  console.<span class="js-function">log</span>(<span class="js-string">"Adult"</span>);
+} <span class="js-keyword">else</span> <span class="js-keyword">if</span> (age >= <span class="js-number">13</span>) {
+  console.<span class="js-function">log</span>(<span class="js-string">"Teenager"</span>);
+} <span class="js-keyword">else</span> {
+  console.<span class="js-function">log</span>(<span class="js-string">"Child"</span>);
+}
+
+<span class="js-comment">// Switch Statement</span>
+<span class="js-keyword">let</span> day = <span class="js-string">"Monday"</span>;
+
+<span class="js-keyword">switch</span> (day) {
+  <span class="js-keyword">case</span> <span class="js-string">"Monday"</span>:
+    console.<span class="js-function">log</span>(<span class="js-string">"Start of week"</span>);
+    <span class="js-keyword">break</span>;
+  <span class="js-keyword">case</span> <span class="js-string">"Friday"</span>:
+    console.<span class="js-function">log</span>(<span class="js-string">"Weekend is near"</span>);
+    <span class="js-keyword">break</span>;
+  <span class="js-keyword">default</span>:
+    console.<span class="js-function">log</span>(<span class="js-string">"Regular day"</span>);
+}</pre>
+        </div>
+
+        <h3>Loops</h3>
+        <p>Repeat actions multiple times:</p>
+        
+        <div class="code-example">
+          <h4>Loop Examples</h4>
+          <pre><span class="js-comment">// For Loop</span>
+<span class="js-keyword">for</span> (<span class="js-keyword">let</span> i = <span class="js-number">0</span>; i < <span class="js-number">5</span>; i++) {
+  console.<span class="js-function">log</span>(i);
+}
+
+<span class="js-comment">// While Loop</span>
+<span class="js-keyword">let</span> count = <span class="js-number">0</span>;
+<span class="js-keyword">while</span> (count < <span class="js-number">3</span>) {
+  console.<span class="js-function">log</span>(count);
+  count++;
+}
+
+<span class="js-comment">// For...of Loop (Arrays)</span>
+<span class="js-keyword">const</span> fruits = [<span class="js-string">"apple"</span>, <span class="js-string">"banana"</span>, <span class="js-string">"orange"</span>];
+<span class="js-keyword">for</span> (<span class="js-keyword">const</span> fruit of fruits) {
+  console.<span class="js-function">log</span>(fruit);
+}</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Live Loop Example</h4>
+          <button class="demo-button" onclick="runLoop()">Run Loop (Check Console)</button>
+          <button class="demo-button" onclick="showFruits()">Show Fruits Array</button>
+          <div id="loopOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">if-else</span>
+          <span class="tag">switch</span>
+          <span class="tag">for loop</span>
+          <span class="tag">while loop</span>
+          <span class="tag">break</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <h2><i class="fas fa-layer-group"></i> Chapter 4: Arrays and Objects</h2>
+      <div class="article-content">
+        <h3>Arrays</h3>
+        <p>Arrays store multiple values in a single variable:</p>
+        
+        <div class="code-example">
+          <h4>Array Methods</h4>
+          <pre><span class="js-keyword">const</span> colors = [<span class="js-string">"red"</span>, <span class="js-string">"green"</span>, <span class="js-string">"blue"</span>];
+
+<span class="js-comment">// Adding/Removing</span>
+colors.<span class="js-function">push</span>(<span class="js-string">"yellow"</span>);      <span class="js-comment">// Add to end</span>
+colors.<span class="js-function">pop</span>();              <span class="js-comment">// Remove from end</span>
+colors.<span class="js-function">unshift</span>(<span class="js-string">"purple"</span>);   <span class="js-comment">// Add to start</span>
+
+<span class="js-comment">// Useful Methods</span>
+<span class="js-keyword">const</span> doubled = colors.<span class="js-function">map</span>(color => color + <span class="js-string">"!"</span>);
+<span class="js-keyword">const</span> filtered = colors.<span class="js-function">filter</span>(color => color.<span class="js-function">length</span> > <span class="js-number">3</span>);
+<span class="js-keyword">const</span> found = colors.<span class="js-function">find</span>(color => color === <span class="js-string">"red"</span>);</pre>
+        </div>
+
+        <h3>Objects</h3>
+        <p>Objects store key-value pairs:</p>
+        
+        <div class="code-example">
+          <h4>Object Examples</h4>
+          <pre><span class="js-keyword">const</span> person = {
+  firstName: <span class="js-string">"John"</span>,
+  lastName: <span class="js-string">"Doe"</span>,
+  age: <span class="js-number">30</span>,
+  hobbies: [<span class="js-string">"reading"</span>, <span class="js-string">"coding"</span>],
+  
+  <span class="js-comment">// Method</span>
+  getFullName: <span class="js-keyword">function</span>() {
+    <span class="js-keyword">return</span> <span class="js-keyword">this</span>.firstName + <span class="js-string">" "</span> + <span class="js-keyword">this</span>.lastName;
+  }
+};
+
+<span class="js-comment">// Accessing properties</span>
+console.<span class="js-function">log</span>(person.firstName);        <span class="js-comment">// Dot notation</span>
+console.<span class="js-function">log</span>(person[<span class="js-string">"lastName"</span>]);     <span class="js-comment">// Bracket notation</span>
+console.<span class="js-function">log</span>(person.<span class="js-function">getFullName</span>());   <span class="js-comment">// Method call</span></pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Live Object Example</h4>
+          <button class="demo-button" onclick="showPerson()">Show Person Object</button>
+          <div id="objectOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px; font-family: monospace;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">array</span>
+          <span class="tag">object</span>
+          <span class="tag">push/pop</span>
+          <span class="tag">map/filter</span>
+          <span class="tag">methods</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <h2><i class="fas fa-window-restore"></i> Chapter 5: DOM Manipulation</h2>
+      <div class="article-content">
+        <h3>What is DOM?</h3>
+        <p>The Document Object Model (DOM) represents the page structure and allows JavaScript to interact with HTML elements.</p>
+        
+        <div class="code-example">
+          <h4>DOM Selection Methods</h4>
+          <pre><span class="js-comment">// Selecting elements</span>
+<span class="js-keyword">const</span> element = document.<span class="js-function">getElementById</span>(<span class="js-string">"myId"</span>);
+<span class="js-keyword">const</span> elements = document.<span class="js-function">querySelectorAll</span>(<span class="js-string">".myClass"</span>);
+<span class="js-keyword">const</span> firstElement = document.<span class="js-function">querySelector</span>(<span class="js-string">"div"</span>);
+
+<span class="js-comment">// Modifying content</span>
+element.textContent = <span class="js-string">"New text"</span>;
+element.innerHTML = <span class="js-string">"&lt;strong&gt;Bold text&lt;/strong&gt;"</span>;
+
+<span class="js-comment">// Changing styles</span>
+element.style.color = <span class="js-string">"red"</span>;
+element.style.backgroundColor = <span class="js-string">"yellow"</span>;</pre>
+        </div>
+
+        <h3>Event Handling</h3>
+        <p>Respond to user interactions:</p>
+        
+        <div class="code-example">
+          <h4>Event Listeners</h4>
+          <pre><span class="js-comment">// Adding event listeners</span>
+element.<span class="js-function">addEventListener</span>(<span class="js-string">"click"</span>, <span class="js-keyword">function</span>() {
+  console.<span class="js-function">log</span>(<span class="js-string">"Element clicked!"</span>);
+});
+
+<span class="js-comment">// Event object</span>
+element.<span class="js-function">addEventListener</span>(<span class="js-string">"click"</span>, <span class="js-keyword">function</span>(event) {
+  console.<span class="js-function">log</span>(<span class="js-string">"Clicked at: "</span> + event.clientX + <span class="js-string">", "</span> + event.clientY);
+});
+
+<span class="js-comment">// Form events</span>
+form.<span class="js-function">addEventListener</span>(<span class="js-string">"submit"</span>, <span class="js-keyword">function</span>(event) {
+  event.<span class="js-function">preventDefault</span>(); <span class="js-comment">// Prevent form submission</span>
+  <span class="js-comment">// Handle form data</span>
+});</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Live DOM Example</h4>
+          <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 15px;">
+            <button class="demo-button" onclick="changeColor()">Change Color</button>
+            <button class="demo-button" onclick="addItem()">Add Item</button>
+            <button class="demo-button" onclick="clearItems()">Clear</button>
+          </div>
+          <div id="domDemo" style="padding:15px; background:white; border-radius:4px; border:1px solid #e2e8f0;">
+            <p>This element will change when you click the buttons!</p>
+          </div>
+          <ul id="itemList" style="margin-top:10px; padding-left:20px;"></ul>
+        </div>
+
+        <div class="exercise">
+          <h3><i class="fas fa-pencil-alt"></i> Practice Exercise</h3>
+          <p><strong>Create a To-Do List:</strong></p>
+          <ul>
+            <li>Create an input field and add button</li>
+            <li>When button is clicked, add input value to a list</li>
+            <li>Each list item should have a delete button</li>
+            <li>Implement functionality to mark items as completed</li>
+            <li>Add local storage to persist data</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">DOM</span>
+          <span class="tag">querySelector</span>
+          <span class="tag">addEventListener</span>
+          <span class="tag">event</span>
+          <span class="tag">style</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>
@@ -589,936 +689,100 @@
 </footer>
 
 <script>
-// Full JavaScript course data with 30 COMPLETE chapters
-const courseData = [
-  {
-    id: 1,
-    title: "Introduction to JavaScript",
-    duration: "20 min",
-    level: "Beginner",
-    content: `
-      <h3>What is JavaScript?</h3>
-      <p>JavaScript is a high-level programming language that makes web pages interactive. It was created in 1995 by Brendan Eich and has evolved into one of the most popular programming languages in the world.</p>
-      
-      <h3>Why Learn JavaScript?</h3>
-      <ul>
-        <li><strong>Universal Language:</strong> Runs in all web browsers</li>
-        <li><strong>Versatile:</strong> Used for frontend, backend, mobile apps, and desktop applications</li>
-        <li><strong>High Demand:</strong> One of the most sought-after skills in tech jobs</li>
-        <li><strong>Large Community:</strong> Extensive documentation and support</li>
-      </ul>
-
-      <h3>Setting Up Your Environment</h3>
-      <p>You can start coding JavaScript right now in your browser! Open the developer tools (F12) and go to the Console tab.</p>
-
-      <div class="code-example">
-// Your first JavaScript code
-console.log("Hello, JavaScript World!");
-
-// Simple calculations
-let result = 5 + 3;
-console.log("5 + 3 =", result);
-
-// String concatenation
-let greeting = "Hello" + " " + "World";
-console.log(greeting);
-      </div>
-
-      <div class="interactive-demo">
-        <h4>Try JavaScript in Action:</h4>
-        <button onclick="alert('Welcome to JavaScript! 🎉')" class="btn btn-primary">
-          <i class="fas fa-play"></i> Run Alert
-        </button>
-        <button onclick="showCurrentTime()" class="btn btn-outline">
-          <i class="fas fa-clock"></i> Show Current Time
-        </button>
-        <p id="timeDisplay" style="margin-top: 10px; font-weight: bold;"></p>
-      </div>
-    `
-  },
-  {
-    id: 2,
-    title: "Variables and Data Types",
-    duration: "25 min",
-    level: "Beginner",
-    content: `
-      <h3>Declaring Variables</h3>
-      <p>Variables are containers for storing data values. JavaScript has three ways to declare variables:</p>
-      
-      <div class="code-example">
-// var - function scoped (older way)
-var firstName = "John";
-
-// let - block scoped (modern, preferred)
-let age = 25;
-
-// const - block scoped, cannot be reassigned
-const PI = 3.14159;
-
-// Trying to reassign const will cause error
-// PI = 3.14; // This will throw an error
-
-console.log(firstName); // "John"
-console.log(age);       // 25
-console.log(PI);        // 3.14159
-      </div>
-
-      <h3>Data Types in JavaScript</h3>
-      <p>JavaScript has dynamic types - the same variable can hold different data types:</p>
-      
-      <div class="code-example">
-// Primitive Data Types
-let name = "Alice";          // String
-let score = 95;              // Number
-let isPassed = true;         // Boolean
-let nothing = null;          // Null
-let notDefined = undefined;  // Undefined
-let bigNumber = 12345678901234567890n; // BigInt
-let uniqueId = Symbol('id'); // Symbol
-
-// Reference Data Types
-let numbers = [1, 2, 3, 4, 5];           // Array
-let person = {name: "Bob", age: 30};     // Object
-let sayHello = function() {               // Function
-    return "Hello!";
-};
-
-// Type checking
-console.log(typeof name);        // "string"
-console.log(typeof score);       // "number"
-console.log(typeof isPassed);    // "boolean"
-console.log(typeof numbers);     // "object"
-console.log(typeof sayHello);    // "function"
-      </div>
-
-      <div class="interactive-demo">
-        <h4>Variable Playground:</h4>
-        <button onclick="demoVariables()" class="btn btn-primary">
-          <i class="fas fa-vial"></i> Test Variables
-        </button>
-        <div id="variableDemo" style="margin-top: 10px; padding: 10px; background: #f1f5f9; border-radius: 5px;"></div>
-      </div>
-    `
-  },
-  {
-    id: 3,
-    title: "Operators and Expressions",
-    duration: "20 min",
-    level: "Beginner",
-    content: `
-      <h3>Arithmetic Operators</h3>
-      <p>Used for mathematical operations between numbers:</p>
-      
-      <div class="code-example">
-let a = 10, b = 3;
-
-console.log(a + b);   // 13  (Addition)
-console.log(a - b);   // 7   (Subtraction)
-console.log(a * b);   // 30  (Multiplication)
-console.log(a / b);   // 3.33 (Division)
-console.log(a % b);   // 1   (Modulus - remainder)
-console.log(a ** b);  // 1000 (Exponentiation)
-
-// Increment and Decrement
-let count = 5;
-console.log(count++); // 5 (post-increment: returns then increments)
-console.log(++count); // 7 (pre-increment: increments then returns)
-console.log(count--); // 7 (post-decrement)
-console.log(--count); // 5 (pre-decrement)
-      </div>
-
-      <h3>Comparison Operators</h3>
-      <p>Used to compare values and return boolean results:</p>
-      
-      <div class="code-example">
-let x = 5, y = "5";
-
-// Loose equality (compares values only)
-console.log(x == y);    // true
-console.log(x != y);    // false
-
-// Strict equality (compares values AND types)
-console.log(x === y);   // false
-console.log(x !== y);   // true
-
-// Relational operators
-console.log(x > 3);     // true
-console.log(x < 10);    // true
-console.log(x >= 5);    // true
-console.log(x <= 4);    // false
-      </div>
-
-      <h3>Logical Operators</h3>
-      <div class="code-example">
-let isAdult = true;
-let hasLicense = false;
-let hasCar = true;
-
-// AND (&&) - both must be true
-console.log(isAdult && hasLicense);  // false
-
-// OR (||) - at least one must be true
-console.log(isAdult || hasLicense);  // true
-
-// NOT (!) - inverts the boolean
-console.log(!isAdult);               // false
-
-// Combining operators
-console.log(isAdult && (hasLicense || hasCar)); // true
-      </div>
-
-      <div class="interactive-demo">
-        <h4>Operator Calculator:</h4>
-        <input type="number" id="op1" placeholder="First number" style="padding: 8px; margin: 5px; width: 100px;">
-        <input type="number" id="op2" placeholder="Second number" style="padding: 8px; margin: 5px; width: 100px;">
-        <br>
-        <button onclick="calculateOperation('+')" class="btn btn-outline">+ Add</button>
-        <button onclick="calculateOperation('-')" class="btn btn-outline">- Subtract</button>
-        <button onclick="calculateOperation('*')" class="btn btn-outline">× Multiply</button>
-        <button onclick="calculateOperation('/')" class="btn btn-outline">÷ Divide</button>
-        <p id="operatorResult" style="margin-top: 10px; font-weight: bold; font-size: 1.2rem;"></p>
-      </div>
-    `
-  },
-  {
-    id: 4,
-    title: "Control Structures - Conditionals",
-    duration: "30 min",
-    level: "Beginner",
-    content: `
-      <h3>If-Else Statements</h3>
-      <p>Execute different code blocks based on conditions:</p>
-      
-      <div class="code-example">
-let age = 18;
-
-// Basic if statement
-if (age >= 18) {
-    console.log("You are an adult");
-}
-
-// If-else statement
-if (age >= 18) {
-    console.log("You can vote");
-} else {
-    console.log("You cannot vote yet");
-}
-
-// Else-if ladder
-let score = 85;
-let grade;
-
-if (score >= 90) {
-    grade = "A";
-    console.log("Excellent!");
-} else if (score >= 80) {
-    grade = "B";
-    console.log("Very Good!");
-} else if (score >= 70) {
-    grade = "C";
-    console.log("Good");
-} else if (score >= 60) {
-    grade = "D";
-    console.log("Pass");
-} else {
-    grade = "F";
-    console.log("Need improvement");
-}
-
-console.log("Your grade is:", grade);
-      </div>
-
-      <h3>Ternary Operator</h3>
-      <p>A shorthand for simple if-else statements:</p>
-      
-      <div class="code-example">
-let isMember = true;
-let discount = isMember ? 0.1 : 0; // 10% discount for members
-
-console.log("Discount:", discount * 100 + "%");
-
-// Nested ternary
-let userAge = 20;
-let message = userAge >= 18 ? 
-    (userAge >= 65 ? "Senior" : "Adult") : 
-    "Minor";
+  // Chapter 1: Variables
+  function showVariables() {
+    let name = "Alice";
+    const age = 25;
+    let isStudent = true;
+    let hobbies = ["reading", "coding", "gaming"];
     
-console.log(message); // "Adult"
-      </div>
+    const output = `
+      Name: ${name}<br>
+      Age: ${age}<br>
+      Is Student: ${isStudent}<br>
+      Hobbies: ${hobbies.join(", ")}
+    `;
+    
+    document.getElementById("variablesOutput").innerHTML = output;
+  }
 
-      <h3>Switch Statement</h3>
-      <p>Useful for multiple conditions based on the same value:</p>
-      
-      <div class="code-example">
-let day = "Monday";
-let dayType;
+  // Chapter 2: Functions
+  function calculate() {
+    const num1 = parseFloat(document.getElementById("num1").value) || 0;
+    const num2 = parseFloat(document.getElementById("num2").value) || 0;
+    const sum = num1 + num2;
+    
+    document.getElementById("functionOutput").innerHTML = 
+      `${num1} + ${num2} = <strong>${sum}</strong>`;
+  }
 
-switch (day) {
-    case "Monday":
-    case "Tuesday":
-    case "Wednesday":
-    case "Thursday":
-    case "Friday":
-        dayType = "Weekday";
-        console.log("Time to work!");
-        break;
-    case "Saturday":
-    case "Sunday":
-        dayType = "Weekend";
-        console.log("Time to relax!");
-        break;
-    default:
-        dayType = "Unknown";
-        console.log("Invalid day");
-}
-
-console.log(day + " is a " + dayType);
-      </div>
-
-      <div class="interactive-demo">
-        <h4>Grade Calculator:</h4>
-        <input type="number" id="studentScore" placeholder="Enter your score (0-100)" 
-               style="padding: 8px; margin: 5px; width: 200px;">
-        <button onclick="calculateGrade()" class="btn btn-primary">
-          <i class="fas fa-calculator"></i> Calculate Grade
-        </button>
-        <p id="gradeOutput" style="margin-top: 10px; font-weight: bold;"></p>
-      </div>
-    `
-  },
-  {
-    id: 5,
-    title: "Functions Fundamentals",
-    duration: "25 min",
-    level: "Beginner",
-    content: `
-      <h3>Function Declaration</h3>
-      <p>Functions are reusable blocks of code that perform specific tasks:</p>
-      
-      <div class="code-example">
-// Function declaration
-function greet(name) {
-    return "Hello, " + name + "!";
-}
-
-// Function expression
-const multiply = function(a, b) {
-    return a * b;
-};
-
-// Arrow function (ES6)
-const divide = (a, b) => a / b;
-
-// Using the functions
-console.log(greet("Alice"));     // "Hello, Alice!"
-console.log(multiply(4, 5));     // 20
-console.log(divide(10, 2));      // 5
-
-// Function with default parameters
-function createUser(name, age = 18, isActive = true) {
-    return {
-        name: name,
-        age: age,
-        isActive: isActive
-    };
-}
-
-console.log(createUser("John")); 
-// { name: "John", age: 18, isActive: true }
-      </div>
-
-      <h3>Function Parameters</h3>
-      <p>Different ways to handle function parameters:</p>
-      
-      <div class="code-example">
-// Rest parameters (...)
-function sum(...numbers) {
-    return numbers.reduce((total, num) => total + num, 0);
-}
-
-console.log(sum(1, 2, 3));        // 6
-console.log(sum(1, 2, 3, 4, 5));  // 15
-
-// Destructuring parameters
-function displayUser({name, age, city = "Unknown"}) {
-    console.log(\`\${name} is \${age} years old from \${city}\`);
-}
-
-const user = {name: "Bob", age: 25};
-displayUser(user); // "Bob is 25 years old from Unknown"
-      </div>
-
-      <h3>Higher-Order Functions</h3>
-      <p>Functions that take other functions as arguments or return functions:</p>
-      
-      <div class="code-example">
-// Function that returns a function
-function createMultiplier(multiplier) {
-    return function(number) {
-        return number * multiplier;
-    };
-}
-
-const double = createMultiplier(2);
-const triple = createMultiplier(3);
-
-console.log(double(5));  // 10
-console.log(triple(5));  // 15
-
-// Function as parameter
-function applyOperation(numbers, operation) {
-    return numbers.map(operation);
-}
-
-const numbers = [1, 2, 3, 4];
-const squared = applyOperation(numbers, x => x * x);
-console.log(squared); // [1, 4, 9, 16]
-      </div>
-
-      <div class="interactive-demo">
-        <h4>Function Playground:</h4>
-        <input type="number" id="funcNum1" placeholder="Number 1" style="padding: 8px; margin: 5px; width: 100px;">
-        <input type="number" id="funcNum2" placeholder="Number 2" style="padding: 8px; margin: 5px; width: 100px;">
-        <br>
-        <button onclick="executeFunction('power')" class="btn btn-outline">Power</button>
-        <button onclick="executeFunction('max')" class="btn btn-outline">Max</button>
-        <button onclick="executeFunction('min')" class="btn btn-outline">Min</button>
-        <button onclick="executeFunction('average')" class="btn btn-outline">Average</button>
-        <p id="functionResult" style="margin-top: 10px; font-weight: bold;"></p>
-      </div>
-    `
-  },
-  {
-    id: 6,
-    title: "Arrays and Array Methods",
-    duration: "30 min",
-    level: "Intermediate",
-    content: `
-      <h3>Array Basics</h3>
-      <p>Arrays are used to store multiple values in a single variable:</p>
-      
-      <div class="code-example">
-// Creating arrays
-let fruits = ["apple", "banana", "orange"];
-let numbers = [1, 2, 3, 4, 5];
-let mixed = [1, "hello", true, null];
-
-// Accessing elements
-console.log(fruits[0]);    // "apple" (first element)
-console.log(fruits[1]);    // "banana"
-console.log(fruits.length); // 3
-
-// Modifying arrays
-fruits[1] = "grape";       // Change element
-fruits.push("mango");      // Add to end
-fruits.pop();              // Remove from end
-fruits.unshift("kiwi");    // Add to beginning
-fruits.shift();            // Remove from beginning
-
-console.log(fruits); // ["grape", "orange"]
-      </div>
-
-      <h3>Common Array Methods</h3>
-      <p>JavaScript provides many useful array methods:</p>
-      
-      <div class="code-example">
-let numbers = [1, 2, 3, 4, 5];
-
-// map - transform each element
-let doubled = numbers.map(num => num * 2);
-console.log(doubled); // [2, 4, 6, 8, 10]
-
-// filter - select elements that pass test
-let even = numbers.filter(num => num % 2 === 0);
-console.log(even); // [2, 4]
-
-// reduce - reduce to single value
-let sum = numbers.reduce((total, num) => total + num, 0);
-console.log(sum); // 15
-
-// find - find first matching element
-let firstEven = numbers.find(num => num % 2 === 0);
-console.log(firstEven); // 2
-
-// some - check if any element matches
-let hasEven = numbers.some(num => num % 2 === 0);
-console.log(hasEven); // true
-
-// every - check if all elements match
-let allPositive = numbers.every(num => num > 0);
-console.log(allPositive); // true
-      </div>
-
-      <h3>Array Destructuring</h3>
-      <p>Extract values from arrays into distinct variables:</p>
-      
-      <div class="code-example">
-let colors = ["red", "green", "blue", "yellow"];
-
-// Basic destructuring
-let [firstColor, secondColor] = colors;
-console.log(firstColor);  // "red"
-console.log(secondColor); // "green"
-
-// Skipping elements
-let [,, thirdColor] = colors;
-console.log(thirdColor);  // "blue"
-
-// Rest pattern
-let [primary, ...otherColors] = colors;
-console.log(primary);     // "red"
-console.log(otherColors); // ["green", "blue", "yellow"]
-
-// Default values
-let [a, b, c, d, e = "purple"] = colors;
-console.log(e); // "purple" (default value used)
-      </div>
-
-      <div class="interactive-demo">
-        <h4>Array Manipulator:</h4>
-        <input type="text" id="arrayInput" placeholder="Enter numbers (comma separated)" 
-               style="padding: 8px; margin: 5px; width: 250px;" value="1,2,3,4,5">
-        <br>
-        <button onclick="transformArray('double')" class="btn btn-outline">Double Values</button>
-        <button onclick="transformArray('filterEven')" class="btn btn-outline">Even Numbers</button>
-        <button onclick="transformArray('sum')" class="btn btn-outline">Calculate Sum</button>
-        <button onclick="transformArray('reverse')" class="btn btn-outline">Reverse</button>
-        <p id="arrayOutput" style="margin-top: 10px; font-family: monospace;"></p>
-      </div>
-    `
-  },
-  // ... سيتم إضافة الفصول من 7 إلى 30 بنفس النمط ...
-  {
-    id: 30,
-    title: "Career Path and Next Steps",
-    duration: "30 min",
-    level: "All Levels",
-    content: `
-      <h3>JavaScript Career Paths</h3>
-      <div class="example-output">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
-          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
-            <h4 style="color: #0f172a; margin-bottom: 15px;">🚀 Frontend Developer</h4>
-            <ul>
-              <li><strong>Core Skills:</strong> React, Vue, Angular, TypeScript</li>
-              <li><strong>Tools:</strong> Webpack, Vite, ESLint, Prettier</li>
-              <li><strong>Focus Areas:</strong> UI/UX, Performance, Accessibility</li>
-              <li><strong>Salary Range:</strong> $70,000 - $130,000</li>
-            </ul>
-          </div>
-          
-          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
-            <h4 style="color: #0f172a; margin-bottom: 15px;">⚙️ Backend Developer</h4>
-            <ul>
-              <li><strong>Core Skills:</strong> Node.js, Express, Databases, APIs</li>
-              <li><strong>Tools:</strong> MongoDB, PostgreSQL, Docker, AWS</li>
-              <li><strong>Focus Areas:</strong> Server Logic, Security, Scalability</li>
-              <li><strong>Salary Range:</strong> $80,000 - $140,000</li>
-            </ul>
-          </div>
-          
-          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
-            <h4 style="color: #0f172a; margin-bottom: 15px;">🔧 Fullstack Developer</h4>
-            <ul>
-              <li><strong>Core Skills:</strong> Frontend + Backend + DevOps</li>
-              <li><strong>Tools:</strong> Git, CI/CD, Cloud Platforms</li>
-              <li><strong>Focus Areas:</strong> End-to-End Development</li>
-              <li><strong>Salary Range:</strong> $90,000 - $150,000</li>
-            </ul>
-          </div>
-          
-          <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
-            <h4 style="color: #0f172a; margin-bottom: 15px;">📱 Mobile Developer</h4>
-            <ul>
-              <li><strong>Core Skills:</strong> React Native, Ionic, NativeScript</li>
-              <li><strong>Tools:</strong> Android Studio, Xcode, Firebase</li>
-              <li><strong>Focus Areas:</strong> Cross-Platform Apps</li>
-              <li><strong>Salary Range:</strong> $75,000 - $120,000</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <h3>Building Your Portfolio</h3>
-      <div class="code-example">
-// Project ideas to showcase your skills
-const portfolioProjects = [
-    {
-        name: "E-commerce Website",
-        difficulty: "Intermediate",
-        skills: ["React", "Node.js", "MongoDB", "Payment Integration"],
-        features: [
-            "Product catalog with search",
-            "Shopping cart & checkout",
-            "User authentication",
-            "Order management system",
-            "Admin dashboard"
-        ],
-        timeline: "4-6 weeks"
-    },
-    {
-        name: "Task Management App",
-        difficulty: "Beginner-Intermediate",
-        skills: ["Vue.js", "Firebase", "PWA"],
-        features: [
-            "CRUD operations",
-            "Real-time updates",
-            "Offline functionality",
-            "Push notifications",
-            "Team collaboration"
-        ],
-        timeline: "2-3 weeks"
-    },
-    {
-        name: "Weather Dashboard",
-        difficulty: "Beginner",
-        skills: ["API Integration", "Chart.js", "Local Storage"],
-        features: [
-            "Current weather display",
-            "5-day forecast",
-            "Location detection",
-            "Favorite cities",
-            "Weather charts"
-        ],
-        timeline: "1-2 weeks"
-    },
-    {
-        name: "Social Media App",
-        difficulty: "Advanced",
-        skills: ["React Native", "GraphQL", "AWS", "WebSockets"],
-        features: [
-            "User profiles & posts",
-            "Real-time messaging",
-            "Image/video upload",
-            "Like & comment system",
-            "Push notifications"
-        ],
-        timeline: "8-12 weeks"
+  // Chapter 3: Loops
+  function runLoop() {
+    console.log("=== For Loop ===");
+    for (let i = 1; i <= 3; i++) {
+      console.log(`Iteration ${i}`);
     }
-];
-      </div>
-
-      <div class="demo-box">
-        <h3>🎓 Congratulations on Completing the JavaScript Course!</h3>
-        <p>You've built a solid foundation in JavaScript programming. Here's your roadmap for continued growth:</p>
-        
-        <h4>🔄 Immediate Next Steps (Next 3 Months):</h4>
-        <ul>
-          <li><strong>Build 3-5 Portfolio Projects:</strong> Showcase your skills with real applications</li>
-          <li><strong>Learn TypeScript:</strong> Add static typing to your JavaScript knowledge</li>
-          <li><strong>Master a Framework:</strong> Choose React, Vue, or Angular and become proficient</li>
-          <li><strong>Contribute to Open Source:</strong> Gain real-world experience and build your network</li>
-        </ul>
-
-        <h4>🚀 Intermediate Goals (3-12 Months):</h4>
-        <ul>
-          <li><strong>Backend Development:</strong> Learn Node.js, Express, and databases</li>
-          <li><strong>DevOps Basics:</strong> Understand Git, CI/CD, and deployment</li>
-          <li><strong>Testing:</strong> Master unit testing and integration testing</li>
-          <li><strong>Performance Optimization:</strong> Learn to build fast, efficient applications</li>
-        </ul>
-
-        <h4>🏆 Long-term Growth (1+ Years):</h4>
-        <ul>
-          <li><strong>Cloud Platforms:</strong> AWS, Azure, or Google Cloud certification</li>
-          <li><strong>System Architecture:</strong> Design scalable, maintainable systems</li>
-          <li><strong>Specialization:</strong> Choose a niche (AI, Blockchain, IoT, etc.)</li>
-          <li><strong>Leadership Skills:</strong> Team lead, project management, mentoring</li>
-        </ul>
-
-        <div style="background: #1e293b; color: white; padding: 20px; border-radius: 8px; margin-top: 20px;">
-          <h4 style="color: #f8fafc;">💡 Remember These Key Principles:</h4>
-          <ul>
-            <li><strong>Consistency Over Intensity:</strong> Code regularly, even if it's just 30 minutes a day</li>
-            <li><strong>Build, Don't Just Learn:</strong> Apply your knowledge to real projects</li>
-            <li><strong>Embrace Challenges:</strong> The hardest problems teach you the most</li>
-            <li><strong>Stay Curious:</strong> Technology evolves fast - keep learning new things</li>
-            <li><strong>Network:</strong> Connect with other developers and learn from the community</li>
-          </ul>
-        </div>
-
-        <p style="margin-top: 20px; text-align: center; font-size: 1.1rem;">
-          <strong>Your journey in programming is just beginning. Keep building, keep learning, and most importantly - enjoy the process! 🚀</strong>
-        </p>
-      </div>
-    `
+    alert("Check browser console for loop output!");
   }
-];
 
-// Demo Functions for Interactive Examples
-function showCurrentTime() {
-  const now = new Date();
-  document.getElementById('timeDisplay').textContent = 
-    `Current Time: ${now.toLocaleTimeString()}`;
-}
-
-function demoVariables() {
-  const demoDiv = document.getElementById('variableDemo');
-  let output = '';
-  
-  // String examples
-  let firstName = "Coding";
-  let lastName = "Life";
-  let fullName = firstName + " " + lastName;
-  output += `<strong>Strings:</strong> ${fullName}<br>`;
-  
-  // Number examples
-  let price = 99.99;
-  let quantity = 3;
-  let total = price * quantity;
-  output += `<strong>Numbers:</strong> ${price} × ${quantity} = ${total}<br>`;
-  
-  // Boolean examples
-  let isAvailable = true;
-  let isExpired = false;
-  output += `<strong>Booleans:</strong> Available: ${isAvailable}, Expired: ${isExpired}<br>`;
-  
-  // Array examples
-  let colors = ["Red", "Green", "Blue"];
-  output += `<strong>Array:</strong> ${colors.join(", ")}<br>`;
-  
-  // Object examples
-  let user = {name: "Student", progress: "30%"};
-  output += `<strong>Object:</strong> ${user.name} - Progress: ${user.progress}`;
-  
-  demoDiv.innerHTML = output;
-}
-
-function calculateOperation(operator) {
-  const num1 = parseFloat(document.getElementById('op1').value) || 0;
-  const num2 = parseFloat(document.getElementById('op2').value) || 0;
-  const result = document.getElementById('operatorResult');
-  
-  let calculation;
-  switch(operator) {
-    case '+': calculation = num1 + num2; break;
-    case '-': calculation = num1 - num2; break;
-    case '*': calculation = num1 * num2; break;
-    case '/': calculation = num2 !== 0 ? num1 / num2 : 'Cannot divide by zero'; break;
+  function showFruits() {
+    const fruits = ["Apple", "Banana", "Orange", "Grape"];
+    let output = "Fruits: ";
+    
+    for (const fruit of fruits) {
+      output += fruit + " ";
+    }
+    
+    document.getElementById("loopOutput").innerHTML = output;
   }
-  
-  result.textContent = `${num1} ${operator} ${num2} = ${calculation}`;
-}
 
-function calculateGrade() {
-  const score = parseInt(document.getElementById('studentScore').value);
-  const output = document.getElementById('gradeOutput');
-  
-  if (isNaN(score) || score < 0 || score > 100) {
-    output.textContent = "Please enter a valid score between 0 and 100";
-    output.style.color = "#ef4444";
-    return;
-  }
-  
-  let grade, message, color;
-  
-  if (score >= 90) {
-    grade = "A";
-    message = "Excellent! 🎉";
-    color = "#10b981";
-  } else if (score >= 80) {
-    grade = "B";
-    message = "Very Good! 👍";
-    color = "#3b82f6";
-  } else if (score >= 70) {
-    grade = "C";
-    message = "Good job! 👏";
-    color = "#8b5cf6";
-  } else if (score >= 60) {
-    grade = "D";
-    message = "You passed! ✅";
-    color = "#f59e0b";
-  } else {
-    grade = "F";
-    message = "Need improvement 📚";
-    color = "#ef4444";
-  }
-  
-  output.innerHTML = `<span style="color: ${color}">Grade: ${grade} - ${message}</span>`;
-}
-
-function executeFunction(operation) {
-  const num1 = parseFloat(document.getElementById('funcNum1').value) || 0;
-  const num2 = parseFloat(document.getElementById('funcNum2').value) || 0;
-  const result = document.getElementById('functionResult');
-  
-  let output;
-  switch(operation) {
-    case 'power':
-      output = Math.pow(num1, num2);
-      break;
-    case 'max':
-      output = Math.max(num1, num2);
-      break;
-    case 'min':
-      output = Math.min(num1, num2);
-      break;
-    case 'average':
-      output = (num1 + num2) / 2;
-      break;
-  }
-  
-  result.textContent = `Result: ${output}`;
-}
-
-function transformArray(operation) {
-  const input = document.getElementById('arrayInput').value;
-  const numbers = input.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num));
-  const output = document.getElementById('arrayOutput');
-  
-  let result;
-  switch(operation) {
-    case 'double':
-      result = numbers.map(num => num * 2);
-      break;
-    case 'filterEven':
-      result = numbers.filter(num => num % 2 === 0);
-      break;
-    case 'sum':
-      result = numbers.reduce((sum, num) => sum + num, 0);
-      break;
-    case 'reverse':
-      result = [...numbers].reverse();
-      break;
-  }
-  
-  output.textContent = `Original: [${numbers}] → Result: ${Array.isArray(result) ? '[' + result + ']' : result}`;
-}
-
-// Copy to clipboard functionality
-function addCopyButtons() {
-  document.querySelectorAll('.code-example').forEach(example => {
-    const copyBtn = document.createElement('button');
-    copyBtn.className = 'copy-btn';
-    copyBtn.textContent = 'Copy';
-    copyBtn.onclick = function() {
-      const code = example.textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        copyBtn.textContent = 'Copied!';
-        setTimeout(() => copyBtn.textContent = 'Copy', 2000);
-      });
+  // Chapter 4: Objects
+  function showPerson() {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 30,
+      profession: "Developer",
+      getFullName: function() {
+        return this.firstName + " " + this.lastName;
+      },
+      introduce: function() {
+        return `Hi, I'm ${this.getFullName()}, a ${this.age}-year-old ${this.profession}.`;
+      }
     };
-    example.appendChild(copyBtn);
-  });
-}
-
-// Initialize the course
-function initializeCourse() {
-  const chapterList = document.getElementById('chapterList');
-  const courseContent = document.getElementById('course-content');
-  
-  // Clear existing
-  chapterList.innerHTML = '';
-  courseContent.innerHTML = '';
-
-  // Generate chapter list
-  courseData.forEach(chapter => {
-    const listItem = document.createElement('li');
-    listItem.className = 'chapter-item';
-    listItem.innerHTML = `
-      <a class="chapter-link" data-chapter="${chapter.id}">
-        <span class="chapter-number">${chapter.id}</span>
-        <span>${chapter.title}</span>
-      </a>
-    `;
-    chapterList.appendChild(listItem);
-  });
-  
-  // Generate lesson content
-  courseData.forEach(chapter => {
-    const lesson = document.createElement('div');
-    lesson.className = 'lesson';
-    lesson.id = `lesson-${chapter.id}`;
-    lesson.innerHTML = `
-      <h1 class="lesson-title">${chapter.id}. ${chapter.title}</h1>
-      <div class="lesson-meta">
-        <div class="meta-item">
-          <i class="fas fa-clock"></i>
-          <span>${chapter.duration} read</span>
-        </div>
-        <div class="meta-item">
-          <i class="fas fa-star"></i>
-          <span>${chapter.level} Level</span>
-        </div>
-      </div>
-      <div class="content-section">
-        ${chapter.content}
-      </div>
-      <div class="nav-buttons">
-        <button class="btn btn-outline" onclick="previousLesson(${chapter.id})" ${chapter.id === 1 ? 'disabled' : ''}>
-          <i class="fas fa-arrow-left"></i> Previous
-        </button>
-        <button class="btn btn-primary" onclick="nextLesson(${chapter.id})" ${chapter.id === courseData.length ? 'disabled' : ''}>
-          Next Chapter <i class="fas fa-arrow-right"></i>
-        </button>
-      </div>
-    `;
-    courseContent.appendChild(lesson);
-  });
-  
-  // Add copy buttons
-  addCopyButtons();
-  
-  // Show first lesson
-  showLesson(1);
-}
-
-// Show specific lesson
-function showLesson(lessonNumber) {
-  // Hide all lessons
-  document.querySelectorAll('.lesson').forEach(lesson => {
-    lesson.classList.remove('active');
-  });
-  
-  // Show selected lesson
-  const target = document.getElementById(`lesson-${lessonNumber}`);
-  if (target) target.classList.add('active');
-  
-  // Update active chapter in sidebar
-  document.querySelectorAll('.chapter-link').forEach(link => {
-    link.classList.remove('active');
-  });
-  const activeLink = document.querySelector(`.chapter-link[data-chapter="${lessonNumber}"]`);
-  if (activeLink) activeLink.classList.add('active');
-  
-  // Update progress
-  updateProgress(lessonNumber);
-  
-  // Scroll to top
-  document.getElementById('course-content').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Navigation functions
-function nextLesson(currentLesson) {
-  if (currentLesson < courseData.length) {
-    showLesson(currentLesson + 1);
+    
+    document.getElementById("objectOutput").innerHTML = 
+      JSON.stringify(person, null, 2) + "<br><br>" + person.introduce();
   }
-}
 
-function previousLesson(currentLesson) {
-  if (currentLesson > 1) {
-    showLesson(currentLesson - 1);
+  // Chapter 5: DOM Manipulation
+  function changeColor() {
+    const demo = document.getElementById("domDemo");
+    const colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#feca57"];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    
+    demo.style.backgroundColor = randomColor;
+    demo.style.color = "white";
+    demo.innerHTML = "<p>Background color changed to: " + randomColor + "</p>";
   }
-}
 
-// Update progress bar
-function updateProgress(lessonNumber) {
-  const progress = (lessonNumber / courseData.length) * 100;
-  document.getElementById('progressFill').style.width = `${progress}%`;
-  document.getElementById('progressText').textContent = `Chapter ${lessonNumber} of ${courseData.length}`;
-}
-
-// Initialize chapter navigation
-document.addEventListener('click', function(e) {
-  const link = e.target.closest('.chapter-link');
-  if (link) {
-    const chapterNumber = link.getAttribute('data-chapter');
-    showLesson(parseInt(chapterNumber));
+  function addItem() {
+    const list = document.getElementById("itemList");
+    const items = ["New Task", "Learn JavaScript", "Build Project", "Practice Coding"];
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+    
+    const li = document.createElement("li");
+    li.textContent = randomItem + " (Added: " + new Date().toLocaleTimeString() + ")";
+    list.appendChild(li);
   }
-});
 
-// Initialize the course when page loads
-window.addEventListener('DOMContentLoaded', initializeCourse);
+  function clearItems() {
+    document.getElementById("itemList").innerHTML = "";
+    document.getElementById("domDemo").innerHTML = "<p>This element will change when you click the buttons!</p>";
+    document.getElementById("domDemo").style.backgroundColor = "white";
+    document.getElementById("domDemo").style.color = "inherit";
+  }
 </script>
+
 </body>
 </html>

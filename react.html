@@ -3,54 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn React - CodingLife</title>
-    <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
-
+  <title>React Course — coding life</title>
+  <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TJ6Z2QKGHJ');
-  </script>
 
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
+    
     body {
-      padding-top:70px;
+      padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
-      font-family:'Cairo',sans-serif;
+      font-family: 'Cairo', sans-serif;
     }
+
     a {text-decoration:none; color:inherit;}
 
+    /* HEADER */
     header {
       background:white;
-      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      z-index:9999;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
       height:70px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:9999;
     }
 
     nav {
       display:flex;
-      justify-content:center;
-      align-items:center;
       gap:25px;
+      align-items:center;
     }
 
     nav a {
-      color:#000;
       padding:10px 18px;
       border-radius:8px;
       font-weight:bold;
@@ -58,7 +49,6 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
     }
 
     nav a:hover {
@@ -66,21 +56,35 @@
       color:white;
     }
 
+    /* SMALL SCREEN ICON BAR */
     .left-buttons {
       display:none;
       position:absolute;
-      top:12px;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
       gap:8px;
       align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
-      color:#0f172a;
       background:white;
-      padding:6px 10px;
+      padding:6px 9px;
       border-radius:8px;
-      transition:0.3s;
+      color:#0f172a;
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
@@ -88,43 +92,219 @@
       color:white;
     }
 
-    main {
-      max-width:1000px;
-      margin:50px auto;
-      padding:0 20px;
+    /* COURSE CONTENT */
+    .course-container {
+      max-width:1200px;
+      margin:0 auto;
+      padding:30px 20px;
     }
 
-    section {
+    .course-header {
+      text-align:center;
+      margin-bottom:40px;
+      background:white;
+      padding:40px 30px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .course-header h1 {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    .course-header p {
+      font-size:1.2rem;
+      color:#64748b;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    /* CHAPTERS */
+    .chapters {
+      display:grid;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .chapter {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border-left:4px solid #0f172a;
+    }
+
+    .chapter h2 {
+      color:#0f172a;
+      margin-bottom:25px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      margin-bottom:60px;
+      gap:10px;
+      font-size:1.8rem;
+    }
+
+    .chapter h2 i {
+      color:#0f172a;
+    }
+
+    .article-content {
+      line-height:1.8;
+    }
+
+    .article-content h3 {
+      color:#0f172a;
+      margin:25px 0 15px 0;
+      font-size:1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom:15px;
+      color:#374151;
+    }
+
+    .article-content ul, .article-content ol {
+      margin:15px 0 15px 25px;
+    }
+
+    .article-content li {
+      margin-bottom:8px;
+    }
+
+    /* CODE EXAMPLES */
+    .code-example {
+      background:#1e293b;
+      color:#e2e8f0;
+      padding:25px;
+      border-radius:8px;
+      margin:20px 0;
+      overflow-x:auto;
+      font-family:'Courier New', monospace;
+      line-height:1.5;
+    }
+
+    .code-example h4 {
+      color:#f1f5f9;
+      margin-bottom:15px;
+      font-family: 'Cairo', sans-serif;
+      font-size:1.1rem;
+    }
+
+    .jsx-keyword {
+      color:#f0abfc;
+    }
+    .jsx-function {
+      color:#7dd3fc;
+    }
+    .jsx-string {
+      color:#86efac;
+    }
+    .jsx-component {
+      color:#fde047;
+    }
+    .jsx-comment {
+      color:#94a3b8;
+    }
+    .jsx-html {
+      color:#fdba74;
+    }
+
+    /* LIVE EXAMPLES */
+    .live-example {
+      background:#f1f5f9;
+      border:2px dashed #cbd5e1;
+      border-radius:8px;
+      padding:25px;
+      margin:20px 0;
+    }
+
+    .live-example h4 {
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    /* REACT DEMO STYLES */
+    .react-demo {
+      border:2px solid #61dafb;
+      border-radius:8px;
+      padding:20px;
+      margin:15px 0;
+      background:#20232a;
+      color:white;
+    }
+
+    .react-component {
+      padding:15px;
+      margin:10px 0;
+      border-left:4px solid #61dafb;
+      background:#2d3240;
+    }
+
+    /* BUTTONS */
+    .demo-button {
+      background:#61dafb;
+      color:#20232a;
+      border:none;
+      padding:10px 20px;
+      border-radius:6px;
+      cursor:pointer;
+      font-family: 'Cairo', sans-serif;
+      font-size:1rem;
+      font-weight:bold;
+      transition:.3s;
+      margin:5px;
+    }
+
+    .demo-button:hover {
+      background:#4fa8c5;
+      transform:translateY(-2px);
+    }
+
+    /* EXERCISE SECTION */
+    .exercise {
+      background:#fff7ed;
+      border:1px solid #fdba74;
+      border-radius:8px;
+      padding:25px;
+      margin:25px 0;
+    }
+
+    .exercise h3 {
+      color:#ea580c;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* TAGS */
+    .tags {
+      display:flex;
       flex-wrap:wrap;
-      gap:30px;
+      gap:10px;
+      margin:20px 0;
     }
 
-    .text {flex:1; min-width:300px;}
-    section img {
-      width:100%;
-      max-width:450px;
-      border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    .tag {
+      background:#e2e8f0;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      color:#475569;
     }
 
-    h2 {margin-bottom:15px;}
-    p, li {color:#334155; font-size:1rem; margin-bottom:10px;}
-    ul {padding-left:20px;}
-    code {background:#e2e8f0; padding:3px 6px; border-radius:4px; font-family:monospace;}
-
+    /* FOOTER */
     footer {
       background:#0f172a;
       color:#cbd5e1;
       text-align:center;
       padding:12px 0;
       font-size:0.85rem;
+      margin-top:30px;
     }
-    footer p {font-size:14px; opacity:0.7; margin-top:4px;}
-    .social a {margin:0 8px; font-size:1.1rem;}
+
+    .social a {margin:0 8px; font-size:1.1rem; transition:.3s;}
     .social a:hover {transform:translateY(-3px);}
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
@@ -132,93 +312,510 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    @media (max-width:768px) {
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
-      section {flex-direction:column; text-align:center;}
-      section img {margin:0 auto;}
+      
+      .course-header h1 {
+        font-size:2rem;
+      }
+      
+      .chapter {
+        padding:20px;
+      }
+      
+      .article-content h3 {
+        font-size:1.2rem;
+      }
     }
+
+    @media (max-width: 480px) {
+      .course-container {
+        padding:20px 15px;
+      }
+      
+      .course-header {
+        padding:30px 20px;
+      }
+      
+      .course-header h1 {
+        font-size:1.8rem;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="left-buttons">
-      <a href="index.html"><i class="fas fa-home"></i></a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-      <a href="blog.html"><i class="fas fa-book-open"></i></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i></a>
-    </div>
+<header>
+  <div class="left-buttons">
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i><span> Courses</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
+  </div>
 
-    <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
-      <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i>Courses</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
+  </nav>
+</header>
 
-  <main>
-    <section>
-      <img src="reactlogo.jpg" alt="React Logo">
-      <div class="text">
-        <h2><i class="fa-brands fa-react"></i> 1. What is React?</h2>
-        <p>React is a <strong>JavaScript library</strong> for building user interfaces, developed by Facebook.  
-        It allows developers to create reusable UI components that make web applications faster and more organized.</p>
-      </div>
-    </section>
+<div class="course-container">
+  <div class="course-header">
+    <h1><i class="fab fa-react"></i> React Complete Guide</h1>
+    <p>Master React.js library for building modern user interfaces</p>
+  </div>
 
-    <section>
-      <div class="text">
-        <h2><i class="fa-solid fa-cubes"></i> 2. Components in React</h2>
-        <p>Components are the heart of React. Each component is an independent, reusable piece of UI.</p>
+  <div class="chapters">
+    
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <h2><i class="fas fa-rocket"></i> Chapter 1: React Introduction</h2>
+      <div class="article-content">
+        <h3>What is React?</h3>
+        <p>React is a JavaScript library for building user interfaces, especially for web applications. It's component-based and uses a virtual DOM for better performance.</p>
+        
+        <h3>Why React?</h3>
         <ul>
-          <li><code>Functional Components</code> – simple functions returning JSX.</li>
-          <li><code>Class Components</code> – use ES6 classes to handle state and lifecycle.</li>
+          <li><strong>Component-Based:</strong> Reusable UI components</li>
+          <li><strong>Virtual DOM:</strong> Better performance</li>
+          <li><strong>JSX:</strong> HTML-like syntax in JavaScript</li>
+          <li><strong>Unidirectional Data Flow:</strong> Predictable state management</li>
+          <li><strong>Large Ecosystem:</strong> Rich library support</li>
         </ul>
-      </div>
-      <img src="reactcomponents.jpg" alt="React Components">
-    </section>
 
-    <section>
-      <img src="reactjsx.jpg" alt="React JSX Example">
-      <div class="text">
-        <h2><i class="fa-solid fa-code"></i> 3. JSX Syntax</h2>
-        <p>JSX is a syntax extension that allows you to write HTML-like code in JavaScript.  
-        Example:</p>
-        <p><code>const element = &lt;h1&gt;Hello, React!&lt;/h1&gt;;</code></p>
-      </div>
-    </section>
+        <h3>Setting Up React</h3>
+        <p>There are multiple ways to start a React project:</p>
+        
+        <div class="code-example">
+          <h4>Create React App (Recommended)</h4>
+          <pre><span class="jsx-comment"># Create new React project</span>
+npx create-react-app my-app
+cd my-app
+npm start</pre>
+        </div>
 
-    <section>
-      <div class="text">
-        <h2><i class="fa-solid fa-gauge-high"></i> 4. Virtual DOM</h2>
-        <p>React uses a virtual DOM to update only the changed parts of the page, improving performance significantly.</p>
-      </div>
-      <img src="reactvirtualdom.jpg" alt="React Virtual DOM">
-    </section>
+        <div class="code-example">
+          <h4>Vite (Fast Alternative)</h4>
+          <pre><span class="jsx-comment"># Create project with Vite</span>
+npm create vite@latest my-react-app -- --template react
+cd my-react-app
+npm install
+npm run dev</pre>
+        </div>
 
-    <section>
-      <img src="reacthooks.jpg" alt="React Hooks">
-      <div class="text">
-        <h2><i class="fa-solid fa-lightbulb"></i> 5. Hooks in React</h2>
-        <p>Hooks (like <code>useState</code> and <code>useEffect</code>) allow you to use state and other React features without writing a class.</p>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">Components</span>
+          <span class="tag">Virtual DOM</span>
+          <span class="tag">JSX</span>
+          <span class="tag">Create React App</span>
+        </div>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="social" style="margin-bottom:20px;">
-      <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
-      <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
-      <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
-      <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
-      <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <p>© 2025 Coding Life - All Rights Reserved</p>
-  </footer>
+
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <h2><i class="fas fa-cube"></i> Chapter 2: JSX and Components</h2>
+      <div class="article-content">
+        <h3>What is JSX?</h3>
+        <p>JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code in JavaScript.</p>
+        
+        <div class="code-example">
+          <h4>JSX Examples</h4>
+          <pre><span class="jsx-comment">// Simple JSX</span>
+<span class="jsx-keyword">const</span> element = &lt;<span class="jsx-html">h1</span>&gt;Hello, World!&lt;/<span class="jsx-html">h1</span>&gt;;
+
+<span class="jsx-comment">// JSX with expressions</span>
+<span class="jsx-keyword">const</span> name = <span class="jsx-string">"Sarah"</span>;
+<span class="jsx-keyword">const</span> greeting = &lt;<span class="jsx-html">h2</span>&gt;Hello, {name}!&lt;/<span class="jsx-html">h2</span>&gt;;
+
+<span class="jsx-comment">// JSX with attributes</span>
+<span class="jsx-keyword">const</span> image = &lt;<span class="jsx-html">img</span> <span class="jsx-function">src</span>=<span class="jsx-string">"photo.jpg"</span> <span class="jsx-function">alt</span>=<span class="jsx-string">"Description"</span> /&gt;;</pre>
+        </div>
+
+        <h3>Functional Components</h3>
+        <p>Components are the building blocks of React applications:</p>
+        
+        <div class="code-example">
+          <h4>Functional Component</h4>
+          <pre><span class="jsx-comment">// Simple functional component</span>
+<span class="jsx-keyword">function</span> <span class="jsx-function">Welcome</span>() {
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">div</span>&gt;
+      &lt;<span class="jsx-html">h1</span>&gt;Welcome to React!&lt;/<span class="jsx-html">h1</span>&gt;
+      &lt;<span class="jsx-html">p</span>&gt;This is my first component.&lt;/<span class="jsx-html">p</span>&gt;
+    &lt;/<span class="jsx-html">div</span>&gt;
+  );
+}
+
+<span class="jsx-comment">// Arrow function component</span>
+<span class="jsx-keyword">const</span> <span class="jsx-function">UserCard</span> = () => {
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">div</span> <span class="jsx-function">className</span>=<span class="jsx-string">"user-card"</span>&gt;
+      &lt;<span class="jsx-html">h3</span>&gt;John Doe&lt;/<span class="jsx-html">h3</span>&gt;
+      &lt;<span class="jsx-html">p</span>&gt;Software Developer&lt;/<span class="jsx-html">p</span>&gt;
+    &lt;/<span class="jsx-html">div</span>&gt;
+  );
+};</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Component Structure Example</h4>
+          <div class="react-demo">
+            <div style="color: #61dafb; font-weight: bold; margin-bottom: 10px;">📁 src/</div>
+            <div style="margin-left: 20px;">
+              <div style="color: #86efac;">📄 App.js</div>
+              <div style="color: #86efac;">📄 index.js</div>
+              <div style="color: #86efac;">📁 components/</div>
+              <div style="margin-left: 20px;">
+                <div style="color: #86efac;">📄 Header.js</div>
+                <div style="color: #86efac;">📄 Footer.js</div>
+                <div style="color: #86efac;">📄 UserCard.js</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">JSX</span>
+          <span class="tag">Components</span>
+          <span class="tag">Functional Components</span>
+          <span class="tag">Arrow Functions</span>
+          <span class="tag">return</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <h2><i class="fas fa-database"></i> Chapter 3: Props and State</h2>
+      <div class="article-content">
+        <h3>Props (Properties)</h3>
+        <p>Props are used to pass data from parent to child components:</p>
+        
+        <div class="code-example">
+          <h4>Using Props</h4>
+          <pre><span class="jsx-comment">// Component receiving props</span>
+<span class="jsx-keyword">function</span> <span class="jsx-function">Greeting</span>(<span class="jsx-keyword">props</span>) {
+  <span class="jsx-keyword">return</span> &lt;<span class="jsx-html">h1</span>&gt;Hello, {<span class="jsx-keyword">props</span>.name}!&lt;/<span class="jsx-html">h1</span>&gt;;
+}
+
+<span class="jsx-comment">// Using the component</span>
+&lt;<span class="jsx-component">Greeting</span> <span class="jsx-function">name</span>=<span class="jsx-string">"Alice"</span> /&gt;
+
+<span class="jsx-comment">// Destructuring props</span>
+<span class="jsx-keyword">function</span> <span class="jsx-function">UserInfo</span>({ name, age, email }) {
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">div</span>&gt;
+      &lt;<span class="jsx-html">h3</span>&gt;{name}&lt;/<span class="jsx-html">h3</span>&gt;
+      &lt;<span class="jsx-html">p</span>&gt;Age: {age}&lt;/<span class="jsx-html">p</span>&gt;
+      &lt;<span class="jsx-html">p</span>&gt;Email: {email}&lt;/<span class="jsx-html">p</span>&gt;
+    &lt;/<span class="jsx-html">div</span>&gt;
+  );
+}</pre>
+        </div>
+
+        <h3>State with useState Hook</h3>
+        <p>State allows components to manage and update their data:</p>
+        
+        <div class="code-example">
+          <h4>useState Hook</h4>
+          <pre><span class="jsx-comment">// Import useState</span>
+<span class="jsx-keyword">import</span> React, { useState } <span class="jsx-keyword">from</span> <span class="jsx-string">'react'</span>;
+
+<span class="jsx-keyword">function</span> <span class="jsx-function">Counter</span>() {
+  <span class="jsx-comment">// Declare state variable</span>
+  <span class="jsx-keyword">const</span> [count, setCount] = <span class="jsx-function">useState</span>(<span class="jsx-number">0</span>);
+
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">div</span>&gt;
+      &lt;<span class="jsx-html">p</span>&gt;You clicked {count} times&lt;/<span class="jsx-html">p</span>&gt;
+      &lt;<span class="jsx-html">button</span> <span class="jsx-function">onClick</span>={() => <span class="jsx-function">setCount</span>(count + <span class="jsx-number">1</span>)}&gt;
+        Click me
+      &lt;/<span class="jsx-html">button</span>&gt;
+    &lt;/<span class="jsx-html">div</span>&gt;
+  );
+}</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Live State Example</h4>
+          <div class="react-component">
+            <p id="counterDisplay">Count: 0</p>
+            <button class="demo-button" onclick="incrementCounter()">Increment (+1)</button>
+            <button class="demo-button" onclick="decrementCounter()">Decrement (-1)</button>
+            <button class="demo-button" onclick="resetCounter()">Reset</button>
+          </div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">props</span>
+          <span class="tag">state</span>
+          <span class="tag">useState</span>
+          <span class="tag">hooks</span>
+          <span class="tag">destructuring</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <h2><i class="fas fa-mouse-pointer"></i> Chapter 4: Event Handling</h2>
+      <div class="article-content">
+        <h3>Handling Events</h3>
+        <p>React events are similar to DOM events but with some syntax differences:</p>
+        
+        <div class="code-example">
+          <h4>Event Handling Examples</h4>
+          <pre><span class="jsx-keyword">function</span> <span class="jsx-function">ButtonComponent</span>() {
+  <span class="jsx-keyword">const</span> <span class="jsx-function">handleClick</span> = () => {
+    <span class="jsx-function">alert</span>(<span class="jsx-string">'Button clicked!'</span>);
+  };
+
+  <span class="jsx-keyword">const</span> <span class="jsx-function">handleInputChange</span> = (event) => {
+    <span class="jsx-function">console</span>.<span class="jsx-function">log</span>(event.target.value);
+  };
+
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">div</span>&gt;
+      &lt;<span class="jsx-html">button</span> <span class="jsx-function">onClick</span>={handleClick}&gt;
+        Click Me
+      &lt;/<span class="jsx-html">button</span>&gt;
+      
+      &lt;<span class="jsx-html">input</span> 
+        <span class="jsx-function">type</span>=<span class="jsx-string">"text"</span> 
+        <span class="jsx-function">onChange</span>={handleInputChange}
+        <span class="jsx-function">placeholder</span>=<span class="jsx-string">"Type something..."</span>
+      /&gt;
+    &lt;/<span class="jsx-html">div</span>&gt;
+  );
+}</pre>
+        </div>
+
+        <h3>Form Handling</h3>
+        <p>Controlled components in React:</p>
+        
+        <div class="code-example">
+          <h4>Controlled Form</h4>
+          <pre><span class="jsx-keyword">function</span> <span class="jsx-function">LoginForm</span>() {
+  <span class="jsx-keyword">const</span> [formData, setFormData] = <span class="jsx-function">useState</span>({
+    username: <span class="jsx-string">''</span>,
+    password: <span class="jsx-string">''</span>
+  });
+
+  <span class="jsx-keyword">const</span> <span class="jsx-function">handleChange</span> = (e) => {
+    <span class="jsx-keyword">const</span> { name, value } = e.target;
+    <span class="jsx-function">setFormData</span>({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  <span class="jsx-keyword">const</span> <span class="jsx-function">handleSubmit</span> = (e) => {
+    e.<span class="jsx-function">preventDefault</span>();
+    <span class="jsx-function">console</span>.<span class="jsx-function">log</span>(<span class="jsx-string">'Form submitted:'</span>, formData);
+  };
+
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">form</span> <span class="jsx-function">onSubmit</span>={handleSubmit}&gt;
+      &lt;<span class="jsx-html">input</span>
+        <span class="jsx-function">type</span>=<span class="jsx-string">"text"</span>
+        <span class="jsx-function">name</span>=<span class="jsx-string">"username"</span>
+        <span class="jsx-function">value</span>={formData.username}
+        <span class="jsx-function">onChange</span>={handleChange}
+        <span class="jsx-function">placeholder</span>=<span class="jsx-string">"Username"</span>
+      /&gt;
+      &lt;<span class="jsx-html">input</span>
+        <span class="jsx-function">type</span>=<span class="jsx-string">"password"</span>
+        <span class="jsx-function">name</span>=<span class="jsx-string">"password"</span>
+        <span class="jsx-function">value</span>={formData.password}
+        <span class="jsx-function">onChange</span>={handleChange}
+        <span class="jsx-function">placeholder</span>=<span class="jsx-string">"Password"</span>
+      /&gt;
+      &lt;<span class="jsx-html">button</span> <span class="jsx-function">type</span>=<span class="jsx-string">"submit"</span>&gt;Login&lt;/<span class="jsx-html">button</span>&gt;
+    &lt;/<span class="jsx-html">form</span>&gt;
+  );
+}</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Live Form Example</h4>
+          <div class="react-component">
+            <input type="text" id="liveInput" placeholder="Type something..." 
+                   style="padding: 8px; margin: 5px; border: 1px solid #61dafb; border-radius: 4px; width: 200px;">
+            <button class="demo-button" onclick="showInputValue()">Show Value</button>
+            <p id="inputValue" style="margin-top: 10px;"></p>
+          </div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">onClick</span>
+          <span class="tag">onChange</span>
+          <span class="tag">onSubmit</span>
+          <span class="tag">events</span>
+          <span class="tag">forms</span>
+          <span class="tag">controlled components</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <h2><i class="fas fa-sync"></i> Chapter 5: useEffect and Lifecycle</h2>
+      <div class="article-content">
+        <h3>useEffect Hook</h3>
+        <p>The useEffect hook lets you perform side effects in functional components:</p>
+        
+        <div class="code-example">
+          <h4>useEffect Examples</h4>
+          <pre><span class="jsx-keyword">import</span> React, { useState, useEffect } <span class="jsx-keyword">from</span> <span class="jsx-string">'react'</span>;
+
+<span class="jsx-keyword">function</span> <span class="jsx-function">UserProfile</span>() {
+  <span class="jsx-keyword">const</span> [user, setUser] = <span class="jsx-function">useState</span>(<span class="jsx-keyword">null</span>);
+  <span class="jsx-keyword">const</span> [loading, setLoading] = <span class="jsx-function">useState</span>(<span class="jsx-keyword">true</span>);
+
+  <span class="jsx-comment">// useEffect with empty dependency array (runs once)</span>
+  <span class="jsx-function">useEffect</span>(() => {
+    <span class="jsx-comment">// Simulate API call</span>
+    <span class="jsx-function">setTimeout</span>(() => {
+      <span class="jsx-function">setUser</span>({ name: <span class="jsx-string">'John Doe'</span>, email: <span class="jsx-string">'john@example.com'</span> });
+      <span class="jsx-function">setLoading</span>(<span class="jsx-keyword">false</span>);
+    }, <span class="jsx-number">2000</span>);
+  }, []); <span class="jsx-comment">// Empty array = run only on mount</span>
+
+  <span class="jsx-keyword">if</span> (loading) {
+    <span class="jsx-keyword">return</span> &lt;<span class="jsx-html">div</span>&gt;Loading...&lt;/<span class="jsx-html">div</span>&gt;;
+  }
+
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">div</span>&gt;
+      &lt;<span class="jsx-html">h2</span>&gt;{user.name}&lt;/<span class="jsx-html">h2</span>&gt;
+      &lt;<span class="jsx-html">p</span>&gt;{user.email}&lt;/<span class="jsx-html">p</span>&gt;
+    &lt;/<span class="jsx-html">div</span>&gt;
+  );
+}</pre>
+        </div>
+
+        <h3>Conditional Effects</h3>
+        <p>You can run effects conditionally based on dependencies:</p>
+        
+        <div class="code-example">
+          <h4>Effect with Dependencies</h4>
+          <pre><span class="jsx-keyword">function</span> <span class="jsx-function">SearchComponent</span>() {
+  <span class="jsx-keyword">const</span> [query, setQuery] = <span class="jsx-function">useState</span>(<span class="jsx-string">''</span>);
+  <span class="jsx-keyword">const</span> [results, setResults] = <span class="jsx-function">useState</span>([]);
+
+  <span class="jsx-comment">// This effect runs whenever 'query' changes</span>
+  <span class="jsx-function">useEffect</span>(() => {
+    <span class="jsx-keyword">if</span> (query.<span class="jsx-function">length</span> > <span class="jsx-number">2</span>) {
+      <span class="jsx-comment">// Simulate search API call</span>
+      <span class="jsx-function">fetchResults</span>(query).<span class="jsx-function">then</span>(setResults);
+    }
+  }, [query]); <span class="jsx-comment">// Re-run when query changes</span>
+
+  <span class="jsx-keyword">return</span> (
+    &lt;<span class="jsx-html">div</span>&gt;
+      &lt;<span class="jsx-html">input</span>
+        <span class="jsx-function">value</span>={query}
+        <span class="jsx-function">onChange</span>={(e) => <span class="jsx-function">setQuery</span>(e.target.value)}
+        <span class="jsx-function">placeholder</span>=<span class="jsx-string">"Search..."</span>
+      /&gt;
+      &lt;<span class="jsx-html">ul</span>&gt;
+        {results.<span class="jsx-function">map</span>(result => (
+          &lt;<span class="jsx-html">li</span> <span class="jsx-function">key</span>={result.id}&gt;{result.name}&lt;/<span class="jsx-html">li</span>&gt;
+        ))}
+      &lt;/<span class="jsx-html">ul</span>&gt;
+    &lt;/<span class="jsx-html">div</span>&gt;
+  );
+}</pre>
+        </div>
+
+        <div class="exercise">
+          <h3><i class="fas fa-pencil-alt"></i> Practice Exercise</h3>
+          <p><strong>Build a Todo List App:</strong></p>
+          <ul>
+            <li>Create a Todo component with input and add button</li>
+            <li>Use useState to manage todo items array</li>
+            <li>Implement add, delete, and toggle complete functionality</li>
+            <li>Use useEffect to save todos to localStorage</li>
+            <li>Add filtering (all, active, completed)</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">useEffect</span>
+          <span class="tag">side effects</span>
+          <span class="tag">lifecycle</span>
+          <span class="tag">dependencies</span>
+          <span class="tag">API calls</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+<script>
+  // Counter state simulation
+  let counter = 0;
+  
+  function incrementCounter() {
+    counter++;
+    updateCounterDisplay();
+  }
+  
+  function decrementCounter() {
+    counter--;
+    updateCounterDisplay();
+  }
+  
+  function resetCounter() {
+    counter = 0;
+    updateCounterDisplay();
+  }
+  
+  function updateCounterDisplay() {
+    document.getElementById('counterDisplay').textContent = `Count: ${counter}`;
+  }
+
+  // Form input example
+  function showInputValue() {
+    const input = document.getElementById('liveInput');
+    const value = input.value || 'Nothing typed yet';
+    document.getElementById('inputValue').textContent = `Current value: "${value}"`;
+  }
+
+  // Simulate API call
+  function fetchResults(query) {
+    const mockResults = [
+      { id: 1, name: `Result 1 for "${query}"` },
+      { id: 2, name: `Result 2 for "${query}"` },
+      { id: 3, name: `Result 3 for "${query}"` }
+    ];
+    return Promise.resolve(mockResults);
+  }
+</script>
 
 </body>
 </html>

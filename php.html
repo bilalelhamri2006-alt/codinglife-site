@@ -1,59 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="Learn PHP - Programmer’s Life">
-  <meta name="keywords" content="PHP, learn PHP, backend, programming">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn PHP - Programmer’s Life</title>
-
+  <title>PHP Course — coding life</title>
+  <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TJ6Z2QKGHJ');
-  </script>
-
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
+    
     body {
-      padding-top:70px;
+      padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
-      font-family:'Cairo',sans-serif;
+      font-family: 'Cairo', sans-serif;
     }
+
     a {text-decoration:none; color:inherit;}
 
     /* HEADER */
     header {
       background:white;
-      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      z-index:9999;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
       height:70px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:9999;
     }
 
     nav {
       display:flex;
-      justify-content:center;
-      align-items:center;
       gap:25px;
+      align-items:center;
     }
 
     nav a {
-      color:#000;
       padding:10px 18px;
       border-radius:8px;
       font-weight:bold;
@@ -61,7 +49,6 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
     }
 
     nav a:hover {
@@ -69,23 +56,35 @@
       color:white;
     }
 
-    /* MOBILE ICON NAV */
+    /* SMALL SCREEN ICON BAR */
     .left-buttons {
       display:none;
       position:absolute;
-      top:12px;
+      top:50%;
       left:50%;
-      transform:translateX(-50%);
-      gap:10px;
+      transform:translate(-50%, -50%);
+      gap:8px;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
-      color:#0f172a;
       background:white;
-      padding:6px 10px;
+      padding:6px 9px;
       border-radius:8px;
-      transition:0.3s;
+      color:#0f172a;
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
@@ -93,38 +92,208 @@
       color:white;
     }
 
-    /* CONTENT */
-    main {
-      max-width:1000px;
-      margin:50px auto;
-      padding:0 20px;
+    /* COURSE CONTENT */
+    .course-container {
+      max-width:1200px;
+      margin:0 auto;
+      padding:30px 20px;
     }
 
-    section {
+    .course-header {
+      text-align:center;
+      margin-bottom:40px;
+      background:white;
+      padding:40px 30px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .course-header h1 {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    .course-header p {
+      font-size:1.2rem;
+      color:#64748b;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    /* CHAPTERS */
+    .chapters {
+      display:grid;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .chapter {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border-left:4px solid #0f172a;
+    }
+
+    .chapter h2 {
+      color:#0f172a;
+      margin-bottom:25px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      margin-bottom:60px;
+      gap:10px;
+      font-size:1.8rem;
+    }
+
+    .chapter h2 i {
+      color:#0f172a;
+    }
+
+    .article-content {
+      line-height:1.8;
+    }
+
+    .article-content h3 {
+      color:#0f172a;
+      margin:25px 0 15px 0;
+      font-size:1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom:15px;
+      color:#374151;
+    }
+
+    .article-content ul, .article-content ol {
+      margin:15px 0 15px 25px;
+    }
+
+    .article-content li {
+      margin-bottom:8px;
+    }
+
+    /* CODE EXAMPLES */
+    .code-example {
+      background:#1e293b;
+      color:#e2e8f0;
+      padding:25px;
+      border-radius:8px;
+      margin:20px 0;
+      overflow-x:auto;
+      font-family:'Courier New', monospace;
+      line-height:1.5;
+    }
+
+    .code-example h4 {
+      color:#f1f5f9;
+      margin-bottom:15px;
+      font-family: 'Cairo', sans-serif;
+      font-size:1.1rem;
+    }
+
+    .php-tag {
+      color:#f0abfc;
+    }
+    .php-function {
+      color:#7dd3fc;
+    }
+    .php-string {
+      color:#86efac;
+    }
+    .php-variable {
+      color:#fde047;
+    }
+    .php-comment {
+      color:#94a3b8;
+    }
+    .php-keyword {
+      color:#fdba74;
+    }
+
+    /* LIVE EXAMPLES */
+    .live-example {
+      background:#f1f5f9;
+      border:2px dashed #cbd5e1;
+      border-radius:8px;
+      padding:25px;
+      margin:20px 0;
+    }
+
+    .live-example h4 {
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    /* PHP DEMO STYLES */
+    .php-demo {
+      border:2px solid #777BB4;
+      border-radius:8px;
+      padding:20px;
+      margin:15px 0;
+      background:#2d3240;
+      color:white;
+    }
+
+    .terminal {
+      background:#1a1a1a;
+      color:#00ff00;
+      padding:15px;
+      border-radius:6px;
+      font-family:'Courier New', monospace;
+      margin:10px 0;
+    }
+
+    /* BUTTONS */
+    .demo-button {
+      background:#777BB4;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:6px;
+      cursor:pointer;
+      font-family: 'Cairo', sans-serif;
+      font-size:1rem;
+      font-weight:bold;
+      transition:.3s;
+      margin:5px;
+    }
+
+    .demo-button:hover {
+      background:#65689c;
+      transform:translateY(-2px);
+    }
+
+    /* EXERCISE SECTION */
+    .exercise {
+      background:#fff7ed;
+      border:1px solid #fdba74;
+      border-radius:8px;
+      padding:25px;
+      margin:25px 0;
+    }
+
+    .exercise h3 {
+      color:#ea580c;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* TAGS */
+    .tags {
+      display:flex;
       flex-wrap:wrap;
-      gap:30px;
+      gap:10px;
+      margin:20px 0;
     }
 
-    .text { flex:1; min-width:300px; }
-
-    section img {
-      width:45%;
-      border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    h2 { margin-bottom:15px; color:#0f172a; }
-    p, li { color:#334155; font-size:1rem; margin-bottom:10px; }
-    ul { padding-left:20px; }
-    code {
+    .tag {
       background:#e2e8f0;
-      padding:3px 6px;
-      border-radius:4px;
-      font-family:monospace;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      color:#475569;
     }
 
     /* FOOTER */
@@ -137,150 +306,452 @@
       margin-top:30px;
     }
 
-    .social a {margin:0 8px; font-size:1.1rem;}
+    .social a {margin:0 8px; font-size:1.1rem; transition:.3s;}
     .social a:hover {transform:translateY(-3px);}
-
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
     .social a.ig:hover {color:#e4405f;}
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
-      section {flex-direction:column;}
-      section img {width:80%;}
+      
+      .course-header h1 {
+        font-size:2rem;
+      }
+      
+      .chapter {
+        padding:20px;
+      }
+      
+      .article-content h3 {
+        font-size:1.2rem;
+      }
     }
+
+    @media (max-width: 480px) {
+      .course-container {
+        padding:20px 15px;
+      }
+      
+      .course-header {
+        padding:30px 20px;
+      }
+      
+      .course-header h1 {
+        font-size:1.8rem;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- Mobile Icons -->
   <div class="left-buttons">
-      <a href="index.html"><i class="fas fa-home"></i></a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-      <a href="blog.html"><i class="fas fa-book-open"></i></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i></a>
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i><span> Courses</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
   </div>
 
-  <!-- Desktop Menu -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
   </nav>
 </header>
 
-<main>
+<div class="course-container">
+  <div class="course-header">
+    <h1><i class="fab fa-php"></i> PHP Complete Guide</h1>
+    <p>Master server-side scripting with PHP for dynamic web applications</p>
+  </div>
 
-  <!-- content here (I keep your PHP lessons content unchanged) -->
-  <!-- SECTION 1 -->
-  <section>
-    <div class="text">
-      <h2>1. What is PHP?</h2>
-      <p>PHP is a popular server-side language used to build dynamic websites.</p>
-      <ul>
-        <li>Runs on server</li>
-        <li>Embeds inside HTML</li>
-        <li>Connects to databases</li>
-      </ul>
+  <div class="chapters">
+    
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <h2><i class="fas fa-play-circle"></i> Chapter 1: PHP Basics</h2>
+      <div class="article-content">
+        <h3>What is PHP?</h3>
+        <p>PHP (Hypertext Preprocessor) is a server-side scripting language designed for web development. It's embedded in HTML and executed on the server.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Server-side:</strong> Executed on the server before sending to browser</li>
+          <li><strong>Open Source:</strong> Free to use and modify</li>
+          <li><strong>Cross-platform:</strong> Runs on Windows, Linux, macOS</li>
+          <li><strong>Database Support:</strong> Native support for MySQL, PostgreSQL, etc.</li>
+          <li><strong>Large Community:</strong> Extensive documentation and support</li>
+        </ul>
+
+        <h3>Setting Up PHP</h3>
+        <p>You need a web server with PHP support. Common options:</p>
+        
+        <div class="code-example">
+          <h4>Using XAMPP (Windows/Mac/Linux)</h4>
+          <pre><span class="php-comment"># Download XAMPP from apachefriends.org</span>
+<span class="php-comment"># Install and start Apache + MySQL</span>
+<span class="php-comment"># Place PHP files in htdocs folder</span>
+<span class="php-comment"># Access via http://localhost/your-file.php</span></pre>
+        </div>
+
+        <div class="code-example">
+          <h4>Basic PHP Syntax</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-comment">// This is a single-line comment</span>
+<span class="php-comment"># This is also a single-line comment</span>
+
+<span class="php-comment">/*
+  This is a multi-line
+  comment block
+*/</span>
+
+<span class="php-keyword">echo</span> <span class="php-string">"Hello, World!"</span>;
+<span class="php-keyword">print</span> <span class="php-string">"Welcome to PHP"</span>;
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <div class="tags">
+          <span class="tag">PHP</span>
+          <span class="tag">Server-side</span>
+          <span class="tag">XAMPP</span>
+          <span class="tag">Syntax</span>
+          <span class="tag">Comments</span>
+        </div>
+      </div>
     </div>
-    <img src="php1.jpg" alt="PHP basics">
-  </section>
 
-  <!-- SECTION 2 -->
-  <section>
-    <img src="php2.jpg" alt="PHP syntax">
-    <div class="text">
-      <h2>2. PHP Syntax</h2>
-      <p>PHP code is written inside <code>&lt;?php ?&gt;</code> tags.</p>
-      <p><code>&lt;?php echo "Hello"; ?&gt;</code></p>
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <h2><i class="fas fa-code"></i> Chapter 2: Variables and Data Types</h2>
+      <div class="article-content">
+        <h3>Variables in PHP</h3>
+        <p>PHP variables start with $ followed by the variable name:</p>
+        
+        <div class="code-example">
+          <h4>Variable Declaration</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-comment">// Variable declaration</span>
+<span class="php-variable">$name</span> = <span class="php-string">"John Doe"</span>;
+<span class="php-variable">$age</span> = <span class="php-number">25</span>;
+<span class="php-variable">$height</span> = <span class="php-number">5.9</span>;
+<span class="php-variable">$isStudent</span> = <span class="php-keyword">true</span>;
+
+<span class="php-comment">// Output variables</span>
+<span class="php-keyword">echo</span> <span class="php-string">"Name: "</span> . <span class="php-variable">$name</span>;
+<span class="php-keyword">echo</span> <span class="php-string">"Age: "</span> . <span class="php-variable">$age</span>;
+
+<span class="php-comment">// Variable interpolation in double quotes</span>
+<span class="php-keyword">echo</span> <span class="php-string">"My name is <span class="php-variable">$name</span> and I am <span class="php-variable">$age</span> years old"</span>;
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <h3>Data Types</h3>
+        <p>PHP supports several data types:</p>
+        
+        <div class="code-example">
+          <h4>PHP Data Types</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-comment">// String</span>
+<span class="php-variable">$string</span> = <span class="php-string">"Hello World"</span>;
+
+<span class="php-comment">// Integer</span>
+<span class="php-variable">$integer</span> = <span class="php-number">42</span>;
+
+<span class="php-comment">// Float (double)</span>
+<span class="php-variable">$float</span> = <span class="php-number">3.14</span>;
+
+<span class="php-comment">// Boolean</span>
+<span class="php-variable">$bool</span> = <span class="php-keyword">true</span>;
+
+<span class="php-comment">// Array</span>
+<span class="php-variable">$array</span> = <span class="php-keyword">array</span>(<span class="php-string">"apple"</span>, <span class="php-string">"banana"</span>, <span class="php-string">"orange"</span>);
+
+<span class="php-comment">// Null</span>
+<span class="php-variable">$null</span> = <span class="php-keyword">null</span>;
+
+<span class="php-comment">// Check data type</span>
+<span class="php-keyword">echo</span> <span class="php-function">gettype</span>(<span class="php-variable">$string</span>); <span class="php-comment">// string</span>
+<span class="php-keyword">echo</span> <span class="php-function">var_dump</span>(<span class="php-variable">$integer</span>); <span class="php-comment">// int(42)</span>
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Variables Demo</h4>
+          <button class="demo-button" onclick="showVariables()">Show PHP Variables</button>
+          <div id="variablesOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">variables</span>
+          <span class="tag">data types</span>
+          <span class="tag">string</span>
+          <span class="tag">integer</span>
+          <span class="tag">array</span>
+        </div>
+      </div>
     </div>
-  </section>
-   <section>
-    <div class="text">
-      <h2>3. Variables & Data Types</h2>
-      <p>Variables start with <code>$</code> and are dynamically typed.</p>
-      <p><code>$name = "Bilal"; $age = 18;</code></p>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <h2><i class="fas fa-sync-alt"></i> Chapter 3: Control Structures</h2>
+      <div class="article-content">
+        <h3>Conditional Statements</h3>
+        <p>Control program flow based on conditions:</p>
+        
+        <div class="code-example">
+          <h4>If-Else Statements</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-variable">$age</span> = <span class="php-number">20</span>;
+
+<span class="php-keyword">if</span> (<span class="php-variable">$age</span> >= <span class="php-number">18</span>) {
+    <span class="php-keyword">echo</span> <span class="php-string">"You are an adult"</span>;
+} <span class="php-keyword">elseif</span> (<span class="php-variable">$age</span> >= <span class="php-number">13</span>) {
+    <span class="php-keyword">echo</span> <span class="php-string">"You are a teenager"</span>;
+} <span class="php-keyword">else</span> {
+    <span class="php-keyword">echo</span> <span class="php-string">"You are a child"</span>;
+}
+
+<span class="php-comment">// Switch statement</span>
+<span class="php-variable">$day</span> = <span class="php-string">"Monday"</span>;
+
+<span class="php-keyword">switch</span> (<span class="php-variable">$day</span>) {
+    <span class="php-keyword">case</span> <span class="php-string">"Monday"</span>:
+        <span class="php-keyword">echo</span> <span class="php-string">"Start of work week"</span>;
+        <span class="php-keyword">break</span>;
+    <span class="php-keyword">case</span> <span class="php-string">"Friday"</span>:
+        <span class="php-keyword">echo</span> <span class="php-string">"Weekend is coming!"</span>;
+        <span class="php-keyword">break</span>;
+    <span class="php-keyword">default</span>:
+        <span class="php-keyword">echo</span> <span class="php-string">"Regular day"</span>;
+}
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <h3>Loops</h3>
+        <p>Repeat actions multiple times:</p>
+        
+        <div class="code-example">
+          <h4>Loop Examples</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-comment">// For loop</span>
+<span class="php-keyword">for</span> (<span class="php-variable">$i</span> = <span class="php-number">0</span>; <span class="php-variable">$i</span> &lt; <span class="php-number">5</span>; <span class="php-variable">$i</span>++) {
+    <span class="php-keyword">echo</span> <span class="php-string">"Number: "</span> . <span class="php-variable">$i</span> . <span class="php-string">"&lt;br&gt;"</span>;
+}
+
+<span class="php-comment">// While loop</span>
+<span class="php-variable">$count</span> = <span class="php-number">0</span>;
+<span class="php-keyword">while</span> (<span class="php-variable">$count</span> &lt; <span class="php-number">3</span>) {
+    <span class="php-keyword">echo</span> <span class="php-string">"Count: "</span> . <span class="php-variable">$count</span> . <span class="php-string">"&lt;br&gt;"</span>;
+    <span class="php-variable">$count</span>++;
+}
+
+<span class="php-comment">// Foreach loop (for arrays)</span>
+<span class="php-variable">$fruits</span> = [<span class="php-string">"apple"</span>, <span class="php-string">"banana"</span>, <span class="php-string">"orange"</span>];
+<span class="php-keyword">foreach</span> (<span class="php-variable">$fruits</span> <span class="php-keyword">as</span> <span class="php-variable">$fruit</span>) {
+    <span class="php-keyword">echo</span> <span class="php-variable">$fruit</span> . <span class="php-string">"&lt;br&gt;"</span>;
+}
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Control Structures Demo</h4>
+          <button class="demo-button" onclick="runLoop()">Run Loop Simulation</button>
+          <button class="demo-button" onclick="checkCondition()">Check Condition</button>
+          <div id="controlOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">if-else</span>
+          <span class="tag">switch</span>
+          <span class="tag">for loop</span>
+          <span class="tag">while loop</span>
+          <span class="tag">foreach</span>
+        </div>
+      </div>
     </div>
-    <img src="php3.jpg" alt="PHP variables">
-  </section>
 
-  <section>
-    <img src="php4.jpg" alt="PHP operators">
-    <div class="text">
-      <h2>4. Operators</h2>
-      <p><code>$x = 10; $y = 5; echo $x + $y;</code></p>
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <h2><i class="fas fa-cogs"></i> Chapter 4: Functions and Arrays</h2>
+      <div class="article-content">
+        <h3>Functions</h3>
+        <p>Reusable blocks of code:</p>
+        
+        <div class="code-example">
+          <h4>Function Examples</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-comment">// Simple function</span>
+<span class="php-keyword">function</span> <span class="php-function">greet</span>(<span class="php-variable">$name</span>) {
+    <span class="php-keyword">return</span> <span class="php-string">"Hello, "</span> . <span class="php-variable">$name</span> . <span class="php-string">"!"</span>;
+}
+
+<span class="php-comment">// Function with default parameter</span>
+<span class="php-keyword">function</span> <span class="php-function">calculateArea</span>(<span class="php-variable">$radius</span>, <span class="php-variable">$pi</span> = <span class="php-number">3.14</span>) {
+    <span class="php-keyword">return</span> <span class="php-variable">$pi</span> * <span class="php-variable">$radius</span> * <span class="php-variable">$radius</span>;
+}
+
+<span class="php-comment">// Calling functions</span>
+<span class="php-keyword">echo</span> <span class="php-function">greet</span>(<span class="php-string">"Alice"</span>); <span class="php-comment">// Hello, Alice!</span>
+<span class="php-keyword">echo</span> <span class="php-function">calculateArea</span>(<span class="php-number">5</span>); <span class="php-comment">// 78.5</span>
+
+<span class="php-comment">// Built-in functions</span>
+<span class="php-keyword">echo</span> <span class="php-function">strtoupper</span>(<span class="php-string">"hello"</span>); <span class="php-comment">// HELLO</span>
+<span class="php-keyword">echo</span> <span class="php-function">strlen</span>(<span class="php-string">"PHP"</span>); <span class="php-comment">// 3</span>
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <h3>Arrays</h3>
+        <p>Collections of data:</p>
+        
+        <div class="code-example">
+          <h4>Array Examples</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-comment">// Indexed array</span>
+<span class="php-variable">$colors</span> = [<span class="php-string">"red"</span>, <span class="php-string">"green"</span>, <span class="php-string">"blue"</span>];
+<span class="php-variable">$colors</span> = <span class="php-keyword">array</span>(<span class="php-string">"red"</span>, <span class="php-string">"green"</span>, <span class="php-string">"blue"</span>);
+
+<span class="php-comment">// Associative array</span>
+<span class="php-variable">$person</span> = [
+    <span class="php-string">"name"</span> => <span class="php-string">"John"</span>,
+    <span class="php-string">"age"</span> => <span class="php-number">30</span>,
+    <span class="php-string">"city"</span> => <span class="php-string">"New York"</span>
+];
+
+<span class="php-comment">// Accessing array elements</span>
+<span class="php-keyword">echo</span> <span class="php-variable">$colors</span>[<span class="php-number">0</span>]; <span class="php-comment">// red</span>
+<span class="php-keyword">echo</span> <span class="php-variable">$person</span>[<span class="php-string">"name"</span>]; <span class="php-comment">// John</span>
+
+<span class="php-comment">// Array functions</span>
+<span class="php-function">array_push</span>(<span class="php-variable">$colors</span>, <span class="php-string">"yellow"</span>); <span class="php-comment">// Add element</span>
+<span class="php-function">count</span>(<span class="php-variable">$colors</span>); <span class="php-comment">// Get length</span>
+<span class="php-function">sort</span>(<span class="php-variable">$colors</span>); <span class="php-comment">// Sort array</span>
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Functions & Arrays Demo</h4>
+          <button class="demo-button" onclick="showArray()">Show Array Example</button>
+          <button class="demo-button" onclick="runFunction()">Run Function</button>
+          <div id="functionOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">functions</span>
+          <span class="tag">parameters</span>
+          <span class="tag">return</span>
+          <span class="tag">arrays</span>
+          <span class="tag">associative arrays</span>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section>
-    <div class="text">
-      <h2>5. Conditional Statements</h2>
-      <p><code>if($age &gt; 18){ echo "Adult"; }</code></p>
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <h2><i class="fas fa-database"></i> Chapter 5: Forms and MySQL</h2>
+      <div class="article-content">
+        <h3>HTML Forms with PHP</h3>
+        <p>Processing form data with PHP:</p>
+        
+        <div class="code-example">
+          <h4>Form Handling</h4>
+          <pre><span class="php-comment">&lt;!-- HTML Form --&gt;</span>
+&lt;form method=<span class="php-string">"POST"</span> action=<span class="php-string">"process.php"</span>&gt;
+    &lt;input type=<span class="php-string">"text"</span> name=<span class="php-string">"username"</span> placeholder=<span class="php-string">"Username"</span>&gt;
+    &lt;input type=<span class="php-string">"email"</span> name=<span class="php-string">"email"</span> placeholder=<span class="php-string">"Email"</span>&gt;
+    &lt;textarea name=<span class="php-string">"message"</span> placeholder=<span class="php-string">"Message"</span>&gt;&lt;/textarea&gt;
+    &lt;button type=<span class="php-string">"submit"</span>&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+<span class="php-comment">// process.php</span>
+<span class="php-tag">&lt;?php</span>
+<span class="php-keyword">if</span> (<span class="php-variable">$_SERVER</span>[<span class="php-string">"REQUEST_METHOD"</span>] == <span class="php-string">"POST"</span>) {
+    <span class="php-variable">$username</span> = <span class="php-function">htmlspecialchars</span>(<span class="php-variable">$_POST</span>[<span class="php-string">'username'</span>]);
+    <span class="php-variable">$email</span> = <span class="php-function">htmlspecialchars</span>(<span class="php-variable">$_POST</span>[<span class="php-string">'email'</span>]);
+    <span class="php-variable">$message</span> = <span class="php-function">htmlspecialchars</span>(<span class="php-variable">$_POST</span>[<span class="php-string">'message'</span>]);
+    
+    <span class="php-keyword">echo</span> <span class="php-string">"Thank you, <span class="php-variable">$username</span>! We received your message."</span>;
+}
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <h3>MySQL Database Connection</h3>
+        <p>Connecting to MySQL database with PHP:</p>
+        
+        <div class="code-example">
+          <h4>MySQLi Connection</h4>
+          <pre><span class="php-tag">&lt;?php</span>
+<span class="php-variable">$servername</span> = <span class="php-string">"localhost"</span>;
+<span class="php-variable">$username</span> = <span class="php-string">"root"</span>;
+<span class="php-variable">$password</span> = <span class="php-string">""</span>;
+<span class="php-variable">$dbname</span> = <span class="php-string">"my_database"</span>;
+
+<span class="php-comment">// Create connection</span>
+<span class="php-variable">$conn</span> = <span class="php-keyword">new</span> <span class="php-function">mysqli</span>(<span class="php-variable">$servername</span>, <span class="php-variable">$username</span>, <span class="php-variable">$password</span>, <span class="php-variable">$dbname</span>);
+
+<span class="php-comment">// Check connection</span>
+<span class="php-keyword">if</span> (<span class="php-variable">$conn</span>-&gt;connect_error) {
+    <span class="php-keyword">die</span>(<span class="php-string">"Connection failed: "</span> . <span class="php-variable">$conn</span>-&gt;connect_error);
+}
+
+<span class="php-comment">// Create table</span>
+<span class="php-variable">$sql</span> = <span class="php-string">"CREATE TABLE users (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    email VARCHAR(50),
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)"</span>;
+
+<span class="php-keyword">if</span> (<span class="php-variable">$conn</span>-&gt;<span class="php-function">query</span>(<span class="php-variable">$sql</span>) === <span class="php-keyword">TRUE</span>) {
+    <span class="php-keyword">echo</span> <span class="php-string">"Table created successfully"</span>;
+}
+
+<span class="php-comment">// Insert data</span>
+<span class="php-variable">$sql</span> = <span class="php-string">"INSERT INTO users (username, email) VALUES ('john_doe', 'john@example.com')"</span>;
+<span class="php-variable">$conn</span>-&gt;<span class="php-function">query</span>(<span class="php-variable">$sql</span>);
+
+<span class="php-comment">// Close connection</span>
+<span class="php-variable">$conn</span>-&gt;<span class="php-function">close</span>();
+<span class="php-tag">?&gt;</span></pre>
+        </div>
+
+        <div class="exercise">
+          <h3><i class="fas fa-pencil-alt"></i> Practice Exercise</h3>
+          <p><strong>Build a Contact Form with Database:</strong></p>
+          <ul>
+            <li>Create HTML form with name, email, message fields</li>
+            <li>Process form data with PHP validation</li>
+            <li>Connect to MySQL database</li>
+            <li>Store form submissions in database table</li>
+            <li>Display success message and show stored data</li>
+            <li>Add basic security (SQL injection prevention)</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">forms</span>
+          <span class="tag">$_POST</span>
+          <span class="tag">$_GET</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">database</span>
+          <span class="tag">security</span>
+        </div>
+      </div>
     </div>
-    <img src="php5.jpg" alt="PHP conditions">
-  </section>
 
-  <section>
-    <img src="php6.jpg" alt="PHP loops">
-    <div class="text">
-      <h2>6. Loops</h2>
-      <p><code>for($i=1;$i&lt;=5;$i++){ echo $i; }</code></p>
-    </div>
-  </section>
-
-  <section>
-    <div class="text">
-      <h2>7. Functions</h2>
-      <p><code>function greet($name){ return "Hello $name!"; }</code></p>
-    </div>
-    <img src="php7.jpg" alt="PHP functions">
-  </section>
-
-  <section>
-    <img src="php8.jpg" alt="PHP forms">
-    <div class="text">
-      <h2>8. Forms & Superglobals</h2>
-      <p><code>&lt;form method="post"&gt;&lt;input name="username"&gt;&lt;/form&gt;</code></p>
-    </div>
-  </section>
-
-  <section>
-    <div class="text">
-      <h2>9. Arrays</h2>
-      <p><code>$fruits = ["Apple","Banana"];</code></p>
-    </div>
-    <img src="php9.jpg" alt="PHP arrays">
-  </section>
-
-  <section>
-    <img src="php10.jpg" alt="PHP MySQL">
-    <div class="text">
-      <h2>10. PHP & MySQL</h2>
-      <p><code>$conn = new mysqli($h,$u,$p,$d);</code></p>
-    </div>
-  </section>
-
-  <section>
-    <div class="text">
-      <h2>11. Sessions & Cookies</h2>
-      <p><code>session_start(); $_SESSION['user']="Bilal";</code></p>
-    </div>
-    <img src="php11.jpg" alt="PHP sessions">
-  </section>
-
-
-  <!-- باقي المحتوى كملتو بنفس الشكل -->
-  <!-- Copy/paste all your PHP sections here exactly like before -->
-
-</main>
+  </div>
+</div>
 
 <footer>
   <div class="social" style="margin-bottom:20px;">
@@ -288,11 +759,81 @@
     <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
     <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
     <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
-    <a class="wa" href="https://wa.me/212693885599?text=Hello"><i class="fab fa-whatsapp"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
   </div>
   <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
 
+<script>
+  // Variables demo
+  function showVariables() {
+    const output = `
+      <strong>PHP Variables Simulation:</strong><br>
+      $name = "John Doe"<br>
+      $age = 25<br>
+      $height = 5.9<br>
+      $isStudent = true<br><br>
+      <strong>Output:</strong><br>
+      Name: John Doe<br>
+      Age: 25<br>
+      Type: string, integer, float, boolean
+    `;
+    document.getElementById('variablesOutput').innerHTML = output;
+  }
+
+  // Control structures demo
+  function runLoop() {
+    let output = '<strong>For Loop Output:</strong><br>';
+    for (let i = 0; i < 5; i++) {
+      output += `Number: ${i}<br>`;
+    }
+    document.getElementById('controlOutput').innerHTML = output;
+  }
+
+  function checkCondition() {
+    const age = 20;
+    let message = '<strong>Condition Check:</strong><br>';
+    
+    if (age >= 18) {
+      message += 'You are an adult';
+    } else if (age >= 13) {
+      message += 'You are a teenager';
+    } else {
+      message += 'You are a child';
+    }
+    
+    document.getElementById('controlOutput').innerHTML = message;
+  }
+
+  // Functions & arrays demo
+  function showArray() {
+    const fruits = ["apple", "banana", "orange", "grape"];
+    let output = '<strong>Array Example:</strong><br>';
+    output += `Fruits array: [${fruits.join(', ')}]<br>`;
+    output += `First fruit: ${fruits[0]}<br>`;
+    output += `Array length: ${fruits.length}`;
+    
+    document.getElementById('functionOutput').innerHTML = output;
+  }
+
+  function runFunction() {
+    function calculateArea(radius, pi = 3.14) {
+      return pi * radius * radius;
+    }
+    
+    const area = calculateArea(5);
+    document.getElementById('functionOutput').innerHTML = 
+      `<strong>Function Output:</strong><br>Area of circle with radius 5: ${area}`;
+  }
+
+  // Form simulation
+  function simulateFormSubmit() {
+    document.getElementById('formOutput').innerHTML = 
+      '✅ Form submitted successfully!<br>' +
+      '📧 Data processed and stored in database<br>' +
+      '🔒 Security validation passed';
+  }
+</script>
+
 </body>
 </html>
-

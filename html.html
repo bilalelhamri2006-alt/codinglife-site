@@ -1,58 +1,47 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta name="description" content="Learn HTML programming easily with Coding Life. Complete HTML course with 20 chapters for beginners.">
-  <meta name="keywords" content="HTML, programming, coding, learn to code, web development">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Course - Coding Life</title>
+  <title>HTML Course — coding life</title>
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TJ6Z2QKGHJ');
-</script>
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
+    
     body {
       padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
-      font-family:'Cairo',sans-serif;
+      font-family: 'Cairo', sans-serif;
     }
+
     a {text-decoration:none; color:inherit;}
 
     /* HEADER */
     header {
       background:white;
-      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      z-index:9999;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
       height:70px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:9999;
     }
 
     nav {
       display:flex;
-      justify-content:center;
-      align-items:center;
       gap:25px;
+      align-items:center;
     }
 
     nav a {
-      color:#000;
       padding:10px 18px;
       border-radius:8px;
       font-weight:bold;
@@ -60,342 +49,183 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
     }
 
     nav a:hover {
       background:#0f172a;
       color:white;
     }
-    nav a.active{
-      background:#0f172a;
-      color:#fff;
-    }
 
+    /* SMALL SCREEN ICON BAR */
     .left-buttons {
-      display: none;
-      position: absolute;
-      top: 12px;
-      z-index: 10000;
-      gap: 8px;
+      display:none;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      gap:8px;
       align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size: 1.4rem;
-      color: #0f172a;
-      background: white;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: 0.3s;
+      background:white;
+      padding:6px 9px;
+      border-radius:8px;
+      color:#0f172a;
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
-      background: #0f172a;
-      color: white;
-    }
-        .left-buttons a.active{
       background:#0f172a;
       color:white;
     }
 
-
-
-    /* Course Hero */
-    .course-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .course-hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .course-hero p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    .progress-container {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 15px;
-      margin: 20px auto;
-      max-width: 500px;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: #3b82f6;
-      border-radius: 4px;
-      transition: width 0.3s ease;
-      width: 5%;
-    }
-
-    .progress-text {
-      text-align: center;
-      color: rgba(255,255,255,0.8);
-      font-size: 0.9rem;
-    }
-
-    /* Course Layout */
+    /* COURSE CONTENT */
     .course-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .course-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 30px;
-      margin: 40px 0;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      background: white;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      height: fit-content;
-      position: sticky;
-      top: 90px;
-    }
-
-    .sidebar-title {
-      color: #1e293b;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #e2e8f0;
-      font-size: 1.3rem;
-    }
-
-    .chapter-list {
-      list-style: none;
-      max-height: 600px;
-      overflow-y: auto;
-    }
-
-    .chapter-item {
-      margin-bottom: 8px;
-    }
-
-    .chapter-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 15px;
-      border-radius: 8px;
-      color: #1e293b;
-      transition: 0.3s;
-      border-left: 3px solid transparent;
-      cursor: pointer;
-    }
-
-    .chapter-link:hover, .chapter-link.active {
-      background: #f1f5f9;
-      border-left-color: #0f172a;
-      color: #0f172a;
-    }
-
-    .chapter-number {
-      background: #e2e8f0;
-      color: #64748b;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
-
-    .chapter-link.active .chapter-number {
-      background: #0f172a;
-      color: white;
-    }
-
-    /* Course Content */
-    .course-content {
-      background: white;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      min-height: 600px;
-    }
-
-    .lesson {
-      display: none;
-    }
-
-    .lesson.active {
-      display: block;
-    }
-
-    .lesson-title {
-      color: #1e293b;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-
-    .lesson-meta {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #e2e8f0;
-    }
-
-    .meta-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-
-    .content-section {
-      margin-bottom: 30px;
-    }
-
-    .content-section h3 {
-      color: #0f172a;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-
-    .content-section p {
-      margin-bottom: 15px;
-      color: #1e293b;
-    }
-
-    .content-section ul {
-      margin-left: 20px;
-      margin-bottom: 15px;
-    }
-
-    .content-section li {
-      margin-bottom: 8px;
-    }
-
-    .code-example {
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-      font-family: 'Courier New', monospace;
-      line-height: 1.5;
-      overflow-x: auto;
-      font-size: 0.9rem;
-    }
-
-    .example-output {
-      background: #f1f5f9;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-      border-left: 4px solid #0f172a;
-    }
-
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 2px solid #e2e8f0;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      font-family: 'Cairo', sans-serif;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: #0f172a;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1e293b;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #0f172a;
-      color: #0f172a;
-    }
-
-    .btn-outline:hover {
-      background: #0f172a;
-      color: white;
-    }
-
-    /* Features Section */
-    .features {
-      background:white;
-      padding:60px 20px;
-      text-align:center;
-    }
-    .features h2 {
-      font-size:2.2rem;
-      margin-bottom:40px;
-      color:#1e293b;
-    }
-    .features-grid {
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:30px;
-      max-width:1400px;
+      max-width:1200px;
       margin:0 auto;
-    }
-    .feature-card {
       padding:30px 20px;
+    }
+
+    .course-header {
+      text-align:center;
+      margin-bottom:40px;
+      background:white;
+      padding:40px 30px;
       border-radius:12px;
-      background:#f8fafc;
-      transition:transform 0.3s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
     }
-    .feature-card:hover {
-      transform:translateY(-5px);
-    }
-    .feature-card i {
+
+    .course-header h1 {
       font-size:2.5rem;
       color:#0f172a;
       margin-bottom:15px;
     }
-    .feature-card h3 {
-      margin-bottom:10px;
-      font-size:1.3rem;
-    }
-    .feature-card p {
+
+    .course-header p {
+      font-size:1.2rem;
       color:#64748b;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    /* CHAPTERS */
+    .chapters {
+      display:grid;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .chapter {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border-left:4px solid #0f172a;
+    }
+
+    .chapter h2 {
+      color:#0f172a;
+      margin-bottom:25px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:1.8rem;
+    }
+
+    .chapter h2 i {
+      color:#0f172a;
+    }
+
+    .article-content {
+      line-height:1.8;
+    }
+
+    .article-content h3 {
+      color:#0f172a;
+      margin:25px 0 15px 0;
+      font-size:1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom:15px;
+      color:#374151;
+    }
+
+    .article-content ul, .article-content ol {
+      margin:15px 0 15px 25px;
+    }
+
+    .article-content li {
+      margin-bottom:8px;
+    }
+
+    /* CODE EXAMPLES */
+    .code-example {
+      background:#1e293b;
+      color:#e2e8f0;
+      padding:25px;
+      border-radius:8px;
+      margin:20px 0;
+      overflow-x:auto;
+      font-family:'Courier New', monospace;
+      line-height:1.5;
+    }
+
+    .code-example h4 {
+      color:#f1f5f9;
+      margin-bottom:15px;
+      font-family: 'Cairo', sans-serif;
+      font-size:1.1rem;
+    }
+
+    .code-comment {
+      color:#94a3b8;
+    }
+
+    /* EXERCISE SECTION */
+    .exercise {
+      background:#fff7ed;
+      border:1px solid #fdba74;
+      border-radius:8px;
+      padding:25px;
+      margin:25px 0;
+    }
+
+    .exercise h3 {
+      color:#ea580c;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* TAGS */
+    .tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:20px 0;
+    }
+
+    .tag {
+      background:#e2e8f0;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      color:#475569;
     }
 
     /* FOOTER */
@@ -405,9 +235,10 @@
       text-align:center;
       padding:12px 0;
       font-size:0.85rem;
+      margin-top:30px;
     }
-    footer p {font-size:14px; opacity:0.7; margin-top:4px;}
-    .social a {margin:0 8px; font-size:1.1rem;}
+
+    .social a {margin:0 8px; font-size:1.1rem; transition:.3s;}
     .social a:hover {transform:translateY(-3px);}
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
@@ -415,141 +246,332 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    /* Mobile Responsive */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
       
-      .course-hero {
-        padding: 40px 15px;
+      .course-header h1 {
+        font-size:2rem;
       }
       
-      .course-hero h1 {
-        font-size: 2rem;
+      .chapter {
+        padding:20px;
       }
       
-      .course-layout {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin: 20px 0;
-      }
-      
-      .sidebar {
-        position: static;
-        order: 2;
-      }
-      
-      .course-content {
-        padding: 25px;
-        order: 1;
-      }
-      
-      .lesson-title {
-        font-size: 1.6rem;
-      }
-      
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .nav-buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .nav-buttons .btn {
-        justify-content: center;
+      .article-content h3 {
+        font-size:1.2rem;
       }
     }
 
-    @media (max-width: 1200px) {
-      .features-grid {
-        grid-template-columns:repeat(2, 1fr);
+    @media (max-width: 480px) {
+      .course-container {
+        padding:20px 15px;
+      }
+      
+      .course-header {
+        padding:30px 20px;
+      }
+      
+      .course-header h1 {
+        font-size:1.8rem;
       }
     }
+
   </style>
 </head>
 
 <body>
+
 <header>
   <div class="left-buttons">
-    <a href="index.html" ><i class="fas fa-home"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> </a>
-    <a href="blog.html"><i class="fas fa-book-open"></i> </a>
-    <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i> </a>
-    <a href="playground.html"><i class="fas fa-code"></i> </a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> </a>
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i><span> Courses</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
   </div>
 
   <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-      <a href="dorous-albarmaja.html" class="active"><i class="fa-solid fa-laptop-code"></i> Courses</a>
-      <a href="playground.html"><i class="fas fa-code"></i> Tester</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-
-
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i>Courses</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
   </nav>
 </header>
 
-<!-- Course Hero -->
-<section class="course-hero">
-  <div class="course-container">
-    <h1>Complete HTML Course</h1>
-    <p>Master HTML from basics to advanced with our comprehensive 20-chapter course</p>
-    <div class="progress-container">
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <div class="progress-text" id="progressText">Chapter 1 of 20</div>
-    </div>
-  </div>
-</section>
-
 <div class="course-container">
-  <!-- Course Layout -->
-  <div class="course-layout">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <h2 class="sidebar-title">Course Chapters</h2>
-      <ul class="chapter-list" id="chapterList">
-        <!-- Chapters will be generated by JavaScript -->
-      </ul>
-    </div>
-
-    <!-- Course Content -->
-    <div class="course-content" id="course-content">
-      <!-- Lessons will be generated by JavaScript -->
-    </div>
+  <div class="course-header">
+    <h1><i class="fab fa-html5"></i> HTML Complete Guide</h1>
+    <p>Master HTML with detailed articles and practical examples</p>
   </div>
 
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Why Learn HTML With Us?</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>20 Comprehensive Chapters</h3>
-        <p>From absolute beginner to advanced HTML mastery</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-laptop-code"></i>
-        <h3>Practical Examples</h3>
-        <p>Real-world code examples you can try immediately</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Mobile Optimized</h3>
-        <p>Learn on any device with our responsive design</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-rocket"></i>
-        <h3>Career Ready</h3>
-        <p>Skills that employers are looking for</p>
+  <div class="chapters">
+    
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <h2><i class="fas fa-play-circle"></i> Chapter 1: HTML Basics</h2>
+      <div class="article-content">
+        <h3>What is HTML?</h3>
+        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display content.</p>
+        
+        <h3>Basic HTML Document Structure</h3>
+        <p>Every HTML document follows this basic structure:</p>
+        
+        <div class="code-example">
+          <h4>Basic HTML Template</h4>
+          <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Page content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+
+        <div class="tags">
+          <span class="tag">&lt;!DOCTYPE&gt;</span>
+          <span class="tag">&lt;html&gt;</span>
+          <span class="tag">&lt;head&gt;</span>
+          <span class="tag">&lt;body&gt;</span>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <h2><i class="fas fa-code"></i> Chapter 2: Text Elements</h2>
+      <div class="article-content">
+        <h3>Headings</h3>
+        <p>HTML provides six levels of headings from &lt;h1&gt; (most important) to &lt;h6&gt; (least important).</p>
+        
+        <div class="code-example">
+          <h4>Heading Examples</h4>
+          <pre>&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;h2&gt;Section Title&lt;/h2&gt;
+&lt;h3&gt;Subsection Title&lt;/h3&gt;
+&lt;h4&gt;Small Heading&lt;/h4&gt;
+&lt;h5&gt;Smaller Heading&lt;/h5&gt;
+&lt;h6&gt;Smallest Heading&lt;/h6&gt;</pre>
+        </div>
+
+        <h3>Paragraphs and Formatting</h3>
+        <p>Use &lt;p&gt; for paragraphs and various tags for text formatting:</p>
+        
+        <div class="code-example">
+          <h4>Text Formatting</h4>
+          <pre>&lt;p&gt;This is a normal paragraph.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bold text&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Italic text&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;Underlined text&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;Text with &lt;br&gt;line break&lt;/p&gt;</pre>
+        </div>
+
+        <div class="tags">
+          <span class="tag">&lt;h1&gt;-&lt;h6&gt;</span>
+          <span class="tag">&lt;p&gt;</span>
+          <span class="tag">&lt;strong&gt;</span>
+          <span class="tag">&lt;em&gt;</span>
+          <span class="tag">&lt;br&gt;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <h2><i class="fas fa-link"></i> Chapter 3: Links and Images</h2>
+      <div class="article-content">
+        <h3>Creating Links</h3>
+        <p>Use the &lt;a&gt; tag to create hyperlinks. The <code>href</code> attribute specifies the destination.</p>
+        
+        <div class="code-example">
+          <h4>Link Examples</h4>
+          <pre>&lt;!-- External link --&gt;
+&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;
+
+&lt;!-- Internal link --&gt;
+&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+
+&lt;!-- Link with target --&gt;
+&lt;a href="https://www.example.com" target="_blank"&gt;Open in New Tab&lt;/a&gt;
+
+&lt;!-- Email link --&gt;
+&lt;a href="mailto:contact@example.com"&gt;Email Us&lt;/a&gt;</pre>
+        </div>
+
+        <h3>Adding Images</h3>
+        <p>Use the &lt;img&gt; tag to embed images. Always include the <code>alt</code> attribute for accessibility.</p>
+        
+        <div class="code-example">
+          <h4>Image Examples</h4>
+          <pre>&lt;!-- Basic image --&gt;
+&lt;img src="photo.jpg" alt="Description of photo"&gt;
+
+&lt;!-- Image with dimensions --&gt;
+&lt;img src="photo.jpg" alt="Description" width="400" height="300"&gt;
+
+&lt;!-- Responsive image --&gt;
+&lt;img src="photo.jpg" alt="Description" style="max-width:100%; height:auto;"&gt;</pre>
+        </div>
+
+        <div class="tags">
+          <span class="tag">&lt;a&gt;</span>
+          <span class="tag">&lt;img&gt;</span>
+          <span class="tag">href</span>
+          <span class="tag">src</span>
+          <span class="tag">alt</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <h2><i class="fas fa-table"></i> Chapter 4: Lists and Tables</h2>
+      <div class="article-content">
+        <h3>Creating Lists</h3>
+        <p>HTML supports ordered lists (&lt;ol&gt;), unordered lists (&lt;ul&gt;), and description lists (&lt;dl&gt;).</p>
+        
+        <div class="code-example">
+          <h4>List Examples</h4>
+          <pre>&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Description List --&gt;
+&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</pre>
+        </div>
+
+        <h3>Creating Tables</h3>
+        <p>Tables are created with &lt;table&gt;, &lt;tr&gt; for rows, &lt;td&gt; for data cells, and &lt;th&gt; for header cells.</p>
+        
+        <div class="code-example">
+          <h4>Table Example</h4>
+          <pre>&lt;table border="1"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;City&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;New York&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Sarah&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+            &lt;td&gt;London&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+        </div>
+
+        <div class="tags">
+          <span class="tag">&lt;ul&gt;</span>
+          <span class="tag">&lt;ol&gt;</span>
+          <span class="tag">&lt;li&gt;</span>
+          <span class="tag">&lt;table&gt;</span>
+          <span class="tag">&lt;tr&gt;</span>
+          <span class="tag">&lt;td&gt;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <h2><i class="fas fa-edit"></i> Chapter 5: Forms and Input</h2>
+      <div class="article-content">
+        <h3>Creating Forms</h3>
+        <p>Forms are used to collect user input. The &lt;form&gt; element wraps form controls.</p>
+        
+        <div class="code-example">
+          <h4>Contact Form Example</h4>
+          <pre>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+    
+    &lt;label&gt;
+        &lt;input type="checkbox" name="newsletter"&gt; 
+        Subscribe to newsletter
+    &lt;/label&gt;
+    
+    &lt;button type="submit"&gt;Send Message&lt;/button&gt;
+&lt;/form&gt;</pre>
+        </div>
+
+        <h3>Input Types</h3>
+        <p>HTML5 introduced many new input types for better user experience and validation.</p>
+        
+        <div class="code-example">
+          <h4>Common Input Types</h4>
+          <pre>&lt;input type="text"&gt;       &lt;!-- Text input --&gt;
+&lt;input type="email"&gt;     &lt;!-- Email validation --&gt;
+&lt;input type="password"&gt;  &lt;!-- Password field --&gt;
+&lt;input type="number"&gt;    &lt;!-- Number input --&gt;
+&lt;input type="date"&gt;      &lt;!-- Date picker --&gt;
+&lt;input type="color"&gt;     &lt;!-- Color picker --&gt;
+&lt;input type="file"&gt;      &lt;!-- File upload --&gt;
+&lt;input type="range"&gt;     &lt;!-- Slider --&gt;</pre>
+        </div>
+
+        <div class="exercise">
+          <h3><i class="fas fa-pencil-alt"></i> Practice Exercise</h3>
+          <p><strong>Create a Registration Form:</strong></p>
+          <ul>
+            <li>Full name (text input)</li>
+            <li>Email (email input)</li>
+            <li>Password (password input)</li>
+            <li>Birth date (date input)</li>
+            <li>Gender (radio buttons)</li>
+            <li>Interests (checkboxes)</li>
+            <li>Country (dropdown select)</li>
+            <li>Bio (textarea)</li>
+            <li>Submit button</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">&lt;form&gt;</span>
+          <span class="tag">&lt;input&gt;</span>
+          <span class="tag">&lt;textarea&gt;</span>
+          <span class="tag">&lt;select&gt;</span>
+          <span class="tag">&lt;button&gt;</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>
@@ -563,797 +585,5 @@
   <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
 
-<script>
-  // Full course data with detailed chapters 1-20
-  const courseData = [
-    {
-      id: 1,
-      title: "HTML Introduction",
-      duration: "15 min",
-      level: "Beginner",
-      content: `
-        <h3>What is HTML?</h3>
-        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display the content.</p>
-        
-        <div class="code-example">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;My First Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Hello World!&lt;/h1&gt;
-    &lt;p&gt;This is my first web page.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-        </div>
-        
-        <h3>Basic HTML Structure</h3>
-        <p>Every HTML document has a basic structure that includes:</p>
-        <ul>
-          <li><strong>&lt;!DOCTYPE html&gt;</strong> - Defines the document type</li>
-          <li><strong>&lt;html&gt;</strong> - The root element</li>
-          <li><strong>&lt;head&gt;</strong> - Contains meta information</li>
-          <li><strong>&lt;title&gt;</strong> - Specifies the page title</li>
-          <li><strong>&lt;body&gt;</strong> - Contains the visible content</li>
-        </ul>
-
-        <h3>How browsers use HTML</h3>
-        <p>The browser reads the HTML file, builds a DOM (Document Object Model) and renders content for the user. HTML provides semantics: headings, paragraphs, lists, links, tables and more.</p>
-      `
-    },
-    {
-      id: 2,
-      title: "Basic Elements",
-      duration: "20 min",
-      level: "Beginner",
-      content: `
-        <h3>Common HTML Elements</h3>
-        <p>HTML provides various elements to structure your content:</p>
-        
-        <div class="example-output">
-          <h4>Example Output:</h4>
-          <h1>Heading 1</h1>
-          <h2>Heading 2</h2>
-          <p>This is a paragraph with <strong>bold text</strong> and <em>italic text</em>.</p>
-        </div>
-
-        <div class="code-example">
-&lt;h1&gt;Heading 1&lt;/h1&gt;
-&lt;h2&gt;Heading 2&lt;/h2&gt;
-&lt;p&gt;This is a paragraph with &lt;strong&gt;bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;.&lt;/p&gt;
-        </div>
-
-        <h3>Headings & Semantics</h3>
-        <p>Use headings (&lt;h1&gt; - &lt;h6&gt;) to divide content. They help accessibility and SEO.</p>
-      `
-    },
-    {
-      id: 3,
-      title: "Links & Images",
-      duration: "18 min",
-      level: "Beginner",
-      content: `
-        <h3>Creating Links</h3>
-        <p>Links are created using the &lt;a&gt; (anchor) element with the href attribute:</p>
-        
-        <div class="code-example">
-&lt;!-- External link --&gt;
-&lt;a href="https://www.example.com" target="_blank" rel="noopener"&gt;Visit Example.com&lt;/a&gt;
-
-&lt;!-- Internal link --&gt;
-&lt;a href="#section2"&gt;Go to Section 2&lt;/a&gt;
-
-&lt;!-- Email link --&gt;
-&lt;a href="mailto:someone@example.com"&gt;Send Email&lt;/a&gt;
-        </div>
-
-        <h3>Adding Images</h3>
-        <p>Images are added using the &lt;img&gt; element with src and alt attributes. Always include alt for accessibility.</p>
-        
-        <div class="code-example">
-&lt;img src="image.jpg" alt="Description of image"&gt;
-
-&lt;img src="photo.png" alt="A beautiful photo" width="400" height="300"&gt;
-        </div>
-
-        <h3>Best practices</h3>
-        <ul>
-          <li>Use descriptive alt text</li>
-          <li>Prefer responsive images (srcset) for different screen sizes</li>
-          <li>Set width/height or use CSS to avoid layout shifts</li>
-        </ul>
-      `
-    },
-    {
-      id: 4,
-      title: "Lists",
-      duration: "15 min",
-      level: "Beginner",
-      content: `
-        <h3>Types of Lists</h3>
-        <p>HTML عندها 3 أنواع ديال اللّوائح:</p>
-
-        <ul>
-          <li><strong>&lt;ul&gt;</strong> – لائحة غير مرتبة (bullet)</li>
-          <li><strong>&lt;ol&gt;</strong> – لائحة مرتبة (numbers)</li>
-          <li><strong>&lt;dl&gt;</strong> – لائحة وصفية (term + description)</li>
-        </ul>
-
-        <h3>Unordered List (ul)</h3>
-        <div class="example-output">
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-          </ul>
-        </div>
-
-        <div class="code-example">
-&lt;ul&gt;
-  &lt;li&gt;HTML&lt;/li&gt;
-  &lt;li&gt;CSS&lt;/li&gt;
-  &lt;li&gt;JavaScript&lt;/li&gt;
-&lt;/ul&gt;
-        </div>
-
-        <h3>Ordered List (ol)</h3>
-        <div class="example-output">
-          <ol>
-            <li>Step One</li>
-            <li>Step Two</li>
-            <li>Step Three</li>
-          </ol>
-        </div>
-
-        <div class="code-example">
-&lt;ol&gt;
-  &lt;li&gt;Step One&lt;/li&gt;
-  &lt;li&gt;Step Two&lt;/li&gt;
-  &lt;li&gt;Step Three&lt;/li&gt;
-&lt;/ol&gt;
-        </div>
-
-        <h3>Description List (dl)</h3>
-        <div class="example-output">
-          <dl>
-            <dt>HTML</dt>
-            <dd>Structure of web pages</dd>
-          </dl>
-        </div>
-
-        <div class="code-example">
-&lt;dl&gt;
-  &lt;dt&gt;HTML&lt;/dt&gt;
-  &lt;dd&gt;Structure of web pages&lt;/dd&gt;
-&lt;/dl&gt;
-        </div>
-
-        <h3>Accessibility tip</h3>
-        <p>Use lists for grouped items — they improve screen reader experience and structure.</p>
-      `
-    },
-    {
-      id: 5,
-      title: "Tables",
-      duration: "25 min",
-      level: "Intermediate",
-      content: `
-        <h3>Creating Tables</h3>
-        <p>HTML tables are created with the &lt;table&gt; element and contain rows (&lt;tr&gt;), headers (&lt;th&gt;), and data cells (&lt;td&gt;):</p>
-        
-        <div class="example-output">
-          <table border="1" style="width: 100%; border-collapse: collapse;">
-            <tr>
-              <th style="padding: 8px;">Name</th>
-              <th style="padding: 8px;">Age</th>
-              <th style="padding: 8px;">City</th>
-            </tr>
-            <tr>
-              <td style="padding: 8px;">John</td>
-              <td style="padding: 8px;">25</td>
-              <td style="padding: 8px;">New York</td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="code-example">
-&lt;table border="1"&gt;
-  &lt;tr&gt;
-    &lt;th&gt;Name&lt;/th&gt;
-    &lt;th&gt;Age&lt;/th&gt;
-    &lt;th&gt;City&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;John&lt;/td&gt;
-    &lt;td&gt;25&lt;/td&gt;
-    &lt;td&gt;New York&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
-        </div>
-
-        <h3>Table elements</h3>
-        <ul>
-          <li>&lt;caption&gt; — table caption</li>
-          <li>&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; — grouping rows</li>
-          <li>&lt;th scope="col|row"&gt; — improves accessibility</li>
-        </ul>
-
-        <h3>Responsive tables</h3>
-        <p>For small screens, wrap table in a container with overflow-x:auto or consider reformatting as cards.</p>
-      `
-    },
-
-    /* --- Chapters 6 to 20: detailed content --- */
-
-    {
-      id: 6,
-      title: "Forms",
-      duration: "30 min",
-      level: "Intermediate",
-      content: `
-        <h3>What is a form?</h3>
-        <p>Forms allow users to send data to the server or interact with your page. The &lt;form&gt; element wraps inputs and submission controls.</p>
-
-        <div class="code-example">
-&lt;form action="/submit" method="POST"&gt;
-  &lt;label&gt;Name: &lt;input type="text" name="name" /&gt;&lt;/label&gt;
-  &lt;label&gt;Email: &lt;input type="email" name="email" /&gt;&lt;/label&gt;
-  &lt;button type="submit"&gt;Send&lt;/button&gt;
-&lt;/form&gt;
-        </div>
-
-        <h3>Form attributes</h3>
-        <ul>
-          <li><strong>action</strong> — URL to submit the form</li>
-          <li><strong>method</strong> — GET or POST</li>
-          <li><strong>enctype</strong> — when uploading files (multipart/form-data)</li>
-        </ul>
-
-        <h3>Validation</h3>
-        <p>HTML5 provides built-in validation: required, pattern, min, max, type="email" etc.</p>
-
-        <div class="example-output">
-          <form onsubmit="alert('example submit prevented'); return false;">
-            <label>Name: <input required placeholder="Your name"></label><br><br>
-            <label>Email: <input type="email" required placeholder="you@example.com"></label><br><br>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      `
-    },
-    {
-      id: 7,
-      title: "Form Elements",
-      duration: "25 min",
-      level: "Intermediate",
-      content: `
-        <h3>Common form controls</h3>
-        <ul>
-          <li>&lt;input type="text"&gt;</li>
-          <li>&lt;input type="password"&gt;</li>
-          <li>&lt;input type="checkbox"&gt;</li>
-          <li>&lt;input type="radio"&gt;</li>
-          <li>&lt;select&gt; &amp; &lt;option&gt;</li>
-          <li>&lt;textarea&gt;</li>
-          <li>&lt;button&gt;</li>
-        </ul>
-
-        <div class="code-example">
-&lt;form&gt;
-  &lt;input type="text" name="username" placeholder="Username"&gt;
-  &lt;input type="password" name="pwd" placeholder="Password"&gt;
-  &lt;label&gt;&lt;input type="checkbox" name="remember"&gt; Remember me&lt;/label&gt;
-  &lt;select name="country"&gt;
-    &lt;option value="ma"&gt;Morocco&lt;/option&gt;
-    &lt;option value="fr"&gt;France&lt;/option&gt;
-  &lt;/select&gt;
-  &lt;textarea name="message"&gt;&lt;/textarea&gt;
-&lt;/form&gt;
-        </div>
-
-        <h3>Accessibility</h3>
-        <p>Always use &lt;label for="id"&gt; or wrap input in a label. Use aria-* attributes for complex widgets.</p>
-      `
-    },
-    {
-      id: 8,
-      title: "Semantic HTML",
-      duration: "20 min",
-      level: "Intermediate",
-      content: `
-        <h3>Why semantic HTML?</h3>
-        <p>Semantic tags convey meaning to browsers and assistive tech — they improve SEO and accessibility.</p>
-
-        <h3>Common semantic elements</h3>
-        <ul>
-          <li>&lt;header&gt;</li>
-          <li>&lt;nav&gt;</li>
-          <li>&lt;main&gt;</li>
-          <li>&lt;article&gt;</li>
-          <li>&lt;section&gt;</li>
-          <li>&lt;aside&gt;</li>
-          <li>&lt;footer&gt;</li>
-        </ul>
-
-        <div class="code-example">
-&lt;header&gt;Site header&lt;/header&gt;
-&lt;nav&gt;Main navigation&lt;/nav&gt;
-&lt;main&gt;
-  &lt;article&gt;Article content&lt;/article&gt;
-  &lt;aside&gt;Sidebar&lt;/aside&gt;
-&lt;/main&gt;
-&lt;footer&gt;Footer&lt;/footer&gt;
-        </div>
-
-        <h3>Best practice</h3>
-        <p>Use semantic elements for structure, not for styling. Use ARIA where semantics are not available.</p>
-      `
-    },
-    {
-      id: 9,
-      title: "HTML5 New Elements",
-      duration: "22 min",
-      level: "Intermediate",
-      content: `
-        <h3>What's new in HTML5?</h3>
-        <p>HTML5 introduced many new semantic and multimedia elements, plus improved APIs.</p>
-
-        <h3>Key elements</h3>
-        <ul>
-          <li>&lt;section&gt; &amp; &lt;article&gt;</li>
-          <li>&lt;figure&gt; &amp; &lt;figcaption&gt;</li>
-          <li>&lt;video&gt; &amp; &lt;audio&gt;</li>
-          <li>&lt;canvas&gt; (graphics)</li>
-          <li>&lt;meter&gt; &amp; &lt;progress&gt;</li>
-        </ul>
-
-        <div class="code-example">
-&lt;figure&gt;
-  &lt;img src="photo.jpg" alt="..."&gt;
-  &lt;figcaption&gt;Image caption&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;video controls width="400"&gt;
-  &lt;source src="video.mp4" type="video/mp4"&gt;
-  Your browser does not support video.
-&lt;/video&gt;
-        </div>
-      `
-    },
-    {
-      id: 10,
-      title: "Multimedia",
-      duration: "18 min",
-      level: "Intermediate",
-      content: `
-        <h3>Audio & Video</h3>
-        <p>Use &lt;audio&gt; &amp; &lt;video&gt; to embed media. Provide multiple sources and captions for compatibility and accessibility.</p>
-
-        <div class="code-example">
-&lt;audio controls&gt;
-  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
-  Your browser does not support the audio element.
-&lt;/audio&gt;
-
-&lt;video controls width="600"&gt;
-  &lt;source src="movie.mp4" type="video/mp4"&gt;
-  &lt;track kind="captions" srclang="en" src="captions_en.vtt" label="English"&gt;
-  Your browser does not support HTML5 video.
-&lt;/video&gt;
-        </div>
-
-        <h3>Performance tips</h3>
-        <ul>
-          <li>Compress media</li>
-          <li>Use streaming formats for large videos</li>
-          <li>Lazy-load or defer heavy media</li>
-        </ul>
-      `
-    },
-    {
-      id: 11,
-      title: "Graphics & Canvas",
-      duration: "25 min",
-      level: "Advanced",
-      content: `
-        <h3>Canvas API</h3>
-        <p>The &lt;canvas&gt; element allows drawing 2D graphics via JavaScript.</p>
-
-        <div class="code-example">
-&lt;canvas id="myCanvas" width="400" height="200"&gt;Your browser does not support canvas.&lt;/canvas&gt;
-
-&lt;script&gt;
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
-ctx.fillStyle = 'lightblue';
-ctx.fillRect(10,10,150,80);
-ctx.fillStyle = 'black';
-ctx.font = '16px Arial';
-ctx.fillText('Canvas example', 20, 50);
-&lt;/script&gt;
-        </div>
-
-        <h3>SVG</h3>
-        <p>SVG is vector-based, scalable and great for icons and diagrams.</p>
-        <div class="code-example">
-&lt;svg width="120" height="120" xmlns="http://www.w3.org/2000/svg"&gt;
-  &lt;circle cx="60" cy="60" r="50" stroke="black" stroke-width="2" fill="lightgreen" /&gt;
-&lt;/svg&gt;
-        </div>
-      `
-    },
-    {
-      id: 12,
-      title: "APIs",
-      duration: "30 min",
-      level: "Advanced",
-      content: `
-        <h3>HTML & Browser APIs</h3>
-        <p>HTML pages interact with many browser APIs (Geolocation, LocalStorage, Fetch, Canvas, etc.). These let you build dynamic web apps.</p>
-
-        <h3>Fetch API</h3>
-        <div class="code-example">
-&lt;script&gt;
-fetch('https://jsonplaceholder.typicode.com/posts/1')
-  .then(res =&gt; res.json())
-  .then(data =&gt; console.log(data))
-  .catch(err =&gt; console.error(err));
-&lt;/script&gt;
-        </div>
-
-        <h3>Other useful APIs</h3>
-        <ul>
-          <li>Geolocation API</li>
-          <li>Web Storage (localStorage/sessionStorage)</li>
-          <li>Notifications API</li>
-          <li>Service Workers (offline)</li>
-        </ul>
-      `
-    },
-    {
-      id: 13,
-      title: "Web Storage",
-      duration: "20 min",
-      level: "Advanced",
-      content: `
-        <h3>localStorage vs sessionStorage</h3>
-        <p>Both are key/value storage in the browser. localStorage persists across sessions; sessionStorage clears when tab closes.</p>
-
-        <div class="code-example">
-&lt;script&gt;
-// set
-localStorage.setItem('name', 'Bilal');
-// get
-console.log(localStorage.getItem('name'));
-// remove
-localStorage.removeItem('name');
-&lt;/script&gt;
-        </div>
-
-        <h3>When to use</h3>
-        <ul>
-          <li>Save user preferences</li>
-          <li>Cache non-sensitive data</li>
-          <li>Avoid storing secrets in storage</li>
-        </ul>
-      `
-    },
-    {
-      id: 14,
-      title: "Web Workers",
-      duration: "22 min",
-      level: "Advanced",
-      content: `
-        <h3>What are Web Workers?</h3>
-        <p>Web Workers allow running JS in background threads to prevent blocking the UI.</p>
-
-        <div class="code-example">
-&lt;!-- main.js --&gt;
-const worker = new Worker('worker.js');
-worker.postMessage('start');
-worker.onmessage = (e) =&gt; console.log('From worker', e.data);
-
-&lt;!-- worker.js --&gt;
-onmessage = (e) =&gt; {
-  // expensive computation
-  let total = 0;
-  for (let i=0;i&lt;1e7;i++) total += i;
-  postMessage(total);
-};
-        </div>
-
-        <h3>Use cases</h3>
-        <ul>
-          <li>Heavy calculations</li>
-          <li>Data processing</li>
-          <li>Image manipulation</li>
-        </ul>
-      `
-    },
-    {
-      id: 15,
-      title: "Geolocation",
-      duration: "18 min",
-      level: "Advanced",
-      content: `
-        <h3>Geolocation API</h3>
-        <p>Get user's location (with permission) using navigator.geolocation.</p>
-
-        <div class="code-example">
-&lt;script&gt;
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(pos =&gt; {
-    console.log('Latitude:', pos.coords.latitude);
-    console.log('Longitude:', pos.coords.longitude);
-  }, err =&gt; console.error(err));
-} else {
-  console.log('Geolocation not supported');
-}
-&lt;/script&gt;
-        </div>
-
-        <h3>Privacy</h3>
-        <p>Always ask permission and explain why location is needed.</p>
-      `
-    },
-    {
-      id: 16,
-      title: "Drag & Drop",
-      duration: "25 min",
-      level: "Advanced",
-      content: `
-        <h3>Drag & Drop API</h3>
-        <p>Native HTML drag and drop uses draggable attribute and drag events.</p>
-
-        <div class="code-example">
-&lt;div id="drag" draggable="true"&gt;Drag me&lt;/div&gt;
-&lt;div id="drop"&gt;Drop here&lt;/div&gt;
-
-&lt;script&gt;
-const drag = document.getElementById('drag');
-const drop = document.getElementById('drop');
-
-drag.addEventListener('dragstart', e =&gt; {
-  e.dataTransfer.setData('text/plain', 'dragged');
-});
-
-drop.addEventListener('dragover', e =&gt; e.preventDefault());
-drop.addEventListener('drop', e =&gt; {
-  e.preventDefault();
-  const data = e.dataTransfer.getData('text');
-  drop.textContent = 'Dropped: ' + data;
-});
-&lt;/script&gt;
-        </div>
-
-        <h3>Use cases</h3>
-        <ul>
-          <li>File uploads</li>
-          <li>Reordering lists</li>
-          <li>Interactive UIs</li>
-        </ul>
-      `
-    },
-    {
-      id: 17,
-      title: "Web Sockets",
-      duration: "28 min",
-      level: "Expert",
-      content: `
-        <h3>What are WebSockets?</h3>
-        <p>WebSockets provide real-time, two-way communication between client and server.</p>
-
-        <div class="code-example">
-&lt;script&gt;
-const ws = new WebSocket('wss://echo.websocket.org');
-ws.onopen = () =&gt; {
-  ws.send('Hello server');
-};
-ws.onmessage = (e) =&gt; console.log('Message from server:', e.data);
-&lt;/script&gt;
-        </div>
-
-        <h3>When to use</h3>
-        <ul>
-          <li>Chat applications</li>
-          <li>Live updates</li>
-          <li>Games</li>
-        </ul>
-      `
-    },
-    {
-      id: 18,
-      title: "Server-Sent Events",
-      duration: "20 min",
-      level: "Expert",
-      content: `
-        <h3>Server-Sent Events (SSE)</h3>
-        <p>SSE allows server to push updates to the client over HTTP (unidirectional).</p>
-
-        <div class="code-example">
-&lt;script&gt;
-const evtSource = new EventSource('/events');
-evtSource.onmessage = function(e) {
-  console.log('New event:', e.data);
-};
-&lt;/script&gt;
-        </div>
-
-        <h3>Difference from WebSocket</h3>
-        <p>SSE is simpler but only server-to-client. WebSocket is bi-directional.</p>
-      `
-    },
-    {
-      id: 19,
-      title: "Web Components",
-      duration: "35 min",
-      level: "Expert",
-      content: `
-        <h3>What are Web Components?</h3>
-        <p>Web Components allow creating reusable custom elements with encapsulated behavior and styles.</p>
-
-        <div class="code-example">
-&lt;script&gt;
-class HelloElement extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = '&lt;style&gt;p{color:blue}&lt;/style&gt;&lt;p&gt;Hello from component&lt;/p&gt;';
-  }
-}
-customElements.define('hello-element', HelloElement);
-&lt;/script&gt;
-
-&lt;hello-element&gt;&lt;/hello-element&gt;
-        </div>
-
-        <h3>Parts of Web Components</h3>
-        <ul>
-          <li>Custom Elements</li>
-          <li>Shadow DOM</li>
-          <li>HTML Templates</li>
-        </ul>
-      `
-    },
-    {
-      id: 20,
-      title: "Best Practices",
-      duration: "25 min",
-      level: "Expert",
-      content: `
-        <h3>HTML Best Practices</h3>
-        <ul>
-          <li>Use semantic elements</li>
-          <li>Keep HTML accessible (labels, alt, roles)</li>
-          <li>Optimize for performance (minify, compress, lazy-load)</li>
-          <li>Separate concerns: HTML for structure, CSS for style, JS for behavior</li>
-          <li>Validate HTML (W3C validator)</li>
-        </ul>
-
-        <h3>SEO & Accessibility</h3>
-        <p>Use proper headings, meta tags, descriptive links and alt attributes to help search engines and users with disabilities.</p>
-
-        <h3>Final project idea</h3>
-        <p>Build a small multi-page site with navigation, blog posts (articles), forms, and a contact form saved in localStorage as a mock backend.</p>
-      `
-    }
-  ];
-
-  // Initialize the course
-  function initializeCourse() {
-    const chapterList = document.getElementById('chapterList');
-    const courseContent = document.getElementById('course-content');
-    
-    // Clear existing (safety)
-    chapterList.innerHTML = '';
-    courseContent.innerHTML = '';
-
-    // Generate chapter list
-    courseData.forEach(chapter => {
-      const listItem = document.createElement('li');
-      listItem.className = 'chapter-item';
-      listItem.innerHTML = `
-        <a class="chapter-link" data-chapter="${chapter.id}">
-          <span class="chapter-number">${chapter.id}</span>
-          <span>${chapter.title}</span>
-        </a>
-      `;
-      chapterList.appendChild(listItem);
-    });
-    
-    // Generate lesson content
-    courseData.forEach(chapter => {
-      const lesson = document.createElement('div');
-      lesson.className = 'lesson';
-      lesson.id = `lesson-${chapter.id}`;
-      lesson.innerHTML = `
-        <h1 class="lesson-title">${chapter.id}. ${chapter.title}</h1>
-        <div class="lesson-meta">
-          <div class="meta-item">
-            <i class="fas fa-clock"></i>
-            <span>${chapter.duration} read</span>
-          </div>
-          <div class="meta-item">
-            <i class="fas fa-star"></i>
-            <span>${chapter.level} Level</span>
-          </div>
-        </div>
-        <div class="content-section">
-          ${chapter.content}
-        </div>
-        <div class="nav-buttons">
-          <button class="btn btn-outline" onclick="previousLesson(${chapter.id})" ${chapter.id === 1 ? 'disabled' : ''}>
-            <i class="fas fa-arrow-left"></i> Previous
-          </button>
-          <button class="btn btn-primary" onclick="nextLesson(${chapter.id})" ${chapter.id === courseData.length ? 'disabled' : ''}>
-            Next Chapter <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-      `;
-      courseContent.appendChild(lesson);
-    });
-    
-    // Show first lesson
-    showLesson(1);
-  }
-
-  // Show specific lesson
-  function showLesson(lessonNumber) {
-    // Hide all lessons
-    document.querySelectorAll('.lesson').forEach(lesson => {
-      lesson.classList.remove('active');
-    });
-    
-    // Show selected lesson
-    const target = document.getElementById(`lesson-${lessonNumber}`);
-    if (!target) return;
-    target.classList.add('active');
-    
-    // Update active chapter in sidebar
-    document.querySelectorAll('.chapter-link').forEach(link => {
-      link.classList.remove('active');
-    });
-    const activeLink = document.querySelector(`.chapter-link[data-chapter="${lessonNumber}"]`);
-    if (activeLink) activeLink.classList.add('active');
-    
-    // Update progress
-    updateProgress(lessonNumber);
-    
-    // Scroll to top of content
-    document.getElementById('course-content').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // Navigation functions
-  function nextLesson(currentLesson) {
-    if (currentLesson < courseData.length) {
-      showLesson(currentLesson + 1);
-    }
-  }
-
-  function previousLesson(currentLesson) {
-    if (currentLesson > 1) {
-      showLesson(currentLesson - 1);
-    }
-  }
-
-  // Update progress bar
-  function updateProgress(lessonNumber) {
-    const progress = (lessonNumber / courseData.length) * 100;
-    document.getElementById('progressFill').style.width = `${progress}%`;
-    document.getElementById('progressText').textContent = `Chapter ${lessonNumber} of ${courseData.length}`;
-  }
-
-  // Initialize chapter navigation (click on sidebar)
-  document.addEventListener('click', function(e) {
-    // accommodate clicks on child elements
-    const link = e.target.closest('.chapter-link');
-    if (link) {
-      const chapterNumber = link.getAttribute('data-chapter');
-      showLesson(parseInt(chapterNumber));
-    }
-  });
-
-  // Initialize the course when page loads
-  window.addEventListener('DOMContentLoaded', initializeCourse);
-</script>
 </body>
 </html>

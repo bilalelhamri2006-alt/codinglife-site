@@ -3,53 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Node.js - Programmer’s Life</title>
+  <title>Node.js Course — coding life</title>
+  <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TJ6Z2QKGHJ');
-  </script>
-
 
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
+    
     body {
-      padding-top:70px;
+      padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
-      font-family:'Cairo',sans-serif;
+      font-family: 'Cairo', sans-serif;
     }
+
     a {text-decoration:none; color:inherit;}
 
+    /* HEADER */
     header {
       background:white;
-      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      z-index:9999;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
       height:70px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:9999;
     }
 
     nav {
       display:flex;
-      justify-content:center;
-      align-items:center;
       gap:25px;
+      align-items:center;
     }
 
     nav a {
-      color:#000;
       padding:10px 18px;
       border-radius:8px;
       font-weight:bold;
@@ -57,7 +49,6 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
     }
 
     nav a:hover {
@@ -65,21 +56,35 @@
       color:white;
     }
 
+    /* SMALL SCREEN ICON BAR */
     .left-buttons {
       display:none;
       position:absolute;
-      top:12px;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
       gap:8px;
       align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
-      color:#0f172a;
       background:white;
-      padding:6px 10px;
+      padding:6px 9px;
       border-radius:8px;
-      transition:0.3s;
+      color:#0f172a;
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
@@ -87,43 +92,221 @@
       color:white;
     }
 
-    main {
-      max-width:1000px;
-      margin:50px auto;
-      padding:0 20px;
+    /* COURSE CONTENT */
+    .course-container {
+      max-width:1200px;
+      margin:0 auto;
+      padding:30px 20px;
     }
 
-    section {
+    .course-header {
+      text-align:center;
+      margin-bottom:40px;
+      background:white;
+      padding:40px 30px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .course-header h1 {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    .course-header p {
+      font-size:1.2rem;
+      color:#64748b;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    /* CHAPTERS */
+    .chapters {
+      display:grid;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .chapter {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border-left:4px solid #0f172a;
+    }
+
+    .chapter h2 {
+      color:#0f172a;
+      margin-bottom:25px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      margin-bottom:60px;
+      gap:10px;
+      font-size:1.8rem;
+    }
+
+    .chapter h2 i {
+      color:#0f172a;
+    }
+
+    .article-content {
+      line-height:1.8;
+    }
+
+    .article-content h3 {
+      color:#0f172a;
+      margin:25px 0 15px 0;
+      font-size:1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom:15px;
+      color:#374151;
+    }
+
+    .article-content ul, .article-content ol {
+      margin:15px 0 15px 25px;
+    }
+
+    .article-content li {
+      margin-bottom:8px;
+    }
+
+    /* CODE EXAMPLES */
+    .code-example {
+      background:#1e293b;
+      color:#e2e8f0;
+      padding:25px;
+      border-radius:8px;
+      margin:20px 0;
+      overflow-x:auto;
+      font-family:'Courier New', monospace;
+      line-height:1.5;
+    }
+
+    .code-example h4 {
+      color:#f1f5f9;
+      margin-bottom:15px;
+      font-family: 'Cairo', sans-serif;
+      font-size:1.1rem;
+    }
+
+    .js-keyword {
+      color:#f0abfc;
+    }
+    .js-function {
+      color:#7dd3fc;
+    }
+    .js-string {
+      color:#86efac;
+    }
+    .js-number {
+      color:#fde047;
+    }
+    .js-comment {
+      color:#94a3b8;
+    }
+    .js-module {
+      color:#fdba74;
+    }
+
+    /* LIVE EXAMPLES */
+    .live-example {
+      background:#f1f5f9;
+      border:2px dashed #cbd5e1;
+      border-radius:8px;
+      padding:25px;
+      margin:20px 0;
+    }
+
+    .live-example h4 {
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    /* NODE DEMO STYLES */
+    .node-demo {
+      border:2px solid #68a063;
+      border-radius:8px;
+      padding:20px;
+      margin:15px 0;
+      background:#2d3240;
+      color:white;
+    }
+
+    .terminal {
+      background:#1a1a1a;
+      color:#00ff00;
+      padding:15px;
+      border-radius:6px;
+      font-family:'Courier New', monospace;
+      margin:10px 0;
+    }
+
+    /* BUTTONS */
+    .demo-button {
+      background:#68a063;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:6px;
+      cursor:pointer;
+      font-family: 'Cairo', sans-serif;
+      font-size:1rem;
+      font-weight:bold;
+      transition:.3s;
+      margin:5px;
+    }
+
+    .demo-button:hover {
+      background:#5a8a55;
+      transform:translateY(-2px);
+    }
+
+    /* EXERCISE SECTION */
+    .exercise {
+      background:#fff7ed;
+      border:1px solid #fdba74;
+      border-radius:8px;
+      padding:25px;
+      margin:25px 0;
+    }
+
+    .exercise h3 {
+      color:#ea580c;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* TAGS */
+    .tags {
+      display:flex;
       flex-wrap:wrap;
-      gap:30px;
+      gap:10px;
+      margin:20px 0;
     }
 
-    .text {flex:1; min-width:300px;}
-    section img {
-      width:100%;
-      max-width:450px;
-      border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    .tag {
+      background:#e2e8f0;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      color:#475569;
     }
 
-    h2 {margin-bottom:15px;}
-    p, li {color:#334155; font-size:1rem; margin-bottom:10px;}
-    ul {padding-left:20px;}
-    code {background:#e2e8f0; padding:3px 6px; border-radius:4px; font-family:monospace;}
-
+    /* FOOTER */
     footer {
       background:#0f172a;
       color:#cbd5e1;
       text-align:center;
       padding:12px 0;
       font-size:0.85rem;
+      margin-top:30px;
     }
-    footer p {font-size:14px; opacity:0.7; margin-top:4px;}
-    .social a {margin:0 8px; font-size:1.1rem;}
+
+    .social a {margin:0 8px; font-size:1.1rem; transition:.3s;}
     .social a:hover {transform:translateY(-3px);}
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
@@ -131,107 +314,523 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    @media (max-width:768px) {
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
-      section {flex-direction:column; text-align:center;}
-      section img {margin:0 auto;}
+      
+      .course-header h1 {
+        font-size:2rem;
+      }
+      
+      .chapter {
+        padding:20px;
+      }
+      
+      .article-content h3 {
+        font-size:1.2rem;
+      }
     }
+
+    @media (max-width: 480px) {
+      .course-container {
+        padding:20px 15px;
+      }
+      
+      .course-header {
+        padding:30px 20px;
+      }
+      
+      .course-header h1 {
+        font-size:1.8rem;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="left-buttons">
-      <a href="index.html"><i class="fas fa-home"></i></a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-      <a href="blog.html"><i class="fas fa-book-open"></i></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i></a>
-    </div>
+<header>
+  <div class="left-buttons">
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="dorous-albarmaja.html"><i class="fas fa-laptop-code"></i><span> Courses</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
+  </div>
 
-    <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
-      <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i>Courses</a>
+    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
+  </nav>
+</header>
 
-  <main>
-    <section>
-      <img src="nodejslogo.jpg" alt="Node.js Logo">
-      <div class="text">
-        <h2><i class="fa-brands fa-node-js"></i> 1. What is Node.js?</h2>
-        <p><strong>Node.js</strong> is a JavaScript runtime built on Chrome's V8 engine.  
-        It allows developers to run JavaScript code on the server side to create fast and scalable network applications.</p>
-      </div>
-    </section>
+<div class="course-container">
+  <div class="course-header">
+    <h1><i class="fab fa-node-js"></i> Node.js Complete Guide</h1>
+    <p>Master server-side JavaScript with Node.js runtime environment</p>
+  </div>
 
-    <section>
-      <div class="text">
-        <h2><i class="fa-solid fa-server"></i> 2. Why Use Node.js?</h2>
+  <div class="chapters">
+    
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <h2><i class="fas fa-play-circle"></i> Chapter 1: Node.js Basics</h2>
+      <div class="article-content">
+        <h3>What is Node.js?</h3>
+        <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine that allows you to run JavaScript on the server-side.</p>
+        
+        <h3>Key Features</h3>
         <ul>
-          <li>It’s fast thanks to the V8 JavaScript engine.</li>
-          <li>Non-blocking I/O model allows handling many connections efficiently.</li>
-          <li>Perfect for building real-time apps like chats or APIs.</li>
+          <li><strong>Non-blocking I/O:</strong> Asynchronous operations</li>
+          <li><strong>Event-driven:</strong> Uses event loop for handling requests</li>
+          <li><strong>Single-threaded:</strong> But highly scalable with event loop</li>
+          <li><strong>Cross-platform:</strong> Runs on Windows, Linux, macOS</li>
+          <li><strong>NPM:</strong> Largest package ecosystem</li>
         </ul>
-      </div>
-      <img src="nodejsserver.jpg" alt="Node.js Server">
-    </section>
 
-    <section>
-      <img src="nodejspackage.jpg" alt="NPM Packages">
-      <div class="text">
-        <h2><i class="fa-solid fa-box-open"></i> 3. NPM (Node Package Manager)</h2>
-        <p><strong>NPM</strong> comes with Node.js and helps you install and manage external packages easily.</p>
-        <p>Example command:</p>
-        <p><code>npm install express</code></p>
-      </div>
-    </section>
+        <h3>Installing Node.js</h3>
+        <p>Download and install Node.js from the official website or use version managers:</p>
+        
+        <div class="code-example">
+          <h4>Using NVM (Node Version Manager)</h4>
+          <pre><span class="js-comment"># Install NVM</span>
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-    <section>
-      <div class="text">
-        <h2><i class="fa-solid fa-code"></i> 4. Example of a Simple Server</h2>
-        <p>This is a simple example of a Node.js server using the built-in <code>http</code> module:</p>
-        <p><code>
-          const http = require('http');<br>
-          const server = http.createServer((req, res) => {<br>
-          &nbsp;&nbsp;res.end('Hello, Node.js!');<br>
-          });<br>
-          server.listen(3000);
-        </code></p>
-      </div>
-      <img src="nodeservercode.jpg" alt="Node.js Server Code">
-    </section>
+<span class="js-comment"># Install latest Node.js</span>
+nvm install node
 
-    <section>
-      <img src="nodejsexpress.jpg" alt="Express Framework">
-      <div class="text">
-        <h2><i class="fa-solid fa-road"></i> 5. Express.js Framework</h2>
-        <p><strong>Express</strong> is a popular Node.js framework that simplifies building web servers and APIs.</p>
-        <p>Example:</p>
-        <p><code>
-          const express = require('express');<br>
-          const app = express();<br>
-          app.get('/', (req, res) => res.send('Welcome to Express!'));<br>
-          app.listen(3000);
-        </code></p>
-      </div>
-    </section>
-  </main>
+<span class="js-comment"># Use specific version</span>
+nvm install 18.0.0
+nvm use 18.0.0</pre>
+        </div>
 
-  <footer>
-    <div class="social" style="margin-bottom:20px;">
-      <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
-      <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
-      <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
-      <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
-      <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+        <div class="code-example">
+          <h4>Verifying Installation</h4>
+          <pre><span class="js-comment"># Check Node.js version</span>
+node --version
+
+<span class="js-comment"># Check npm version</span>
+npm --version
+
+<span class="js-comment"># Run JavaScript file</span>
+node app.js</pre>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">V8 Engine</span>
+          <span class="tag">Event Loop</span>
+          <span class="tag">NVM</span>
+          <span class="tag">npm</span>
+        </div>
+      </div>
     </div>
-    <p>© 2025 Coding Life - All Rights Reserved</p>
-  </footer>
+
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <h2><i class="fas fa-file-code"></i> Chapter 2: Modules System</h2>
+      <div class="article-content">
+        <h3>CommonJS Modules</h3>
+        <p>Node.js uses CommonJS module system for organizing code:</p>
+        
+        <div class="code-example">
+          <h4>Exporting Modules</h4>
+          <pre><span class="js-comment">// math.js - Exporting functions</span>
+<span class="js-keyword">const</span> <span class="js-function">add</span> = (a, b) => a + b;
+<span class="js-keyword">const</span> <span class="js-function">subtract</span> = (a, b) => a - b;
+<span class="js-keyword">const</span> <span class="js-function">multiply</span> = (a, b) => a * b;
+
+<span class="js-comment">// Export as object</span>
+module.exports = {
+  add,
+  subtract,
+  multiply
+};
+
+<span class="js-comment">// Or export individually</span>
+exports.add = add;
+exports.PI = <span class="js-number">3.14159</span>;</pre>
+        </div>
+
+        <div class="code-example">
+          <h4>Importing Modules</h4>
+          <pre><span class="js-comment">// app.js - Importing modules</span>
+<span class="js-keyword">const</span> math = <span class="js-function">require</span>(<span class="js-string">'./math.js'</span>);
+<span class="js-keyword">const</span> fs = <span class="js-function">require</span>(<span class="js-string">'fs'</span>); <span class="js-comment">// Built-in module</span>
+
+console.<span class="js-function">log</span>(math.<span class="js-function">add</span>(<span class="js-number">5</span>, <span class="js-number">3</span>)); <span class="js-comment">// 8</span>
+console.<span class="js-function">log</span>(math.PI); <span class="js-comment">// 3.14159</span>
+
+<span class="js-comment">// Destructuring imports</span>
+<span class="js-keyword">const</span> { add, multiply } = <span class="js-function">require</span>(<span class="js-string">'./math.js'</span>);</pre>
+        </div>
+
+        <h3>ES6 Modules (Alternative)</h3>
+        <p>Node.js also supports ES6 module syntax:</p>
+        
+        <div class="code-example">
+          <h4>ES6 Module Syntax</h4>
+          <pre><span class="js-comment">// math.mjs (or package.json with "type": "module")</span>
+<span class="js-keyword">export const</span> add = (a, b) => a + b;
+<span class="js-keyword">export const</span> PI = <span class="js-number">3.14159</span>;
+
+<span class="js-keyword">export default function</span> <span class="js-function">multiply</span>(a, b) {
+  <span class="js-keyword">return</span> a * b;
+}
+
+<span class="js-comment">// Importing</span>
+<span class="js-keyword">import</span> { add, PI } <span class="js-keyword">from</span> <span class="js-string">'./math.mjs'</span>;
+<span class="js-keyword">import</span> multiply <span class="js-keyword">from</span> <span class="js-string">'./math.mjs'</span>;</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Module Structure Example</h4>
+          <div class="node-demo">
+            <div style="color: #68a063; font-weight: bold; margin-bottom: 10px;">📁 my-project/</div>
+            <div style="margin-left: 20px;">
+              <div style="color: #86efac;">📄 app.js <span style="color: #94a3b8;">(main file)</span></div>
+              <div style="color: #86efac;">📁 modules/</div>
+              <div style="margin-left: 20px;">
+                <div style="color: #86efac;">📄 math.js</div>
+                <div style="color: #86efac;">📄 database.js</div>
+                <div style="color: #86efac;">📄 utils.js</div>
+              </div>
+              <div style="color: #86efac;">📄 package.json</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">modules</span>
+          <span class="tag">require</span>
+          <span class="tag">exports</span>
+          <span class="tag">CommonJS</span>
+          <span class="tag">ES6 Modules</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <h2><i class="fas fa-server"></i> Chapter 3: HTTP Server</h2>
+      <div class="article-content">
+        <h3>Creating HTTP Server</h3>
+        <p>Node.js has a built-in HTTP module to create web servers:</p>
+        
+        <div class="code-example">
+          <h4>Basic HTTP Server</h4>
+          <pre><span class="js-keyword">const</span> http = <span class="js-function">require</span>(<span class="js-string">'http'</span>);
+
+<span class="js-comment">// Create server</span>
+<span class="js-keyword">const</span> server = http.<span class="js-function">createServer</span>((req, res) => {
+  <span class="js-comment">// Set response header</span>
+  res.<span class="js-function">setHeader</span>(<span class="js-string">'Content-Type'</span>, <span class="js-string">'text/html'</span>);
+  
+  <span class="js-comment">// Handle different routes</span>
+  <span class="js-keyword">if</span> (req.url === <span class="js-string">'/'</span>) {
+    res.<span class="js-function">write</span>(<span class="js-string">'&lt;h1&gt;Welcome to Home Page&lt;/h1&gt;'</span>);
+  } <span class="js-keyword">else if</span> (req.url === <span class="js-string">'/about'</span>) {
+    res.<span class="js-function">write</span>(<span class="js-string">'&lt;h1&gt;About Us&lt;/h1&gt;'</span>);
+  } <span class="js-keyword">else</span> {
+    res.<span class="js-function">write</span>(<span class="js-string">'&lt;h1&gt;Page Not Found&lt;/h1&gt;'</span>);
+  }
+  
+  res.<span class="js-function">end</span>();
+});
+
+<span class="js-comment">// Start server</span>
+server.<span class="js-function">listen</span>(<span class="js-number">3000</span>, () => {
+  console.<span class="js-function">log</span>(<span class="js-string">'Server running on http://localhost:3000'</span>);
+});</pre>
+        </div>
+
+        <h3>Handling JSON Responses</h3>
+        <p>Creating REST API endpoints:</p>
+        
+        <div class="code-example">
+          <h4>JSON API Server</h4>
+          <pre><span class="js-keyword">const</span> http = <span class="js-function">require</span>(<span class="js-string">'http'</span>);
+
+<span class="js-keyword">const</span> server = http.<span class="js-function">createServer</span>((req, res) => {
+  <span class="js-comment">// Set CORS headers</span>
+  res.<span class="js-function">setHeader</span>(<span class="js-string">'Access-Control-Allow-Origin'</span>, <span class="js-string">'*'</span>);
+  res.<span class="js-function">setHeader</span>(<span class="js-string">'Content-Type'</span>, <span class="js-string">'application/json'</span>);
+
+  <span class="js-keyword">if</span> (req.url === <span class="js-string">'/api/users'</span> && req.method === <span class="js-string">'GET'</span>) {
+    <span class="js-keyword">const</span> users = [
+      { id: <span class="js-number">1</span>, name: <span class="js-string">'John Doe'</span>, email: <span class="js-string">'john@example.com'</span> },
+      { id: <span class="js-number">2</span>, name: <span class="js-string">'Jane Smith'</span>, email: <span class="js-string">'jane@example.com'</span> }
+    ];
+    
+    res.<span class="js-function">end</span>(JSON.<span class="js-function">stringify</span>(users));
+  } <span class="js-keyword">else</span> {
+    res.<span class="js-function">end</span>(JSON.<span class="js-function">stringify</span>({ error: <span class="js-string">'Route not found'</span> }));
+  }
+});
+
+server.<span class="js-function">listen</span>(<span class="js-number">3000</span>, () => {
+  console.<span class="js-function">log</span>(<span class="js-string">'JSON API running on port 3000'</span>);
+});</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Server Demo</h4>
+          <div class="terminal">
+            $ node server.js<br>
+            Server running on http://localhost:3000<br>
+            GET /api/users 200 OK<br>
+            GET /api/products 404 Not Found
+          </div>
+          <button class="demo-button" onclick="testServer()">Test Server Response</button>
+          <div id="serverOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">HTTP</span>
+          <span class="tag">createServer</span>
+          <span class="tag">request</span>
+          <span class="tag">response</span>
+          <span class="tag">REST API</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <h2><i class="fas fa-hdd"></i> Chapter 4: File System</h2>
+      <div class="article-content">
+        <h3>File Operations</h3>
+        <p>Node.js provides the fs module for file system operations:</p>
+        
+        <div class="code-example">
+          <h4>File System Methods</h4>
+          <pre><span class="js-keyword">const</span> fs = <span class="js-function">require</span>(<span class="js-string">'fs'</span>);
+<span class="js-keyword">const</span> path = <span class="js-function">require</span>(<span class="js-string">'path'</span>);
+
+<span class="js-comment">// Reading files</span>
+fs.<span class="js-function">readFile</span>(<span class="js-string">'./file.txt'</span>, <span class="js-string">'utf8'</span>, (err, data) => {
+  <span class="js-keyword">if</span> (err) <span class="js-keyword">throw</span> err;
+  console.<span class="js-function">log</span>(data);
+});
+
+<span class="js-comment">// Writing files</span>
+fs.<span class="js-function">writeFile</span>(<span class="js-string">'./output.txt'</span>, <span class="js-string">'Hello World!'</span>, (err) => {
+  <span class="js-keyword">if</span> (err) <span class="js-keyword">throw</span> err;
+  console.<span class="js-function">log</span>(<span class="js-string">'File written successfully'</span>);
+});
+
+<span class="js-comment">// Promises version (fs/promises)</span>
+<span class="js-keyword">const</span> fsPromise = <span class="js-function">require</span>(<span class="js-string">'fs'</span>).promises;
+
+<span class="js-keyword">async function</span> <span class="js-function">readFileAsync</span>() {
+  <span class="js-keyword">try</span> {
+    <span class="js-keyword">const</span> data = <span class="js-keyword">await</span> fsPromise.<span class="js-function">readFile</span>(<span class="js-string">'./file.txt'</span>, <span class="js-string">'utf8'</span>);
+    console.<span class="js-function">log</span>(data);
+  } <span class="js-keyword">catch</span> (err) {
+    console.<span class="js-function">error</span>(err);
+  }
+}</pre>
+        </div>
+
+        <h3>Working with Directories</h3>
+        <p>Managing folders and file paths:</p>
+        
+        <div class="code-example">
+          <h4>Directory Operations</h4>
+          <pre><span class="js-keyword">const</span> fs = <span class="js-function">require</span>(<span class="js-string">'fs'</span>);
+
+<span class="js-comment">// Create directory</span>
+fs.<span class="js-function">mkdir</span>(<span class="js-string">'./new-folder'</span>, { recursive: <span class="js-keyword">true</span> }, (err) => {
+  <span class="js-keyword">if</span> (err) <span class="js-keyword">throw</span> err;
+  console.<span class="js-function">log</span>(<span class="js-string">'Directory created'</span>);
+});
+
+<span class="js-comment">// Read directory contents</span>
+fs.<span class="js-function">readdir</span>(<span class="js-string">'./'</span>, (err, files) => {
+  <span class="js-keyword">if</span> (err) <span class="js-keyword">throw</span> err;
+  files.<span class="js-function">forEach</span>(file => {
+    console.<span class="js-function">log</span>(file);
+  });
+});
+
+<span class="js-comment">// Check if file/directory exists</span>
+<span class="js-keyword">if</span> (fs.<span class="js-function">existsSync</span>(<span class="js-string">'./file.txt'</span>)) {
+  console.<span class="js-function">log</span>(<span class="js-string">'File exists'</span>);
+}</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>File System Demo</h4>
+          <button class="demo-button" onclick="simulateFileRead()">Simulate File Read</button>
+          <button class="demo-button" onclick="simulateFileWrite()">Simulate File Write</button>
+          <div id="fileOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px; font-family: monospace;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">fs</span>
+          <span class="tag">readFile</span>
+          <span class="tag">writeFile</span>
+          <span class="tag">mkdir</span>
+          <span class="tag">readdir</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <h2><i class="fas fa-box-open"></i> Chapter 5: NPM and Packages</h2>
+      <div class="article-content">
+        <h3>Package.json</h3>
+        <p>The package.json file contains project metadata and dependencies:</p>
+        
+        <div class="code-example">
+          <h4>package.json Structure</h4>
+          <pre>{
+  "<span class="js-string">name</span>": "<span class="js-string">my-node-app</span>",
+  "<span class="js-string">version</span>": "<span class="js-string">1.0.0</span>",
+  "<span class="js-string">description</span>": "<span class="js-string">A simple Node.js application</span>",
+  "<span class="js-string">main</span>": "<span class="js-string">app.js</span>",
+  "<span class="js-string">scripts</span>": {
+    "<span class="js-string">start</span>": "<span class="js-string">node app.js</span>",
+    "<span class="js-string">dev</span>": "<span class="js-string">nodemon app.js</span>",
+    "<span class="js-string">test</span>": "<span class="js-string">jest</span>"
+  },
+  "<span class="js-string">dependencies</span>": {
+    "<span class="js-string">express</span>": "<span class="js-string">^4.18.0</span>",
+    "<span class="js-string">mongoose</span>": "<span class="js-string">^6.0.0</span>"
+  },
+  "<span class="js-string">devDependencies</span>": {
+    "<span class="js-string">nodemon</span>": "<span class="js-string">^2.0.0</span>",
+    "<span class="js-string">jest</span>": "<span class="js-string">^27.0.0</span>"
+  }
+}</pre>
+        </div>
+
+        <h3>NPM Commands</h3>
+        <p>Essential npm commands for package management:</p>
+        
+        <div class="code-example">
+          <h4>Common NPM Commands</h4>
+          <pre><span class="js-comment"># Initialize new project</span>
+npm init
+npm init -y <span class="js-comment"># skip questions</span>
+
+<span class="js-comment"># Install packages</span>
+npm install express
+npm install --save-dev nodemon
+npm install <span class="js-comment"># install all dependencies</span>
+
+<span class="js-comment"># Global installation</span>
+npm install -g nodemon
+
+<span class="js-comment"># Run scripts</span>
+npm start
+npm run dev
+npm test
+
+<span class="js-comment"># Update packages</span>
+npm update
+npm outdated <span class="js-comment"># check for updates</span></pre>
+        </div>
+
+        <h3>Popular Node.js Packages</h3>
+        <ul>
+          <li><strong>Express.js:</strong> Web framework</li>
+          <li><strong>Mongoose:</strong> MongoDB object modeling</li>
+          <li><strong>Socket.io:</strong> Real-time communication</li>
+          <li><strong>JWT:</strong> JSON Web Tokens</li>
+          <li><strong>Bcrypt:</strong> Password hashing</li>
+          <li><strong>Nodemon:</strong> Auto-restart development</li>
+        </ul>
+
+        <div class="exercise">
+          <h3><i class="fas fa-pencil-alt"></i> Practice Exercise</h3>
+          <p><strong>Build a REST API with Express:</strong></p>
+          <ul>
+            <li>Initialize new project with npm</li>
+            <li>Install Express.js framework</li>
+            <li>Create CRUD endpoints for a resource (e.g., users, products)</li>
+            <li>Implement GET, POST, PUT, DELETE routes</li>
+            <li>Add middleware for logging and error handling</li>
+            <li>Test API with Postman or Thunder Client</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">npm</span>
+          <span class="tag">package.json</span>
+          <span class="tag">dependencies</span>
+          <span class="tag">scripts</span>
+          <span class="tag">Express.js</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="social" style="margin-bottom:20px;">
+    <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 Coding Life - All Rights Reserved</p>
+</footer>
+
+<script>
+  // Server demo
+  function testServer() {
+    const responses = [
+      '✅ Server responded with user data',
+      '📊 API endpoint: GET /api/users',
+      '🎯 Status: 200 OK',
+      '📦 Response: JSON array of users'
+    ];
+    document.getElementById('serverOutput').innerHTML = responses.join('<br>');
+  }
+
+  // File system demo
+  function simulateFileRead() {
+    const fileContent = `📄 File: data.txt
+📊 Size: 1.2 KB
+📝 Content:
+Hello Node.js!
+This is a sample file.
+File reading simulation successful.`;
+
+    document.getElementById('fileOutput').innerHTML = fileContent;
+  }
+
+  function simulateFileWrite() {
+    document.getElementById('fileOutput').innerHTML = 
+      '✅ File written successfully: output.txt\n' +
+      '📊 Operation: fs.writeFile()\n' +
+      '🎯 Status: Completed\n' +
+      '💾 Data: "Hello World! File created by Node.js"';
+  }
+
+  // Simulate npm commands
+  function runNpmCommand(command) {
+    const commands = {
+      'npm init': '✅ Initialized package.json with default values',
+      'npm install express': '✅ Added express@4.18.0 to dependencies',
+      'npm start': '🚀 Server started on port 3000',
+      'npm run dev': '🔧 Development server running with nodemon'
+    };
+    
+    return commands[command] || '❌ Command not recognized';
+  }
+</script>
 
 </body>
 </html>

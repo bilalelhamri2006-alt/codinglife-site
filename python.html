@@ -1,61 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="Learn Python - Programmer’s Life">
-  <meta name="keywords" content="Python, learn Python, programming, coding">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Python - CodingLife</title>
-    <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
-
-
+  <title>Python Course — coding life</title>
+  <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TJ6Z2QKGHJ');
-  </script>
-
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
+    
     body {
-      padding-top:70px;
+      padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
-      font-family:'Cairo',sans-serif;
+      font-family: 'Cairo', sans-serif;
     }
+
     a {text-decoration:none; color:inherit;}
 
     /* HEADER */
     header {
       background:white;
-      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      z-index:9999;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
       height:70px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:9999;
     }
 
     nav {
       display:flex;
-      justify-content:center;
-      align-items:center;
       gap:25px;
+      align-items:center;
     }
 
     nav a {
-      color:#000;
       padding:10px 18px;
       border-radius:8px;
       font-weight:bold;
@@ -63,7 +49,6 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
     }
 
     nav a:hover {
@@ -71,23 +56,35 @@
       color:white;
     }
 
-    /* MOBILE ICON NAV */
+    /* SMALL SCREEN ICON BAR */
     .left-buttons {
       display:none;
       position:absolute;
-      top:12px;
+      top:50%;
       left:50%;
-      transform:translateX(-50%);
-      gap:10px;
+      transform:translate(-50%, -50%);
+      gap:8px;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
-      color:#0f172a;
       background:white;
-      padding:6px 10px;
+      padding:6px 9px;
       border-radius:8px;
-      transition:0.3s;
+      color:#0f172a;
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
@@ -95,38 +92,208 @@
       color:white;
     }
 
-    /* CONTENT */
-    main {
-      max-width:1000px;
-      margin:50px auto;
-      padding:0 20px;
+    /* COURSE CONTENT */
+    .course-container {
+      max-width:1200px;
+      margin:0 auto;
+      padding:30px 20px;
     }
 
-    section {
+    .course-header {
+      text-align:center;
+      margin-bottom:40px;
+      background:white;
+      padding:40px 30px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .course-header h1 {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    .course-header p {
+      font-size:1.2rem;
+      color:#64748b;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    /* CHAPTERS */
+    .chapters {
+      display:grid;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .chapter {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border-left:4px solid #0f172a;
+    }
+
+    .chapter h2 {
+      color:#0f172a;
+      margin-bottom:25px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      margin-bottom:60px;
+      gap:10px;
+      font-size:1.8rem;
+    }
+
+    .chapter h2 i {
+      color:#0f172a;
+    }
+
+    .article-content {
+      line-height:1.8;
+    }
+
+    .article-content h3 {
+      color:#0f172a;
+      margin:25px 0 15px 0;
+      font-size:1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom:15px;
+      color:#374151;
+    }
+
+    .article-content ul, .article-content ol {
+      margin:15px 0 15px 25px;
+    }
+
+    .article-content li {
+      margin-bottom:8px;
+    }
+
+    /* CODE EXAMPLES */
+    .code-example {
+      background:#1e293b;
+      color:#e2e8f0;
+      padding:25px;
+      border-radius:8px;
+      margin:20px 0;
+      overflow-x:auto;
+      font-family:'Courier New', monospace;
+      line-height:1.5;
+    }
+
+    .code-example h4 {
+      color:#f1f5f9;
+      margin-bottom:15px;
+      font-family: 'Cairo', sans-serif;
+      font-size:1.1rem;
+    }
+
+    .py-keyword {
+      color:#f0abfc;
+    }
+    .py-function {
+      color:#7dd3fc;
+    }
+    .py-string {
+      color:#86efac;
+    }
+    .py-variable {
+      color:#fde047;
+    }
+    .py-comment {
+      color:#94a3b8;
+    }
+    .py-class {
+      color:#fdba74;
+    }
+
+    /* LIVE EXAMPLES */
+    .live-example {
+      background:#f1f5f9;
+      border:2px dashed #cbd5e1;
+      border-radius:8px;
+      padding:25px;
+      margin:20px 0;
+    }
+
+    .live-example h4 {
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    /* PYTHON DEMO STYLES */
+    .python-demo {
+      border:2px solid #3776AB;
+      border-radius:8px;
+      padding:20px;
+      margin:15px 0;
+      background:#2d3240;
+      color:white;
+    }
+
+    .terminal {
+      background:#1a1a1a;
+      color:#00ff00;
+      padding:15px;
+      border-radius:6px;
+      font-family:'Courier New', monospace;
+      margin:10px 0;
+    }
+
+    /* BUTTONS */
+    .demo-button {
+      background:#3776AB;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:6px;
+      cursor:pointer;
+      font-family: 'Cairo', sans-serif;
+      font-size:1rem;
+      font-weight:bold;
+      transition:.3s;
+      margin:5px;
+    }
+
+    .demo-button:hover {
+      background:#2c5e8a;
+      transform:translateY(-2px);
+    }
+
+    /* EXERCISE SECTION */
+    .exercise {
+      background:#fff7ed;
+      border:1px solid #fdba74;
+      border-radius:8px;
+      padding:25px;
+      margin:25px 0;
+    }
+
+    .exercise h3 {
+      color:#ea580c;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* TAGS */
+    .tags {
+      display:flex;
       flex-wrap:wrap;
-      gap:30px;
+      gap:10px;
+      margin:20px 0;
     }
 
-    .text { flex:1; min-width:300px; }
-
-    section img {
-      width:45%;
-      border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    h2 { margin-bottom:15px; color:#0f172a; }
-    p, li { color:#334155; font-size:1rem; margin-bottom:10px; }
-    ul { padding-left:20px; }
-    code {
+    .tag {
       background:#e2e8f0;
-      padding:3px 6px;
-      border-radius:4px;
-      font-family:monospace;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      color:#475569;
     }
 
     /* FOOTER */
@@ -139,182 +306,447 @@
       margin-top:30px;
     }
 
-    .social a {margin:0 8px; font-size:1.1rem;}
+    .social a {margin:0 8px; font-size:1.1rem; transition:.3s;}
     .social a:hover {transform:translateY(-3px);}
-
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
     .social a.ig:hover {color:#e4405f;}
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
-      section {flex-direction:column;}
-      section img {width:80%;}
+      
+      .course-header h1 {
+        font-size:2rem;
+      }
+      
+      .chapter {
+        padding:20px;
+      }
+      
+      .article-content h3 {
+        font-size:1.2rem;
+      }
     }
+
+    @media (max-width: 480px) {
+      .course-container {
+        padding:20px 15px;
+      }
+      
+      .course-header {
+        padding:30px 20px;
+      }
+      
+      .course-header h1 {
+        font-size:1.8rem;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- Mobile Icons -->
   <div class="left-buttons">
-      <a href="index.html"><i class="fas fa-home"></i></a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-      <a href="blog.html"><i class="fas fa-book-open"></i></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i></a>
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i><span> Courses</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
   </div>
 
-  <!-- Desktop Menu -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
   </nav>
 </header>
 
-<main>
+<div class="course-container">
+  <div class="course-header">
+    <h1><i class="fab fa-python"></i> Python Complete Guide</h1>
+    <p>Master Python programming for web development, data science, and automation</p>
+  </div>
 
-  <!-- SECTION 1 -->
-   <section id="section1">
-    <div class="text">
-      <h2>1. What is Python?</h2>
-      <p>Python is a popular, high-level, interpreted programming language known for its readability and versatility. It's widely used in web development, data science, AI, and automation.</p>
-      <ul>
-        <li>Easy to learn with simple syntax</li>
-        <li>Cross-platform compatibility</li>
-        <li>Large standard library</li>
-        <li>Strong community support</li>
-      </ul>
-    </div>
-    <img src="python1.jpg" alt="Python basics">
-  </section>
+  <div class="chapters">
+    
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <h2><i class="fas fa-play-circle"></i> Chapter 1: Python Basics</h2>
+      <div class="article-content">
+        <h3>What is Python?</h3>
+        <p>Python is a high-level, interpreted programming language known for its simplicity and readability. It's widely used in web development, data science, AI, and automation.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Easy to Learn:</strong> Simple and readable syntax</li>
+          <li><strong>Versatile:</strong> Web, data science, AI, automation</li>
+          <li><strong>Large Community:</strong> Extensive libraries and frameworks</li>
+          <li><strong>Cross-platform:</strong> Runs on Windows, Linux, macOS</li>
+          <li><strong>Open Source:</strong> Free to use and modify</li>
+        </ul>
 
-  <!-- SECTION 2 -->
-  <section id="section2">
-    <img src="python2.jpg" alt="Python syntax">
-    <div class="text">
-      <h2>2. Python Syntax</h2>
-      <p>Python uses indentation to define code blocks instead of braces, making the code clean and readable.</p>
-      <code>if True:<br>&nbsp;&nbsp;print("Hello Python")</code>
-      <p>This simple syntax reduces common errors and makes Python ideal for beginners.</p>
-    </div>
-  </section>
+        <h3>Installing Python</h3>
+        <p>Download Python from the official website or use package managers:</p>
+        
+        <div class="code-example">
+          <h4>Installation Methods</h4>
+          <pre><span class="py-comment"># Windows: Download from python.org</span>
+<span class="py-comment"># macOS: Using Homebrew</span>
+brew install python
 
-  <!-- SECTION 3 -->
-  <section id="section3">
-    <div class="text">
-      <h2>3. Variables & Data Types</h2>
-      <p>Python variables are dynamically typed, meaning you don't need to declare their type explicitly.</p>
-      <code>name = "Bilal"<br>age = 18<br>price = 19.99<br>is_active = True</code>
-      <ul>
-        <li><strong>String:</strong> Text data like "Hello"</li>
-        <li><strong>Integer:</strong> Whole numbers like 10, -5, 0</li>
-        <li><strong>Float:</strong> Decimal numbers like 3.14, 2.5</li>
-        <li><strong>Boolean:</strong> True or False values</li>
-        <li><strong>List:</strong> Ordered collection like ["Apple", "Banana"]</li>
-      </ul>
-    </div>
-    <img src="python3.jpg" alt="Python variables">
-  </section>
+<span class="py-comment"># Linux (Ubuntu/Debian)</span>
+sudo apt update
+sudo apt install python3 python3-pip
 
-  <!-- SECTION 4 -->
-  <section id="section4">
-    <img src="python4.jpg" alt="Python operators">
-    <div class="text">
-      <h2>4. Operators</h2>
-      <p>Python supports various operators for performing operations on variables and values.</p>
-      <ul>
-        <li><strong>Arithmetic:</strong> + - * / % ** //</li>
-        <li><strong>Comparison:</strong> == != < > <= >=</li>
-        <li><strong>Logical:</strong> and, or, not</li>
-        <li><strong>Assignment:</strong> = += -= *= /=</li>
-      </ul>
-      <code>x = 10<br>y = 5<br>print(x + y)  # Output: 15</code>
-    </div>
-  </section>
+<span class="py-comment"># Verify installation</span>
+python3 --version
+pip3 --version</pre>
+        </div>
 
-  <!-- SECTION 5 -->
-  <section id="section5">
-    <div class="text">
-      <h2>5. Conditional Statements</h2>
-      <p>Conditional statements allow your program to make decisions based on certain conditions.</p>
-      <code>age = 20<br>if age > 18:<br>&nbsp;&nbsp;print("Adult")<br>else:<br>&nbsp;&nbsp;print("Minor")</code>
-      <p>You can also use elif for multiple conditions:</p>
-      <code>if age < 13:<br>&nbsp;&nbsp;print("Child")<br>elif age < 20:<br>&nbsp;&nbsp;print("Teenager")<br>else:<br>&nbsp;&nbsp;print("Adult")</code>
-    </div>
-    <img src="python5.jpg" alt="Python conditions">
-  </section>
+        <div class="code-example">
+          <h4>Basic Python Syntax</h4>
+          <pre><span class="py-comment"># This is a single-line comment</span>
+<span class="py-comment">"""
+This is a multi-line
+comment (docstring)
+"""</span>
 
-  <!-- SECTION 6 -->
-  <section id="section6">
-    <img src="python6.jpg" alt="Python loops">
-    <div class="text">
-      <h2>6. Loops</h2>
-      <p>Loops allow you to execute a block of code repeatedly.</p>
-      <code>for i in range(1,6):<br>&nbsp;&nbsp;print(i)</code>
-      <p>This will print numbers from 1 to 5. Python also supports while loops:</p>
-      <code>i = 1<br>while i <= 5:<br>&nbsp;&nbsp;print(i)<br>&nbsp;&nbsp;i += 1</code>
-    </div>
-  </section>
+<span class="py-function">print</span>(<span class="py-string">"Hello, World!"</span>)  <span class="py-comment"># Output: Hello, World!</span>
 
-  <!-- SECTION 7 -->
-  <section id="section7">
-    <div class="text">
-      <h2>7. Functions</h2>
-      <p>Functions are reusable blocks of code that perform a specific task.</p>
-      <code>def greet(name):<br>&nbsp;&nbsp;return "Hello " + name<br><br>print(greet("Bilal"))  # Output: Hello Bilal</code>
-      <p>Functions can take parameters and return values, making your code modular and reusable.</p>
-    </div>
-    <img src="python7.jpg" alt="Python functions">
-  </section>
+<span class="py-comment"># Python uses indentation for code blocks</span>
+<span class="py-keyword">if</span> <span class="py-keyword">True</span>:
+    <span class="py-function">print</span>(<span class="py-string">"This is indented"</span>)</pre>
+        </div>
 
-  <!-- SECTION 8 -->
-  <section id="section8">
-    <img src="python8.jpg" alt="Python lists and loops">
-    <div class="text">
-      <h2>8. Lists & Loops</h2>
-      <p>Lists are ordered collections that can hold items of different data types.</p>
-      <code>fruits = ["Apple", "Banana", "Orange"]<br>for f in fruits:<br>&nbsp;&nbsp;print(f)</code>
-      <p>This will print each fruit on a separate line. Lists are mutable, meaning you can change their content.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Installation</span>
+          <span class="tag">Syntax</span>
+          <span class="tag">Comments</span>
+          <span class="tag">Print</span>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- SECTION 9 -->
-  <section id="section9">
-    <div class="text">
-      <h2>9. Dictionaries</h2>
-      <p>Dictionaries store data as key-value pairs, making it easy to retrieve values by their keys.</p>
-      <code>person = {"name": "Bilal", "age": 18, "city": "Rabat"}<br>print(person["name"])  # Output: Bilal</code>
-      <p>You can add, modify, or delete dictionary items:</p>
-      <code>person["country"] = "Morocco"  # Add new key-value pair<br>person["age"] = 19  # Modify existing value<br>del person["city"]  # Delete a key-value pair</code>
-    </div>
-    <img src="python9.jpg" alt="Python dictionaries">
-  </section>
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <h2><i class="fas fa-code"></i> Chapter 2: Variables and Data Types</h2>
+      <div class="article-content">
+        <h3>Variables in Python</h3>
+        <p>Python variables are dynamically typed - no need to declare type:</p>
+        
+        <div class="code-example">
+          <h4>Variable Declaration</h4>
+          <pre><span class="py-comment"># Variable assignment</span>
+<span class="py-variable">name</span> = <span class="py-string">"John Doe"</span>
+<span class="py-variable">age</span> = <span class="py-number">25</span>
+<span class="py-variable">height</span> = <span class="py-number">5.9</span>
+<span class="py-variable">is_student</span> = <span class="py-keyword">True</span>
 
-  <!-- SECTION 10 -->
-  <section id="section10">
-    <img src="python10.jpg" alt="Python modules">
-    <div class="text">
-      <h2>10. Modules & Libraries</h2>
-      <p>Python has a rich standard library and supports many third-party libraries for various tasks.</p>
-      <code>import math<br>print(math.sqrt(16))  # Output: 4.0</code>
-      <p>Popular Python libraries include:</p>
-      <ul>
-        <li><strong>NumPy:</strong> For numerical computations</li>
-        <li><strong>Pandas:</strong> For data analysis</li>
-        <li><strong>Django/Flask:</strong> For web development</li>
-        <li><strong>Matplotlib:</strong> For data visualization</li>
-      </ul>
+<span class="py-comment"># Output variables</span>
+<span class="py-function">print</span>(<span class="py-string">"Name:"</span>, <span class="py-variable">name</span>)
+<span class="py-function">print</span>(<span class="py-string">"Age:"</span>, <span class="py-variable">age</span>)
+<span class="py-function">print</span>(<span class="py-string">f"My name is <span class="py-variable">{name}</span> and I am <span class="py-variable">{age}</span> years old"</span>)</pre>
+        </div>
+
+        <h3>Data Types</h3>
+        <p>Python has several built-in data types:</p>
+        
+        <div class="code-example">
+          <h4>Python Data Types</h4>
+          <pre><span class="py-comment"># String</span>
+<span class="py-variable">text</span> = <span class="py-string">"Hello Python"</span>
+
+<span class="py-comment"># Integer</span>
+<span class="py-variable">number</span> = <span class="py-number">42</span>
+
+<span class="py-comment"># Float</span>
+<span class="py-variable">pi</span> = <span class="py-number">3.14159</span>
+
+<span class="py-comment"># Boolean</span>
+<span class="py-variable">is_valid</span> = <span class="py-keyword">True</span>
+
+<span class="py-comment"># List</span>
+<span class="py-variable">fruits</span> = [<span class="py-string">"apple"</span>, <span class="py-string">"banana"</span>, <span class="py-string">"orange"</span>]
+
+<span class="py-comment"># Tuple (immutable)</span>
+<span class="py-variable">coordinates</span> = (<span class="py-number">10.5</span>, <span class="py-number">20.3</span>)
+
+<span class="py-comment"># Dictionary</span>
+<span class="py-variable">person</span> = {<span class="py-string">"name"</span>: <span class="py-string">"Alice"</span>, <span class="py-string">"age"</span>: <span class="py-number">30</span>}
+
+<span class="py-comment"># Check data type</span>
+<span class="py-function">print</span>(<span class="py-function">type</span>(<span class="py-variable">text</span>))      <span class="py-comment"># &lt;class 'str'&gt;</span>
+<span class="py-function">print</span>(<span class="py-function">type</span>(<span class="py-variable">number</span>))    <span class="py-comment"># &lt;class 'int'&gt;</span></pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Variables Demo</h4>
+          <button class="demo-button" onclick="showVariables()">Show Python Variables</button>
+          <div id="variablesOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">variables</span>
+          <span class="tag">data types</span>
+          <span class="tag">string</span>
+          <span class="tag">list</span>
+          <span class="tag">dictionary</span>
+        </div>
+      </div>
     </div>
-  </section>
-</main>
+
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <h2><i class="fas fa-sync-alt"></i> Chapter 3: Control Structures</h2>
+      <div class="article-content">
+        <h3>Conditional Statements</h3>
+        <p>Control program flow with if-elif-else statements:</p>
+        
+        <div class="code-example">
+          <h4>If-Elif-Else</h4>
+          <pre><span class="py-variable">age</span> = <span class="py-number">20</span>
+
+<span class="py-keyword">if</span> <span class="py-variable">age</span> >= <span class="py-number">18</span>:
+    <span class="py-function">print</span>(<span class="py-string">"You are an adult"</span>)
+<span class="py-keyword">elif</span> <span class="py-variable">age</span> >= <span class="py-number">13</span>:
+    <span class="py-function">print</span>(<span class="py-string">"You are a teenager"</span>)
+<span class="py-keyword">else</span>:
+    <span class="py-function">print</span>(<span class="py-string">"You are a child"</span>)
+
+<span class="py-comment"># Multiple conditions</span>
+<span class="py-variable">score</span> = <span class="py-number">85</span>
+<span class="py-keyword">if</span> <span class="py-variable">score</span> >= <span class="py-number">90</span>:
+    <span class="py-variable">grade</span> = <span class="py-string">"A"</span>
+<span class="py-keyword">elif</span> <span class="py-variable">score</span> >= <span class="py-number">80</span>:
+    <span class="py-variable">grade</span> = <span class="py-string">"B"</span>
+<span class="py-keyword">elif</span> <span class="py-variable">score</span> >= <span class="py-number">70</span>:
+    <span class="py-variable">grade</span> = <span class="py-string">"C"</span>
+<span class="py-keyword">else</span>:
+    <span class="py-variable">grade</span> = <span class="py-string">"F"</span>
+
+<span class="py-function">print</span>(<span class="py-string">f"Grade: <span class="py-variable">{grade}</span>"</span>)</pre>
+        </div>
+
+        <h3>Loops</h3>
+        <p>Repeat actions with for and while loops:</p>
+        
+        <div class="code-example">
+          <h4>Loop Examples</h4>
+          <pre><span class="py-comment"># For loop with range</span>
+<span class="py-keyword">for</span> <span class="py-variable">i</span> <span class="py-keyword">in</span> <span class="py-function">range</span>(<span class="py-number">5</span>):
+    <span class="py-function">print</span>(<span class="py-string">f"Number: <span class="py-variable">{i}</span>"</span>)
+
+<span class="py-comment"># For loop with list</span>
+<span class="py-variable">fruits</span> = [<span class="py-string">"apple"</span>, <span class="py-string">"banana"</span>, <span class="py-string">"orange"</span>]
+<span class="py-keyword">for</span> <span class="py-variable">fruit</span> <span class="py-keyword">in</span> <span class="py-variable">fruits</span>:
+    <span class="py-function">print</span>(<span class="py-variable">fruit</span>)
+
+<span class="py-comment"># While loop</span>
+<span class="py-variable">count</span> = <span class="py-number">0</span>
+<span class="py-keyword">while</span> <span class="py-variable">count</span> &lt; <span class="py-number">3</span>:
+    <span class="py-function">print</span>(<span class="py-string">f"Count: <span class="py-variable">{count}</span>"</span>)
+    <span class="py-variable">count</span> += <span class="py-number">1</span>
+
+<span class="py-comment"># Loop control statements</span>
+<span class="py-keyword">for</span> <span class="py-variable">i</span> <span class="py-keyword">in</span> <span class="py-function">range</span>(<span class="py-number">10</span>):
+    <span class="py-keyword">if</span> <span class="py-variable">i</span> == <span class="py-number">5</span>:
+        <span class="py-keyword">break</span>      <span class="py-comment"># Exit loop</span>
+    <span class="py-keyword">if</span> <span class="py-variable">i</span> % <span class="py-number">2</span> == <span class="py-number">0</span>:
+        <span class="py-keyword">continue</span>   <span class="py-comment"># Skip iteration</span>
+    <span class="py-function">print</span>(<span class="py-variable">i</span>)</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Control Structures Demo</h4>
+          <button class="demo-button" onclick="runLoop()">Run Loop Simulation</button>
+          <button class="demo-button" onclick="checkCondition()">Check Condition</button>
+          <div id="controlOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">if-elif-else</span>
+          <span class="tag">for loop</span>
+          <span class="tag">while loop</span>
+          <span class="tag">range</span>
+          <span class="tag">break</span>
+          <span class="tag">continue</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <h2><i class="fas fa-cogs"></i> Chapter 4: Functions and Data Structures</h2>
+      <div class="article-content">
+        <h3>Functions</h3>
+        <p>Reusable blocks of code with def keyword:</p>
+        
+        <div class="code-example">
+          <h4>Function Examples</h4>
+          <pre><span class="py-comment"># Simple function</span>
+<span class="py-keyword">def</span> <span class="py-function">greet</span>(<span class="py-variable">name</span>):
+    <span class="py-keyword">return</span> <span class="py-string">f"Hello, <span class="py-variable">{name}</span>!"</span>
+
+<span class="py-comment"># Function with default parameter</span>
+<span class="py-keyword">def</span> <span class="py-function">calculate_area</span>(<span class="py-variable">radius</span>, <span class="py-variable">pi</span>=<span class="py-number">3.14159</span>):
+    <span class="py-keyword">return</span> <span class="py-variable">pi</span> * <span class="py-variable">radius</span> ** <span class="py-number">2</span>
+
+<span class="py-comment"># Function with multiple return values</span>
+<span class="py-keyword">def</span> <span class="py-function">get_user_info</span>():
+    <span class="py-variable">name</span> = <span class="py-string">"John"</span>
+    <span class="py-variable">age</span> = <span class="py-number">25</span>
+    <span class="py-keyword">return</span> <span class="py-variable">name</span>, <span class="py-variable">age</span>
+
+<span class="py-comment"># Calling functions</span>
+<span class="py-function">print</span>(<span class="py-function">greet</span>(<span class="py-string">"Alice"</span>))              <span class="py-comment"># Hello, Alice!</span>
+<span class="py-function">print</span>(<span class="py-function">calculate_area</span>(<span class="py-number">5</span>))          <span class="py-comment"># 78.53975</span>
+<span class="py-variable">username</span>, <span class="py-variable">user_age</span> = <span class="py-function">get_user_info</span>()</pre>
+        </div>
+
+        <h3>Data Structures</h3>
+        <p>Advanced data structures in Python:</p>
+        
+        <div class="code-example">
+          <h4>Lists, Tuples, Dictionaries</h4>
+          <pre><span class="py-comment"># List (mutable)</span>
+<span class="py-variable">fruits</span> = [<span class="py-string">"apple"</span>, <span class="py-string">"banana"</span>, <span class="py-string">"orange"</span>]
+<span class="py-variable">fruits</span>.<span class="py-function">append</span>(<span class="py-string">"grape"</span>)        <span class="py-comment"># Add item</span>
+<span class="py-variable">fruits</span>.<span class="py-function">remove</span>(<span class="py-string">"banana"</span>)      <span class="py-comment"># Remove item</span>
+<span class="py-function">print</span>(<span class="py-variable">fruits</span>[<span class="py-number">0</span>])             <span class="py-comment"># Access first item</span>
+
+<span class="py-comment"># Tuple (immutable)</span>
+<span class="py-variable">colors</span> = (<span class="py-string">"red"</span>, <span class="py-string">"green"</span>, <span class="py-string">"blue"</span>)
+<span class="py-function">print</span>(<span class="py-variable">colors</span>[<span class="py-number">1</span>])             <span class="py-comment"># Access second item</span>
+
+<span class="py-comment"># Dictionary (key-value pairs)</span>
+<span class="py-variable">person</span> = {
+    <span class="py-string">"name"</span>: <span class="py-string">"Alice"</span>,
+    <span class="py-string">"age"</span>: <span class="py-number">30</span>,
+    <span class="py-string">"city"</span>: <span class="py-string">"New York"</span>
+}
+<span class="py-function">print</span>(<span class="py-variable">person</span>[<span class="py-string">"name"</span>])         <span class="py-comment"># Access value by key</span>
+<span class="py-variable">person</span>[<span class="py-string">"job"</span>] = <span class="py-string">"Engineer"</span>   <span class="py-comment"># Add new key-value</span>
+
+<span class="py-comment"># Set (unique elements)</span>
+<span class="py-variable">unique_numbers</span> = {<span class="py-number">1</span>, <span class="py-number">2</span>, <span class="py-number">3</span>, <span class="py-number">3</span>, <span class="py-number">4</span>}  <span class="py-comment"># {1, 2, 3, 4}</span></pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Functions & Data Structures Demo</h4>
+          <button class="demo-button" onclick="showDataStructures()">Show Data Structures</button>
+          <button class="demo-button" onclick="runFunction()">Run Function</button>
+          <div id="dataOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">functions</span>
+          <span class="tag">def</span>
+          <span class="tag">parameters</span>
+          <span class="tag">lists</span>
+          <span class="tag">dictionaries</span>
+          <span class="tag">tuples</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <h2><i class="fas fa-file-code"></i> Chapter 5: File Handling and Modules</h2>
+      <div class="article-content">
+        <h3>File Operations</h3>
+        <p>Reading and writing files in Python:</p>
+        
+        <div class="code-example">
+          <h4>File Handling</h4>
+          <pre><span class="py-comment"># Writing to a file</span>
+<span class="py-keyword">with</span> <span class="py-function">open</span>(<span class="py-string">"example.txt"</span>, <span class="py-string">"w"</span>) <span class="py-keyword">as</span> <span class="py-variable">file</span>:
+    <span class="py-variable">file</span>.<span class="py-function">write</span>(<span class="py-string">"Hello, Python!\n"</span>)
+    <span class="py-variable">file</span>.<span class="py-function">write</span>(<span class="py-string">"This is a text file."</span>)
+
+<span class="py-comment"># Reading from a file</span>
+<span class="py-keyword">with</span> <span class="py-function">open</span>(<span class="py-string">"example.txt"</span>, <span class="py-string">"r"</span>) <span class="py-keyword">as</span> <span class="py-variable">file</span>:
+    <span class="py-variable">content</span> = <span class="py-variable">file</span>.<span class="py-function">read</span>()
+    <span class="py-function">print</span>(<span class="py-variable">content</span>)
+
+<span class="py-comment"># Reading line by line</span>
+<span class="py-keyword">with</span> <span class="py-function">open</span>(<span class="py-string">"example.txt"</span>, <span class="py-string">"r"</span>) <span class="py-keyword">as</span> <span class="py-variable">file</span>:
+    <span class="py-keyword">for</span> <span class="py-variable">line</span> <span class="py-keyword">in</span> <span class="py-variable">file</span>:
+        <span class="py-function">print</span>(<span class="py-variable">line</span>.<span class="py-function">strip</span>())  <span class="py-comment"># strip() removes newline characters</span>
+
+<span class="py-comment"># Appending to a file</span>
+<span class="py-keyword">with</span> <span class="py-function">open</span>(<span class="py-string">"example.txt"</span>, <span class="py-string">"a"</span>) <span class="py-keyword">as</span> <span class="py-variable">file</span>:
+    <span class="py-variable">file</span>.<span class="py-function">write</span>(<span class="py-string">"\nAppended text!"</span>)</pre>
+        </div>
+
+        <h3>Modules and Packages</h3>
+        <p>Using built-in and external modules:</p>
+        
+        <div class="code-example">
+          <h4>Importing Modules</h4>
+          <pre><span class="py-comment"># Import entire module</span>
+<span class="py-keyword">import</span> math
+<span class="py-function">print</span>(math.<span class="py-function">sqrt</span>(<span class="py-number">16</span>))      <span class="py-comment"># 4.0</span>
+
+<span class="py-comment"># Import specific functions</span>
+<span class="py-keyword">from</span> datetime <span class="py-keyword">import</span> datetime
+<span class="py-function">print</span>(<span class="py-function">datetime</span>.<span class="py-function">now</span>())     <span class="py-comment"># Current date and time</span>
+
+<span class="py-comment"># Import with alias</span>
+<span class="py-keyword">import</span> numpy <span class="py-keyword">as</span> np
+<span class="py-keyword">import</span> pandas <span class="py-keyword">as</span> pd
+
+<span class="py-comment"># Creating your own module</span>
+<span class="py-comment"># Save as mymodule.py</span>
+<span class="py-string">"""
+# mymodule.py
+def greet(name):
+    return f"Hello, {name}!"
+
+PI = 3.14159
+"""</span>
+
+<span class="py-comment"># Using your module</span>
+<span class="py-keyword">import</span> mymodule
+<span class="py-function">print</span>(mymodule.<span class="py-function">greet</span>(<span class="py-string">"Bob"</span>))
+<span class="py-function">print</span>(mymodule.<span class="py-variable">PI</span>)</pre>
+        </div>
+
+        <div class="exercise">
+          <h3><i class="fas fa-pencil-alt"></i> Practice Exercise</h3>
+          <p><strong>Build a To-Do List Application:</strong></p>
+          <ul>
+            <li>Create functions to add, remove, and view tasks</li>
+            <li>Store tasks in a list data structure</li>
+            <li>Save tasks to a file when program exits</li>
+            <li>Load tasks from file when program starts</li>
+            <li>Add functionality to mark tasks as completed</li>
+            <li>Implement a simple command-line interface</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">file handling</span>
+          <span class="tag">modules</span>
+          <span class="tag">import</span>
+          <span class="tag">packages</span>
+          <span class="tag">with statement</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <footer>
   <div class="social" style="margin-bottom:20px;">
@@ -322,10 +754,84 @@
     <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
     <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
     <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
-    <a class="wa" href="https://wa.me/212693885599?text=Hello"><i class="fab fa-whatsapp"></i></a>
+    <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
   </div>
   <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
+
+<script>
+  // Variables demo
+  function showVariables() {
+    const output = `
+      <strong>Python Variables Simulation:</strong><br>
+      name = "John Doe"<br>
+      age = 25<br>
+      height = 5.9<br>
+      is_student = True<br><br>
+      <strong>Output:</strong><br>
+      Name: John Doe<br>
+      Age: 25<br>
+      Type: str, int, float, bool
+    `;
+    document.getElementById('variablesOutput').innerHTML = output;
+  }
+
+  // Control structures demo
+  function runLoop() {
+    let output = '<strong>For Loop Output:</strong><br>';
+    for (let i = 0; i < 5; i++) {
+      output += `Number: ${i}<br>`;
+    }
+    document.getElementById('controlOutput').innerHTML = output;
+  }
+
+  function checkCondition() {
+    const age = 20;
+    let message = '<strong>Condition Check:</strong><br>';
+    
+    if (age >= 18) {
+      message += 'You are an adult';
+    } else if (age >= 13) {
+      message += 'You are a teenager';
+    } else {
+      message += 'You are a child';
+    }
+    
+    document.getElementById('controlOutput').innerHTML = message;
+  }
+
+  // Data structures demo
+  function showDataStructures() {
+    const fruits = ["apple", "banana", "orange", "grape"];
+    const person = {name: "Alice", age: 30, city: "New York"};
+    
+    let output = '<strong>Data Structures:</strong><br>';
+    output += `Fruits list: [${fruits.join(', ')}]<br>`;
+    output += `First fruit: ${fruits[0]}<br>`;
+    output += `Person dictionary: ${JSON.stringify(person)}<br>`;
+    output += `Person name: ${person.name}`;
+    
+    document.getElementById('dataOutput').innerHTML = output;
+  }
+
+  function runFunction() {
+    function calculateArea(radius, pi = 3.14159) {
+      return pi * radius * radius;
+    }
+    
+    const area = calculateArea(5);
+    document.getElementById('dataOutput').innerHTML = 
+      `<strong>Function Output:</strong><br>Area of circle with radius 5: ${area.toFixed(2)}`;
+  }
+
+  // File handling simulation
+  function simulateFileOperation() {
+    document.getElementById('fileOutput').innerHTML = 
+      '✅ File written successfully: example.txt<br>' +
+      '📝 Content: "Hello, Python!"<br>' +
+      '💾 Operation completed with "with" statement';
+  }
+</script>
 
 </body>
 </html>

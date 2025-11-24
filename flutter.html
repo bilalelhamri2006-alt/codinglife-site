@@ -1,60 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="Learn Flutter - Programmer's Life">
-  <meta name="keywords" content="Flutter, learn Flutter, mobile development, Dart">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn FLUTTER — coding life</title>
+  <title>Flutter Course — coding life</title>
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
-
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TJ6Z2QKGHJ');
-  </script>
-
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
+    
     body {
-      padding-top:70px;
+      padding-top: 70px;
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
-      font-family:'Cairo',sans-serif;
+      font-family: 'Cairo', sans-serif;
     }
+
     a {text-decoration:none; color:inherit;}
 
     /* HEADER */
     header {
       background:white;
-      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      z-index:9999;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
       height:70px;
       display:flex;
       align-items:center;
       justify-content:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      z-index:9999;
     }
 
     nav {
       display:flex;
-      justify-content:center;
-      align-items:center;
       gap:25px;
+      align-items:center;
     }
 
     nav a {
-      color:#000;
       padding:10px 18px;
       border-radius:8px;
       font-weight:bold;
@@ -62,7 +49,6 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
     }
 
     nav a:hover {
@@ -70,23 +56,35 @@
       color:white;
     }
 
-    /* MOBILE ICON NAV */
+    /* SMALL SCREEN ICON BAR */
     .left-buttons {
       display:none;
       position:absolute;
-      top:12px;
+      top:50%;
       left:50%;
-      transform:translateX(-50%);
-      gap:10px;
+      transform:translate(-50%, -50%);
+      gap:8px;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:0 10px;
     }
 
     .left-buttons a {
-      font-size:1.4rem;
-      color:#0f172a;
       background:white;
-      padding:6px 10px;
+      padding:6px 9px;
       border-radius:8px;
-      transition:0.3s;
+      color:#0f172a;
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-size:1.2rem;
+    }
+
+    .left-buttons a span {
+      font-size:0.7rem;
+      margin-top:2px;
     }
 
     .left-buttons a:hover {
@@ -94,38 +92,245 @@
       color:white;
     }
 
-    /* CONTENT */
-    main {
-      max-width:1000px;
-      margin:50px auto;
-      padding:0 20px;
+    /* COURSE CONTENT */
+    .course-container {
+      max-width:1200px;
+      margin:0 auto;
+      padding:30px 20px;
     }
 
-    section {
+    .course-header {
+      text-align:center;
+      margin-bottom:40px;
+      background:white;
+      padding:40px 30px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .course-header h1 {
+      font-size:2.5rem;
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    .course-header p {
+      font-size:1.2rem;
+      color:#64748b;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    /* CHAPTERS */
+    .chapters {
+      display:grid;
+      gap:30px;
+      margin-bottom:50px;
+    }
+
+    .chapter {
+      background:white;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      border-left:4px solid #0f172a;
+    }
+
+    .chapter h2 {
+      color:#0f172a;
+      margin-bottom:25px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      margin-bottom:60px;
-      flex-wrap:wrap;
-      gap:30px;
+      gap:10px;
+      font-size:1.8rem;
     }
 
-    .text { flex:1; min-width:300px; }
+    .chapter h2 i {
+      color:#0f172a;
+    }
 
-    section img {
-      width:45%;
+    .article-content {
+      line-height:1.8;
+    }
+
+    .article-content h3 {
+      color:#0f172a;
+      margin:25px 0 15px 0;
+      font-size:1.4rem;
+    }
+
+    .article-content p {
+      margin-bottom:15px;
+      color:#374151;
+    }
+
+    .article-content ul, .article-content ol {
+      margin:15px 0 15px 25px;
+    }
+
+    .article-content li {
+      margin-bottom:8px;
+    }
+
+    /* CODE EXAMPLES */
+    .code-example {
+      background:#1e293b;
+      color:#e2e8f0;
+      padding:25px;
+      border-radius:8px;
+      margin:20px 0;
+      overflow-x:auto;
+      font-family:'Courier New', monospace;
+      line-height:1.5;
+    }
+
+    .code-example h4 {
+      color:#f1f5f9;
+      margin-bottom:15px;
+      font-family: 'Cairo', sans-serif;
+      font-size:1.1rem;
+    }
+
+    .dart-keyword {
+      color:#f0abfc;
+    }
+    .dart-class {
+      color:#7dd3fc;
+    }
+    .dart-string {
+      color:#86efac;
+    }
+    .dart-variable {
+      color:#fde047;
+    }
+    .dart-comment {
+      color:#94a3b8;
+    }
+    .dart-method {
+      color:#fdba74;
+    }
+    .dart-widget {
+      color:#c084fc;
+    }
+
+    /* LIVE EXAMPLES */
+    .live-example {
+      background:#f1f5f9;
+      border:2px dashed #cbd5e1;
+      border-radius:8px;
+      padding:25px;
+      margin:20px 0;
+    }
+
+    .live-example h4 {
+      color:#0f172a;
+      margin-bottom:15px;
+    }
+
+    /* FLUTTER DEMO STYLES */
+    .flutter-demo {
+      border:2px solid #02569B;
+      border-radius:8px;
+      padding:20px;
+      margin:15px 0;
+      background:#2d3240;
+      color:white;
+    }
+
+    .terminal {
+      background:#1a1a1a;
+      color:#00ff00;
+      padding:15px;
+      border-radius:6px;
+      font-family:'Courier New', monospace;
+      margin:10px 0;
+    }
+
+    .mobile-preview {
+      width:300px;
+      height:500px;
+      border:2px solid #02569B;
+      border-radius:20px;
+      margin:20px auto;
+      background:white;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .mobile-preview::before {
+      content:'';
+      position:absolute;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%);
+      width:100px;
+      height:20px;
+      background:#1a1a1a;
       border-radius:10px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
 
-    h2 { margin-bottom:15px; color:#0f172a; }
-    p, li { color:#334155; font-size:1rem; margin-bottom:10px; }
-    ul { padding-left:20px; }
-    code {
+    .mobile-screen {
+      position:absolute;
+      top:40px;
+      left:10px;
+      right:10px;
+      bottom:10px;
+      background:#f8fafc;
+      border-radius:10px;
+      padding:20px;
+    }
+
+    /* BUTTONS */
+    .demo-button {
+      background:#02569B;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:6px;
+      cursor:pointer;
+      font-family: 'Cairo', sans-serif;
+      font-size:1rem;
+      font-weight:bold;
+      transition:.3s;
+      margin:5px;
+    }
+
+    .demo-button:hover {
+      background:#01457a;
+      transform:translateY(-2px);
+    }
+
+    /* EXERCISE SECTION */
+    .exercise {
+      background:#fff7ed;
+      border:1px solid #fdba74;
+      border-radius:8px;
+      padding:25px;
+      margin:25px 0;
+    }
+
+    .exercise h3 {
+      color:#ea580c;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    /* TAGS */
+    .tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:20px 0;
+    }
+
+    .tag {
       background:#e2e8f0;
-      padding:3px 6px;
-      border-radius:4px;
-      font-family:monospace;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      color:#475569;
     }
 
     /* FOOTER */
@@ -138,254 +343,825 @@
       margin-top:30px;
     }
 
-    .social a {margin:0 8px; font-size:1.1rem;}
+    .social a {margin:0 8px; font-size:1.1rem; transition:.3s;}
     .social a:hover {transform:translateY(-3px);}
-
     .social a.fb:hover {color:#1877f2;}
     .social a.yt:hover {color:#ff0000;}
     .social a.ig:hover {color:#e4405f;}
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
-      section {flex-direction:column;}
-      section img {width:80%;}
+      
+      .course-header h1 {
+        font-size:2rem;
+      }
+      
+      .chapter {
+        padding:20px;
+      }
+      
+      .article-content h3 {
+        font-size:1.2rem;
+      }
+      
+      .mobile-preview {
+        width:250px;
+        height:450px;
+      }
     }
+
+    @media (max-width: 480px) {
+      .course-container {
+        padding:20px 15px;
+      }
+      
+      .course-header {
+        padding:30px 20px;
+      }
+      
+      .course-header h1 {
+        font-size:1.8rem;
+      }
+      
+      .mobile-preview {
+        width:200px;
+        height:400px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- Mobile Icons -->
   <div class="left-buttons">
-      <a href="index.html"><i class="fas fa-home"></i></a>
-      <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i></a>
-      <a href="blog.html"><i class="fas fa-book-open"></i></a>
-      <a href="contact.html"><i class="fas fa-envelope"></i></a>
-      <a href="about.html"><i class="fas fa-info-circle"></i></a>
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> <span>Courses</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i><span>Privacy</span></a>
   </div>
 
-  <!-- Desktop Menu -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
   </nav>
 </header>
 
-<main>
+<div class="course-container">
+  <div class="course-header">
+    <h1><i class="fas fa-mobile-alt"></i> Flutter Complete Guide</h1>
+    <p>Master cross-platform mobile development with Flutter and Dart</p>
+  </div>
 
-  <!-- SECTION 1 -->
-  <section>
-    <div class="text">
-      <h2>1. What is Flutter?</h2>
-      <p>Flutter is Google's UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.</p>
+  <div class="chapters">
+    
+    <!-- Chapter 1 -->
+    <div class="chapter">
+      <h2><i class="fas fa-play-circle"></i> Chapter 1: Flutter Basics</h2>
+      <div class="article-content">
+        <h3>What is Flutter?</h3>
+        <p>Flutter is Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. It uses the Dart programming language and provides a rich set of pre-designed widgets.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Cross-Platform:</strong> Single codebase for iOS, Android, Web, Desktop</li>
+          <li><strong>Fast Development:</strong> Hot reload for instant updates</li>
+          <li><strong>Expressive UI:</strong> Beautiful, customizable widgets</li>
+          <li><strong>Native Performance:</strong> Compiled to native ARM code</li>
+          <li><strong>Open Source:</strong> Free and backed by Google</li>
+        </ul>
+
+        <h3>Setting Up Flutter</h3>
+        <p>Install Flutter SDK and set up your development environment:</p>
+        
+        <div class="code-example">
+          <h4>Installation Commands</h4>
+          <pre><span class="dart-comment"># Download Flutter SDK from flutter.dev</span>
+<span class="dart-comment"># Extract and add to PATH</span>
+
+<span class="dart-comment"># Verify installation</span>
+flutter --version
+
+<span class="dart-comment"># Check for dependencies</span>
+flutter doctor
+
+<span class="dart-comment"># Install Android Studio or VS Code</span>
+<span class="dart-comment"># Install Flutter and Dart plugins</span></pre>
+        </div>
+
+        <div class="code-example">
+          <h4>First Flutter App</h4>
+          <pre><span class="dart-comment">// main.dart</span>
+<span class="dart-keyword">import</span> <span class="dart-string">'package:flutter/material.dart'</span>;
+
+<span class="dart-keyword">void</span> <span class="dart-method">main</span>() {
+  <span class="dart-method">runApp</span>(<span class="dart-class">MyApp</span>());
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">MyApp</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">MaterialApp</span>(
+      <span class="dart-variable">home</span>: <span class="dart-class">Scaffold</span>(
+        <span class="dart-variable">appBar</span>: <span class="dart-class">AppBar</span>(
+          <span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-string">'My First Flutter App'</span>),
+        ),
+        <span class="dart-variable">body</span>: <span class="dart-class">Center</span>(
+          <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Hello, Flutter!'</span>),
+        ),
+      ),
+    );
+  }
+}</pre>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Cross-Platform</span>
+          <span class="tag">Mobile Development</span>
+          <span class="tag">Widgets</span>
+        </div>
+      </div>
     </div>
-    <img src="flutter1.jpg" alt="Flutter basics">
-  </section>
 
-  <!-- SECTION 2 -->
-  <section>
-    <div class="text">
-      <h2>2. Dart Programming Language</h2>
-      <p>Flutter uses Dart, a modern programming language optimized for building UI efficiently.</p>
+    <!-- Chapter 2 -->
+    <div class="chapter">
+      <h2><i class="fas fa-code"></i> Chapter 2: Dart Language Basics</h2>
+      <div class="article-content">
+        <h3>Dart Programming Language</h3>
+        <p>Dart is a client-optimized language for fast apps on any platform. It's the programming language used by Flutter.</p>
+        
+        <div class="code-example">
+          <h4>Dart Basics</h4>
+          <pre><span class="dart-comment">// Variables and Data Types</span>
+<span class="dart-keyword">void</span> <span class="dart-method">main</span>() {
+  <span class="dart-comment">// Variable declaration</span>
+  <span class="dart-keyword">var</span> <span class="dart-variable">name</span> = <span class="dart-string">'John Doe'</span>;  <span class="dart-comment">// Type inference</span>
+  <span class="dart-keyword">String</span> <span class="dart-variable">email</span> = <span class="dart-string">'john@example.com'</span>;
+  <span class="dart-keyword">int</span> <span class="dart-variable">age</span> = <span class="dart-number">25</span>;
+  <span class="dart-keyword">double</span> <span class="dart-variable">height</span> = <span class="dart-number">5.9</span>;
+  <span class="dart-keyword">bool</span> <span class="dart-variable">isStudent</span> = <span class="dart-keyword">true</span>;
+  
+  <span class="dart-comment">// Constants</span>
+  <span class="dart-keyword">final</span> <span class="dart-variable">firstName</span> = <span class="dart-string">'John'</span>;  <span class="dart-comment">// Runtime constant</span>
+  <span class="dart-keyword">const</span> <span class="dart-variable">pi</span> = <span class="dart-number">3.14159</span>;        <span class="dart-comment">// Compile-time constant</span>
+  
+  <span class="dart-comment">// Output</span>
+  <span class="dart-method">print</span>(<span class="dart-string">'Name: <span class="dart-variable">$name</span>'</span>);
+  <span class="dart-method">print</span>(<span class="dart-string">'Age: <span class="dart-variable">$age</span>'</span>);
+  <span class="dart-method">print</span>(<span class="dart-string">'Next year: <span class="dart-variable">${age + 1}</span>'</span>);
+}</pre>
+        </div>
+
+        <h3>Functions and Control Flow</h3>
+        <p>Dart functions and control structures:</p>
+        
+        <div class="code-example">
+          <h4>Functions and Control Flow</h4>
+          <pre><span class="dart-comment">// Functions</span>
+<span class="dart-keyword">void</span> <span class="dart-method">main</span>() {
+  <span class="dart-comment">// Calling functions</span>
+  <span class="dart-method">greet</span>(<span class="dart-string">'Alice'</span>);
+  <span class="dart-keyword">int</span> <span class="dart-variable">result</span> = <span class="dart-method">add</span>(<span class="dart-number">5</span>, <span class="dart-number">3</span>);
+  <span class="dart-method">print</span>(<span class="dart-string">'Result: <span class="dart-variable">$result</span>'</span>);
+  
+  <span class="dart-comment">// Control flow</span>
+  <span class="dart-keyword">int</span> <span class="dart-variable">score</span> = <span class="dart-number">85</span>;
+  <span class="dart-keyword">if</span> (<span class="dart-variable">score</span> >= <span class="dart-number">90</span>) {
+    <span class="dart-method">print</span>(<span class="dart-string">'Grade: A'</span>);
+  } <span class="dart-keyword">else if</span> (<span class="dart-variable">score</span> >= <span class="dart-number">80</span>) {
+    <span class="dart-method">print</span>(<span class="dart-string">'Grade: B'</span>);
+  } <span class="dart-keyword">else</span> {
+    <span class="dart-method">print</span>(<span class="dart-string">'Grade: C'</span>);
+  }
+  
+  <span class="dart-comment">// Loops</span>
+  <span class="dart-keyword">for</span> (<span class="dart-keyword">int</span> <span class="dart-variable">i</span> = <span class="dart-number">0</span>; <span class="dart-variable">i</span> &lt; <span class="dart-number">5</span>; <span class="dart-variable">i</span>++) {
+    <span class="dart-method">print</span>(<span class="dart-string">'Number: <span class="dart-variable">$i</span>'</span>);
+  }
+}
+
+<span class="dart-comment">// Function definitions</span>
+<span class="dart-keyword">void</span> <span class="dart-method">greet</span>(<span class="dart-keyword">String</span> <span class="dart-variable">name</span>) {
+  <span class="dart-method">print</span>(<span class="dart-string">'Hello, <span class="dart-variable">$name</span>!'</span>);
+}
+
+<span class="dart-keyword">int</span> <span class="dart-method">add</span>(<span class="dart-keyword">int</span> <span class="dart-variable">a</span>, <span class="dart-keyword">int</span> <span class="dart-variable">b</span>) {
+  <span class="dart-keyword">return</span> <span class="dart-variable">a</span> + <span class="dart-variable">b</span>;
+}
+
+<span class="dart-comment">// Arrow function (short syntax)</span>
+<span class="dart-keyword">int</span> <span class="dart-method">multiply</span>(<span class="dart-keyword">int</span> <span class="dart-variable">a</span>, <span class="dart-keyword">int</span> <span class="dart-variable">b</span>) => <span class="dart-variable">a</span> * <span class="dart-variable">b</span>;</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Dart Code Demo</h4>
+          <button class="demo-button" onclick="showDartDemo()">Run Dart Code</button>
+          <div id="dartOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Dart</span>
+          <span class="tag">Variables</span>
+          <span class="tag">Functions</span>
+          <span class="tag">Control Flow</span>
+          <span class="tag">Type Inference</span>
+        </div>
+      </div>
     </div>
-    <img src="flutter2.jpg" alt="Dart basics">
-  </section>
 
-  <!-- SECTION 3 -->
-  <section>
-    <div class="text">
-      <h2>3. Setting up Flutter</h2>
-      <ul>
-        <li>Install Flutter SDK</li>
-        <li>Install Visual Studio Code / Android Studio</li>
-        <li>Configure emulator or physical device</li>
-      </ul>
+    <!-- Chapter 3 -->
+    <div class="chapter">
+      <h2><i class="fas fa-puzzle-piece"></i> Chapter 3: Flutter Widgets</h2>
+      <div class="article-content">
+        <h3>Basic Widgets</h3>
+        <p>Flutter apps are built using widgets. Everything is a widget!</p>
+        
+        <div class="code-example">
+          <h4>Basic Widgets Example</h4>
+          <pre><span class="dart-keyword">import</span> <span class="dart-string">'package:flutter/material.dart'</span>;
+
+<span class="dart-keyword">class</span> <span class="dart-class">BasicWidgetsScreen</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">Scaffold</span>(
+      <span class="dart-variable">appBar</span>: <span class="dart-class">AppBar</span>(
+        <span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Basic Widgets'</span>),
+        <span class="dart-variable">backgroundColor</span>: <span class="dart-class">Colors</span>.<span class="dart-variable">blue</span>,
+      ),
+      <span class="dart-variable">body</span>: <span class="dart-class">Padding</span>(
+        <span class="dart-variable">padding</span>: <span class="dart-class">EdgeInsets</span>.<span class="dart-method">all</span>(<span class="dart-number">16.0</span>),
+        <span class="dart-variable">child</span>: <span class="dart-class">Column</span>(
+          <span class="dart-variable">children</span>: [
+            <span class="dart-class">Text</span>(
+              <span class="dart-string">'Welcome to Flutter!'</span>,
+              <span class="dart-variable">style</span>: <span class="dart-class">TextStyle</span>(
+                <span class="dart-variable">fontSize</span>: <span class="dart-number">24</span>,
+                <span class="dart-variable">fontWeight</span>: <span class="dart-class">FontWeight</span>.<span class="dart-variable">bold</span>,
+              ),
+            ),
+            <span class="dart-class">SizedBox</span>(<span class="dart-variable">height</span>: <span class="dart-number">20</span>),
+            <span class="dart-class">Text</span>(<span class="dart-string">'This is a sample app demonstrating basic Flutter widgets.'</span>),
+            <span class="dart-class">SizedBox</span>(<span class="dart-variable">height</span>: <span class="dart-number">20</span>),
+            <span class="dart-class">ElevatedButton</span>(
+              <span class="dart-variable">onPressed</span>: () {
+                <span class="dart-comment">// Button action</span>
+                <span class="dart-method">print</span>(<span class="dart-string">'Button pressed!'</span>);
+              },
+              <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Click Me'</span>),
+            ),
+            <span class="dart-class">SizedBox</span>(<span class="dart-variable">height</span>: <span class="dart-number">20</span>),
+            <span class="dart-class">Image</span>.<span class="dart-method">asset</span>(<span class="dart-string">'assets/flutter_logo.png'</span>),
+          ],
+        ),
+      ),
+    );
+  }
+}</pre>
+        </div>
+
+        <h3>Layout Widgets</h3>
+        <p>Organize your UI with layout widgets:</p>
+        
+        <div class="code-example">
+          <h4>Layout Widgets</h4>
+          <pre><span class="dart-keyword">class</span> <span class="dart-class">LayoutExample</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">Scaffold</span>(
+      <span class="dart-variable">body</span>: <span class="dart-class">Column</span>(
+        <span class="dart-variable">children</span>: [
+          <span class="dart-class">Container</span>(
+            <span class="dart-variable">height</span>: <span class="dart-number">200</span>,
+            <span class="dart-variable">color</span>: <span class="dart-class">Colors</span>.<span class="dart-variable">blue</span>,
+            <span class="dart-variable">child</span>: <span class="dart-class">Center</span>(
+              <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(
+                <span class="dart-string">'Header'</span>,
+                <span class="dart-variable">style</span>: <span class="dart-class">TextStyle</span>(<span class="dart-variable">color</span>: <span class="dart-class">Colors</span>.<span class="dart-variable">white</span>, <span class="dart-variable">fontSize</span>: <span class="dart-number">24</span>),
+              ),
+            ),
+          ),
+          <span class="dart-class">Expanded</span>(
+            <span class="dart-variable">child</span>: <span class="dart-class">Row</span>(
+              <span class="dart-variable">children</span>: [
+                <span class="dart-class">Expanded</span>(
+                  <span class="dart-variable">child</span>: <span class="dart-class">Container</span>(
+                    <span class="dart-variable">color</span>: <span class="dart-class">Colors</span>.<span class="dart-variable">green</span>,
+                    <span class="dart-variable">child</span>: <span class="dart-class">Center</span>(<span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Left'</span>)),
+                  ),
+                ),
+                <span class="dart-class">Expanded</span>(
+                  <span class="dart-variable">child</span>: <span class="dart-class">Container</span>(
+                    <span class="dart-variable">color</span>: <span class="dart-class">Colors</span>.<span class="dart-variable">orange</span>,
+                    <span class="dart-variable">child</span>: <span class="dart-class">Center</span>(<span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Right'</span>)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          <span class="dart-class">Container</span>(
+            <span class="dart-variable">height</span>: <span class="dart-number">100</span>,
+            <span class="dart-variable">color</span>: <span class="dart-class">Colors</span>.<span class="dart-variable">red</span>,
+            <span class="dart-variable">child</span>: <span class="dart-class">Center</span>(
+              <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(
+                <span class="dart-string">'Footer'</span>,
+                <span class="dart-variable">style</span>: <span class="dart-class">TextStyle</span>(<span class="dart-variable">color</span>: <span class="dart-class">Colors</span>.<span class="dart-variable">white</span>),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>Widget Preview</h4>
+          <div class="mobile-preview">
+            <div class="mobile-screen">
+              <div style="background:#02569B; color:white; padding:20px; text-align:center; border-radius:10px; margin-bottom:20px;">
+                <strong>Basic Widgets</strong>
+              </div>
+              <div style="margin-bottom:15px;">Welcome to Flutter!</div>
+              <div style="margin-bottom:15px;">This is a sample app demonstrating basic Flutter widgets.</div>
+              <button style="background:#02569B; color:white; border:none; padding:10px 20px; border-radius:5px; width:100%; margin-bottom:15px;">
+                Click Me
+              </button>
+              <div style="text-align:center; color:#666;">[Flutter Logo]</div>
+            </div>
+          </div>
+          <button class="demo-button" onclick="showWidgetDemo()">Show Widget Code</button>
+          <div id="widgetOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Widgets</span>
+          <span class="tag">StatelessWidget</span>
+          <span class="tag">Scaffold</span>
+          <span class="tag">Column</span>
+          <span class="tag">Row</span>
+          <span class="tag">Container</span>
+        </div>
+      </div>
     </div>
-    <img src="flutter3.jpg" alt="Flutter setup">
-  </section>
 
-  <!-- SECTION 4 -->
-  <section>
-    <div class="text">
-      <h2>4. Flutter Project Structure</h2>
-      <p>Main folders: <code>lib, android, ios, assets</code>. The entry point is <code>main.dart</code>.</p>
+    <!-- Chapter 4 -->
+    <div class="chapter">
+      <h2><i class="fas fa-exchange-alt"></i> Chapter 4: State Management</h2>
+      <div class="article-content">
+        <h3>Stateful Widgets</h3>
+        <p>Managing state in Flutter applications:</p>
+        
+        <div class="code-example">
+          <h4>Stateful Widget Example</h4>
+          <pre><span class="dart-keyword">import</span> <span class="dart-string">'package:flutter/material.dart'</span>;
+
+<span class="dart-keyword">class</span> <span class="dart-class">CounterApp</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatefulWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">_CounterAppState</span> <span class="dart-method">createState</span>() => <span class="dart-class">_CounterAppState</span>();
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">_CounterAppState</span> <span class="dart-keyword">extends</span> <span class="dart-class">State</span>&lt;<span class="dart-class">CounterApp</span>&gt; {
+  <span class="dart-keyword">int</span> <span class="dart-variable">_counter</span> = <span class="dart-number">0</span>;
+
+  <span class="dart-keyword">void</span> <span class="dart-method">_incrementCounter</span>() {
+    <span class="dart-method">setState</span>(() {
+      <span class="dart-variable">_counter</span>++;
+    });
+  }
+
+  <span class="dart-keyword">void</span> <span class="dart-method">_decrementCounter</span>() {
+    <span class="dart-method">setState</span>(() {
+      <span class="dart-variable">_counter</span>--;
+    });
+  }
+
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">Scaffold</span>(
+      <span class="dart-variable">appBar</span>: <span class="dart-class">AppBar</span>(
+        <span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Counter App'</span>),
+      ),
+      <span class="dart-variable">body</span>: <span class="dart-class">Center</span>(
+        <span class="dart-variable">child</span>: <span class="dart-class">Column</span>(
+          <span class="dart-variable">mainAxisAlignment</span>: <span class="dart-class">MainAxisAlignment</span>.<span class="dart-variable">center</span>,
+          <span class="dart-variable">children</span>: [
+            <span class="dart-class">Text</span>(
+              <span class="dart-string">'You have pushed the button this many times:'</span>,
+            ),
+            <span class="dart-class">Text</span>(
+              <span class="dart-string">'<span class="dart-variable">$_counter</span>'</span>,
+              <span class="dart-variable">style</span>: <span class="dart-class">Theme</span>.<span class="dart-method">of</span>(<span class="dart-variable">context</span>).<span class="dart-variable">textTheme</span>.<span class="dart-variable">headline4</span>,
+            ),
+            <span class="dart-class">SizedBox</span>(<span class="dart-variable">height</span>: <span class="dart-number">20</span>),
+            <span class="dart-class">Row</span>(
+              <span class="dart-variable">mainAxisAlignment</span>: <span class="dart-class">MainAxisAlignment</span>.<span class="dart-variable">center</span>,
+              <span class="dart-variable">children</span>: [
+                <span class="dart-class">ElevatedButton</span>(
+                  <span class="dart-variable">onPressed</span>: <span class="dart-method">_decrementCounter</span>,
+                  <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'-'</span>),
+                ),
+                <span class="dart-class">SizedBox</span>(<span class="dart-variable">width</span>: <span class="dart-number">20</span>),
+                <span class="dart-class">ElevatedButton</span>(
+                  <span class="dart-variable">onPressed</span>: <span class="dart-method">_incrementCounter</span>,
+                  <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'+'</span>),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}</pre>
+        </div>
+
+        <h3>Advanced State Management</h3>
+        <p>Using Provider for state management:</p>
+        
+        <div class="code-example">
+          <h4>Provider State Management</h4>
+          <pre><span class="dart-comment">// Add to pubspec.yaml: provider: ^6.0.0</span>
+
+<span class="dart-keyword">import</span> <span class="dart-string">'package:flutter/material.dart'</span>;
+<span class="dart-keyword">import</span> <span class="dart-string">'package:provider/provider.dart'</span>;
+
+<span class="dart-comment">// Model class</span>
+<span class="dart-keyword">class</span> <span class="dart-class">CounterModel</span> <span class="dart-keyword">with</span> <span class="dart-class">ChangeNotifier</span> {
+  <span class="dart-keyword">int</span> <span class="dart-variable">_count</span> = <span class="dart-number">0</span>;
+  
+  <span class="dart-keyword">int</span> <span class="dart-method">get</span> count => <span class="dart-variable">_count</span>;
+  
+  <span class="dart-keyword">void</span> <span class="dart-method">increment</span>() {
+    <span class="dart-variable">_count</span>++;
+    <span class="dart-method">notifyListeners</span>();
+  }
+  
+  <span class="dart-keyword">void</span> <span class="dart-method">decrement</span>() {
+    <span class="dart-variable">_count</span>--;
+    <span class="dart-method">notifyListeners</span>();
+  }
+}
+
+<span class="dart-comment">// Main app</span>
+<span class="dart-keyword">void</span> <span class="dart-method">main</span>() {
+  <span class="dart-method">runApp</span>(
+    <span class="dart-class">ChangeNotifierProvider</span>(
+      <span class="dart-variable">create</span>: (<span class="dart-variable">context</span>) => <span class="dart-class">CounterModel</span>(),
+      <span class="dart-variable">child</span>: <span class="dart-class">MyApp</span>(),
+    ),
+  );
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">MyApp</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">MaterialApp</span>(
+      <span class="dart-variable">home</span>: <span class="dart-class">CounterScreen</span>(),
+    );
+  }
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">CounterScreen</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">Scaffold</span>(
+      <span class="dart-variable">appBar</span>: <span class="dart-class">AppBar</span>(<span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Provider Example'</span>)),
+      <span class="dart-variable">body</span>: <span class="dart-class">Center</span>(
+        <span class="dart-variable">child</span>: <span class="dart-class">Column</span>(
+          <span class="dart-variable">mainAxisAlignment</span>: <span class="dart-class">MainAxisAlignment</span>.<span class="dart-variable">center</span>,
+          <span class="dart-variable">children</span>: [
+            <span class="dart-class">Text</span>(<span class="dart-string">'Count:'</span>),
+            <span class="dart-class">Consumer</span>&lt;<span class="dart-class">CounterModel</span>&gt;(
+              <span class="dart-variable">builder</span>: (<span class="dart-variable">context</span>, <span class="dart-variable">counter</span>, <span class="dart-variable">child</span>) => <span class="dart-class">Text</span>(
+                <span class="dart-string">'<span class="dart-variable">${counter.count}</span>'</span>,
+                <span class="dart-variable">style</span>: <span class="dart-class">Theme</span>.<span class="dart-method">of</span>(<span class="dart-variable">context</span>).<span class="dart-variable">textTheme</span>.<span class="dart-variable">headline4</span>,
+              ),
+            ),
+            <span class="dart-class">SizedBox</span>(<span class="dart-variable">height</span>: <span class="dart-number">20</span>),
+            <span class="dart-class">ElevatedButton</span>(
+              <span class="dart-variable">onPressed</span>: () => <span class="dart-class">Provider</span>.<span class="dart-method">of</span>&lt;<span class="dart-class">CounterModel</span>&gt;(<span class="dart-variable">context</span>, <span class="dart-variable">listen</span>: <span class="dart-keyword">false</span>).<span class="dart-method">increment</span>(),
+              <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Increment'</span>),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}</pre>
+        </div>
+
+        <div class="live-example">
+          <h4>State Management Demo</h4>
+          <div class="mobile-preview">
+            <div class="mobile-screen">
+              <div style="background:#02569B; color:white; padding:15px; text-align:center; border-radius:10px; margin-bottom:20px;">
+                <strong>Counter App</strong>
+              </div>
+              <div style="text-align:center; margin-bottom:15px;">
+                You have pushed the button this many times:
+              </div>
+              <div style="text-align:center; font-size:32px; font-weight:bold; margin-bottom:20px;" id="counterDisplay">0</div>
+              <div style="display:flex; justify-content:center; gap:20px;">
+                <button style="background:#dc3545; color:white; border:none; padding:10px 20px; border-radius:5px;" onclick="decrementCounter()">-</button>
+                <button style="background:#28a745; color:white; border:none; padding:10px 20px; border-radius:5px;" onclick="incrementCounter()">+</button>
+              </div>
+            </div>
+          </div>
+          <button class="demo-button" onclick="showStateDemo()">Show State Code</button>
+          <div id="stateOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">StatefulWidget</span>
+          <span class="tag">setState</span>
+          <span class="tag">Provider</span>
+          <span class="tag">State Management</span>
+          <span class="tag">ChangeNotifier</span>
+        </div>
+      </div>
     </div>
-    <img src="flutter4.jpg" alt="Flutter project structure">
-  </section>
 
-  <!-- SECTION 5 -->
-  <section>
-    <div class="text">
-      <h2>5. Widgets</h2>
-      <p>Everything in Flutter is a widget: Text, Button, Container, Column, Row, etc.</p>
+    <!-- Chapter 5 -->
+    <div class="chapter">
+      <h2><i class="fas fa-rocket"></i> Chapter 5: Advanced Flutter</h2>
+      <div class="article-content">
+        <h3>Navigation and Routing</h3>
+        <p>Navigate between screens in your Flutter app:</p>
+        
+        <div class="code-example">
+          <h4>Navigation Example</h4>
+          <pre><span class="dart-keyword">import</span> <span class="dart-string">'package:flutter/material.dart'</span>;
+
+<span class="dart-keyword">void</span> <span class="dart-method">main</span>() {
+  <span class="dart-method">runApp</span>(<span class="dart-class">MyApp</span>());
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">MyApp</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">MaterialApp</span>(
+      <span class="dart-variable">title</span>: <span class="dart-string">'Navigation Demo'</span>,
+      <span class="dart-variable">initialRoute</span>: <span class="dart-string">'/'</span>,
+      <span class="dart-variable">routes</span>: {
+        <span class="dart-string">'/'</span>: (<span class="dart-variable">context</span>) => <span class="dart-class">HomeScreen</span>(),
+        <span class="dart-string">'/details'</span>: (<span class="dart-variable">context</span>) => <span class="dart-class">DetailsScreen</span>(),
+      },
+    );
+  }
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">HomeScreen</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">Scaffold</span>(
+      <span class="dart-variable">appBar</span>: <span class="dart-class">AppBar</span>(<span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Home'</span>)),
+      <span class="dart-variable">body</span>: <span class="dart-class">Center</span>(
+        <span class="dart-variable">child</span>: <span class="dart-class">Column</span>(
+          <span class="dart-variable">mainAxisAlignment</span>: <span class="dart-class">MainAxisAlignment</span>.<span class="dart-variable">center</span>,
+          <span class="dart-variable">children</span>: [
+            <span class="dart-class">Text</span>(<span class="dart-string">'Home Screen'</span>),
+            <span class="dart-class">SizedBox</span>(<span class="dart-variable">height</span>: <span class="dart-number">20</span>),
+            <span class="dart-class">ElevatedButton</span>(
+              <span class="dart-variable">onPressed</span>: () {
+                <span class="dart-class">Navigator</span>.<span class="dart-method">pushNamed</span>(<span class="dart-variable">context</span>, <span class="dart-string">'/details'</span>);
+              },
+              <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Go to Details'</span>),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">DetailsScreen</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">Scaffold</span>(
+      <span class="dart-variable">appBar</span>: <span class="dart-class">AppBar</span>(<span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Details'</span>)),
+      <span class="dart-variable">body</span>: <span class="dart-class">Center</span>(
+        <span class="dart-variable">child</span>: <span class="dart-class">Column</span>(
+          <span class="dart-variable">mainAxisAlignment</span>: <span class="dart-class">MainAxisAlignment</span>.<span class="dart-variable">center</span>,
+          <span class="dart-variable">children</span>: [
+            <span class="dart-class">Text</span>(<span class="dart-string">'Details Screen'</span>),
+            <span class="dart-class">SizedBox</span>(<span class="dart-variable">height</span>: <span class="dart-number">20</span>),
+            <span class="dart-class">ElevatedButton</span>(
+              <span class="dart-variable">onPressed</span>: () {
+                <span class="dart-class">Navigator</span>.<span class="dart-method">pop</span>(<span class="dart-variable">context</span>);
+              },
+              <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Go Back'</span>),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}</pre>
+        </div>
+
+        <h3>API Integration</h3>
+        <p>Fetching data from REST APIs:</p>
+        
+        <div class="code-example">
+          <h4>HTTP Requests</h4>
+          <pre><span class="dart-comment">// Add to pubspec.yaml: http: ^0.13.0</span>
+
+<span class="dart-keyword">import</span> <span class="dart-string">'dart:convert'</span>;
+<span class="dart-keyword">import</span> <span class="dart-string">'package:flutter/material.dart'</span>;
+<span class="dart-keyword">import</span> <span class="dart-string">'package:http/http.dart'</span> <span class="dart-keyword">as</span> <span class="dart-variable">http</span>;
+
+<span class="dart-keyword">class</span> <span class="dart-class">ApiExample</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatefulWidget</span> {
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">_ApiExampleState</span> <span class="dart-method">createState</span>() => <span class="dart-class">_ApiExampleState</span>();
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">_ApiExampleState</span> <span class="dart-keyword">extends</span> <span class="dart-class">State</span>&lt;<span class="dart-class">ApiExample</span>&gt; {
+  <span class="dart-class">List</span>&lt;<span class="dart-keyword">dynamic</span>&gt; <span class="dart-variable">_users</span> = [];
+  <span class="dart-keyword">bool</span> <span class="dart-variable">_isLoading</span> = <span class="dart-keyword">false</span>;
+
+  <span class="dart-keyword">Future</span>&lt;<span class="dart-keyword">void</span>&gt; <span class="dart-method">_fetchUsers</span>() <span class="dart-keyword">async</span> {
+    <span class="dart-method">setState</span>(() {
+      <span class="dart-variable">_isLoading</span> = <span class="dart-keyword">true</span>;
+    });
+
+    <span class="dart-keyword">try</span> {
+      <span class="dart-keyword">final</span> <span class="dart-variable">response</span> = <span class="dart-keyword">await</span> <span class="dart-variable">http</span>.<span class="dart-method">get</span>(<span class="dart-class">Uri</span>.<span class="dart-method">parse</span>(<span class="dart-string">'https://jsonplaceholder.typicode.com/users'</span>));
+      
+      <span class="dart-keyword">if</span> (<span class="dart-variable">response</span>.<span class="dart-variable">statusCode</span> == <span class="dart-number">200</span>) {
+        <span class="dart-keyword">final</span> <span class="dart-variable">data</span> = <span class="dart-class">json</span>.<span class="dart-method">decode</span>(<span class="dart-variable">response</span>.<span class="dart-variable">body</span>);
+        <span class="dart-method">setState</span>(() {
+          <span class="dart-variable">_users</span> = <span class="dart-variable">data</span>;
+          <span class="dart-variable">_isLoading</span> = <span class="dart-keyword">false</span>;
+        });
+      }
+    } <span class="dart-keyword">catch</span> (<span class="dart-variable">e</span>) {
+      <span class="dart-method">setState</span>(() {
+        <span class="dart-variable">_isLoading</span> = <span class="dart-keyword">false</span>;
+      });
+      <span class="dart-method">print</span>(<span class="dart-string">'Error: <span class="dart-variable">$e</span>'</span>);
+    }
+  }
+
+  <span class="dart-keyword">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-method">build</span>(<span class="dart-class">BuildContext</span> <span class="dart-variable">context</span>) {
+    <span class="dart-keyword">return</span> <span class="dart-class">Scaffold</span>(
+      <span class="dart-variable">appBar</span>: <span class="dart-class">AppBar</span>(<span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-string">'API Example'</span>)),
+      <span class="dart-variable">body</span>: <span class="dart-class">Column</span>(
+        <span class="dart-variable">children</span>: [
+          <span class="dart-class">ElevatedButton</span>(
+            <span class="dart-variable">onPressed</span>: <span class="dart-method">_fetchUsers</span>,
+            <span class="dart-variable">child</span>: <span class="dart-class">Text</span>(<span class="dart-string">'Fetch Users'</span>),
+          ),
+          <span class="dart-variable">_isLoading</span>
+              ? <span class="dart-class">CircularProgressIndicator</span>()
+              : <span class="dart-class">Expanded</span>(
+                  <span class="dart-variable">child</span>: <span class="dart-class">ListView</span>.<span class="dart-method">builder</span>(
+                    <span class="dart-variable">itemCount</span>: <span class="dart-variable">_users</span>.<span class="dart-variable">length</span>,
+                    <span class="dart-variable">itemBuilder</span>: (<span class="dart-variable">context</span>, <span class="dart-variable">index</span>) {
+                      <span class="dart-keyword">final</span> <span class="dart-variable">user</span> = <span class="dart-variable">_users</span>[<span class="dart-variable">index</span>];
+                      <span class="dart-keyword">return</span> <span class="dart-class">ListTile</span>(
+                        <span class="dart-variable">title</span>: <span class="dart-class">Text</span>(<span class="dart-variable">user</span>[<span class="dart-string">'name'</span>]),
+                        <span class="dart-variable">subtitle</span>: <span class="dart-class">Text</span>(<span class="dart-variable">user</span>[<span class="dart-string">'email'</span>]),
+                      );
+                    },
+                  ),
+                ),
+        ],
+      ),
+    );
+  }
+}</pre>
+        </div>
+
+        <div class="exercise">
+          <h3><i class="fas fa-pencil-alt"></i> Practice Exercise</h3>
+          <p><strong>Build a Weather App:</strong></p>
+          <ul>
+            <li>Create a Flutter app with multiple screens</li>
+            <li>Implement navigation between home and settings screens</li>
+            <li>Use Provider for state management</li>
+            <li>Integrate with a weather API (OpenWeatherMap)</li>
+            <li>Display current weather and forecast</li>
+            <li>Add location services</li>
+            <li>Implement pull-to-refresh functionality</li>
+            <li>Add error handling and loading states</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Navigation</span>
+          <span class="tag">Routing</span>
+          <span class="tag">API Integration</span>
+          <span class="tag">HTTP</span>
+          <span class="tag">Async/Await</span>
+          <span class="tag">JSON</span>
+        </div>
+      </div>
     </div>
-    <img src="flutter5.jpg" alt="Flutter widgets">
-  </section>
 
-  <!-- SECTION 6 -->
-  <section>
-    <div class="text">
-      <h2>6. Stateless vs Stateful Widgets</h2>
-      <p>Stateless widgets are immutable, stateful widgets maintain state that can change over time.</p>
-    </div>
-    <img src="flutter6.jpg" alt="Flutter widget types">
-  </section>
-
-  <!-- SECTION 7 -->
-  <section>
-    <div class="text">
-      <h2>7. Layouts</h2>
-      <p>Use widgets like Column, Row, Stack, ListView to arrange your UI.</p>
-    </div>
-    <img src="flutter7.jpg" alt="Flutter layouts">
-  </section>
-
-  <!-- SECTION 8 -->
-  <section>
-    <div class="text">
-      <h2>8. Container Widget</h2>
-      <p>Container allows styling, padding, margin, and positioning of child widgets.</p>
-    </div>
-    <img src="flutter8.jpg" alt="Container widget">
-  </section>
-
-  <!-- SECTION 9 -->
-  <section>
-    <div class="text">
-      <h2>9. Text Widget</h2>
-      <p>Display text with styling using Text widget.</p>
-      <code>Text("Hello Flutter", style: TextStyle(fontSize: 20));</code>
-    </div>
-    <img src="flutter9.jpg" alt="Text widget">
-  </section>
-
-  <!-- SECTION 10 -->
-  <section>
-    <div class="text">
-      <h2>10. Buttons</h2>
-      <ul>
-        <li>ElevatedButton</li>
-        <li>TextButton</li>
-        <li>IconButton</li>
-      </ul>
-    </div>
-    <img src="flutter10.jpg" alt="Flutter buttons">
-  </section>
-
-  <!-- SECTION 11 -->
-  <section>
-    <div class="text">
-      <h2>11. Images</h2>
-      <p>Use <code>Image.asset</code> or <code>Image.network</code> to show images.</p>
-    </div>
-    <img src="flutter11.jpg" alt="Flutter images">
-  </section>
-
-  <!-- SECTION 12 -->
-  <section>
-    <div class="text">
-      <h2>12. Lists</h2>
-      <p>Use ListView.builder for dynamic lists.</p>
-    </div>
-    <img src="flutter12.jpg" alt="Flutter lists">
-  </section>
-
-  <!-- SECTION 13 -->
-  <section>
-    <div class="text">
-      <h2>13. Navigation</h2>
-      <p>Use Navigator.push and Navigator.pop for screen navigation.</p>
-    </div>
-    <img src="flutter13.jpg" alt="Flutter navigation">
-  </section>
-
-  <!-- SECTION 14 -->
-  <section>
-    <div class="text">
-      <h2>14. Forms & Input</h2>
-      <p>TextField, DropdownButton, Checkbox, Switch widgets handle user input.</p>
-    </div>
-    <img src="flutter14.jpg" alt="Flutter forms">
-  </section>
-
-  <!-- SECTION 15 -->
-  <section>
-    <div class="text">
-      <h2>15. State Management</h2>
-      <p>Popular options: setState, Provider, Riverpod, Bloc, MobX.</p>
-    </div>
-    <img src="flutter15.jpg" alt="State management">
-  </section>
-
-  <!-- SECTION 16 -->
-  <section>
-    <div class="text">
-      <h2>16. Animations</h2>
-      <p>Flutter supports implicit and explicit animations using AnimationController and Tween.</p>
-    </div>
-    <img src="flutter16.jpg" alt="Flutter animations">
-  </section>
-
-  <!-- SECTION 17 -->
-  <section>
-    <div class="text">
-      <h2>17. Themes & Styling</h2>
-      <p>Customize colors, fonts, and themes globally using ThemeData.</p>
-    </div>
-    <img src="flutter17.jpg" alt="Flutter styling">
-  </section>
-
-  <!-- SECTION 18 -->
-  <section>
-    <div class="text">
-      <h2>18. Packages & Plugins</h2>
-      <p>Use <code>pub.dev</code> to add packages for extra functionality.</p>
-    </div>
-    <img src="flutter18.jpg" alt="Flutter packages">
-  </section>
-
-  <!-- SECTION 19 -->
-  <section>
-    <div class="text">
-      <h2>19. Debugging & Hot Reload</h2>
-      <p>Hot reload allows you to see changes instantly while debugging.</p>
-    </div>
-    <img src="flutter19.jpg" alt="Flutter hot reload">
-  </section>
-
-  <!-- SECTION 20 -->
-  <section>
-    <div class="text">
-      <h2>20. Best Practices</h2>
-      <ul>
-        <li>Organize code with folders</li>
-        <li>Use widgets composition</li>
-        <li>Keep UI responsive</li>
-        <li>Follow Dart style guide</li>
-      </ul>
-    </div>
-    <img src="flutter20.jpg" alt="Flutter best practices">
-  </section>
-
-</main>
+  </div>
+</div>
 
 <footer>
   <div class="social" style="margin-bottom:20px;">
     <a class="fb" href="https://www.facebook.com/profile.php?id=100087855939787"><i class="fab fa-facebook"></i></a>
-    <a class="yt" href="https://youtube.com/@codinglife-d2l1g?si=w0GBDnTZcBf__fmn"><i class="fab fa-youtube"></i></a>
-    <a class="ig" href="https://www.instagram.com/dayli_marooc10?igsh=MXdidnc0OTh4N3ByeA=="><i class="fab fa-instagram"></i></a>
-    <a class="ln" href="https:linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
+    <a class="yt" href="https://youtube.com/@codinglife-d2l1g"><i class="fab fa-youtube"></i></a>
+    <a class="ig" href="https://www.instagram.com/dayli_marooc10"><i class="fab fa-instagram"></i></a>
+    <a class="ln" href="https://linkedin.com/in/coding-life-965996397"><i class="fab fa-linkedin"></i></a>
     <a class="wa" href="https://wa.me/212693885599?text=Hello! I'd like more info 👋"><i class="fab fa-whatsapp"></i></a>
   </div>
   <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
+
+<script>
+  // Dart demo
+  function showDartDemo() {
+    const output = `
+      <strong>Dart Code Output:</strong><br>
+      <div class="terminal">
+        Name: John Doe<br>
+        Age: 25<br>
+        Next year: 26<br>
+        Hello, Alice!<br>
+        Result: 8<br>
+        Grade: B<br>
+        Number: 0<br>
+        Number: 1<br>
+        Number: 2<br>
+        Number: 3<br>
+        Number: 4<br>
+      </div>
+    `;
+    document.getElementById('dartOutput').innerHTML = output;
+  }
+
+  // Widget demo
+  function showWidgetDemo() {
+    const output = `
+      <strong>Widget Code Structure:</strong><br>
+      ✅ StatelessWidget: BasicWidgetsScreen<br>
+      ✅ Scaffold with AppBar and Body<br>
+      ✅ Column layout with multiple children<br>
+      ✅ Text widgets with styling<br>
+      ✅ ElevatedButton with onPressed<br>
+      ✅ SizedBox for spacing<br>
+      🎯 Hot reload enabled for instant updates
+    `;
+    document.getElementById('widgetOutput').innerHTML = output;
+  }
+
+  // State management demo
+  let counter = 0;
+  function incrementCounter() {
+    counter++;
+    document.getElementById('counterDisplay').textContent = counter;
+  }
+
+  function decrementCounter() {
+    counter--;
+    document.getElementById('counterDisplay').textContent = counter;
+  }
+
+  function showStateDemo() {
+    const output = `
+      <strong>State Management Code:</strong><br>
+      ✅ StatefulWidget: CounterApp<br>
+      ✅ State class with _counter variable<br>
+      ✅ setState() for UI updates<br>
+      ✅ Event handlers: _incrementCounter, _decrementCounter<br>
+      ✅ Rebuilds UI when state changes<br>
+      🎯 State is preserved across hot reloads
+    `;
+    document.getElementById('stateOutput').innerHTML = output;
+  }
+
+  // Navigation demo
+  function showNavigationDemo() {
+    document.getElementById('navOutput').innerHTML = `
+      <strong>Navigation Implementation:</strong><br>
+      ✅ MaterialApp with routes configuration<br>
+      ✅ Navigator.pushNamed() for navigation<br>
+      ✅ Navigator.pop() for going back<br>
+      ✅ Route names: '/', '/details'<br>
+      ✅ StatelessWidget for each screen<br>
+      🚀 Smooth transitions between screens
+    `;
+  }
+</script>
 
 </body>
 </html>
