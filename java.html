@@ -172,23 +172,29 @@
       margin-bottom:8px;
     }
 
-    /* CODE EXAMPLES */
+    /* CODE EXAMPLES - IMPROVED FOR MOBILE */
     .code-example {
       background:#1e293b;
       color:#e2e8f0;
-      padding:25px;
+      padding:20px;
       border-radius:8px;
       margin:20px 0;
       overflow-x:auto;
       font-family:'Courier New', monospace;
-      line-height:1.5;
+      line-height:1.4;
+      font-size:14px;
     }
 
     .code-example h4 {
       color:#f1f5f9;
-      margin-bottom:15px;
+      margin-bottom:12px;
       font-family: 'Cairo', sans-serif;
-      font-size:1.1rem;
+      font-size:1rem;
+    }
+
+    .code-example pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
 
     .java-keyword {
@@ -200,67 +206,8 @@
     .java-string {
       color:#86efac;
     }
-    .java-variable {
-      color:#fde047;
-    }
     .java-comment {
       color:#94a3b8;
-    }
-    .java-method {
-      color:#fdba74;
-    }
-
-    /* LIVE EXAMPLES */
-    .live-example {
-      background:#f1f5f9;
-      border:2px dashed #cbd5e1;
-      border-radius:8px;
-      padding:25px;
-      margin:20px 0;
-    }
-
-    .live-example h4 {
-      color:#0f172a;
-      margin-bottom:15px;
-    }
-
-    /* JAVA DEMO STYLES */
-    .java-demo {
-      border:2px solid #007396;
-      border-radius:8px;
-      padding:20px;
-      margin:15px 0;
-      background:#2d3240;
-      color:white;
-    }
-
-    .terminal {
-      background:#1a1a1a;
-      color:#00ff00;
-      padding:15px;
-      border-radius:6px;
-      font-family:'Courier New', monospace;
-      margin:10px 0;
-    }
-
-    /* BUTTONS */
-    .demo-button {
-      background:#007396;
-      color:white;
-      border:none;
-      padding:10px 20px;
-      border-radius:6px;
-      cursor:pointer;
-      font-family: 'Cairo', sans-serif;
-      font-size:1rem;
-      font-weight:bold;
-      transition:.3s;
-      margin:5px;
-    }
-
-    .demo-button:hover {
-      background:#005a7a;
-      transform:translateY(-2px);
     }
 
     /* EXERCISE SECTION */
@@ -314,35 +261,102 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    /* RESPONSIVE */
+    /* RESPONSIVE - IMPROVED FOR MOBILE */
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
       
+      body {
+        padding-top: 60px;
+        font-size: 14px;
+      }
+      
+      .course-container {
+        padding: 15px 10px;
+      }
+      
+      .course-header {
+        padding: 25px 15px;
+        margin-bottom: 25px;
+      }
+      
       .course-header h1 {
-        font-size:2rem;
+        font-size: 1.6rem;
+      }
+      
+      .course-header p {
+        font-size: 1rem;
       }
       
       .chapter {
-        padding:20px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .chapter h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
       }
       
       .article-content h3 {
-        font-size:1.2rem;
+        font-size: 1.1rem;
+        margin: 15px 0 10px 0;
+      }
+      
+      /* CODE EXAMPLES - SMALLER ON MOBILE */
+      .code-example {
+        padding: 12px;
+        font-size: 11px;
+        line-height: 1.3;
+        margin: 15px 0;
+      }
+      
+      .code-example h4 {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+      
+      .left-buttons {
+        gap: 5px;
+      }
+      
+      .left-buttons a {
+        padding: 5px 7px;
+        font-size: 1rem;
+      }
+      
+      .left-buttons a span {
+        font-size: 0.6rem;
       }
     }
 
     @media (max-width: 480px) {
-      .course-container {
-        padding:20px 15px;
-      }
-      
-      .course-header {
-        padding:30px 20px;
+      body {
+        padding-top: 50px;
+        font-size: 13px;
       }
       
       .course-header h1 {
-        font-size:1.8rem;
+        font-size: 1.4rem;
+      }
+      
+      .chapter h2 {
+        font-size: 1.2rem;
+      }
+      
+      /* CODE EXAMPLES - EVEN SMALLER ON VERY SMALL SCREENS */
+      .code-example {
+        padding: 10px;
+        font-size: 10px;
+        line-height: 1.2;
+      }
+      
+      .code-example h4 {
+        font-size: 0.85rem;
+      }
+      
+      .left-buttons a {
+        padding: 4px 6px;
       }
     }
 
@@ -364,7 +378,7 @@
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i>Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
     <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
@@ -480,12 +494,6 @@ javac -version
 <span class="java-class">Object</span> <span class="java-variable">obj</span> = <span class="java-keyword">new</span> <span class="java-class">Object</span>();</pre>
         </div>
 
-        <div class="live-example">
-          <h4>Variables Demo</h4>
-          <button class="demo-button" onclick="showVariables()">Show Java Variables</button>
-          <div id="variablesOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
-        </div>
-
         <div class="tags">
           <span class="tag">variables</span>
           <span class="tag">data types</span>
@@ -568,13 +576,6 @@ javac -version
         }
     }
 }</pre>
-        </div>
-
-        <div class="live-example">
-          <h4>Control Structures Demo</h4>
-          <button class="demo-button" onclick="runLoop()">Run Loop Simulation</button>
-          <button class="demo-button" onclick="checkCondition()">Check Condition</button>
-          <div id="controlOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
         </div>
 
         <div class="tags">
@@ -661,13 +662,6 @@ javac -version
         }
     }
 }</pre>
-        </div>
-
-        <div class="live-example">
-          <h4>Methods & Arrays Demo</h4>
-          <button class="demo-button" onclick="showArrays()">Show Arrays</button>
-          <button class="demo-button" onclick="runMethod()">Run Method</button>
-          <div id="methodOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
         </div>
 
         <div class="tags">
@@ -820,79 +814,6 @@ javac -version
   </div>
   <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
-
-<script>
-  // Variables demo
-  function showVariables() {
-    const output = `
-      <strong>Java Variables Simulation:</strong><br>
-      int age = 25;<br>
-      double height = 5.9;<br>
-      char grade = 'A';<br>
-      boolean isStudent = true;<br>
-      String name = "John Doe";<br><br>
-      <strong>Output:</strong><br>
-      Name: John Doe<br>
-      Age: 25<br>
-      Types: int, double, char, boolean, String
-    `;
-    document.getElementById('variablesOutput').innerHTML = output;
-  }
-
-  // Control structures demo
-  function runLoop() {
-    let output = '<strong>For Loop Output:</strong><br>';
-    for (let i = 0; i < 5; i++) {
-      output += `Number: ${i}<br>`;
-    }
-    document.getElementById('controlOutput').innerHTML = output;
-  }
-
-  function checkCondition() {
-    const age = 20;
-    let message = '<strong>Condition Check:</strong><br>';
-    
-    if (age >= 18) {
-      message += 'You are an adult';
-    } else if (age >= 13) {
-      message += 'You are a teenager';
-    } else {
-      message += 'You are a child';
-    }
-    
-    document.getElementById('controlOutput').innerHTML = message;
-  }
-
-  // Methods & arrays demo
-  function showArrays() {
-    const fruits = ["Apple", "Banana", "Orange", "Grape"];
-    let output = '<strong>Array Example:</strong><br>';
-    output += `Fruits array: [${fruits.join(', ')}]<br>`;
-    output += `Array length: ${fruits.length}<br>`;
-    output += `First fruit: ${fruits[0]}`;
-    
-    document.getElementById('methodOutput').innerHTML = output;
-  }
-
-  function runMethod() {
-    function add(a, b) {
-      return a + b;
-    }
-    
-    const result = add(5, 3);
-    document.getElementById('methodOutput').innerHTML = 
-      `<strong>Method Output:</strong><br>add(5, 3) = ${result}`;
-  }
-
-  // OOP simulation
-  function simulateOOP() {
-    document.getElementById('oopOutput').innerHTML = 
-      '✅ Person object created: name="Alice", age=25<br>' +
-      '✅ Method called: introduce()<br>' +
-      '📝 Output: "Hello, my name is Alice and I am 25 years old."<br>' +
-      '🎯 OOP Principles: Encapsulation, Inheritance, Polymorphism';
-  }
-</script>
 
 </body>
 </html>

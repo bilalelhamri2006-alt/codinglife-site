@@ -172,23 +172,29 @@
       margin-bottom:8px;
     }
 
-    /* CODE EXAMPLES */
+    /* CODE EXAMPLES - IMPROVED FOR MOBILE */
     .code-example {
       background:#1e293b;
       color:#e2e8f0;
-      padding:25px;
+      padding:20px;
       border-radius:8px;
       margin:20px 0;
       overflow-x:auto;
       font-family:'Courier New', monospace;
-      line-height:1.5;
+      line-height:1.4;
+      font-size:14px;
     }
 
     .code-example h4 {
       color:#f1f5f9;
-      margin-bottom:15px;
+      margin-bottom:12px;
       font-family: 'Cairo', sans-serif;
-      font-size:1.1rem;
+      font-size:1rem;
+    }
+
+    .code-example pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
 
     .sql-keyword {
@@ -200,92 +206,8 @@
     .sql-string {
       color:#86efac;
     }
-    .sql-table {
-      color:#fde047;
-    }
     .sql-comment {
       color:#94a3b8;
-    }
-    .sql-column {
-      color:#fdba74;
-    }
-
-    /* LIVE EXAMPLES */
-    .live-example {
-      background:#f1f5f9;
-      border:2px dashed #cbd5e1;
-      border-radius:8px;
-      padding:25px;
-      margin:20px 0;
-    }
-
-    .live-example h4 {
-      color:#0f172a;
-      margin-bottom:15px;
-    }
-
-    /* SQL DEMO STYLES */
-    .sql-demo {
-      border:2px solid #336791;
-      border-radius:8px;
-      padding:20px;
-      margin:15px 0;
-      background:#2d3240;
-      color:white;
-    }
-
-    .terminal {
-      background:#1a1a1a;
-      color:#00ff00;
-      padding:15px;
-      border-radius:6px;
-      font-family:'Courier New', monospace;
-      margin:10px 0;
-    }
-
-    .table-preview {
-      width:100%;
-      border-collapse:collapse;
-      margin:15px 0;
-      background:white;
-    }
-
-    .table-preview th {
-      background:#0f172a;
-      color:white;
-      padding:10px;
-      text-align:left;
-      border:1px solid #cbd5e1;
-    }
-
-    .table-preview td {
-      padding:8px 10px;
-      border:1px solid #cbd5e1;
-      color:#1e293b;
-    }
-
-    .table-preview tr:nth-child(even) {
-      background:#f8fafc;
-    }
-
-    /* BUTTONS */
-    .demo-button {
-      background:#336791;
-      color:white;
-      border:none;
-      padding:10px 20px;
-      border-radius:6px;
-      cursor:pointer;
-      font-family: 'Cairo', sans-serif;
-      font-size:1rem;
-      font-weight:bold;
-      transition:.3s;
-      margin:5px;
-    }
-
-    .demo-button:hover {
-      background:#2a5678;
-      transform:translateY(-2px);
     }
 
     /* EXERCISE SECTION */
@@ -339,39 +261,102 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    /* RESPONSIVE */
+    /* RESPONSIVE - IMPROVED FOR MOBILE */
     @media (max-width: 768px) {
       nav {display:none;}
       .left-buttons {display:flex;}
       
+      body {
+        padding-top: 60px;
+        font-size: 14px;
+      }
+      
+      .course-container {
+        padding: 15px 10px;
+      }
+      
+      .course-header {
+        padding: 25px 15px;
+        margin-bottom: 25px;
+      }
+      
       .course-header h1 {
-        font-size:2rem;
+        font-size: 1.6rem;
+      }
+      
+      .course-header p {
+        font-size: 1rem;
       }
       
       .chapter {
-        padding:20px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .chapter h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
       }
       
       .article-content h3 {
-        font-size:1.2rem;
+        font-size: 1.1rem;
+        margin: 15px 0 10px 0;
       }
       
-      .table-preview {
-        font-size:0.8rem;
+      /* CODE EXAMPLES - SMALLER ON MOBILE */
+      .code-example {
+        padding: 12px;
+        font-size: 11px;
+        line-height: 1.3;
+        margin: 15px 0;
+      }
+      
+      .code-example h4 {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+      
+      .left-buttons {
+        gap: 5px;
+      }
+      
+      .left-buttons a {
+        padding: 5px 7px;
+        font-size: 1rem;
+      }
+      
+      .left-buttons a span {
+        font-size: 0.6rem;
       }
     }
 
     @media (max-width: 480px) {
-      .course-container {
-        padding:20px 15px;
-      }
-      
-      .course-header {
-        padding:30px 20px;
+      body {
+        padding-top: 50px;
+        font-size: 13px;
       }
       
       .course-header h1 {
-        font-size:1.8rem;
+        font-size: 1.4rem;
+      }
+      
+      .chapter h2 {
+        font-size: 1.2rem;
+      }
+      
+      /* CODE EXAMPLES - EVEN SMALLER ON VERY SMALL SCREENS */
+      .code-example {
+        padding: 10px;
+        font-size: 10px;
+        line-height: 1.2;
+      }
+      
+      .code-example h4 {
+        font-size: 0.85rem;
+      }
+      
+      .left-buttons a {
+        padding: 4px 6px;
       }
     }
 
@@ -393,7 +378,7 @@
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i> Courses</a>
+    <a href="dorous-albarmaja.html"><i class="fa-solid fa-laptop-code"></i>Courses</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
     <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy</a>
@@ -446,7 +431,7 @@ comment
 */</span>
 
 <span class="sql-comment">-- SQL statements end with semicolon</span>
-<span class="sql-keyword">SELECT</span> <span class="sql-string">'Hello, SQL World!'</span> <span class="sql-keyword">AS</span> <span class="sql-column">greeting</span>;
+<span class="sql-keyword">SELECT</span> <span class="sql-string">'Hello, SQL World!'</span> <span class="sql-keyword">AS</span> <span class="sql-string">greeting</span>;
 
 <span class="sql-comment">-- Keywords are case-insensitive, but conventionally uppercase</span>
 <span class="sql-keyword">select</span> <span class="sql-string">'Hello'</span>;  <span class="sql-comment">-- Same as SELECT</span></pre>
@@ -472,27 +457,27 @@ comment
         <div class="code-example">
           <h4>Database and Table Operations</h4>
           <pre><span class="sql-comment">-- Create a database</span>
-<span class="sql-keyword">CREATE DATABASE</span> <span class="sql-table">company</span>;
+<span class="sql-keyword">CREATE DATABASE</span> <span class="sql-string">company</span>;
 
 <span class="sql-comment">-- Use the database</span>
-<span class="sql-keyword">USE</span> <span class="sql-table">company</span>;
+<span class="sql-keyword">USE</span> <span class="sql-string">company</span>;
 
 <span class="sql-comment">-- Create a table</span>
-<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">employees</span> (
-    <span class="sql-column">id</span> <span class="sql-keyword">INT PRIMARY KEY AUTO_INCREMENT</span>,
-    <span class="sql-column">first_name</span> <span class="sql-keyword">VARCHAR</span>(<span class="sql-number">50</span>) <span class="sql-keyword">NOT NULL</span>,
-    <span class="sql-column">last_name</span> <span class="sql-keyword">VARCHAR</span>(<span class="sql-number">50</span>) <span class="sql-keyword">NOT NULL</span>,
-    <span class="sql-column">email</span> <span class="sql-keyword">VARCHAR</span>(<span class="sql-number">100</span>) <span class="sql-keyword">UNIQUE</span>,
-    <span class="sql-column">salary</span> <span class="sql-keyword">DECIMAL</span>(<span class="sql-number">10</span>, <span class="sql-number">2</span>),
-    <span class="sql-column">hire_date</span> <span class="sql-keyword">DATE</span>,
-    <span class="sql-column">department_id</span> <span class="sql-keyword">INT</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-string">employees</span> (
+    <span class="sql-string">id</span> <span class="sql-keyword">INT PRIMARY KEY AUTO_INCREMENT</span>,
+    <span class="sql-string">first_name</span> <span class="sql-keyword">VARCHAR</span>(50) <span class="sql-keyword">NOT NULL</span>,
+    <span class="sql-string">last_name</span> <span class="sql-keyword">VARCHAR</span>(50) <span class="sql-keyword">NOT NULL</span>,
+    <span class="sql-string">email</span> <span class="sql-keyword">VARCHAR</span>(100) <span class="sql-keyword">UNIQUE</span>,
+    <span class="sql-string">salary</span> <span class="sql-keyword">DECIMAL</span>(10, 2),
+    <span class="sql-string">hire_date</span> <span class="sql-keyword">DATE</span>,
+    <span class="sql-string">department_id</span> <span class="sql-keyword">INT</span>
 );
 
 <span class="sql-comment">-- Create departments table</span>
-<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">departments</span> (
-    <span class="sql-column">department_id</span> <span class="sql-keyword">INT PRIMARY KEY AUTO_INCREMENT</span>,
-    <span class="sql-column">department_name</span> <span class="sql-keyword">VARCHAR</span>(<span class="sql-number">100</span>) <span class="sql-keyword">NOT NULL</span>,
-    <span class="sql-column">manager_id</span> <span class="sql-keyword">INT</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-string">departments</span> (
+    <span class="sql-string">department_id</span> <span class="sql-keyword">INT PRIMARY KEY AUTO_INCREMENT</span>,
+    <span class="sql-string">department_name</span> <span class="sql-keyword">VARCHAR</span>(100) <span class="sql-keyword">NOT NULL</span>,
+    <span class="sql-string">manager_id</span> <span class="sql-keyword">INT</span>
 );</pre>
         </div>
 
@@ -503,12 +488,12 @@ comment
           <h4>Common Data Types</h4>
           <pre><span class="sql-comment">-- Numeric Types</span>
 <span class="sql-keyword">INT</span>                     <span class="sql-comment">-- Integer numbers</span>
-<span class="sql-keyword">DECIMAL</span>(<span class="sql-number">10</span>, <span class="sql-number">2</span>)         <span class="sql-comment">-- Fixed-point numbers</span>
+<span class="sql-keyword">DECIMAL</span>(10, 2)         <span class="sql-comment">-- Fixed-point numbers</span>
 <span class="sql-keyword">FLOAT</span>                   <span class="sql-comment">-- Floating-point numbers</span>
 
 <span class="sql-comment">-- String Types</span>
-<span class="sql-keyword">VARCHAR</span>(<span class="sql-number">255</span>)           <span class="sql-comment">-- Variable-length strings</span>
-<span class="sql-keyword">CHAR</span>(<span class="sql-number">10</span>)               <span class="sql-comment">-- Fixed-length strings</span>
+<span class="sql-keyword">VARCHAR</span>(255)           <span class="sql-comment">-- Variable-length strings</span>
+<span class="sql-keyword">CHAR</span>(10)               <span class="sql-comment">-- Fixed-length strings</span>
 <span class="sql-keyword">TEXT</span>                   <span class="sql-comment">-- Large text data</span>
 
 <span class="sql-comment">-- Date and Time</span>
@@ -519,52 +504,6 @@ comment
 <span class="sql-comment">-- Other Types</span>
 <span class="sql-keyword">BOOLEAN</span>                <span class="sql-comment">-- True/False values</span>
 <span class="sql-keyword">BLOB</span>                   <span class="sql-comment">-- Binary large objects</span></pre>
-        </div>
-
-        <div class="live-example">
-          <h4>Table Structure Preview</h4>
-          <table class="table-preview">
-            <thead>
-              <tr>
-                <th>Column Name</th>
-                <th>Data Type</th>
-                <th>Constraints</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>id</td>
-                <td>INT</td>
-                <td>PRIMARY KEY, AUTO_INCREMENT</td>
-                <td>Unique identifier</td>
-              </tr>
-              <tr>
-                <td>first_name</td>
-                <td>VARCHAR(50)</td>
-                <td>NOT NULL</td>
-                <td>Employee's first name</td>
-              </tr>
-              <tr>
-                <td>last_name</td>
-                <td>VARCHAR(50)</td>
-                <td>NOT NULL</td>
-                <td>Employee's last name</td>
-              </tr>
-              <tr>
-                <td>email</td>
-                <td>VARCHAR(100)</td>
-                <td>UNIQUE</td>
-                <td>Email address</td>
-              </tr>
-              <tr>
-                <td>salary</td>
-                <td>DECIMAL(10,2)</td>
-                <td>-</td>
-                <td>Annual salary</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
 
         <div class="tags">
@@ -587,20 +526,20 @@ comment
         <div class="code-example">
           <h4>INSERT Examples</h4>
           <pre><span class="sql-comment">-- Insert single record</span>
-<span class="sql-keyword">INSERT INTO</span> <span class="sql-table">employees</span> (<span class="sql-column">first_name</span>, <span class="sql-column">last_name</span>, <span class="sql-column">email</span>, <span class="sql-column">salary</span>, <span class="sql-column">hire_date</span>)
-<span class="sql-keyword">VALUES</span> (<span class="sql-string">'John'</span>, <span class="sql-string">'Doe'</span>, <span class="sql-string">'john.doe@company.com'</span>, <span class="sql-number">75000</span>, <span class="sql-string">'2023-01-15'</span>);
+<span class="sql-keyword">INSERT INTO</span> <span class="sql-string">employees</span> (<span class="sql-string">first_name</span>, <span class="sql-string">last_name</span>, <span class="sql-string">email</span>, <span class="sql-string">salary</span>, <span class="sql-string">hire_date</span>)
+<span class="sql-keyword">VALUES</span> (<span class="sql-string">'John'</span>, <span class="sql-string">'Doe'</span>, <span class="sql-string">'john.doe@company.com'</span>, 75000, <span class="sql-string">'2023-01-15'</span>);
 
 <span class="sql-comment">-- Insert multiple records</span>
-<span class="sql-keyword">INSERT INTO</span> <span class="sql-table">employees</span> (<span class="sql-column">first_name</span>, <span class="sql-column">last_name</span>, <span class="sql-column">email</span>, <span class="sql-column">salary</span>)
+<span class="sql-keyword">INSERT INTO</span> <span class="sql-string">employees</span> (<span class="sql-string">first_name</span>, <span class="sql-string">last_name</span>, <span class="sql-string">email</span>, <span class="sql-string">salary</span>)
 <span class="sql-keyword">VALUES</span> 
-    (<span class="sql-string">'Jane'</span>, <span class="sql-string">'Smith'</span>, <span class="sql-string">'jane.smith@company.com'</span>, <span class="sql-number">68000</span>),
-    (<span class="sql-string">'Bob'</span>, <span class="sql-string">'Johnson'</span>, <span class="sql-string">'bob.johnson@company.com'</span>, <span class="sql-number">72000</span>),
-    (<span class="sql-string">'Alice'</span>, <span class="sql-string">'Brown'</span>, <span class="sql-string">'alice.brown@company.com'</span>, <span class="sql-number">81000</span>);
+    (<span class="sql-string">'Jane'</span>, <span class="sql-string">'Smith'</span>, <span class="sql-string">'jane.smith@company.com'</span>, 68000),
+    (<span class="sql-string">'Bob'</span>, <span class="sql-string">'Johnson'</span>, <span class="sql-string">'bob.johnson@company.com'</span>, 72000),
+    (<span class="sql-string">'Alice'</span>, <span class="sql-string">'Brown'</span>, <span class="sql-string">'alice.brown@company.com'</span>, 81000);
 
 <span class="sql-comment">-- Insert with SELECT (copy data)</span>
-<span class="sql-keyword">INSERT INTO</span> <span class="sql-table">employee_archive</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">hire_date</span> &lt; <span class="sql-string">'2020-01-01'</span>;</pre>
+<span class="sql-keyword">INSERT INTO</span> <span class="sql-string">employee_archive</span>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">hire_date</span> &lt; <span class="sql-string">'2020-01-01'</span>;</pre>
         </div>
 
         <h3>SELECT - Retrieving Data</h3>
@@ -609,26 +548,26 @@ comment
         <div class="code-example">
           <h4>SELECT Examples</h4>
           <pre><span class="sql-comment">-- Select all columns</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>;
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>;
 
 <span class="sql-comment">-- Select specific columns</span>
-<span class="sql-keyword">SELECT</span> <span class="sql-column">first_name</span>, <span class="sql-column">last_name</span>, <span class="sql-column">salary</span> 
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>;
+<span class="sql-keyword">SELECT</span> <span class="sql-string">first_name</span>, <span class="sql-string">last_name</span>, <span class="sql-string">salary</span> 
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>;
 
 <span class="sql-comment">-- Select with aliases</span>
 <span class="sql-keyword">SELECT</span> 
-    <span class="sql-column">first_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'First Name'</span>,
-    <span class="sql-column">last_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'Last Name'</span>,
-    <span class="sql-column">salary</span> <span class="sql-keyword">AS</span> <span class="sql-string">'Annual Salary'</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>;
+    <span class="sql-string">first_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'First Name'</span>,
+    <span class="sql-string">last_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'Last Name'</span>,
+    <span class="sql-string">salary</span> <span class="sql-keyword">AS</span> <span class="sql-string">'Annual Salary'</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>;
 
 <span class="sql-comment">-- Select with calculated columns</span>
 <span class="sql-keyword">SELECT</span> 
-    <span class="sql-column">first_name</span>,
-    <span class="sql-column">last_name</span>,
-    <span class="sql-column">salary</span>,
-    <span class="sql-column">salary</span> / <span class="sql-number">12</span> <span class="sql-keyword">AS</span> <span class="sql-string">'Monthly Salary'</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>;</pre>
+    <span class="sql-string">first_name</span>,
+    <span class="sql-string">last_name</span>,
+    <span class="sql-string">salary</span>,
+    <span class="sql-string">salary</span> / 12 <span class="sql-keyword">AS</span> <span class="sql-string">'Monthly Salary'</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>;</pre>
         </div>
 
         <h3>UPDATE and DELETE</h3>
@@ -637,68 +576,23 @@ comment
         <div class="code-example">
           <h4>UPDATE and DELETE Examples</h4>
           <pre><span class="sql-comment">-- UPDATE specific records</span>
-<span class="sql-keyword">UPDATE</span> <span class="sql-table">employees</span>
-<span class="sql-keyword">SET</span> <span class="sql-column">salary</span> = <span class="sql-column">salary</span> * <span class="sql-number">1.1</span>  <span class="sql-comment">-- 10% raise</span>
-<span class="sql-keyword">WHERE</span> <span class="sql-column">department_id</span> = <span class="sql-number">2</span>;
+<span class="sql-keyword">UPDATE</span> <span class="sql-string">employees</span>
+<span class="sql-keyword">SET</span> <span class="sql-string">salary</span> = <span class="sql-string">salary</span> * 1.1  <span class="sql-comment">-- 10% raise</span>
+<span class="sql-keyword">WHERE</span> <span class="sql-string">department_id</span> = 2;
 
 <span class="sql-comment">-- UPDATE multiple columns</span>
-<span class="sql-keyword">UPDATE</span> <span class="sql-table">employees</span>
+<span class="sql-keyword">UPDATE</span> <span class="sql-string">employees</span>
 <span class="sql-keyword">SET</span> 
-    <span class="sql-column">salary</span> = <span class="sql-number">80000</span>,
-    <span class="sql-column">email</span> = <span class="sql-string">'new.email@company.com'</span>
-<span class="sql-keyword">WHERE</span> <span class="sql-column">id</span> = <span class="sql-number">5</span>;
+    <span class="sql-string">salary</span> = 80000,
+    <span class="sql-string">email</span> = <span class="sql-string">'new.email@company.com'</span>
+<span class="sql-keyword">WHERE</span> <span class="sql-string">id</span> = 5;
 
 <span class="sql-comment">-- DELETE specific records</span>
-<span class="sql-keyword">DELETE FROM</span> <span class="sql-table">employees</span>
-<span class="sql-keyword">WHERE</span> <span class="sql-column">hire_date</span> &lt; <span class="sql-string">'2010-01-01'</span>;
+<span class="sql-keyword">DELETE FROM</span> <span class="sql-string">employees</span>
+<span class="sql-keyword">WHERE</span> <span class="sql-string">hire_date</span> &lt; <span class="sql-string">'2010-01-01'</span>;
 
 <span class="sql-comment">-- DELETE all records (be careful!)</span>
-<span class="sql-keyword">DELETE FROM</span> <span class="sql-table">employees</span>;</pre>
-        </div>
-
-        <div class="live-example">
-          <h4>Sample Data Preview</h4>
-          <table class="table-preview">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Salary</th>
-                <th>Hire Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john.doe@company.com</td>
-                <td>$75,000</td>
-                <td>2023-01-15</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jane</td>
-                <td>Smith</td>
-                <td>jane.smith@company.com</td>
-                <td>$68,000</td>
-                <td>2023-02-20</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Bob</td>
-                <td>Johnson</td>
-                <td>bob.johnson@company.com</td>
-                <td>$72,000</td>
-                <td>2023-03-10</td>
-              </tr>
-            </tbody>
-          </table>
-          <button class="demo-button" onclick="runQuery('SELECT')">Run SELECT Query</button>
-          <button class="demo-button" onclick="runQuery('INSERT')">Run INSERT Query</button>
-          <div id="queryOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+<span class="sql-keyword">DELETE FROM</span> <span class="sql-string">employees</span>;</pre>
         </div>
 
         <div class="tags">
@@ -721,31 +615,31 @@ comment
         <div class="code-example">
           <h4>WHERE Clause Examples</h4>
           <pre><span class="sql-comment">-- Basic comparison operators</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">salary</span> &gt; <span class="sql-number">70000</span>;
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">salary</span> &gt; 70000;
 
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">department_id</span> = <span class="sql-number">3</span>;
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">department_id</span> = 3;
 
 <span class="sql-comment">-- String matching with LIKE</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">last_name</span> <span class="sql-keyword">LIKE</span> <span class="sql-string">'S%'</span>;  <span class="sql-comment">-- Starts with S</span>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">last_name</span> <span class="sql-keyword">LIKE</span> <span class="sql-string">'S%'</span>;  <span class="sql-comment">-- Starts with S</span>
 
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">email</span> <span class="sql-keyword">LIKE</span> <span class="sql-string">'%@gmail.com'</span>;  <span class="sql-comment">-- Ends with @gmail.com</span>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">email</span> <span class="sql-keyword">LIKE</span> <span class="sql-string">'%@gmail.com'</span>;  <span class="sql-comment">-- Ends with @gmail.com</span>
 
 <span class="sql-comment">-- Date range filtering</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">hire_date</span> <span class="sql-keyword">BETWEEN</span> <span class="sql-string">'2023-01-01'</span> <span class="sql-keyword">AND</span> <span class="sql-string">'2023-06-30'</span>;
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">hire_date</span> <span class="sql-keyword">BETWEEN</span> <span class="sql-string">'2023-01-01'</span> <span class="sql-keyword">AND</span> <span class="sql-string">'2023-06-30'</span>;
 
 <span class="sql-comment">-- Multiple conditions with AND/OR</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">salary</span> &gt; <span class="sql-number">60000</span> 
-  <span class="sql-keyword">AND</span> <span class="sql-column">department_id</span> = <span class="sql-number">2</span>;
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">salary</span> &gt; 60000 
+  <span class="sql-keyword">AND</span> <span class="sql-string">department_id</span> = 2;
 
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> 
-<span class="sql-keyword">WHERE</span> <span class="sql-column">department_id</span> = <span class="sql-number">1</span> 
-  <span class="sql-keyword">OR</span> <span class="sql-column">department_id</span> = <span class="sql-number">3</span>;</pre>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> 
+<span class="sql-keyword">WHERE</span> <span class="sql-string">department_id</span> = 1 
+  <span class="sql-keyword">OR</span> <span class="sql-string">department_id</span> = 3;</pre>
         </div>
 
         <h3>ORDER BY and LIMIT</h3>
@@ -754,32 +648,24 @@ comment
         <div class="code-example">
           <h4>Sorting and Limiting</h4>
           <pre><span class="sql-comment">-- Sort by single column</span>
-<span class="sql-keyword">SELECT</span> <span class="sql-column">first_name</span>, <span class="sql-column">last_name</span>, <span class="sql-column">salary</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>
-<span class="sql-keyword">ORDER BY</span> <span class="sql-column">salary</span> <span class="sql-keyword">DESC</span>;  <span class="sql-comment">-- Highest salary first</span>
+<span class="sql-keyword">SELECT</span> <span class="sql-string">first_name</span>, <span class="sql-string">last_name</span>, <span class="sql-string">salary</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>
+<span class="sql-keyword">ORDER BY</span> <span class="sql-string">salary</span> <span class="sql-keyword">DESC</span>;  <span class="sql-comment">-- Highest salary first</span>
 
 <span class="sql-comment">-- Sort by multiple columns</span>
-<span class="sql-keyword">SELECT</span> <span class="sql-column">department_id</span>, <span class="sql-column">last_name</span>, <span class="sql-column">first_name</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>
-<span class="sql-keyword">ORDER BY</span> <span class="sql-column">department_id</span> <span class="sql-keyword">ASC</span>, <span class="sql-column">last_name</span> <span class="sql-keyword">ASC</span>;
+<span class="sql-keyword">SELECT</span> <span class="sql-string">department_id</span>, <span class="sql-string">last_name</span>, <span class="sql-string">first_name</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>
+<span class="sql-keyword">ORDER BY</span> <span class="sql-string">department_id</span> <span class="sql-keyword">ASC</span>, <span class="sql-string">last_name</span> <span class="sql-keyword">ASC</span>;
 
 <span class="sql-comment">-- Limit number of results</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>
-<span class="sql-keyword">ORDER BY</span> <span class="sql-column">salary</span> <span class="sql-keyword">DESC</span>
-<span class="sql-keyword">LIMIT</span> <span class="sql-number">5</span>;  <span class="sql-comment">-- Top 5 highest paid</span>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>
+<span class="sql-keyword">ORDER BY</span> <span class="sql-string">salary</span> <span class="sql-keyword">DESC</span>
+<span class="sql-keyword">LIMIT</span> 5;  <span class="sql-comment">-- Top 5 highest paid</span>
 
 <span class="sql-comment">-- Limit with offset (pagination)</span>
-<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>
-<span class="sql-keyword">ORDER BY</span> <span class="sql-column">id</span>
-<span class="sql-keyword">LIMIT</span> <span class="sql-number">10</span> <span class="sql-keyword">OFFSET</span> <span class="sql-number">20</span>;  <span class="sql-comment">-- Rows 21-30</span></pre>
-        </div>
-
-        <div class="live-example">
-          <h4>Filtering Demo</h4>
-          <button class="demo-button" onclick="showFilteredData('high_salary')">High Salary Employees</button>
-          <button class="demo-button" onclick="showFilteredData('recent_hires')">Recent Hires</button>
-          <button class="demo-button" onclick="showFilteredData('sales_department')">Sales Department</button>
-          <div id="filterOutput" style="margin-top:10px; padding:10px; background:white; border-radius:4px;"></div>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>
+<span class="sql-keyword">ORDER BY</span> <span class="sql-string">id</span>
+<span class="sql-keyword">LIMIT</span> 10 <span class="sql-keyword">OFFSET</span> 20;  <span class="sql-comment">-- Rows 21-30</span></pre>
         </div>
 
         <div class="tags">
@@ -803,31 +689,31 @@ comment
           <h4>JOIN Examples</h4>
           <pre><span class="sql-comment">-- INNER JOIN (most common)</span>
 <span class="sql-keyword">SELECT</span> 
-    e.<span class="sql-column">first_name</span>,
-    e.<span class="sql-column">last_name</span>,
-    e.<span class="sql-column">salary</span>,
-    d.<span class="sql-column">department_name</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> e
-<span class="sql-keyword">INNER JOIN</span> <span class="sql-table">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-column">department_id</span> = d.<span class="sql-column">department_id</span>;
+    e.<span class="sql-string">first_name</span>,
+    e.<span class="sql-string">last_name</span>,
+    e.<span class="sql-string">salary</span>,
+    d.<span class="sql-string">department_name</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> e
+<span class="sql-keyword">INNER JOIN</span> <span class="sql-string">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-string">department_id</span> = d.<span class="sql-string">department_id</span>;
 
 <span class="sql-comment">-- LEFT JOIN (all employees, even without department)</span>
 <span class="sql-keyword">SELECT</span> 
-    e.<span class="sql-column">first_name</span>,
-    e.<span class="sql-column">last_name</span>,
-    d.<span class="sql-column">department_name</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> e
-<span class="sql-keyword">LEFT JOIN</span> <span class="sql-table">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-column">department_id</span> = d.<span class="sql-column">department_id</span>;
+    e.<span class="sql-string">first_name</span>,
+    e.<span class="sql-string">last_name</span>,
+    d.<span class="sql-string">department_name</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> e
+<span class="sql-keyword">LEFT JOIN</span> <span class="sql-string">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-string">department_id</span> = d.<span class="sql-string">department_id</span>;
 
 <span class="sql-comment">-- Multiple JOINs</span>
 <span class="sql-keyword">SELECT</span> 
-    e.<span class="sql-column">first_name</span>,
-    e.<span class="sql-column">last_name</span>,
-    d.<span class="sql-column">department_name</span>,
-    m.<span class="sql-column">first_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'manager_first_name'</span>,
-    m.<span class="sql-column">last_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'manager_last_name'</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> e
-<span class="sql-keyword">INNER JOIN</span> <span class="sql-table">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-column">department_id</span> = d.<span class="sql-column">department_id</span>
-<span class="sql-keyword">LEFT JOIN</span> <span class="sql-table">employees</span> m <span class="sql-keyword">ON</span> d.<span class="sql-column">manager_id</span> = m.<span class="sql-column">id</span>;</pre>
+    e.<span class="sql-string">first_name</span>,
+    e.<span class="sql-string">last_name</span>,
+    d.<span class="sql-string">department_name</span>,
+    m.<span class="sql-string">first_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'manager_first_name'</span>,
+    m.<span class="sql-string">last_name</span> <span class="sql-keyword">AS</span> <span class="sql-string">'manager_last_name'</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> e
+<span class="sql-keyword">INNER JOIN</span> <span class="sql-string">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-string">department_id</span> = d.<span class="sql-string">department_id</span>
+<span class="sql-keyword">LEFT JOIN</span> <span class="sql-string">employees</span> m <span class="sql-keyword">ON</span> d.<span class="sql-string">manager_id</span> = m.<span class="sql-string">id</span>;</pre>
         </div>
 
         <h3>Aggregate Functions and GROUP BY</h3>
@@ -838,31 +724,31 @@ comment
           <pre><span class="sql-comment">-- Basic aggregate functions</span>
 <span class="sql-keyword">SELECT</span> 
     <span class="sql-function">COUNT</span>(*) <span class="sql-keyword">AS</span> <span class="sql-string">'total_employees'</span>,
-    <span class="sql-function">AVG</span>(<span class="sql-column">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'average_salary'</span>,
-    <span class="sql-function">MAX</span>(<span class="sql-column">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'max_salary'</span>,
-    <span class="sql-function">MIN</span>(<span class="sql-column">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'min_salary'</span>,
-    <span class="sql-function">SUM</span>(<span class="sql-column">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'total_salary_budget'</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span>;
+    <span class="sql-function">AVG</span>(<span class="sql-string">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'average_salary'</span>,
+    <span class="sql-function">MAX</span>(<span class="sql-string">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'max_salary'</span>,
+    <span class="sql-function">MIN</span>(<span class="sql-string">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'min_salary'</span>,
+    <span class="sql-function">SUM</span>(<span class="sql-string">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'total_salary_budget'</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span>;
 
 <span class="sql-comment">-- GROUP BY with departments</span>
 <span class="sql-keyword">SELECT</span> 
-    d.<span class="sql-column">department_name</span>,
-    <span class="sql-function">COUNT</span>(e.<span class="sql-column">id</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'employee_count'</span>,
-    <span class="sql-function">AVG</span>(e.<span class="sql-column">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'avg_salary'</span>,
-    <span class="sql-function">MAX</span>(e.<span class="sql-column">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'max_salary'</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> e
-<span class="sql-keyword">INNER JOIN</span> <span class="sql-table">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-column">department_id</span> = d.<span class="sql-column">department_id</span>
-<span class="sql-keyword">GROUP BY</span> d.<span class="sql-column">department_name</span>
+    d.<span class="sql-string">department_name</span>,
+    <span class="sql-function">COUNT</span>(e.<span class="sql-string">id</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'employee_count'</span>,
+    <span class="sql-function">AVG</span>(e.<span class="sql-string">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'avg_salary'</span>,
+    <span class="sql-function">MAX</span>(e.<span class="sql-string">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'max_salary'</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> e
+<span class="sql-keyword">INNER JOIN</span> <span class="sql-string">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-string">department_id</span> = d.<span class="sql-string">department_id</span>
+<span class="sql-keyword">GROUP BY</span> d.<span class="sql-string">department_name</span>
 <span class="sql-keyword">ORDER BY</span> <span class="sql-string">'avg_salary'</span> <span class="sql-keyword">DESC</span>;
 
 <span class="sql-comment">-- HAVING clause (filter grouped results)</span>
 <span class="sql-keyword">SELECT</span> 
-    d.<span class="sql-column">department_name</span>,
-    <span class="sql-function">AVG</span>(e.<span class="sql-column">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'avg_salary'</span>
-<span class="sql-keyword">FROM</span> <span class="sql-table">employees</span> e
-<span class="sql-keyword">INNER JOIN</span> <span class="sql-table">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-column">department_id</span> = d.<span class="sql-column">department_id</span>
-<span class="sql-keyword">GROUP BY</span> d.<span class="sql-column">department_name</span>
-<span class="sql-keyword">HAVING</span> <span class="sql-function">AVG</span>(e.<span class="sql-column">salary</span>) &gt; <span class="sql-number">70000</span>;</pre>
+    d.<span class="sql-string">department_name</span>,
+    <span class="sql-function">AVG</span>(e.<span class="sql-string">salary</span>) <span class="sql-keyword">AS</span> <span class="sql-string">'avg_salary'</span>
+<span class="sql-keyword">FROM</span> <span class="sql-string">employees</span> e
+<span class="sql-keyword">INNER JOIN</span> <span class="sql-string">departments</span> d <span class="sql-keyword">ON</span> e.<span class="sql-string">department_id</span> = d.<span class="sql-string">department_id</span>
+<span class="sql-keyword">GROUP BY</span> d.<span class="sql-string">department_name</span>
+<span class="sql-keyword">HAVING</span> <span class="sql-function">AVG</span>(e.<span class="sql-string">salary</span>) &gt; 70000;</pre>
         </div>
 
         <div class="exercise">
@@ -903,81 +789,6 @@ comment
   </div>
   <p>© 2025 Coding Life - All Rights Reserved</p>
 </footer>
-
-<script>
-  // Query simulation
-  function runQuery(type) {
-    let output = '';
-    if (type === 'SELECT') {
-      output = `
-        <strong>SELECT Query Result:</strong><br>
-        ✅ Query executed successfully<br>
-        📊 Returned 5 rows<br>
-        🎯 Columns: id, first_name, last_name, email, salary<br>
-        ⏱️ Execution time: 0.002s
-      `;
-    } else if (type === 'INSERT') {
-      output = `
-        <strong>INSERT Query Result:</strong><br>
-        ✅ 1 row inserted successfully<br>
-        📝 New employee added to database<br>
-        🔢 Auto-generated ID: 6<br>
-        ⏱️ Execution time: 0.001s
-      `;
-    }
-    document.getElementById('queryOutput').innerHTML = output;
-  }
-
-  // Filtering demo
-  function showFilteredData(filterType) {
-    let output = '';
-    if (filterType === 'high_salary') {
-      output = `
-        <strong>High Salary Employees (Salary > $70,000):</strong><br><br>
-        <table class="table-preview">
-          <tr><th>Name</th><th>Salary</th><th>Department</th></tr>
-          <tr><td>John Doe</td><td>$75,000</td><td>Engineering</td></tr>
-          <tr><td>Bob Johnson</td><td>$72,000</td><td>Sales</td></tr>
-          <tr><td>Alice Brown</td><td>$81,000</td><td>Management</td></tr>
-        </table>
-      `;
-    } else if (filterType === 'recent_hires') {
-      output = `
-        <strong>Recent Hires (2023):</strong><br><br>
-        <table class="table-preview">
-          <tr><th>Name</th><th>Hire Date</th><th>Position</th></tr>
-          <tr><td>John Doe</td><td>2023-01-15</td><td>Developer</td></tr>
-          <tr><td>Jane Smith</td><td>2023-02-20</td><td>Analyst</td></tr>
-          <tr><td>Bob Johnson</td><td>2023-03-10</td><td>Sales Rep</td></tr>
-        </table>
-      `;
-    } else if (filterType === 'sales_department') {
-      output = `
-        <strong>Sales Department Employees:</strong><br><br>
-        <table class="table-preview">
-          <tr><th>Name</th><th>Email</th><th>Salary</th></tr>
-          <tr><td>Bob Johnson</td><td>bob.johnson@company.com</td><td>$72,000</td></tr>
-          <tr><td>Sarah Wilson</td><td>sarah.wilson@company.com</td><td>$65,000</td></tr>
-        </table>
-      `;
-    }
-    document.getElementById('filterOutput').innerHTML = output;
-  }
-
-  // JOIN simulation
-  function showJoinExample() {
-    document.getElementById('joinOutput').innerHTML = `
-      <strong>INNER JOIN Result (Employees with Departments):</strong><br><br>
-      <table class="table-preview">
-        <tr><th>Employee</th><th>Department</th><th>Salary</th></tr>
-        <tr><td>John Doe</td><td>Engineering</td><td>$75,000</td></tr>
-        <tr><td>Jane Smith</td><td>Marketing</td><td>$68,000</td></tr>
-        <tr><td>Bob Johnson</td><td>Sales</td><td>$72,000</td></tr>
-        <tr><td>Alice Brown</td><td>Management</td><td>$81,000</td></tr>
-      </table>
-    `;
-  }
-</script>
 
 </body>
 </html>
