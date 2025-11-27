@@ -7,20 +7,11 @@
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TJ6Z2QKGHJ');
-</script>
-
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
     
     body {
-      padding-top: 60px; /* تصغير الهيدر */
+      padding-top: 70px; /* تغيير من 60px إلى 70px */
       background-color:#f8fafc;
       color:#1e293b;
       line-height:1.6;
@@ -30,55 +21,54 @@
 
     a {text-decoration:none; color:inherit;}
 
-    /* HEADER - تم التعديل هنا */
+    /* HEADER - تم التعديل ليطابق تصميم الفهرس */
     header {
       background:white;
+      color:#000;
       position:fixed;
       top:0; left:0;
       width:100%;
-      height:70px; /* تصغير الهيدر */
+      z-index:9999;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      height:70px; /* تغيير من 60px إلى 70px */
       display:flex;
       align-items:center;
-      justify-content:space-between; /* تغيير ل space-between */
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      z-index:9999;
+      justify-content:center;
       padding: 0 20px;
     }
 
     nav {
       display:flex;
-      gap:25px; /* تقليل المسافة بين الأزرار */
+      justify-content:center;
       align-items:center;
-       position: absolute; /* زد هاد السطر */
-      left: 50%; /* زد هاد السطر */
-     transform: translateX(-50%); 
+      gap:25px; /* زيادة المسافة بين الأزرار */
     }
 
     nav a {
       color:#000;
-      padding:10px 18px;
+      padding:10px 18px; /* زيادة الحشوة */
       border-radius:8px;
       font-weight:bold;
       transition:.3s;
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:1rem;
+      font-size:1rem; /* زيادة حجم الخط */
     }
-
 
     nav a:hover {
       background:#0f172a;
       color:white;
     }
 
-    /* هامبرغر مينو - تم التعديل هنا */
+    /* هامبرغر مينو - إخفاء في الشاشات الكبيرة */
     .menu-toggle {
       display: none;
       flex-direction: column;
       cursor: pointer;
       padding: 6px;
-      position: relative;
+      position: absolute;
+      left: 15px;
       z-index: 10000;
       background: #f1f5f9;
       border-radius: 5px;
@@ -86,7 +76,7 @@
     }
 
     .menu-toggle span {
-      width: 18px; /* تصغير أكثر */
+      width: 18px;
       height: 2px;
       background: #0f172a;
       margin: 2px 0;
@@ -94,12 +84,74 @@
       border-radius: 1px;
     }
 
-    /* سايدبار مينو */
+    /* إخفاء left-buttons في الشاشات الكبيرة */
+    .left-buttons {
+      display:none;
+    }
+
+    /* RESPONSIVE: PHONE */
+    @media (max-width: 768px) {
+      /* إخفاء الأزرار العادية وإظهار left-buttons في المنتصف */
+      nav {
+        display:none;
+      }
+      
+      .left-buttons {
+        display:flex;
+        gap:10px;
+        align-items:center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .left-buttons a {
+        background:white;
+        padding:6px 10px;
+        border-radius:8px; /* تغيير من 6px إلى 8px */
+        color:#0f172a;
+        transition:0.3s;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        font-size:1.2rem; /* زيادة حجم الأيقونة */
+      }
+
+      .left-buttons a span {
+        font-size:0.75rem; /* زيادة حجم النص */
+        margin-top:2px;
+      }
+
+      .left-buttons a:hover {
+        background:#0f172a;
+        color:white;
+      }
+      
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .left-buttons {
+        gap: 6px;
+      }
+      
+      .left-buttons a {
+        padding:5px 8px;
+        font-size:1rem; /* تعديل حجم الأيقونة */
+      }
+      
+      .left-buttons a span {
+        font-size:0.7rem; /* تعديل حجم النص */
+      }
+    }
+
+    /* باقي الأنماط تبقى كما هي */
     .sidebar-menu {
       position: fixed;
       top: 0;
       right: -100%;
-      width: 260px; /* تصغير العرض */
+      width: 160px;
       height: 100vh;
       background: white;
       box-shadow: -2px 0 12px rgba(0,0,0,0.1);
@@ -124,13 +176,13 @@
 
     .sidebar-header h3 {
       color: #0f172a;
-      font-size: 1.1rem; /* تصغير الخط */
+      font-size: 1.1rem;
     }
 
     .close-btn {
       background: none;
       border: none;
-      font-size: 1.3rem; /* تصغير أكثر */
+      font-size: 1.3rem;
       cursor: pointer;
       color: #64748b;
       transition: 0.3s;
@@ -148,7 +200,7 @@
     }
 
     .category-title {
-      padding: 8px 10px; /* تصغير الحجم */
+      padding: 8px 10px;
       border-radius: 5px;
       transition: 0.3s;
       color: #0f172a;
@@ -158,7 +210,7 @@
       justify-content: space-between;
       align-items: center;
       border: 1px solid #e2e8f0;
-      font-size: 0.85rem; /* تصغير الخط */
+      font-size: 0.85rem;
     }
 
     .category-title:hover {
@@ -190,38 +242,7 @@
       visibility: visible;
     }
 
-    /* SMALL SCREEN ICON BAR - تم التعديل هنا */
-    .left-buttons {
-      display:none;
-      gap:6px;
-      top:50%;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .left-buttons a {
-      background:white;
-      padding:5px 8px;
-      border-radius:6px;
-      color:#0f172a;
-      transition:0.3s;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      font-size:1rem;
-    }
-
-    .left-buttons a span {
-      font-size:0.65rem;
-      margin-top:1px;
-    }
-
-    .left-buttons a:hover {
-      background:#0f172a;
-      color:white;
-    }
-
-    /* TITLE BOX - تم التعديل هنا */
+    /* TITLE BOX */
     .page-title {
       max-width:1000px;
       margin:25px auto;
@@ -290,7 +311,6 @@
       font-size:1.1rem;
     }
 
-    /* إضافة كلاس لإخفاء الكروت */
     .card.hidden {
       display: none;
     }
@@ -300,33 +320,32 @@
       background:#0f172a;
       color:#cbd5e1;
       text-align:center;
-      padding:12px 0;
-      font-size:0.8rem;
-      margin-top:25px;
+      padding:15px 0; /* زيادة الحشوة */
+      font-size:0.85rem; /* تعديل حجم الخط */
     }
 
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 18px;
-      margin-bottom: 10px;
+      gap: 20px; /* زيادة المسافة */
+      margin-bottom: 12px; /* زيادة المسافة */
       flex-wrap: wrap;
     }
 
     .footer-links a {
       color: #cbd5e1;
-      padding: 4px 0;
+      padding: 5px 0; /* زيادة الحشوة */
       transition: 0.3s;
       position: relative;
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.9rem; /* زيادة حجم الخط */
     }
 
     .footer-links a::after {
       content: '';
       position: absolute;
       width: 0;
-      height: 1px;
+      height: 2px; /* زيادة الارتفاع */
       bottom: 0;
       left: 0;
       background-color: white;
@@ -342,22 +361,22 @@
     }
 
     footer p {
-      font-size: 12px;
+      font-size: 14px; /* زيادة حجم الخط */
       opacity: 0.7;
-      margin-top: 3px;
+      margin-top: 4px; /* زيادة المسافة */
     }
 
     .social {
-      margin-bottom: 10px;
+      margin-bottom: 12px; /* زيادة المسافة */
     }
     
     .social a {
-      margin: 0 5px;
-      font-size: 0.9rem;
+      margin: 0 6px; /* زيادة المسافة */
+      font-size: 1rem; /* زيادة حجم الأيقونة */
     }
     
     .social a:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px); /* زيادة تأثير التحليق */
     }
     
     .social a.fb:hover {color:#1877f2;}
@@ -366,138 +385,62 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
-    /* تحسينات إضافية للهيدر */
-    .header-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      color: #0f172a;
-    }
+    
     
     .header-logo img {
       height: 30px;
       width: auto;
     }
 
-    /* RESPONSIVE: PHONE */
     @media (max-width: 480px) {
-      body {
-        padding-top: 50px; /* تصغير أكثر للجوال */
-      }
-      
-      header {
-        height: 50px;
-        padding: 0 15px;
-      }
-
-      .cards {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 15px;
-        padding: 30px 15px;
-      }
-
-      .card {
-        aspect-ratio: 1 / 1;
-      }
-
-      .card img {
-        height:45% !important;
-      }
-
-      .card .content {
-        padding:10px;
-        height:55%;
-      }
-
-      .card h3 {
-        font-size:1rem;
-        margin-bottom:8px;
-      }
-
-      .card p {
-        font-size:11px;
-        line-height:1.3;
-      }
       
       .footer-links {
         gap: 12px;
       }
       
       .footer-links a {
-        font-size: 0.8rem;
+        font-size: 0.85rem; /* تعديل حجم الخط */
       }
       
       footer {
-        padding: 10px 0;
+        padding: 12px 0; /* تعديل الحشوة */
       }
 
       .sidebar-menu {
-        width: 170px;
-      }
-
-      nav a {
-        padding: 6px 10px;
-        font-size: 0.8rem;
+        width: 160px;
       }
     }
-    
-    @media (max-width: 768px) {
-      nav {display:none;}
-      .left-buttons {
-        display:flex;
-      }
-      
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer-links {
-        gap: 10px;
-      }
-      
-      .footer-links a {
-        font-size: 0.75rem;
-      }
-      
-      .social a {
-        margin: 0 3px;
-        font-size: 0.8rem;
-      }
-    }
-
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- الأزرار الأساسية - تم نقلها لليمين -->
-  <div class="left-buttons">
-    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
-    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
-    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
-  </div>
-
-  <!-- زر المينو - الآن في اليسار -->
+  <!-- زر المينو - في اليسار -->
   <div class="menu-toggle" id="menuToggle">
     <span></span>
     <span></span>
     <span></span>
   </div>
 
+  <!-- الأزرار الأساسية - في المنتصف -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
   </nav>
+
+  <!-- الأزرار للشاشات الصغيرة - في المنتصف -->
+  <div class="left-buttons">
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
+    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+  </div>
 </header>
 
-<!-- سايدبار مينو -->
+<!-- باقي الكود يبقى كما هو -->
 <div class="sidebar-menu" id="sidebarMenu">
   <div class="sidebar-header">
     <h3>📚 Categories</h3>
@@ -506,7 +449,7 @@
   <div class="menu-categories">
     <div class="category">
       <div class="category-title active" data-category="all">
-        <span>🎯 All Courses</span> <!-- تم تغيير الأيقونة -->
+        <span>🎯 All Courses</span>
       </div>
     </div>
 
@@ -530,7 +473,6 @@
   </div>
 </div>
 
-<!-- overlay -->
 <div class="overlay" id="overlay"></div>
 
 <section class="page-title" id="pageTitle">
@@ -668,7 +610,6 @@
 
   // دالة لتحديث العنوان والوصف بناءً على التصنيف
   function updateTitleAndSubtitle(category) {
-    // إضافة تأثير للصفحة
     pageTitle.style.transform = 'scale(0.98)';
     setTimeout(() => {
       pageTitle.style.transform = 'scale(1)';
@@ -696,12 +637,10 @@
 
   // دالة لتحديث الفئة النشطة
   function updateActiveCategory(activeTitle) {
-    // إزالة الفئة النشطة من جميع الأزرار
     categoryTitles.forEach(title => {
       title.classList.remove('active');
     });
     
-    // إضافة الفئة النشطة للزر المختار
     activeTitle.classList.add('active');
   }
 
