@@ -9,6 +9,9 @@
   <link rel="icon" href="logo.png" type="image/jpeg" sizes="32x32">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- إضافة خط مزخرف -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ6Z2QKGHJ"></script>
@@ -41,7 +44,39 @@
       height:70px;
       display:flex;
       align-items:center;
-      justify-content:center;
+      justify-content:space-between;
+      padding:0 20px;
+    }
+
+    /* اللوجو مع تنسيقات محسنة */
+    .logo {
+      display:flex;
+      align-items:center;
+      font-size:1.5rem; /* تكبير حجم الخط */
+      color:#0f172a;
+      gap:12px; /* مسافة بين الصورة والنص */
+    }
+
+    .logo img {
+      height:50px !important; /* تكبير اللوجو */
+      width:auto;
+      transition:transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform:scale(1.05); /* تأثير تكبير عند التمرير */
+    }
+
+    .logo-text {
+      font-family:'Pacifico', cursive; /* خط مزخرف */
+      font-size:1.8rem; /* تكبير النص */
+      font-weight:bold;
+      background:linear-gradient(45deg, #0f172a, #3b82f6); /* تدرج ألوان */
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.1); /* ظل خفيف */
+      letter-spacing:0.5px;
     }
 
     nav {
@@ -61,13 +96,31 @@
       align-items:center;
       gap:8px;
       font-size:1rem;
+      position:relative;
+      overflow:hidden;
     }
 
     nav a:hover {
       background:#0f172a;
       color:white;
+      transform:translateY(-2px);
     }
 
+    /* تأثير زر Home */
+    nav a::after {
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:3px;
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform:scaleX(1);
+    }
 
     .left-buttons {
       display: none;
@@ -76,9 +129,8 @@
       gap: 8px;
       align-items:center;
       justify-content:center;
-
     }
-
+    
     .left-buttons a {
       font-size: 1rem;
       color: #0f172a;
@@ -86,16 +138,12 @@
       padding: 6px 10px;
       border-radius: 8px;
       transition: 0.3s;
-      
-
-
     }
 
     .left-buttons a:hover {
       background: #0f172a;
       color: white;
     }
-
 
     /* HERO */
     .hero {
@@ -139,10 +187,12 @@
     .hero h2 {
       font-size:2.8rem;
       margin-bottom:15px;
+      text-shadow:2px 2px 8px rgba(0,0,0,0.5);
     }
     .hero p {
       font-size:1.2rem;
       margin-bottom:30px;
+      text-shadow:1px 1px 4px rgba(0,0,0,0.3);
     }
 
     /* NEW: FEATURES SECTION */
@@ -155,10 +205,11 @@
       font-size:2.2rem;
       margin-bottom:40px;
       color:#1e293b;
+      font-family:'Cairo', sans-serif;
     }
 .features-grid {
   display:grid;
-  grid-template-columns:repeat(4, 1fr); /* 4 فسطر واحد */
+  grid-template-columns:repeat(4, 1fr);
   gap:30px;
   max-width:1400px;
   margin:0 auto;
@@ -168,9 +219,12 @@
       border-radius:12px;
       background:#f8fafc;
       transition:transform 0.3s ease;
+      border:2px solid transparent;
     }
     .feature-card:hover {
       transform:translateY(-5px);
+      border-color:#3b82f6;
+      box-shadow:0 10px 20px rgba(59, 130, 246, 0.1);
     }
     .feature-card i {
       font-size:2.5rem;
@@ -198,7 +252,7 @@
     }
 .testimonials-grid {
   display:grid;
-  grid-template-columns:repeat(4, 1fr); /* بدل auto-fit */
+  grid-template-columns:repeat(4, 1fr);
   gap:20px;
   max-width:1400px;
   margin:0 auto;
@@ -248,7 +302,7 @@
     /* CARDS */
     .cards {
       display:grid;
-  grid-template-columns:repeat(4, 1fr); /* 4 فسطر واحد */
+  grid-template-columns:repeat(4, 1fr);
   gap:30px;
   padding:60px 20px;
   background:#f8fafc;
@@ -314,7 +368,7 @@
       line-height:1.6;
     }
 
-    /* FOOTER - تم التعديل هنا */
+    /* FOOTER */
     footer {
       background:#0f172a;
       color:#cbd5e1;
@@ -383,15 +437,26 @@
     .social a.ln:hover {color:#0a66c2;}
     .social a.wa:hover {color:#25d366;}
 
+    /* التعديلات للموبايل */
     @media (max-width: 768px) {
       nav {display:none;}
-      .left-buttons {display:flex;}
+      .left-buttons {
+        display:flex;
+        flex-direction:column;
+      }
       .hero h2 {font-size:2rem;}
       .features-grid, .testimonials-grid, .faq-grid {
         grid-template-columns:1fr;
       }
       
-      /* التعديلات الجديدة للعرض على التلفون */
+      /* تعديل اللوجو للموبايل */
+      .logo img {
+        height:40px !important;
+      }
+      .logo-text {
+        font-size:1.4rem;
+      }
+      
       .footer-links {
         flex-direction: row;
         gap: 15px;
@@ -420,6 +485,14 @@
         margin: 0 4px;
         font-size: 0.9rem;
       }
+      
+      /* تعديل اللوجو للشاشات الصغيرة جداً */
+      .logo {
+        gap:8px;
+      }
+      .logo-text {
+        font-size:1.2rem;
+      }
     }
     
     @media (max-width: 1200px) {
@@ -435,23 +508,23 @@
 }
 @media (max-width: 1200px) {
   .features-grid {
-    grid-template-columns:repeat(2, 1fr); /* 2 فسطر واحد */
+    grid-template-columns:repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .features-grid {
-    grid-template-columns:1fr; /* 1 فسطر واحد */
+    grid-template-columns:1fr;
   }}
   @media (max-width: 1200px) {
   .cards {
-    grid-template-columns:repeat(2, 1fr); /* 2 فسطر واحد */
+    grid-template-columns:repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .cards {
-    grid-template-columns:1fr; /* 1 فسطر واحد */
+    grid-template-columns:1fr;
   }
 }
 /* شكل الأيقونات + السمية فالتليفون */
@@ -472,24 +545,23 @@
 
 <body>
 <header>
-  <div class="left-buttons">
-    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
-    <a href="blog.html"><i class="fas fa-book-open"></i><span>Blog</span></a>
-    <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
-    <!-- تم إزالة زر Privacy من الهيدر -->
+  <!-- اللوجو والاسم المزخرف -->
+  <div class="logo">
+    <img src="logo.png" alt="Coding Life Logo">
+    <span class="logo-text">Coding Life</span>
   </div>
 
+  <!-- الأزرار للموبايل (فقط زر الرئيسية) -->
+  <div class="left-buttons">
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+  </div>
+
+  <!-- القائمة للكمبيوتر (فقط زر الرئيسية) -->
   <nav>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="blog.html"><i class="fas fa-book-open"></i> Blog</a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    <!-- تم إزالة زر Privacy من الهيدر -->
   </nav>
 </header>
 
-<!-- HERO SECTION -->
 <!-- HERO SECTION -->
 <section class="hero">
   <video autoplay muted loop playsinline>
@@ -564,7 +636,6 @@
   </div>
 
 </section>
-<!-- NEW: TESTIMONIALS SECTION -->
 <!-- NEW: TESTIMONIALS SECTION -->
 <section class="testimonials">
   <h2>What Our Students Say</h2>
@@ -646,13 +717,12 @@
 </section>
 
 <footer>
-  <!-- تم إضافة قسم الروابط الجديد في الفوتر -->
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="contact.html">Contact</a>
     <a href="blog.html">Blog</a>
     <a href="about.html">About</a>
-    <a href="privacy.html">Privacy</a> <!-- تم إضافة زر Privacy هنا -->
+    <a href="privacy.html">Privacy</a>
   </div>
   
   <div class="social">
