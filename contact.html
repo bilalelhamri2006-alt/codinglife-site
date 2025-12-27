@@ -36,22 +36,22 @@
 
     /* HEADER - التصميم الجديد */
     header {
-      background: white;
-      color: #000;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      height: 70px;
-      display: flex;
-      align-items: center;
-      padding: 0 20px;
+      background:white;
+      color:#000;
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      z-index:9999;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 20px;
     }
 
-    /* اللوجو في المنتصف */
-    .header-logo {
+    /* اللوجو مع تنسيقات محسنة */
+    .logo {
       display:flex;
       align-items:center;
       font-size:1.5rem; /* تكبير حجم الخط */
@@ -59,34 +59,81 @@
       gap:12px; /* مسافة بين الصورة والنص */
     }
 
-    .header-logo img {
-      height: 50px;
-      width: auto;
-      transition: transform 0.3s ease;
+    .logo img {
+      height:50px !important; /* تكبير اللوجو */
+      width:auto;
+      transition:transform 0.3s ease;
     }
 
-    .header-logo:hover img {
-      transform: scale(1.05);
+    .logo img:hover {
+      transform:scale(1.05); /* تأثير تكبير عند التمرير */
     }
 
     .logo-text {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.8rem;
-      font-weight: bold;
-      background: linear-gradient(45deg, #0f172a, #3b82f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-      letter-spacing: 0.5px;
+      font-family:'Pacifico', cursive; /* خط مزخرف */
+      font-size:1.8rem; /* تكبير النص */
+      font-weight:bold;
+      background:linear-gradient(45deg, #0f172a, #3b82f6); /* تدرج ألوان */
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.1); /* ظل خفيف */
+      letter-spacing:0.5px;
     }
 
-    /* زر Home على اليمين */
-    .home-button {
-      margin-left: auto;
+    nav {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:25px;
     }
 
-    .home-button a {
+    nav a {
+      color:#000;
+      padding:10px 18px;
+      border-radius:8px;
+      font-weight:bold;
+      transition:.3s;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:1rem;
+      position:relative;
+      overflow:hidden;
+    }
+
+    nav a:hover {
+      background:#0f172a;
+      color:white;
+      transform:translateY(-2px);
+    }
+
+    /* تأثير زر Home */
+    nav a::after {
+      content:'';
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:3px;
+      transform:scaleX(0);
+      transition:transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform:scaleX(1);
+    }
+
+    .left-buttons {
+      display: none;
+      top: 12px;
+      z-index: 10000;
+      gap: 8px;
+      align-items:center;
+      justify-content:center;
+    }
+    
+    .left-buttons a {
       font-size: 1rem;
       color: #0f172a;
       background: white;
@@ -95,7 +142,7 @@
       transition: 0.3s;
     }
 
-    .home-button a:hover {
+    .left-buttons a:hover {
       background: #0f172a;
       color: white;
     }
@@ -260,6 +307,25 @@
 
     /* التعديلات للموبايل */
     @media (max-width: 768px) {
+      /* إخفاء زر الكمبيوتر وإظهار زر الموبايل */
+      nav {display:none;}
+      .left-buttons {
+        display:flex;
+        flex-direction:column;
+      }
+            
+      .left-buttons a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.left-buttons a span {
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
       .header-logo {
         position: static;
         transform: none;
@@ -272,11 +338,6 @@
       
       .header-logo img {
         height: 40px;
-      }
-      
-      .home-button a {
-        padding: 8px 16px;
-        font-size: 0.9rem;
       }
       
       /* HERO */
@@ -327,11 +388,6 @@
         height: 35px;
       }
       
-      .home-button a {
-        padding: 6px 12px;
-        font-size: 0.85rem;
-      }
-      
       .header-logo {
         gap: 8px;
       }
@@ -357,21 +413,23 @@
 </head>
 
 <body>
-  <!-- HEADER الجديد -->
-  <header>
-    <!-- اللوجو في المنتصف -->
-    <a href="index.html" class="header-logo">
-      <img src="logo.png" alt="Coding Life Logo">
-      <span class="logo-text">Coding Life</span>
-    </a>
+<header>
+  <!-- اللوجو والاسم المزخرف -->
+  <div class="logo">
+    <img src="logo.png" alt="Coding Life Logo">
+    <span class="logo-text">Coding Life</span>
+  </div>
 
-    <!-- زر Home على اليمين -->
-    <div class="home-button">
-      <a href="index.html">
-        <i class="fas fa-home"></i> Home
-      </a>
-    </div>
-  </header>
+  <!-- الأزرار للموبايل (فقط زر الرئيسية) -->
+  <div class="left-buttons">
+    <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+  </div>
+
+  <!-- القائمة للكمبيوتر (فقط زر الرئيسية) -->
+  <nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  </nav>
+</header>
 
   <!-- HERO SECTION -->
   <section class="hero">
